@@ -1,10 +1,10 @@
 # CCDXT – CryptoCurrency Decentralized eXchange Trading Library
 
 <!-- PROJECT SHIELDS -->
-[![LanguagesCount][languagesCount-shield]]
-[![LanguagesTop][languagesTop-shield]]
+![LanguagesCount][languagesCount-shield]
+![LanguagesTop][languagesTop-shield]
 [![Commit][commit-shield]][commit-url]
-[![CommitLast][commitLast-shield]]
+![CommitLast][commitLast-shield]
 [![Blog][blog-shield]][blog-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![MIT License][license-shield]][license-url]
@@ -13,6 +13,7 @@
 <!-- MARKDOWN LINKS & IMAGES -->
 [languagesCount-shield]: https://img.shields.io/github/languages/count/MunSunouk/ccbxt?style=for-the-badge
 [languagesTop-shield]: https://img.shields.io/github/languages/top/MunSunouk/ccbxt?style=for-the-badge
+
 
 [commit-shield]: https://img.shields.io/github/commit-activity/w/MunSunouk/ccbxt?style=for-the-badge
 [commit-url]: https://github.com/MunSunouk/ccbxt/graphs/commit-activity
