@@ -19,7 +19,7 @@
 
 [commitLast-shield]: https://img.shields.io/github/last-commit/MunSunouk/ccbxt?style=for-the-badge
 
-[blog-shield]: https://img.shields.io/badge/-Blog-000000?style=for-the-badge&logo=Tistory&&logoColor=black
+[blog-shield]: https://img.shields.io/badge/-Blog-000000?style=for-the-badge&logo=Tistory&&logoColor=white
 [blog-url]: https://baobao.tistory.com/
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
