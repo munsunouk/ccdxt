@@ -19,11 +19,11 @@
 
 [commitLast-shield]: https://img.shields.io/github/last-commit/MunSunouk/ccbxt
 
-[blog-shield]: https://img.shields.io/badge/-Blog-000000?style=for-the-badge&logo=Tistory&&logoColor=black
+[blog-shield]: https://img.shields.io/badge/-Blog-000000&logo=Tistory&&logoColor=black
 [blog-url]: https://baobao.tistory.com/
 
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-0A66C2&logo=linkedin&logoColor=white
 [linkedin-url]: https://www.linkedin.com/in/%EC%84%A0%EC%9A%B1-%EB%AC%B8-854b5219a/
 
-[license-shield]: https://img.shields.io/github/license/MunSunouk/ccbxt?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/MunSunouk/ccbxt
 [license-url]: https://github.com/MunSunouk/ccbxt/master/LICENSE.txt
