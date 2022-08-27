@@ -54,8 +54,8 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* ![Python][Python-shield]
-* ![Solidity][Solidity-shield]
+![Python][Python-shield]
+![Solidity][Solidity-shield]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -141,7 +141,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- MARKDOWN LINKS & IMAGES -->
 [languagesCount-shield]: https://img.shields.io/github/languages/count/MunSunouk/ccbxt?style=for-the-badge
 [languagesTop-shield]: https://img.shields.io/github/languages/top/MunSunouk/ccbxt?style=for-the-badge
-
 
 [commit-shield]: https://img.shields.io/github/commit-activity/w/MunSunouk/ccbxt?style=for-the-badge
 [commit-url]: https://github.com/MunSunouk/ccbxt/graphs/commit-activity
