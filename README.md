@@ -38,21 +38,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+* ccxt only has centralized exchange not on Decentralized
+* each swap has there own function
+* It is intended to be used by coders, developers, technically-skilled traders, data-scientists and financial analysts for building trading algorithms.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * ![Python][Python-shield]
 * ![Solidity][Solidity-shield]
@@ -66,39 +59,31 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* pip
   ```sh
-  npm install npm@latest -g
+  pip install web3
+  pip install request
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+*  Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   git clone https://github.com/MunSunouk/ccbxt.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Supported Cryptocurrency Exchanges -->
+## Supported Cryptocurrency Exchanges
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+| logo                                                                                                                                                                                   | id            | name                                                                           | ver                                                                                                                                       | certified                                                                                                                   | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------|
+| [![klayswap](https://user-images.githubusercontent.com/52026496/187066162-91d1a0bb-bf79-47f6-a8fa-e6cc70d2a628.png)](https://klayswap.com/)           | klayswap     | [Klayswap](https://klayswap.com/)            | [![API Version 2](https://img.shields.io/badge/*-lightgray)](https://ascendex.github.io/ascendex-pro-api/#ascendex-pro-api-documentation) | [![CCXT Certified](https://img.shields.io/badge/CCXT-Certified-green.svg)](https://github.com/ccxt/ccxt/wiki/Certification)
+| [![meshswap](https://user-images.githubusercontent.com/52026496/187066122-0d88730a-8c6f-40c1-9f41-9869e2ef86c7.png)](https://www.binance.com/en/register?ref=D7YA7CLY)                    | binance       | [Binance](https://www.binance.com/en/register?ref=D7YA7CLY)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://binance-docs.github.io/apidocs/spot/en)                              | [![CCXT Certified](https://img.shields.io/badge/CCXT-Certified-green.svg)](https://github.com/ccxt/ccxt/wiki/Certification) |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
