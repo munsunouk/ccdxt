@@ -1,0 +1,19 @@
+[
+    {
+        "id" : 1,
+        "Name" : "MOOI",
+        "symbol" : "MOOI",
+        "contract" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
+        "decimal" : 18,
+        "info" : false
+    },
+    {
+
+        "id" : 2,
+        "Name" : "Orbit Bridge Klaytn USD Tether",
+        "symbol" : "oUSDT",
+        "contract" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
+        "decimal" : 6,
+        "info" : "https://bridge.orbitchain.io/"
+    }
+]
