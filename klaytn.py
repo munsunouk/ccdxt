@@ -21,6 +21,7 @@ from src.base.errors import ExchangeNotAvailable
 from src.base.errors import OnMaintenance
 from src.base.errors import InvalidNonce
 from src.base.errors import RequestTimeout
+from src.base.big_number import BigNumber
 import collections
 import requests
 import base64
@@ -36,10 +37,13 @@ class klaytn:
         self.address = params["private"]["wallet"]["address"]
         self.accessKeyId = params["private"]["wallet"]["privateKey"]
 
-
         self.markets = params["public"]["marketListPath"]
         self.tokens = params["public"]["tokenListPath"]
         self.pools = params["public"]["poolListPath"]
+        
+        self.chainAbi = params["public"]["chainAbi"]
+        self.factoryAbi = params["public"]["factoryAbi"]
+        self.routerAbi = params["public"]["routerAbi"]
 
     def get_provider(self) :
         
@@ -73,9 +77,44 @@ class klaytn:
         
         response = self.tokens
         return response
+    
 
-    # #TODO
+    #TODO
+    @staticmethod
+    def to_array(value):
+        return list(value.values()) if type(value) is dict else value
+    
+    def set_balance(self,token : str, address : str) :
+        
+        token = self.set_checksum(token["contract"])
+        
+        decimal = token["decimal"]
+        
+        contract = self.set_contract(address, self.chainAbi)
+        
+        balance = contract(token).functions.balanceOf(address).call()
+        
+        balance = BigNumber.to_number(value = balance, exp = decimal)
+        
+        return balance
+    
+    def set_contract(self,address : str ,abi : dict) :
+        
+        contract = self.w3.eth.contract(address, abi = abi)
+        
+        return contract
+        
+    def set_checksum(self,value) :
+        
+        result = Web3.toChecksumAddress(value)
+        
+        return result
+    
+    
     # def set_balnace(self) :
+    
+            
+    
 
     # def fetch_balance(self) :
 
@@ -88,29 +127,48 @@ if __name__ == "__main__" :
     tokenListPath = "src/resources/chain/klaytn/contract/token_list.json"
     poolListPath = "src/resources/chain/klaytn/contract/pool_list.json"
     marketListPath = "src/resources/chain/klaytn/contract/market_list.json"
-
+    chainInfoPath = "src/resources/chain/klaytn/contract/chain_list.json"
+    
     privatePath = "src/resources/chain/klaytn/contract/private.json"
 
     with open(tokenListPath, "rb") as file_in:
-        tokenListPath = file_in.readline()
+        tokenListPath = json.load(file_in)
         
     with open(poolListPath, "rb") as file_in:
-        poolListPath = file_in.readline()
+        poolListPath = json.load(file_in)
 
     with open(marketListPath, "rb") as file_in:
-        marketListPath = file_in.readline()
+        marketListPath = json.load(file_in)
+        
+    with open(chainInfoPath, "rb") as file_in:
+        chainInfoPath = json.load(file_in)
 
     with open(privatePath, "rb") as file_in:
-        privatePath = file_in.readline()
+        privatePath = json.load(file_in)
+        
+    chainAbi = chainInfoPath["chainAbi"]
+    factoryAbi = chainInfoPath["factoryAbi"]
+    routerAbi = chainInfoPath["routerAbi"]
+
+    with open(chainAbi, 'r') as f:
+        chainAbi = json.load(f)
+    with open(factoryAbi, 'r') as f:
+        factoryAbi = json.load(f)
+    with open(routerAbi, 'r') as f:
+        routerAbi = json.load(f)
         
     params = {
 
         "public" : {
 
-            "tokenListPath" : tokenListPath,
-            "poolListPath" : poolListPath,
-            "marketListPath" : marketListPath,
-
+            "tokenList" : tokenListPath,
+            "poolList" : poolListPath,
+            "marketList" : marketListPath,
+            "chainInfo" : chainInfoPath,
+            "chainAbi" : chainAbi,
+            "factoryAbi" : factoryAbi,
+            "routerAbi" : routerAbi
+        
         },
         "private" : privatePath
 
@@ -118,4 +176,6 @@ if __name__ == "__main__" :
 
 klaytn = klaytn(params)
 
-klaytn.fetch_tokens()
+tokens = klaytn.fetch_tokens()
+
+print(tokens)

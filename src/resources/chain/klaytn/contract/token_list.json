@@ -1,5 +1,5 @@
-[
-    {
+{
+    "MOOI" : {
         "id" : 1,
         "name" : "MOOI",
         "symbol" : "MOOI",
@@ -7,8 +7,7 @@
         "decimal" : 18,
         "info" : false
     },
-    {
-
+    "oUSDT" : {
         "id" : 2,
         "name" : "Orbit Bridge Klaytn USD Tether",
         "symbol" : "oUSDT",
@@ -16,4 +15,4 @@
         "decimal" : 6,
         "info" : "https://bridge.orbitchain.io/"
     }
-]
+}

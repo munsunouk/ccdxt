@@ -43,4 +43,6 @@ class Chain(object):
 
         }
         
-    def set_currencies(self,)
+    def set_currencies(self, currencies) :
+        
+        

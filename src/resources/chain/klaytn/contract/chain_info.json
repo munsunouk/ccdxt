@@ -4,6 +4,9 @@
     "name" : "Klaytn",
     "baseCurrency" : "KLAY",
     "limit" : true,
+    "chainAbi" : "src/resources/chain/klaytn/contract/abi/IKIP7.json",
+    "factoryAbi" : "src/resources/chain/klaytn/contract/abi/IKlaySwapExchange.json",
+    "routerAbi" : "src/resources/chain/klaytn/contract/abi/IKlaySwapProtocol.json",
     "mainnet" : {
 
         "id" : 1,

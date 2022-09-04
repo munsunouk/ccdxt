@@ -1,5 +1,5 @@
-[
-    {
+{
+    "oUSDT-MOOI" : {
         "id" : 1,
         "name" : "KlaySwap LP oUSDT-MOOI",
         "symbol" : "KSLP",
@@ -7,7 +7,7 @@
         "decimal" : 6,
         "exchange" : "KlaySwap"
     },
-    {
+    "KSP-MOOI" : {
         "id" : 2,
         "name" : "KlaySwap LP KSP-MOOI",
         "symbol" : "KSLP",
@@ -15,7 +15,7 @@
         "decimal" : 18,
         "exchange" : "KlaySwap"
     },
-    {   
+    "KLAY-MOOI" : {   
         "id" : 3,
         "name" : "KlaySwap LP KLAY-MOOI",
         "symbol" : "KSLP",
@@ -23,4 +23,4 @@
         "decimal" : 18,
         "exchange" : "KlaySwap"
     }
-]
+}
