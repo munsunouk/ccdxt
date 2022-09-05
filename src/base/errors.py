@@ -1,3 +1,5 @@
+from web3.exceptions import ContractLogicError
+
 error_hierarchy = {
     'BaseError': {
         'ExchangeError': {
@@ -39,6 +41,7 @@ error_hierarchy = {
             'InvalidNonce': {},
             'RequestTimeout': {},
         },
+        'ContractLogicError' : {},
     },
 }
 
@@ -162,6 +165,8 @@ class InvalidNonce(NetworkError):
 class RequestTimeout(NetworkError):
     pass
 
+class ContractLogicError(ContractLogicError):
+    pass
 
 __all__ = [
     'error_hierarchy',
@@ -194,5 +199,6 @@ __all__ = [
     'ExchangeNotAvailable',
     'OnMaintenance',
     'InvalidNonce',
-    'RequestTimeout'
+    'RequestTimeout',
+    'ContractLogicError',
 ]

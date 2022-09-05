@@ -21,35 +21,42 @@ from src.base.errors import ExchangeNotAvailable
 from src.base.errors import OnMaintenance
 from src.base.errors import InvalidNonce
 from src.base.errors import RequestTimeout
+from src.base.errors import ContractLogicError
 from src.base.big_number import BigNumber
 import collections
 import requests
 import base64
 from web3 import Web3
+import datetime
 
 class klaytn:
     
     def __init__(self,params : dict) :
         
-        #TODO
+        #TODO private
         self.accessKeyId = params["private"]["chain"]["accessKeyId"]
         self.secretAccessKey = params["private"]["chain"]["secretAccessKey"]
         self.address = params["private"]["wallet"]["address"]
         self.accessKeyId = params["private"]["wallet"]["privateKey"]
+        self.network_path = params["public"]["chainInfo"]["private_node"]
 
-        self.markets = params["public"]["marketListPath"]
-        self.tokens = params["public"]["tokenListPath"]
-        self.pools = params["public"]["poolListPath"]
+        self.markets = params["public"]["marketList"]
+        self.tokens = params["public"]["tokenList"]
+        self.pools = params["public"]["poolList"]
         
         self.chainAbi = params["public"]["chainAbi"]
         self.factoryAbi = params["public"]["factoryAbi"]
         self.routerAbi = params["public"]["routerAbi"]
+        
+        self.symbols = list(self.tokens.keys())
+        
+        self.get_provider()
 
     def get_provider(self) :
         
         userAndPass = base64.b64encode(bytes(f'{self.accessKeyId}:{self.secretAccessKey}', encoding="utf-8")).decode('ascii')
     
-        headers = {
+        header = {
             'headers' : [
                 {
                     'name' : 'Authorization', 
@@ -64,39 +71,131 @@ class klaytn:
         }
         
         session = requests.Session()
-        session.headers.update(headers)
+        session.headers.update(header)
 
-        self.w3 = Web3(Web3.HTTPProvider(self.network_pathes[1], session=session))
+        # self.w3 = Web3(Web3.HTTPProvider(self.network_path, session=session))
+        
+        self.w3 = Web3(Web3.HTTPProvider('https://public-node-api.klaytnapi.com/v1/cypress'))
+        
 
-    def fetch_tokens(self):
+    def fetch_tokens(self,tokens):
         
         #TODO
         # fetchCurrenciesEnabled = self.safe_value(self.options, 'fetchCurrencies')
         # if not fetchCurrenciesEnabled:
         #     return None
         
-        response = self.tokens
-        return response
+        result = tokens
+        return result
     
-
-    #TODO
-    @staticmethod
-    def to_array(value):
-        return list(value.values()) if type(value) is dict else value
-    
-    def set_balance(self,token : str, address : str) :
+    def fetch_balance(self) :
         
-        token = self.set_checksum(token["contract"])
+        result = []
+        
+        for symbol in self.symbols :
+            
+            balance = self.set_balance(self.tokens[symbol])
+            result.append(balance)
+            
+        return  result
+    
+    
+    def create_swap(self, amountA, tokenA, amountBMin, tokenB, market) :
+        
+        amountA = BigNumber(value = amountA, exp = self.tokens[tokenA]["decimal"]).from_value()
+        
+        tokenA_address = self.tokens[tokenA]["contract"]
+        
+        tokenA_checksum = self.set_checksum(tokenA_address)
+        
+        amountBMin = BigNumber(value = amountBMin, exp = self.tokens[tokenB]["decimal"]).from_value()
+        
+        tokenB_address = self.tokens[tokenB]["contract"]
+        
+        tokenB_checksum = self.set_checksum(tokenB_address)
+        
+        address_checksum = self.set_checksum(self.address)
+        
+        router_checksum = self.set_checksum(self.markets[market]["routerAddress"])
+        
+        self.check_approve(amountA = amountA, token = tokenA_checksum, \
+                           address = address_checksum, router = router_checksum)
+        
+        deadline = int(datetime.datetime.now().timestamp() + 1800)
+        
+        contract = self.set_contract(router_checksum, self.routerAbi)
+        
+        tx = contract.functions.swapExactTokensForTokens(amountA,amountBMin, \
+                                                        [tokenA_checksum,tokenB_checksum], \
+                                                        address_checksum,deadline).transact()
+        
+        tx = Web3.toHex(tx)
+        tx_receipt = self.w3.eth.waitForTransactionReceipt(tx)
+        
+        
+        tokens_transferred = []
+        for log in tx_receipt['logs'] :
+            
+            from_address =  log['topics'][0].hex(),
+            to_address = log['topics'][1].hex(),
+            
+            if from_address == tokenA_address :
+                
+                decimal = self.tokens[tokenA]["decimal"]
+                
+            elif from_address == tokenB_address :
+                
+                decimal = self.tokens[tokenB]["decimal"]
+            
+            result = {
+                
+                'from' : from_address,
+                'to' : to_address,
+                'value' : BigNumber(int(log['topics'][2].hex(),0),decimal),
+        
+            }
+            tokens_transferred.append(result)
+            
+        
+        tx_arrange = {
+            
+            'transaction_hash' : tx_receipt['transactionHash'].hex(),
+            'status' : None,
+            'block' :  tx_receipt['blockNumber'],
+            'timestamp' : datetime.datetime.now(),
+            'from' : tx_receipt['from'],
+            'to' : tx_receipt['to'],
+            'tokens_transferred' : tokens_transferred,
+            'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+            
+        }
+           
+        return tx_arrange
+
+    
+    def set_balance(self,token : str) :
+        
+        token_checksum = self.set_checksum(token["contract"])
+        
+        address_checksum = self.set_checksum(self.address)
         
         decimal = token["decimal"]
         
-        contract = self.set_contract(address, self.chainAbi)
+        contract = self.set_contract(token_checksum, self.chainAbi)
         
-        balance = contract(token).functions.balanceOf(address).call()
+        balance = contract.functions.balanceOf(address_checksum).call()
         
-        balance = BigNumber.to_number(value = balance, exp = decimal)
+        balance = BigNumber(value = balance, exp = decimal).to_value()
         
-        return balance
+        result = {
+            
+            "symbol" : token["symbol"],
+            "address" : address_checksum,
+            "balance" : balance
+            
+        }
+        
+        return result
     
     def set_contract(self,address : str ,abi : dict) :
         
@@ -110,13 +209,104 @@ class klaytn:
         
         return result
     
+    def check_approve(self, amountA : int, token : str, address : str, router : str)  :
+        
+        '''
+        Check token approved and transact approve if is not
+        
+        Parameters
+        ----------
+        token : token address
+        routerAddress: LP pool owner who allow
+        '''
+        
+        if (token == ('0x0000000000000000000000000000000000000000')) :
+            return
+        
+        contract = self.set_contract(token, self.chainAbi)
+        
+        approvedTokens = contract.functions.allowance(address,router).call()
+        
+        if approvedTokens < amountA :
+           
+           tx = self.get_approve(token, router)
+
+           return tx
+           
+        else : return
+        
+    def get_approve(self,token : str, router : str) :
+        
+        contract = self.set_contract(token, self.chainAbi)
+        
+        tx = contract.functions.approve(router, 115792089237316195423570985008687907853269984665640564039457584007913129639935).transact()
+        
+        return tx
+        
+    
+    def functiontransaction(self,tx):
+        
+        '''
+        Takes built transcations and transmits it to ethereum
+        
+        Parameters
+        ----------
+        w3 : web3 object
+        privateKey : users private key
+        tx : Transaction to be transmitted
+        
+        Returns
+        -------
+        Transaction reciept = 
+        
+            AttributeDict(
+                {
+                    'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
+                    'blockNumber': 99072001, 
+                    'contractAddress': None, 
+                    'cumulativeGasUsed': 88596, 
+                    'effectiveGasPrice': 250000000000, 
+                    'from': '0xdaf07D203C01467644e7305BE9caA6E9Fe12ac9a', 
+                    'gasUsed': 31259, 
+                    'logs': [AttributeDict(
+                        {
+                            'address': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
+                            'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
+                            'blockNumber': 99072001, 
+                            'data': '0x000000000000000000000000000000000000000000000000000000003b9aca00', 
+                            'logIndex': 1, 
+                            'removed': False, 
+                            'topics': [HexBytes('0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'), 
+                            HexBytes('0x000000000000000000000000daf07d203c01467644e7305be9caa6e9fe12ac9a'), 
+                            HexBytes('0x000000000000000000000000c6a2ad8cc6e4a7e08fc37cc5954be07d499e7654')], 
+                            'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
+                            'transactionIndex': 1
+                        }
+                    )],
+                    'logsBloom': HexBytes('0x00000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000001000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000010000040000000000000000000006000000000000000000000000000000000'), 
+                    'status': 1, 
+                    'to': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
+                    'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
+                    'transactionIndex': 1, 
+                    'type': '0x2'
+                }
+            )
+        '''
+        
+        last_block_number = self.w3_t.eth.block_number
+        print(f'last block number in eth = {last_block_number}')
+        
+        signed_tx =self.w3_t.eth.account.signTransaction(tx,self.privatekey)
+        
+        tx_hash = self.w3_t.eth.sendRawTransaction(signed_tx.rawTransaction)
+        
+        return self.w3_t.eth.waitForTransactionReceipt(tx_hash)
     
     # def set_balnace(self) :
     
             
     
 
-    # def fetch_balance(self) :
 
 
 
@@ -127,7 +317,7 @@ if __name__ == "__main__" :
     tokenListPath = "src/resources/chain/klaytn/contract/token_list.json"
     poolListPath = "src/resources/chain/klaytn/contract/pool_list.json"
     marketListPath = "src/resources/chain/klaytn/contract/market_list.json"
-    chainInfoPath = "src/resources/chain/klaytn/contract/chain_list.json"
+    chainInfoPath = "src/resources/chain/klaytn/contract/chain_info.json"
     
     privatePath = "src/resources/chain/klaytn/contract/private.json"
 
@@ -176,6 +366,8 @@ if __name__ == "__main__" :
 
 klaytn = klaytn(params)
 
-tokens = klaytn.fetch_tokens()
+balance = klaytn.fetch_balance()
 
-print(tokens)
+swap = klaytn.create_swap(1, 'MOOI' , 0.3, 'oUSDT', 'KlaySwap')
+
+print(swap)

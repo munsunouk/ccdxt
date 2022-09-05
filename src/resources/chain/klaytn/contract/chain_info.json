@@ -26,6 +26,6 @@
         "webscoket" : false,
         "block_scope" : "https://baobab.scope.klaytn.com/"
     },
-    "privatenet" : "https://node-api.klaytnapi.com/v1/klaytn"
+    "private_node" : "https://node-api.klaytnapi.com/v1/klaytn"
     
 }

@@ -15,11 +15,11 @@ class BigNumber(object):
             return self.value > other.value
         return self.value > other
 
-    def __truediv__(self, other):
+    def __truediv__(self,other):
         return self.to_number() / other.to_number()
 
-    def from_value(self, value, exp=18):
-        return int(round(value * 10 ** exp))
+    def from_value(self):
+        return int(round(self.value * 10 ** self.exp))
 
-    def to_number(self, value, exp=18):
-        return value / (10 ** exp)
+    def to_value(self):
+        return self.value / (10 ** self.exp)
