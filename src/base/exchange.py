@@ -1,4 +1,3 @@
-
 from errors import ExchangeError
 from errors import NetworkError
 from errors import NotSupported
@@ -13,13 +12,30 @@ from errors import BadSymbol
 from errors import NullResponse
 from errors import RateLimitExceeded
 from requests.utils import default_user_agent
+from eth_account import Account
+from eth_account.signers.local import LocalAccount
+from web3 import Web3
 
 class Exchange(object):
     """Base exchange class"""
-    base_currencies = None
-    quote_currencies = None
-    currencies = None
-    chains = None
+    id = None
+    name = None
+    chain = None
+    session = None  # Session () by default
+    logger = None  # logging.getLogger(__name__) by default
+    fees = None
+    market = None
+    tokens = None
+    pools = None
+    chainAbi = None
+    factoryAbi = None
+    routerAbi = None
+    symbols = None
+    
+    #private
+    address = None
+    privateKey = None
+    
     
     @staticmethod
     def deep_extend(*args):
@@ -36,7 +52,7 @@ class Exchange(object):
     
     def __init__(self, config={}):
         
-        self.headers = dict() if self.headers is None else self.headers
+        self.account = self.safe_account()
         self.balance = dict() if self.balance is None else self.balance
         self.transactions = dict() if self.transactions is None else self.transactions
         
@@ -52,10 +68,26 @@ class Exchange(object):
                 setattr(self, key, self.deep_extend(getattr(self, key), settings[key]))
             else:
                 setattr(self, key, settings[key])
+                
+    # def safe
     
     @staticmethod
     def safe_value(dictionary, key, default_value=None):
         return dictionary[key] if Exchange.key_exists(dictionary, key) else default_value
+    
+    @staticmethod
+    def set_account(*args) :
+        
+        if isinstance(args, str):
+            
+            account: LocalAccount = Account.from_key(args)
+            result = self.safe_value(account, 'privateKey')
+        
+        else :
+            
+            result = self.w3.eth.accounts.create()
+            
+        return result
     
     @staticmethod
     def key_exists(dictionary, key):

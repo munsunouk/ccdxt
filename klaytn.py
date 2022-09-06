@@ -22,6 +22,7 @@ from src.base.errors import OnMaintenance
 from src.base.errors import InvalidNonce
 from src.base.errors import RequestTimeout
 from src.base.errors import ContractLogicError
+from src.base.exchange import Exchange
 from src.base.big_number import BigNumber
 import collections
 import requests
@@ -29,15 +30,13 @@ import base64
 from web3 import Web3
 import datetime
 
-class klaytn:
+class klayswap(Exchange):
     
     def __init__(self,params : dict) :
         
         #TODO private
-        self.accessKeyId = params["private"]["chain"]["accessKeyId"]
-        self.secretAccessKey = params["private"]["chain"]["secretAccessKey"]
         self.address = params["private"]["wallet"]["address"]
-        self.accessKeyId = params["private"]["wallet"]["privateKey"]
+        self.privateKey = params["private"]["wallet"]["privateKey"]
         self.network_path = params["public"]["chainInfo"]["private_node"]
 
         self.markets = params["public"]["marketList"]
@@ -54,30 +53,8 @@ class klaytn:
 
     def get_provider(self) :
         
-        userAndPass = base64.b64encode(bytes(f'{self.accessKeyId}:{self.secretAccessKey}', encoding="utf-8")).decode('ascii')
-    
-        header = {
-            'headers' : [
-                {
-                    'name' : 'Authorization', 
-                    'value' : 'Basic %s' %  userAndPass 
-                },
-                {
-                    'name' : 'x-chain-id', 
-                    'value' : 8217
-                },
-                    
-            ]
-        }
-        
-        session = requests.Session()
-        session.headers.update(header)
-
-        # self.w3 = Web3(Web3.HTTPProvider(self.network_path, session=session))
-        
         self.w3 = Web3(Web3.HTTPProvider('https://public-node-api.klaytnapi.com/v1/cypress'))
         
-
     def fetch_tokens(self,tokens):
         
         #TODO
@@ -125,37 +102,17 @@ class klaytn:
         
         contract = self.set_contract(router_checksum, self.routerAbi)
         
-        tx = contract.functions.swapExactTokensForTokens(amountA,amountBMin, \
-                                                        [tokenA_checksum,tokenB_checksum], \
-                                                        address_checksum,deadline).transact()
+        nonce = self.w3.eth.getTransactionCount(self.address)
         
-        tx = Web3.toHex(tx)
-        tx_receipt = self.w3.eth.waitForTransactionReceipt(tx)
-        
-        
-        tokens_transferred = []
-        for log in tx_receipt['logs'] :
-            
-            from_address =  log['topics'][0].hex(),
-            to_address = log['topics'][1].hex(),
-            
-            if from_address == tokenA_address :
-                
-                decimal = self.tokens[tokenA]["decimal"]
-                
-            elif from_address == tokenB_address :
-                
-                decimal = self.tokens[tokenB]["decimal"]
-            
-            result = {
-                
-                'from' : from_address,
-                'to' : to_address,
-                'value' : BigNumber(int(log['topics'][2].hex(),0),decimal),
-        
+        tx = contract.functions.exchangeKctPos(tokenA_checksum, amountA, \
+                                               tokenB_checksum, amountBMin, []).buildTransaction(
+            {
+                "from" : self.address,
+                'gas' : 4000000,
+                "nonce": nonce,
             }
-            tokens_transferred.append(result)
-            
+        )
+        tx_receipt = self.functiontransaction(tx)
         
         tx_arrange = {
             
@@ -165,7 +122,6 @@ class klaytn:
             'timestamp' : datetime.datetime.now(),
             'from' : tx_receipt['from'],
             'to' : tx_receipt['to'],
-            'tokens_transferred' : tokens_transferred,
             'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
             
         }
@@ -293,14 +249,14 @@ class klaytn:
             )
         '''
         
-        last_block_number = self.w3_t.eth.block_number
+        last_block_number = self.w3.eth.block_number
         print(f'last block number in eth = {last_block_number}')
         
-        signed_tx =self.w3_t.eth.account.signTransaction(tx,self.privatekey)
+        signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
         
-        tx_hash = self.w3_t.eth.sendRawTransaction(signed_tx.rawTransaction)
+        tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
         
-        return self.w3_t.eth.waitForTransactionReceipt(tx_hash)
+        return self.w3.eth.waitForTransactionReceipt(tx_hash)
     
     # def set_balnace(self) :
     
