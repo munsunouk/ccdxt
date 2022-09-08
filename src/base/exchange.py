@@ -18,25 +18,103 @@ from web3 import Web3
 
 class Exchange(object):
     """Base exchange class"""
+    #chain info
+    chain = None
+    chainAbi = None
+    network_path = None
+    
+    #market info
     id = None
     name = None
-    chain = None
-    session = None  # Session () by default
-    logger = None  # logging.getLogger(__name__) by default
-    fees = None
-    market = None
+    enableRateLimit = True
+    rateLimit = 2000  # milliseconds = seconds * 1000
+
+    markets = None
     tokens = None
     pools = None
-    chainAbi = None
-    factoryAbi = None
-    routerAbi = None
     symbols = None
     
-    #private
-    address = None
-    privateKey = None
+    factoryAbi = None
+    routerAbi = None
+    
+    #private info
+    privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
+    walletAddress = ''  # the wallet address "0x"-prefixed hexstring
+    
+    #system info
+    asyncio_loop = None
+    session = None  # Session () by default
+    logger = None  # logging.getLogger(__name__) by default
     
     
+    httpExceptions = {
+        '422': ExchangeError,
+        '418': DDoSProtection,
+        '429': RateLimitExceeded,
+        '404': ExchangeNotAvailable,
+        '409': ExchangeNotAvailable,
+        '410': ExchangeNotAvailable,
+        '500': ExchangeNotAvailable,
+        '501': ExchangeNotAvailable,
+        '502': ExchangeNotAvailable,
+        '520': ExchangeNotAvailable,
+        '521': ExchangeNotAvailable,
+        '522': ExchangeNotAvailable,
+        '525': ExchangeNotAvailable,
+        '526': ExchangeNotAvailable,
+        '400': ExchangeNotAvailable,
+        '403': ExchangeNotAvailable,
+        '405': ExchangeNotAvailable,
+        '503': ExchangeNotAvailable,
+        '530': ExchangeNotAvailable,
+        '408': RequestTimeout,
+        '504': RequestTimeout,
+        '401': AuthenticationError,
+        '511': AuthenticationError,
+    }
+    has = {
+        
+        'createSwap': True,
+        'fetchTokens': None,
+        'fetchBalance': True,
+        
+    }
+    
+    def __init__(self, config={}):
+        
+        if self.chains:
+            self.set_chains(self.chains)
+        self.chainAbi = None
+        self.network_path = None
+
+        #market info
+        self.id = None
+        self.name = None
+        self.enableRateLimit = True
+        self.rateLimit = 2000  # milliseconds = seconds * 1000
+
+        self.markets = None
+        self.tokens = None
+        self.pools = None
+        self.symbols = None
+        
+        self.factoryAbi = None
+        self.routerAbi = None
+        
+        #private info
+        self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
+        self.walletAddress = ''  # the wallet address "0x"-prefixed hexstring
+        
+        self.userAgent = default_user_agent()
+        
+        settings = self.deep_extend(self.describe(), config)
+            
+        for key in settings:
+            if hasattr(self, key) and isinstance(getattr(self, key), dict):
+                setattr(self, key, self.deep_extend(getattr(self, key), settings[key]))
+            else:
+                setattr(self, key, settings[key])
+                
     @staticmethod
     def deep_extend(*args):
         result = None
@@ -50,30 +128,27 @@ class Exchange(object):
                 result = arg
         return result
     
-    def __init__(self, config={}):
-        
-        self.account = self.safe_account()
-        self.balance = dict() if self.balance is None else self.balance
-        self.transactions = dict() if self.transactions is None else self.transactions
-        
-        self.userAgent = default_user_agent()
-        
-        settings = self.deep_extend(self.describe(), config)
-        
-        if self.chains:
-            self.set_chains(self.chains)
-            
-        for key in settings:
-            if hasattr(self, key) and isinstance(getattr(self, key), dict):
-                setattr(self, key, self.deep_extend(getattr(self, key), settings[key]))
-            else:
-                setattr(self, key, settings[key])
-                
-    # def safe
+    def log(self, *args):
+        print(*args)
     
     @staticmethod
     def safe_value(dictionary, key, default_value=None):
         return dictionary[key] if Exchange.key_exists(dictionary, key) else default_value
+    
+    @staticmethod
+    def safe_integer(dictionary, key, default_value=None):
+        if not Exchange.key_exists(dictionary, key):
+            return default_value
+        value = dictionary[key]
+        try:
+            # needed to avoid breaking on "100.0"
+            # https://stackoverflow.com/questions/1094717/convert-a-string-to-integer-with-decimal-in-python#1094721
+            return int(float(value))
+        except ValueError:
+            return default_value
+        except TypeError:
+            return default_value
+    
     
     @staticmethod
     def set_account(*args) :
@@ -88,6 +163,9 @@ class Exchange(object):
             result = self.w3.eth.accounts.create()
             
         return result
+    
+    def describe(self):
+        return {}
     
     @staticmethod
     def key_exists(dictionary, key):
