@@ -34,110 +34,18 @@ class klayswap(Exchange):
     
     def __init__(self, config : dict) :
         
-        def describe(self):
-        return self.deep_extend(super(klayswap, self).describe(), {
-            
-            'id': 'klayswap',
-            'name': 'klayswap',
-            'chain' : config["public"]["chainInfo"]
-            'rateLimit' : 10,
-            'has': {
-                
-                'createSwap': True,
-                'fetchTokens': None,
-                'fetchBalance': True,
-                
-            }
-            'rpc' : {
-                
-                'ikip7' : {
-                    
-                    'Transfer',
-                    'Approval',
-                    'Paused',
-                    'Unpaused',
-                    'totalSupply',
-                    'balanceOf',
-                    'transfer',
-                    'allowance',
-                    'approve',
-                    'transferFrom',
-                    'safeTransfer',
-                    'safeTransferFrom',
-                    'name',
-                    'symbol',
-                    'decimals',
-                    'mint',
-                    'isMinter',
-                    'addMinter',
-                    'renounceMinter',
-                    'burn',
-                    'burnFrom',
-                    'paused',
-                    'pause',
-                    'unpause',
-                    'isPauser',
-                    'addPauser',
-                    'renouncePauser'
-                    
-                }
-                
-                'protocol' : {
-                    
-                    'balanceOf',
-                    'getPoolCount',
-                    'getPoolAddress',
-                    'tokenToPool',
-                    'poolExist',
-                    'exchangeKlayPos',
-                    'exchangeKctPos'
-                    
-                    
-                },
-                'exchange' : {
-                    
-                    'balanceOf',
-                    'totalSupply',
-                    'getCurrentPool',
-                    'estimatePos',
-                    'estimateNeg',
-                    'tokenA',
-                    'tokenB'
-                    
-                }
-                
-            },      
-            'exceptions': {
-                'exact': {
-                    
-                    'Account has insufficient balance for requested action.': InsufficientFunds,
-                    "You don't have permission.": PermissionDenied,  # {"msg":"You don't have permission.","success":false}
-                    'Too many requests. Please try again later.': DDoSProtection,  # {"msg":"Too many requests. Please try again later.","success":false}
-                    '-1004': DDoSProtection,  # {"code":-1004,"msg":"Server is busy, please wait and try again"}
-                    '-1011': PermissionDenied,  # {"code":-1011,"msg":"This IP cannot access self route."}
-                    '-1015': RateLimitExceeded,  # {"code":-1015,"msg":"'Too many new orders; current limit is %s orders per %s.'"}
-                    '-1022': AuthenticationError,  # {"code":-1022,"msg":"Signature for self request is not valid."}
-                    '-2018': InsufficientFunds,  # {"code":-2018,"msg":"Balance is insufficient"}
-                }
-            }
-            
-        }
-                                
-        
-        
-        
         #TODO private
-        self.address = params["private"]["wallet"]["address"]
-        self.privateKey = params["private"]["wallet"]["privateKey"]
-        self.network_path = params["public"]["chainInfo"]["private_node"]
+        self.address = config["private"]["wallet"]["address"]
+        self.privateKey = config["private"]["wallet"]["privateKey"]
+        self.network_path = config["public"]["chainInfo"]["private_node"]
 
-        self.markets = params["public"]["marketList"]
-        self.tokens = params["public"]["tokenList"]
-        self.pools = params["public"]["poolList"]
+        self.markets = config["public"]["marketList"]
+        self.tokens = config["public"]["tokenList"]
+        self.pools = config["public"]["poolList"]
         
-        self.chainAbi = params["public"]["chainAbi"]
-        self.factoryAbi = params["public"]["factoryAbi"]
-        self.routerAbi = params["public"]["routerAbi"]
+        self.chainAbi = config["public"]["chainAbi"]
+        self.factoryAbi = config["public"]["factoryAbi"]
+        self.routerAbi = config["public"]["routerAbi"]
         
         self.symbols = list(self.tokens.keys())
         
