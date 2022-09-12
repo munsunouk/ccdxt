@@ -1,20 +1,26 @@
-from errors import ExchangeError
-from errors import NetworkError
-from errors import NotSupported
-from errors import AuthenticationError
-from errors import DDoSProtection
-from errors import RequestTimeout
-from errors import ExchangeNotAvailable
-from errors import InvalidAddress
-from errors import InvalidOrder
-from errors import ArgumentsRequired
-from errors import BadSymbol
-from errors import NullResponse
-from errors import RateLimitExceeded
+from src.base.errors import ExchangeError
+from src.base.errors import NetworkError
+from src.base.errors import NotSupported
+from src.base.errors import AuthenticationError
+from src.base.errors import DDoSProtection
+from src.base.errors import RequestTimeout
+from src.base.errors import ExchangeNotAvailable
+from src.base.errors import InvalidAddress
+from src.base.errors import InvalidOrder
+from src.base.errors import ArgumentsRequired
+from src.base.errors import BadSymbol
+from src.base.errors import NullResponse
+from src.base.errors import RateLimitExceeded
+from src.base import Token, Market, Pool 
+from src.base import BigNumber, Abi
 from requests.utils import default_user_agent
 from eth_account import Account
 from eth_account.signers.local import LocalAccount
 from web3 import Web3
+from typing import Optional, Type, Union
+import json
+from eth_typing import HexAddress
+from web3.contract import Contract
 
 class Exchange(object):
     """Base exchange class"""
@@ -27,7 +33,6 @@ class Exchange(object):
     }
 
     def __init__(self, config={}):
-
 
         self.chains = None
         # if self.chains:
@@ -77,49 +82,57 @@ class Exchange(object):
                 result = arg
         return result
 
-    def safe_market(self):
-        result = {
-            'id': None,
-            'name' : None,
-            'symbol': None,
-            "baseCurrency" : None,
-            "fee" : None,
-            "factoryAbi" : None,
-            "factoryAddress" : None,
-            "routerAbi" : None,
-            "routerAddress" : None,
-            'info': None,
-            "symbols" : None,
-            "pools" : None,
-            "chains" : None,
-
-        }
-        return result
-
-    def safe_token(self):
-        result = {
-            "id" : None,
-            "name" : None,
-            "symbol" : None,
-            "contract" : None,
-            "decimal" : None,
-            "info" : None
-        }
-        return result
+    @staticmethod
+    def safe_token():
+        return json.dumps(Token().__dict__)
+    
+    @staticmethod
+    def safe_market():
+        return json.dumps(Market().__dict__)
+    
+    @staticmethod
+    def safe_pool():
+        return json.dumps(Pool().__dict__)
 
     @staticmethod
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
     
-    def load_markets(self, reload=False, params={}):
+    def load_exchange(self):
         
-        if not reload:
-            if self.markets:
-                return self.set_markets(self.markets)
+        self.set_tokens(self.tokens)
+        self.set_pools(self.pools)
+        self.set_markets(self.markets)
+        
+    def set_tokens(self, tokens):
+        
+        print(f"tokens : {tokens}")
 
-    def set_markets(self, markets, currencies=None):
+        self.tokens = {}
 
-        symbols = self.markets['symbols']
+        for token in tokens :
+
+            self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
+        
+        return self.tokens
+    
+    def set_pools(self, pools):
+        
+        print(f"pools : {pools}")
+
+        self.pools = {}
+
+        for pool in pools :
+
+            self.pools[pool] = self.deep_extend(self.safe_pool(), pools[pool])
+        
+        return self.pools
+
+    def set_markets(self, markets):
+        
+        print(f"markets : {markets}")
+
+        symbols = markets['symbols']
         self.tokens = {}
 
         if markets :
@@ -128,10 +141,31 @@ class Exchange(object):
         if len(symbols) > 0 :
            self.symbols = self.deep_extend(self.symbols, symbols)
 
-        for token in self.tokenList :
+    
+    
+    
+# `   def get_contract(self, web3: Web3, fname: str, bytecode: Optional[str] = None) -> Type[Contract]:
+#         """Create a Contract proxy class from our bundled contracts.
+#         `See Web3.py documentation on Contract instances <https://web3py.readthedocs.io/en/stable/contracts.html#contract-deployment-example>`_.
+#         :param web3: Web3 instance
+#         :param bytecode: Override bytecode payload for the contract
+#         :param fname: `JSON filename from supported contract lists <https://github.com/tradingstrategy-ai/web3-ethereum-defi/tree/master/eth_defi/abi>`_.
+#         :return: Python class
+#         """
+#         contract_interface = self.get_abi_by_filename(fname)
+#         abi = contract_interface["abi"]
+#         bytecode = bytecode if bytecode is not None else contract_interface["bytecode"]
+#         Contract = web3.eth.contract(abi=abi, bytecode=bytecode)
+#         return Contract
 
-            if token in self.symbols :
-
-              self.tokens[token] = self.deep_extend(self.safe_token(), self.tokenList[token])
-        
-        return self.markets
+#     def get_deployed_contract(self, web3: Web3,fname: str,address: Union[HexAddress, str],) -> Contract:
+#         """Get a Contract proxy objec for a contract deployed at a specific address.
+#         `See Web3.py documentation on Contract instances <https://web3py.readthedocs.io/en/stable/contracts.html#contract-deployment-example>`_.
+#         :param web3: Web3 instance
+#         :param fname: `JSON filename from supported contract lists <https://github.com/tradingstrategy-ai/web3-ethereum-defi/tree/master/eth_defi/abi>`_.
+#         :param address: Ethereum address of the deployed contract
+#         :return: `web3.contract.Contract` subclass
+#         """
+#         assert address
+#         Contract = self.get_contract(web3, fname)
+#         return Contract(address)`

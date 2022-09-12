@@ -4,9 +4,7 @@
     "name" : "Klaytn",
     "baseCurrency" : "KLAY",
     "limit" : true,
-    "chainAbi" : "src/resources/chain/klaytn/contract/abi/IKIP7.json",
-    "factoryAbi" : "src/resources/chain/klaytn/contract/abi/IKlaySwapExchange.json",
-    "routerAbi" : "src/resources/chain/klaytn/contract/abi/IKlaySwapProtocol.json",
+    "chainAbi" : "src/chain/klaytn/contract/abi/IKIP7.json",
     "mainnet" : {
 
         "id" : 1,
@@ -26,6 +24,6 @@
         "webscoket" : false,
         "block_scope" : "https://baobab.scope.klaytn.com/"
     },
-    "private_node" : "https://node-api.klaytnapi.com/v1/klaytn"
+    "privatenet" : "https://node-api.klaytnapi.com/v1/klaytn"
     
 }

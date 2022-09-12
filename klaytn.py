@@ -24,6 +24,7 @@ from src.base.errors import RequestTimeout
 from src.base.errors import ContractLogicError
 from src.base.exchange import Exchange
 from src.base.big_number import BigNumber
+from src.base.abi import ABI
 import collections
 import requests
 import base64
@@ -35,25 +36,28 @@ class klayswap(Exchange):
     def __init__(self, config : dict) :
         
         #TODO private
-        self.address = config["private"]["wallet"]["address"]
-        self.privateKey = config["private"]["wallet"]["privateKey"]
-        self.network_path = config["public"]["chainInfo"]["private_node"]
+        # self.address = config["private"]["wallet"]["address"]
+        # self.privateKey = config["private"]["wallet"]["privateKey"]
+        self.network_path = config["public"]["chainInfo"]["mainnet"]["public_node"]
 
-        self.markets = config["public"]["marketList"]
-        self.tokens = config["public"]["tokenList"]
+        self.markets = config["public"]["marketList"]["KlaySwap"]
+        
+        self.tokenList = config["public"]["tokenList"]
         self.pools = config["public"]["poolList"]
         
         self.chainAbi = config["public"]["chainAbi"]
         self.factoryAbi = config["public"]["factoryAbi"]
         self.routerAbi = config["public"]["routerAbi"]
         
-        self.symbols = list(self.tokens.keys())
+        self.symbols = list(self.tokenList.keys())
         
         self.get_provider()
+        
+        self.load_markets(self.markets)
 
     def get_provider(self) :
         
-        self.w3 = Web3(Web3.HTTPProvider('https://public-node-api.klaytnapi.com/v1/cypress'))
+        self.w3 = Web3(Web3.HTTPProvider(self.network_path))
         
     def fetch_tokens(self,tokens):
         
@@ -258,16 +262,6 @@ class klayswap(Exchange):
         
         return self.w3.eth.waitForTransactionReceipt(tx_hash)
     
-    # def set_balnace(self) :
-    
-            
-    
-
-
-
-
-    
-
 if __name__ == "__main__" :
     
     tokenListPath = "src/resources/chain/klaytn/contract/token_list.json"
@@ -289,9 +283,6 @@ if __name__ == "__main__" :
     with open(chainInfoPath, "rb") as file_in:
         chainInfoPath = json.load(file_in)
 
-    with open(privatePath, "rb") as file_in:
-        privatePath = json.load(file_in)
-        
     chainAbi = chainInfoPath["chainAbi"]
     factoryAbi = chainInfoPath["factoryAbi"]
     routerAbi = chainInfoPath["routerAbi"]
@@ -315,15 +306,16 @@ if __name__ == "__main__" :
             "factoryAbi" : factoryAbi,
             "routerAbi" : routerAbi
         
-        },
-        "private" : privatePath
-
+        }
     }
 
-klaytn = klaytn(params)
+klaytn = klayswap(config)
 
-balance = klaytn.fetch_balance()
+# balance = klaytn.fetch_balance()
 
-swap = klaytn.create_swap(1, 'MOOI' , 0.3, 'oUSDT', 'KlaySwap')
+# swap = klaytn.create_swap(1, 'MOOI' , 0.3, 'oUSDT', 'KlaySwap')
 
-print(swap)
+abi = ABI()
+abi.get_abi_by_filename(fname = 'chain')
+
+# print(swap)

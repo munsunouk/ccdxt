@@ -1,11 +1,4 @@
 {
-
-    "chain" : {
-
-        "accessKeyId" : "KASK1ECOWSG0MD7H53N3DFM1",
-        "secretAccessKey" : "UVzTtcgXOYdwOaG6xWNvbYNL4ctE24Pl5q4pJQqy"
-
-    },
     "wallet" : {
 
         "address" : "0xdaf07D203C01467644e7305BE9caA6E9Fe12ac9a",

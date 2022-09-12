@@ -151,63 +151,68 @@ class klayswap(Exchange):
             }
         }
                                 
-    def fetch_currencies(self, params={}):
+    # def fetch_currencies(self, params={}):
         
-        """
-        fetches all available currencies on an exchange
-        :param dict params: extra parameters specific to the binance api endpoint
-        :returns dict: an associative dictionary of currencies
-        """
+    #     """
+    #     fetches all available currencies on an exchange
+    #     :param dict params: extra parameters specific to the binance api endpoint
+    #     :returns dict: an associative dictionary of currencies
+    #     """
         
-        fetchCurrenciesEnabled = self.safe_value(self.options, 'fetchCurrencies')
-        if not fetchCurrenciesEnabled:
-            return None
+    #     fetchCurrenciesEnabled = self.safe_value(self.options, 'fetchCurrencies')
+    #     if not fetchCurrenciesEnabled:
+    #         return None
             
-        if not self.check_required_credentials(False):
-            return None
+    #     if not self.check_required_credentials(False):
+    #         return None
         
-        response = self.currencies
+    #     response = self.currencies
         
-        result = {}
-        for i in range(0, len(response)):
+    #     result = {}
+    #     for i in range(0, len(response)):
             
-            entry = response[i]
-            id = self.safe_string(entry, 'coin')
-            name = self.safe_string(entry, 'name')
-            code = self.safe_currency_code(id)
-            trading = self.safe_value(entry, 'trading')
-            active = trading
-            result[code] = {
-                'id': id,
-                'name': name,
-                'code': code,
-                'info': entry,
-                'active': active,
-                'deposit': isDepositEnabled,
-                'withdraw': isWithdrawEnabled,
-                'networks': networkList,
-                'fee': fee,
-                'fees': fees,
-                'limits': self.limits,
-            }
-        return result
+    #         entry = response[i]
+    #         id = self.safe_string(entry, 'coin')
+    #         name = self.safe_string(entry, 'name')
+    #         code = self.safe_currency_code(id)
+    #         trading = self.safe_value(entry, 'trading')
+    #         active = trading
+    #         result[code] = {
+    #             'id': id,
+    #             'name': name,
+    #             'code': code,
+    #             'info': entry,
+    #             'active': active,
+    #             'deposit': isDepositEnabled,
+    #             'withdraw': isWithdrawEnabled,
+    #             'networks': networkList,
+    #             'fee': fee,
+    #             'fees': fees,
+    #             'limits': self.limits,
+    #         }
+    #     return result
         
                  
-    def fetch_balance(self, params={}):
+    # def fetch_balance(self, params={}):
         
-        self.load_chains()
+    #     self.load_chains()
         
-        method = 'balanceOf'
-        paramSymbols = self.safe_value(params, 'symbols')
-        if paramSymbols is not None:
-                symbols = ''
-                if self.is_array(paramSymbols):
-                    symbols = self.market_id(paramSymbols[0])
-                    for i in range(1, len(paramSymbols)):
-                        symbol = paramSymbols[i]
-                        id = self.market_id(symbol)
-                        symbols += ',' + id
-                else:
-                    symbols = paramSymbols
-                request['symbols'] = symbols
-        requestParams = self.omit(query, ['type', 'symbols'])
+    #     method = 'balanceOf'
+    #     paramSymbols = self.safe_value(params, 'symbols')
+    #     if paramSymbols is not None:
+    #             symbols = ''
+    #             if self.is_array(paramSymbols):
+    #                 symbols = self.market_id(paramSymbols[0])
+    #                 for i in range(1, len(paramSymbols)):
+    #                     symbol = paramSymbols[i]
+    #                     id = self.market_id(symbol)
+    #                     symbols += ',' + id
+    #             else:
+    #                 symbols = paramSymbols
+    #             request['symbols'] = symbols
+    #     requestParams = self.omit(query, ['type', 'symbols'])
+    
+if __name__ == "__main__" :
+    
+    klayswap = klayswap()
+    print(dir(klayswap))
