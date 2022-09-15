@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import os
 
 class Pool(object) :
 
@@ -12,21 +13,38 @@ class Pool(object) :
         self.decimal = None
         self.exchange = None
         
-    def set_pool(self) -> dict :
-        
-        if self.exchangeName in self._cache:
-            return self._cache[self.exchangeName]
-        
+    def set_pool(self, chainName : str = '', exchangeName : str = '') -> dict :
+
         basePath = 'src/chain'
-    
-        poolListPath = basePath / self.chainName / "contract" / "pool_list.json"
         
-        if Path(poolListPath).exists() :
-            with open(poolListPath, "rt", encoding="utf-8") as f:
-                poolList = json.load(f)
+        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
+        
+        if Path(marketDictPath).exists() :
+            with open(marketDictPath, "rt", encoding="utf-8") as f:
+                marketDict = json.load(f)
         else :
-            print("poolList doesnt exist")
-            
-        self._cache[self.exchangeName] = poolList
+            print("marketDictPath doesnt exist")
+            return {}
+    
+        poolDictPath = os.path.join(basePath , chainName , "contract" , "pool_list.json")
         
-        return self._cache[self.exchangeName]
+        if Path(poolDictPath).exists() :
+            with open(poolDictPath, "rt", encoding="utf-8") as f:
+                poolDict = json.load(f)
+        else :
+            print("poolDictPath doesnt exist")
+            return {}
+        
+        market = marketDict[exchangeName]
+            
+        poolAvailable = market["pools"]
+        
+        exchangePool = {}
+        
+        for pool in poolAvailable :
+            
+            if isinstance(poolDict[pool], dict) :
+                
+                exchangePool[pool] = poolDict[pool]
+            
+        return exchangePool

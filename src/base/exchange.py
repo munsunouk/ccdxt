@@ -11,8 +11,8 @@ from src.base.errors import ArgumentsRequired
 from src.base.errors import BadSymbol
 from src.base.errors import NullResponse
 from src.base.errors import RateLimitExceeded
-from src.base import Token, Market, Pool 
-from src.base import BigNumber, Abi
+from src.base import Chain, Market, Pool, Token 
+from src.base import Abi
 from requests.utils import default_user_agent
 from eth_account import Account
 from eth_account.signers.local import LocalAccount
@@ -21,6 +21,7 @@ from typing import Optional, Type, Union
 import json
 from eth_typing import HexAddress
 from web3.contract import Contract
+from decimal import Decimal
 
 class Exchange(object):
     """Base exchange class"""
@@ -58,16 +59,69 @@ class Exchange(object):
         #private info
         self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
         self.walletAddress = ''  # the wallet address "0x"-prefixed hexstring
+
+    def fetch_tokens(self) :
+        raise NotSupported('fetch_tokens() is not supported yet')
+
+    def fetch_balance(self) :
+        raise NotSupported('fetch_balance() is not supported yet')
+    
+    def create_swap(self,amountA, tokenA, amountBMin, tokenB) :
+        raise NotSupported('create_swap() is not supported yet')
+    
+    def functiontransaction(self, w3, privateKey, tx):
         
-        # self.userAgent = default_user_agent()
+        '''
+        Takes built transcations and transmits it to ethereum
         
-        # settings = self.deep_extend(self.describe(), config)
-            
-        # for key in settings:
-        #     if hasattr(self, key) and isinstance(getattr(self, key), dict):
-        #         setattr(self, key, self.deep_extend(getattr(self, key), settings[key]))
-        #     else:
-        #         setattr(self, key, settings[key])
+        Parameters
+        ----------
+        w3 : web3 object
+        privateKey : users private key
+        tx : Transaction to be transmitted
+        
+        Returns
+        -------
+        Transaction reciept = 
+        
+            AttributeDict(
+                {
+                    'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
+                    'blockNumber': 99072001, 
+                    'contractAddress': None, 
+                    'cumulativeGasUsed': 88596, 
+                    'effectiveGasPrice': 250000000000, 
+                    'from': '0xdaf07D203C01467644e7305BE9caA6E9Fe12ac9a', 
+                    'gasUsed': 31259, 
+                    'logs': [AttributeDict(
+                        {
+                            'address': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
+                            'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
+                            'blockNumber': 99072001, 
+                            'data': '0x000000000000000000000000000000000000000000000000000000003b9aca00', 
+                            'logIndex': 1, 
+                            'removed': False, 
+                            'topics': [HexBytes('0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'), 
+                            HexBytes('0x000000000000000000000000daf07d203c01467644e7305be9caa6e9fe12ac9a'), 
+                            HexBytes('0x000000000000000000000000c6a2ad8cc6e4a7e08fc37cc5954be07d499e7654')], 
+                            'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
+                            'transactionIndex': 1
+                        }
+                    )],
+                    'logsBloom': HexBytes('0x00000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000001000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000010000040000000000000000000006000000000000000000000000000000000'), 
+                    'status': 1, 
+                    'to': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
+                    'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
+                    'transactionIndex': 1, 
+                    'type': '0x2'
+                }
+            )
+        '''
+        signed_tx =w3.eth.account.signTransaction(tx, privateKey)
+        
+        tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+        
+        return w3.eth.waitForTransactionReceipt(tx_hash)
 
     @staticmethod
     def deep_extend(*args):
@@ -81,11 +135,11 @@ class Exchange(object):
             else:
                 result = arg
         return result
-
-    @staticmethod
-    def safe_token():
-        return json.dumps(Token().__dict__)
     
+    @staticmethod
+    def safe_chain():
+        return json.dumps(Chain().__dict__)
+
     @staticmethod
     def safe_market():
         return json.dumps(Market().__dict__)
@@ -93,79 +147,95 @@ class Exchange(object):
     @staticmethod
     def safe_pool():
         return json.dumps(Pool().__dict__)
+    
+    @staticmethod
+    def safe_token():
+        return json.dumps(Token().__dict__)
+    
+    
+    @staticmethod
+    def from_value(value : float or int, exp : int=18) -> int :
+        return int(round(value * 10 ** exp))
 
     @staticmethod
+    def to_value(value : float or int, exp : int=18)-> Decimal :
+        return Decimal(value) / Decimal(10 ** exp)
+    
+    def set_chains(self,chainName):
+        return Chain().set_chain(chainName)
+    
+    def set_markets(self,chainName,exchangeName):
+        return Market().set_market(chainName,exchangeName)
+    
+    def set_pools(self,chainName,exchangeName):
+        return Pool().set_pool(chainName,exchangeName)
+    
+    def set_tokens(self,chainName,exchangeName):
+        return Token().set_token(chainName,exchangeName)
+    
+    def load_exchange(self,chainName,exchangeName):
+        
+        self.load_tokens(chainName, exchangeName)
+        self.load_pools(chainName, exchangeName)
+        self.load_markets(chainName, exchangeName)
+    
+    def load_network(self,network_path) :
+        
+        self.w3 = Web3(Web3.HTTPProvider(network_path))
+
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
     
-    def load_exchange(self):
+    def load_chains(self, chainName) :
         
-        self.set_tokens(self.tokens)
-        self.set_pools(self.pools)
-        self.set_markets(self.markets)
-        
-    def set_tokens(self, tokens):
-        
-        print(f"tokens : {tokens}")
+        chains = self.set_chains(chainName)
 
-        self.tokens = {}
+        self.chains = {}
 
-        for token in tokens :
-
-            self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
-        
-        return self.tokens
+        if chains :
+           self.chains = self.deep_extend(self.safe_chain(),chains)
     
-    def set_pools(self, pools):
+    def load_markets(self, chainName, exchangeName):
         
-        print(f"pools : {pools}")
+        markets = self.set_markets(chainName,exchangeName)
+
+        self.markets = {}
+
+        if markets :
+           self.markets = self.deep_extend(self.safe_market(),markets)
+        
+    def load_pools(self, chainName, exchangeName):
+        
+        pools = self.set_pools(chainName,exchangeName)
 
         self.pools = {}
 
         for pool in pools :
 
             self.pools[pool] = self.deep_extend(self.safe_pool(), pools[pool])
+            
+    def load_tokens(self, chainName, exchangeName):
         
-        return self.pools
+        tokens = self.set_tokens(chainName,exchangeName)
 
-    def set_markets(self, markets):
-        
-        print(f"markets : {markets}")
-
-        symbols = markets['symbols']
         self.tokens = {}
 
-        if markets :
-           self.markets = self.deep_extend(self.safe_market(),self.markets)
+        for token in tokens :
 
-        if len(symbols) > 0 :
-           self.symbols = self.deep_extend(self.symbols, symbols)
+            self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
+           
 
-    
-    
-    
-# `   def get_contract(self, web3: Web3, fname: str, bytecode: Optional[str] = None) -> Type[Contract]:
-#         """Create a Contract proxy class from our bundled contracts.
-#         `See Web3.py documentation on Contract instances <https://web3py.readthedocs.io/en/stable/contracts.html#contract-deployment-example>`_.
-#         :param web3: Web3 instance
-#         :param bytecode: Override bytecode payload for the contract
-#         :param fname: `JSON filename from supported contract lists <https://github.com/tradingstrategy-ai/web3-ethereum-defi/tree/master/eth_defi/abi>`_.
-#         :return: Python class
-#         """
-#         contract_interface = self.get_abi_by_filename(fname)
-#         abi = contract_interface["abi"]
-#         bytecode = bytecode if bytecode is not None else contract_interface["bytecode"]
-#         Contract = web3.eth.contract(abi=abi, bytecode=bytecode)
-#         return Contract
+           
+           
 
-#     def get_deployed_contract(self, web3: Web3,fname: str,address: Union[HexAddress, str],) -> Contract:
-#         """Get a Contract proxy objec for a contract deployed at a specific address.
-#         `See Web3.py documentation on Contract instances <https://web3py.readthedocs.io/en/stable/contracts.html#contract-deployment-example>`_.
-#         :param web3: Web3 instance
-#         :param fname: `JSON filename from supported contract lists <https://github.com/tradingstrategy-ai/web3-ethereum-defi/tree/master/eth_defi/abi>`_.
-#         :param address: Ethereum address of the deployed contract
-#         :return: `web3.contract.Contract` subclass
-#         """
-#         assert address
-#         Contract = self.get_contract(web3, fname)
-#         return Contract(address)`
+    def set_contract(self, w3, address : str ,abi : dict) :
+        
+        contract = self.w3.eth.contract(address, abi = abi)
+        
+        return contract
+    
+    def set_checksum(self,value) :
+        
+        result = Web3.toChecksumAddress(value)
+        
+        return result     

@@ -5,6 +5,8 @@
         "symbol" : "KSLP",
         "contract" : "0x71f3a62c52f5ce71331b3af00bd63d617264b040",
         "decimal" : 6,
+        "tokenA" : "oUSDT",
+        "tokenB" : "MOOI",
         "exchange" : "KlaySwap"
     },
     "KSP-MOOI" : {
@@ -13,6 +15,8 @@
         "symbol" : "KSLP",
         "contract" : "0xcf302e2fe70318ef98d0d3d58baf36eb7e6d0ea5",
         "decimal" : 18,
+        "tokenA" : "KSP",
+        "tokenB" : "MOOI",
         "exchange" : "KlaySwap"
     },
     "KLAY-MOOI" : {   
@@ -21,6 +25,8 @@
         "symbol" : "KSLP",
         "contract" : "0x0bedd35a5c6f957cb5409f277631a508bf5452e1",
         "decimal" : 18,
+        "tokenA" : "KLAY",
+        "tokenB" : "MOOI",
         "exchange" : "KlaySwap"
     }
 }

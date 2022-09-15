@@ -49,25 +49,19 @@ class klayswap(Exchange):
         self.factoryAbi = config["public"]["factoryAbi"]
         self.routerAbi = config["public"]["routerAbi"]
         
-        self.symbols = list(self.tokenList.keys())
-        
-        self.get_provider()
+        self.set_network(self.network_path)
         
         self.load_markets(self.markets)
+        
+        self.symbols = list(self.tokenList.keys())
 
-    def get_provider(self) :
+    def set_network(self,network_path) :
         
-        self.w3 = Web3(Web3.HTTPProvider(self.network_path))
+        self.w3 = Web3(Web3.HTTPProvider(network_path))
         
-    def fetch_tokens(self,tokens):
-        
-        #TODO
-        # fetchCurrenciesEnabled = self.safe_value(self.options, 'fetchCurrencies')
-        # if not fetchCurrenciesEnabled:
-        #     return None
-        
-        result = tokens
-        return result
+    def fetch_tokens(self):
+
+        return self.tokens
     
     def fetch_balance(self) :
         
@@ -157,18 +151,6 @@ class klayswap(Exchange):
         
         return result
     
-    def set_contract(self,address : str ,abi : dict) :
-        
-        contract = self.w3.eth.contract(address, abi = abi)
-        
-        return contract
-        
-    def set_checksum(self,value) :
-        
-        result = Web3.toChecksumAddress(value)
-        
-        return result
-    
     def check_approve(self, amountA : int, token : str, address : str, router : str)  :
         
         '''
@@ -202,66 +184,7 @@ class klayswap(Exchange):
         tx = contract.functions.approve(router, 115792089237316195423570985008687907853269984665640564039457584007913129639935).transact()
         
         return tx
-        
-    
-    def functiontransaction(self,tx):
-        
-        '''
-        Takes built transcations and transmits it to ethereum
-        
-        Parameters
-        ----------
-        w3 : web3 object
-        privateKey : users private key
-        tx : Transaction to be transmitted
-        
-        Returns
-        -------
-        Transaction reciept = 
-        
-            AttributeDict(
-                {
-                    'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
-                    'blockNumber': 99072001, 
-                    'contractAddress': None, 
-                    'cumulativeGasUsed': 88596, 
-                    'effectiveGasPrice': 250000000000, 
-                    'from': '0xdaf07D203C01467644e7305BE9caA6E9Fe12ac9a', 
-                    'gasUsed': 31259, 
-                    'logs': [AttributeDict(
-                        {
-                            'address': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
-                            'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
-                            'blockNumber': 99072001, 
-                            'data': '0x000000000000000000000000000000000000000000000000000000003b9aca00', 
-                            'logIndex': 1, 
-                            'removed': False, 
-                            'topics': [HexBytes('0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'), 
-                            HexBytes('0x000000000000000000000000daf07d203c01467644e7305be9caa6e9fe12ac9a'), 
-                            HexBytes('0x000000000000000000000000c6a2ad8cc6e4a7e08fc37cc5954be07d499e7654')], 
-                            'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
-                            'transactionIndex': 1
-                        }
-                    )],
-                    'logsBloom': HexBytes('0x00000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000001000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000010000040000000000000000000006000000000000000000000000000000000'), 
-                    'status': 1, 
-                    'to': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
-                    'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
-                    'transactionIndex': 1, 
-                    'type': '0x2'
-                }
-            )
-        '''
-        
-        last_block_number = self.w3.eth.block_number
-        print(f'last block number in eth = {last_block_number}')
-        
-        signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
-        
-        tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
-        
-        return self.w3.eth.waitForTransactionReceipt(tx_hash)
-    
+
 if __name__ == "__main__" :
     
     tokenListPath = "src/resources/chain/klaytn/contract/token_list.json"

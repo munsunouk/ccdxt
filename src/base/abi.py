@@ -10,14 +10,13 @@ import sys, os
 
 class Abi :
 
-    def __init__(self, chainName : str, exchangeName : str) : 
+    def __init__(self) : 
+        self.factoryAbi = None
+        self.factoryAddress = None
+        self.routerAbi = None
+        self.routerAddress = None
 
-        super().__init__()
-        self._cache = {}
-        self.chainName = chainName
-        self.exchangeName = exchangeName
-
-    def set_abi(self) -> dict:
+    def set_abi(self, chainName : str = '', exchangeName : str = '') -> dict:
         """Reads a embedded ABI file and returns it.
         Example::
             abi = get_abi_by_filename("ERC20Mock.json")
@@ -27,14 +26,11 @@ class Abi :
         :param fname: `JSON filename from supported contract lists <https://github.com/tradingstrategy-ai/web3-ethereum-defi/tree/master/eth_defi/abi>`_.
         :return: Full contract interface, including `bytecode`.
         """
-
-        if self.exchangeName in self._cache:
-            return self._cache[self.exchangeName]
         
         basePath = 'src/chain'
 
-        chainInfoPath = basePath / self.chainName / "contract" / "chain_info.json"
-        marketListPath = basePath / self.chainName / "contract" / "market_list.json"
+        chainInfoPath = os.path.join(basePath , chainName , "contract" , "chain_info.json")
+        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
         
         if Path(chainInfoPath).exists() :
             with open(chainInfoPath, "rt", encoding="utf-8") as f:
@@ -42,18 +38,24 @@ class Abi :
         else :
             print("chainInfoPath doesnt exist")
             
-        if Path(marketListPath).exists() :
-            with open(marketListPath, "rt", encoding="utf-8") as f:
-                marketListAbi = json.load(f)
+        if Path(marketDictPath).exists() :
+            with open(marketDictPath, "rt", encoding="utf-8") as f:
+                marketDict = json.load(f)
         else :
-            print("marketListPath doesnt exist")
+            print("marketDictPath doesnt exist")
         
-        marketListAbi = marketListAbi[self.exchangeName]
-        self._cache[self.exchangeName] = {
-            
-            "chainInfoAbi" : chainInfoAbi,
-            "marketListAbi" : marketListAbi
-            
-        }
+        market = marketDict[exchangeName]
+        
+        # print(Abi().__dir__)
+        
+        
+        result = {}
+        # result = {
+        #     "chainInfoAbi" : chainInfoAbi,
+        #     "marketDictAbi" : marketDictAbi            
+        # }
 
-        return self._cache[self.exchangeName]
+        return result
+    
+
+# Abi().set_abi()

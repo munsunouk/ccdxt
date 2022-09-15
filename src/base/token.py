@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
+import os
 
 class Token(object) :
 
-    def __init__(self, chainName : str, exchangeName : str) :
+    def __init__(self) :
 
         self.id = None
         self.name = None
@@ -12,21 +13,67 @@ class Token(object) :
         self.decimal = None
         self.info = None
         
-    def set_token_list(self) -> dict :
+    def set_token(self, chainName : str = '', exchangeName : str = '') -> dict :
+        '''
+        get balance of token in wallet
         
-        if self.exchangeName in self._cache:
-            return self._cache[self.exchangeName]
+        Parameters
+        ----------
+        chainName: chain name e.g)'klaytn'
+        exchangeName : exchange name e.g)'klayswap'
+        
+        Returns
+        -------
+        {
+            "MOOI" : {
+                "id" : 1,
+                "name" : "MOOI",
+                "symbol" : "MOOI",
+                "contract" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
+                "decimal" : 18,
+                "info" : false
+            },
+            "oUSDT" : {
+                "id" : 2,
+                "name" : "Orbit Bridge Klaytn USD Tether",
+                "symbol" : "oUSDT",
+                "contract" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
+                "decimal" : 6,
+                "info" : "https://bridge.orbitchain.io/"
+            }
+        }
+        '''
         
         basePath = 'src/chain'
+        
+        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
+        
+        if Path(marketDictPath).exists() :
+            with open(marketDictPath, "rt", encoding="utf-8") as f:
+                marketDict = json.load(f)
+        else :
+            print("marketDictPath doesnt exist")
+            return {}
     
-        tokenDictPath = basePath / self.chainName / "contract" / "token_list.json"
+        tokenDictPath = os.path.join(basePath , chainName , "contract" , "token_list.json")
         
         if Path(tokenDictPath).exists() :
             with open(tokenDictPath, "rt", encoding="utf-8") as f:
                 tokenDict = json.load(f)
         else :
             print("tokenDictPath doesnt exist")
-            
-        self._cache[self.exchangeName] = tokenDict
+            return {}
         
-        return self._cache[self.exchangeName]
+        market = marketDict[exchangeName]
+
+        tokenAvailable = market["symbols"]
+        
+        exchangeToken = {}
+        
+        for token in tokenAvailable :
+            
+            if isinstance(tokenDict[token], dict) :
+                
+                exchangeToken[token] = tokenDict[token]
+            
+        return exchangeToken
