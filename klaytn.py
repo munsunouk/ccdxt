@@ -1,63 +1,28 @@
 # from src.base.chain import Chain
 import json
-from src.base.errors import ExchangeError
-from src.base.errors import AuthenticationError
-from src.base.errors import PermissionDenied
-from src.base.errors import AccountSuspended
-from src.base.errors import ArgumentsRequired
-from src.base.errors import BadRequest
-from src.base.errors import BadSymbol
-from src.base.errors import MarginModeAlreadySet
-from src.base.errors import BadResponse
-from src.base.errors import InsufficientFunds
-from src.base.errors import InvalidOrder
-from src.base.errors import OrderNotFound
-from src.base.errors import OrderImmediatelyFillable
-from src.base.errors import OrderNotFillable
-from src.base.errors import NotSupported
-from src.base.errors import DDoSProtection
-from src.base.errors import RateLimitExceeded
-from src.base.errors import ExchangeNotAvailable
-from src.base.errors import OnMaintenance
-from src.base.errors import InvalidNonce
-from src.base.errors import RequestTimeout
-from src.base.errors import ContractLogicError
 from src.base.exchange import Exchange
-from src.base.big_number import BigNumber
-from src.base.abi import ABI
-import collections
-import requests
-import base64
 from web3 import Web3
 import datetime
 
 class klayswap(Exchange):
-    
-    def __init__(self, config : dict) :
-        
-        #TODO private
-        # self.address = config["private"]["wallet"]["address"]
-        # self.privateKey = config["private"]["wallet"]["privateKey"]
-        self.network_path = config["public"]["chainInfo"]["mainnet"]["public_node"]
 
-        self.markets = config["public"]["marketList"]["KlaySwap"]
-        
-        self.tokenList = config["public"]["tokenList"]
-        self.pools = config["public"]["poolList"]
-        
-        self.chainAbi = config["public"]["chainAbi"]
-        self.factoryAbi = config["public"]["factoryAbi"]
-        self.routerAbi = config["public"]["routerAbi"]
-        
-        self.set_network(self.network_path)
-        
-        self.load_markets(self.markets)
-        
-        self.symbols = list(self.tokenList.keys())
+    def __init__(self):
 
-    def set_network(self,network_path) :
+        super().__init__()
+
+        #market info
+        self.id = 1
+        self.chainName = "klaytn"
+        self.exchangeName = "klayswap"
         
-        self.w3 = Web3(Web3.HTTPProvider(network_path))
+        self.load_exchange(self.chainName, self.exchangeName)
+
+        # self.symbols = list(self.tokenList.keys())
+        
+
+        self.symbols = list(self.tokens.keys())
+        
+        print(self.symbols)
         
     def fetch_tokens(self):
 
@@ -73,7 +38,6 @@ class klayswap(Exchange):
             result.append(balance)
             
         return  result
-    
     
     def create_swap(self, amountA, tokenA, amountBMin, tokenB, market) :
         
@@ -187,58 +151,10 @@ class klayswap(Exchange):
 
 if __name__ == "__main__" :
     
-    tokenListPath = "src/resources/chain/klaytn/contract/token_list.json"
-    poolListPath = "src/resources/chain/klaytn/contract/pool_list.json"
-    marketListPath = "src/resources/chain/klaytn/contract/market_list.json"
-    chainInfoPath = "src/resources/chain/klaytn/contract/chain_info.json"
-    
-    privatePath = "src/resources/chain/klaytn/contract/private.json"
-
-    with open(tokenListPath, "rb") as file_in:
-        tokenListPath = json.load(file_in)
-        
-    with open(poolListPath, "rb") as file_in:
-        poolListPath = json.load(file_in)
-
-    with open(marketListPath, "rb") as file_in:
-        marketListPath = json.load(file_in)
-        
-    with open(chainInfoPath, "rb") as file_in:
-        chainInfoPath = json.load(file_in)
-
-    chainAbi = chainInfoPath["chainAbi"]
-    factoryAbi = chainInfoPath["factoryAbi"]
-    routerAbi = chainInfoPath["routerAbi"]
-
-    with open(chainAbi, 'r') as f:
-        chainAbi = json.load(f)
-    with open(factoryAbi, 'r') as f:
-        factoryAbi = json.load(f)
-    with open(routerAbi, 'r') as f:
-        routerAbi = json.load(f)
-        
-    config = {
-
-        "public" : {
-
-            "tokenList" : tokenListPath,
-            "poolList" : poolListPath,
-            "marketList" : marketListPath,
-            "chainInfo" : chainInfoPath,
-            "chainAbi" : chainAbi,
-            "factoryAbi" : factoryAbi,
-            "routerAbi" : routerAbi
-        
-        }
-    }
-
-klaytn = klayswap(config)
+    klaytn = klayswap()
 
 # balance = klaytn.fetch_balance()
 
 # swap = klaytn.create_swap(1, 'MOOI' , 0.3, 'oUSDT', 'KlaySwap')
-
-abi = ABI()
-abi.get_abi_by_filename(fname = 'chain')
 
 # print(swap)

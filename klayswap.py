@@ -28,44 +28,23 @@ class klayswap(Exchange):
 
         super().__init__()
 
+        #market info
         self.id = 1
         self.chainName = "klaytn"
         self.exchangeName = "klayswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
 
-        self.symbols = list(self.tokenList.keys())
-
-        self.chainAbi = None
-        self.network_path = None
-
-        #market info
-        self.id = None
-        self.name = None
-        self.enableRateLimit = True
-        self.rateLimit = 2000  # milliseconds = seconds * 1000
-
-        # #TODO private
-        # self.address = config["private"]["wallet"]["address"]
-        # self.privateKey = config["private"]["wallet"]["privateKey"]
-        # self.network_path = config["public"]["chainInfo"]["private_node"]
-
-        # self.markets = config['public']['marketList']['KlaySwap']
-        # self.tokenList = config["public"]["tokenList"]
-        # self.pools = config["public"]["poolList"]
-
-        # self.symbols = list(self.tokenList.keys())  
-
-        # self.tokens = None
-        # self.pools = None
-        # self.symbols = None
+        # self.symbols = list(self.tokenList.keys())
         
-        # self.factoryAbi = None
-        # self.routerAbi = None
+
+        self.symbols = list(self.tokens.keys())
         
-        # #private info
-        # self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
-        # self.walletAddress = ''  # the wallet address "0x"-prefixed hexstring
+        print(self.symbols)
+    
+
+        
+        
 
 
 if __name__ == "__main__" :

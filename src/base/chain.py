@@ -15,7 +15,7 @@ class Chain(object):
         self.testnet = None
         self.privatenet = None
         
-    def set_chain(self, chainName : str = '') -> dict :
+    def set_chain(self, chainName : str = '') -> dict : 
 
         basePath = 'src/chain'
     

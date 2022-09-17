@@ -1,21 +1,4 @@
-from src.base.errors import ExchangeError
-from src.base.errors import NetworkError
-from src.base.errors import NotSupported
-from src.base.errors import AuthenticationError
-from src.base.errors import DDoSProtection
-from src.base.errors import RequestTimeout
-from src.base.errors import ExchangeNotAvailable
-from src.base.errors import InvalidAddress
-from src.base.errors import InvalidOrder
-from src.base.errors import ArgumentsRequired
-from src.base.errors import BadSymbol
-from src.base.errors import NullResponse
-from src.base.errors import RateLimitExceeded
 from src.base import Chain, Market, Pool, Token 
-from src.base import Abi
-from requests.utils import default_user_agent
-from eth_account import Account
-from eth_account.signers.local import LocalAccount
 from web3 import Web3
 from typing import Optional, Type, Union
 import json
@@ -122,7 +105,53 @@ class Exchange(object):
         tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
         
         return w3.eth.waitForTransactionReceipt(tx_hash)
+    
+    def load_exchange(self,chainName,exchangeName):
+        
+        self.load_chains(chainName)
+        self.load_markets(chainName, exchangeName)
+        self.load_pools(chainName, exchangeName)
+        self.load_tokens(chainName, exchangeName)
+        self.w3 = self.set_network(self.chains['mainnet'])
+    
+    def load_chains(self, chainName) :
+        
+        chains = self.set_chains(chainName)
 
+        self.chains = {}
+
+        if chains :
+           self.chains = self.deep_extend(self.safe_chain(),chains)
+           
+    def load_markets(self, chainName, exchangeName):
+        
+        markets = self.set_markets(chainName,exchangeName)
+
+        self.markets = {}
+
+        if markets :
+           self.markets = self.deep_extend(self.safe_market(),markets)
+           
+    def load_pools(self, chainName, exchangeName):
+        
+        pools = self.set_pools(chainName,exchangeName)
+
+        self.pools = {}
+
+        for pool in pools :
+
+            self.pools[pool] = self.deep_extend(self.safe_pool(), pools[pool])
+            
+    def load_tokens(self, chainName, exchangeName):
+        
+        tokens = self.set_tokens(chainName,exchangeName)
+
+        self.tokens = {}
+
+        for token in tokens :
+
+            self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
+    
     @staticmethod
     def deep_extend(*args):
         result = None
@@ -152,6 +181,33 @@ class Exchange(object):
     def safe_token():
         return json.dumps(Token().__dict__)
     
+    @staticmethod
+    def set_chains(chainName):
+        return Chain().set_chain(chainName)
+    
+    @staticmethod
+    def set_markets(chainName,exchangeName):
+        return Market().set_market(chainName,exchangeName)
+    
+    @staticmethod
+    def set_pools(chainName,exchangeName):
+        return Pool().set_pool(chainName,exchangeName)
+    
+    @staticmethod
+    def set_tokens(chainName,exchangeName):
+        return Token().set_token(chainName,exchangeName)
+    
+    @staticmethod
+    def set_network(network_path) :
+        return Web3(Web3.HTTPProvider(network_path))
+
+    @staticmethod
+    def set_contract(w3, address : str ,abi : dict) :
+        return w3.eth.contract(address, abi = abi)
+    
+    @staticmethod
+    def set_checksum(value) :
+        return Web3.toChecksumAddress(value)
     
     @staticmethod
     def from_value(value : float or int, exp : int=18) -> int :
@@ -161,81 +217,6 @@ class Exchange(object):
     def to_value(value : float or int, exp : int=18)-> Decimal :
         return Decimal(value) / Decimal(10 ** exp)
     
-    def set_chains(self,chainName):
-        return Chain().set_chain(chainName)
-    
-    def set_markets(self,chainName,exchangeName):
-        return Market().set_market(chainName,exchangeName)
-    
-    def set_pools(self,chainName,exchangeName):
-        return Pool().set_pool(chainName,exchangeName)
-    
-    def set_tokens(self,chainName,exchangeName):
-        return Token().set_token(chainName,exchangeName)
-    
-    def load_exchange(self,chainName,exchangeName):
-        
-        self.load_tokens(chainName, exchangeName)
-        self.load_pools(chainName, exchangeName)
-        self.load_markets(chainName, exchangeName)
-    
-    def load_network(self,network_path) :
-        
-        self.w3 = Web3(Web3.HTTPProvider(network_path))
-
+    @staticmethod
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
-    
-    def load_chains(self, chainName) :
-        
-        chains = self.set_chains(chainName)
-
-        self.chains = {}
-
-        if chains :
-           self.chains = self.deep_extend(self.safe_chain(),chains)
-    
-    def load_markets(self, chainName, exchangeName):
-        
-        markets = self.set_markets(chainName,exchangeName)
-
-        self.markets = {}
-
-        if markets :
-           self.markets = self.deep_extend(self.safe_market(),markets)
-        
-    def load_pools(self, chainName, exchangeName):
-        
-        pools = self.set_pools(chainName,exchangeName)
-
-        self.pools = {}
-
-        for pool in pools :
-
-            self.pools[pool] = self.deep_extend(self.safe_pool(), pools[pool])
-            
-    def load_tokens(self, chainName, exchangeName):
-        
-        tokens = self.set_tokens(chainName,exchangeName)
-
-        self.tokens = {}
-
-        for token in tokens :
-
-            self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
-           
-
-           
-           
-
-    def set_contract(self, w3, address : str ,abi : dict) :
-        
-        contract = self.w3.eth.contract(address, abi = abi)
-        
-        return contract
-    
-    def set_checksum(self,value) :
-        
-        result = Web3.toChecksumAddress(value)
-        
-        return result     
