@@ -1,0 +1,55 @@
+{
+    "klaytn"  :  {
+
+        "name" : "Klaytn",
+        "baeChain" : "klaytn",
+        "baseCurrency" : "KLAY",
+        "limit" : true,
+        "chainAbi" : "IKIP7.json",
+        "mainnet" : {
+
+            "chain_id" : 8217,
+            "name" : "Cypress",
+            "public_node" : "https://public-node-api.klaytnapi.com/v1/cypress",
+            "webscoket" : "wss://public-node-api.klaytnapi.com/v1/cypress/ws",
+            "block_scope" : "https://scope.klaytn.com/"
+
+        },
+        "testnet" : {
+
+            "chain_id" : 1001,
+            "name" : "Baobab",
+            "public_node" : "https://api.baobab.klaytn.net:8651/",
+            "webscoket" : false,
+            "block_scope" : "https://baobab.scope.klaytn.com/"
+        }
+    },
+
+    "polygon"  :  {
+
+        "id" : 2,
+        "name" : "Polygon",
+        "baeChain" : "polygon",
+        "baseCurrency" : "MATIC",
+        "limit" : true,
+        "chainAbi" : "IERC20.json",
+        "mainnet" : {
+
+            "chain_id" : 137,
+            "name" : "Polygon Mainnet",
+            "public_node" : "https://polygon-rpc.com",
+            "webscoket" : false,    
+            "block_scope" : "https://polygonscan.com/"
+
+        },
+        "testnet" : {
+
+            "chain_id" : 80001,
+            "name" : "Mumbai Testnet",
+            "public_node" : "https://rpc-mumbai.maticvigil.com/",
+            "webscoket" : false,
+            "block_scope" : "https://polygonscan.com/"
+        }   
+    }
+
+}

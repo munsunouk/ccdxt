@@ -1,8 +1,6 @@
 // This License is not an Open Source license. Copyright 2022. Ozys Co. Ltd. All rights reserved.
 pragma solidity 0.5.6;
 
-import "./MESHswapRouter.sol";
-
 library SafeMath {
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a + b;
@@ -245,6 +243,45 @@ interface IERC20 {
 interface IWETH {
     function deposit() external payable;
     function withdraw(uint) external;
+}
+
+contract Router {
+    address public owner;  
+    address public nextOwner;
+    address public factory;
+    address public WETH;
+
+    address payable public implementation;
+    bool public entered;
+    
+    constructor(address payable _implementation, address _factory, address _WETH) public {
+        owner = msg.sender;
+        implementation = _implementation;
+        factory = _factory;
+        WETH = _WETH;
+    }
+    s
+    function _setImplementation(address payable _newImp) public {
+        require(msg.sender == owner);
+        require(implementation != _newImp);
+        implementation = _newImp;
+    }
+
+    function () payable external {
+        address impl = implementation;
+        require(impl != address(0));
+        assembly {
+            let ptr := mload(0x40)
+            calldatacopy(ptr, 0, calldatasize)
+            let result := delegatecall(gas, impl, ptr, calldatasize, 0, 0)
+            let size := returndatasize
+            returndatacopy(ptr, 0, size)
+
+            switch result
+            case 0 { revert(ptr, size) }
+            default { return(ptr, size) }
+        }
+    }
 }
 
 contract RouterImpl is Router {

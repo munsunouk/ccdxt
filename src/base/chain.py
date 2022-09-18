@@ -8,6 +8,7 @@ class Chain(object):
 
         self.id = None
         self.name = None
+        self.baeChain = None
         self.baseCurrency = None
         self.limit = None
         self.chainAbi = None
@@ -17,22 +18,24 @@ class Chain(object):
         
     def set_chain(self, chainName : str = '') -> dict : 
 
-        basePath = 'src/chain'
+        basePath = 'src'
     
-        chainDictPath = os.path.join(basePath , chainName , "contract" , "chain_info.json")
+        chainDictPath = os.path.join(basePath , "list", "chain_list.json")
         
         if Path(chainDictPath).exists() :
             with open(chainDictPath, "rt", encoding="utf-8") as f:
-                chain = json.load(f)
+                chainDict = json.load(f)
         else :
             print("chainDictPath doesnt exist")
             return {}
+        
+        chain = chainDict[chainName]
         
         for key in chain :
             
             if isinstance(chain[key], str):
             
-                key_path = os.path.join(basePath , chainName , "contract" , "abi", chain[key])
+                key_path = os.path.join(basePath, "contract", "abi", chain[key])
                 
                 if Path(key_path).exists() :
                     with open(key_path, "rt", encoding="utf-8") as f:

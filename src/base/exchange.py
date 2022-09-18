@@ -5,6 +5,7 @@ import json
 from eth_typing import HexAddress
 from web3.contract import Contract
 from decimal import Decimal
+from src.base.errors import NotSupported
 
 class Exchange(object):
     """Base exchange class"""
@@ -39,9 +40,12 @@ class Exchange(object):
         self.factoryAbi = None
         self.routerAbi = None
         
+        self.unlimit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+        self.baseCurrncy  = '0x0000000000000000000000000000000000000000'
+        
         #private info
         self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
-        self.walletAddress = ''  # the wallet address "0x"-prefixed hexstring
+        self.account = ''  # the wallet address "0x"-prefixed hexstring
 
     def fetch_tokens(self) :
         raise NotSupported('fetch_tokens() is not supported yet')
@@ -52,7 +56,7 @@ class Exchange(object):
     def create_swap(self,amountA, tokenA, amountBMin, tokenB) :
         raise NotSupported('create_swap() is not supported yet')
     
-    def functiontransaction(self, w3, privateKey, tx):
+    def fetch_transaction(self, tx):
         
         '''
         Takes built transcations and transmits it to ethereum
@@ -100,11 +104,11 @@ class Exchange(object):
                 }
             )
         '''
-        signed_tx =w3.eth.account.signTransaction(tx, privateKey)
+        signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
         
-        tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+        tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
         
-        return w3.eth.waitForTransactionReceipt(tx_hash)
+        return self.w3.eth.waitForTransactionReceipt(tx_hash)
     
     def load_exchange(self,chainName,exchangeName):
         
@@ -112,7 +116,7 @@ class Exchange(object):
         self.load_markets(chainName, exchangeName)
         self.load_pools(chainName, exchangeName)
         self.load_tokens(chainName, exchangeName)
-        self.w3 = self.set_network(self.chains['mainnet'])
+        self.w3 = self.set_network(self.chains['mainnet']['public_node'])
     
     def load_chains(self, chainName) :
         
@@ -203,6 +207,10 @@ class Exchange(object):
 
     @staticmethod
     def set_contract(w3, address : str ,abi : dict) :
+        '''
+        Returns a contract object.
+        '''
+        
         return w3.eth.contract(address, abi = abi)
     
     @staticmethod

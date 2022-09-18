@@ -15,9 +15,9 @@ class Pool(object) :
         
     def set_pool(self, chainName : str = '', exchangeName : str = '') -> dict :
 
-        basePath = 'src/chain'
-        
-        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
+        basePath = 'src'
+    
+        marketDictPath = os.path.join(basePath, "list", "market_list.json")
         
         if Path(marketDictPath).exists() :
             with open(marketDictPath, "rt", encoding="utf-8") as f:
@@ -26,7 +26,7 @@ class Pool(object) :
             print("marketDictPath doesnt exist")
             return {}
     
-        poolDictPath = os.path.join(basePath , chainName , "contract" , "pool_list.json")
+        poolDictPath = os.path.join(basePath, "list", "pool_list.json")
         
         if Path(poolDictPath).exists() :
             with open(poolDictPath, "rt", encoding="utf-8") as f:

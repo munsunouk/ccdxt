@@ -14,5 +14,13 @@
         "contract" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
         "decimal" : 6,
         "info" : "https://bridge.orbitchain.io/"
+    },
+    "oETH" : {
+        "id" : 3,
+        "name" : "Orbit Bridge Klaytn Ethereum",
+        "symbol" : "oETH",
+        "contract" : "0x34d21b1e550d73cee41151c77f3c73359527a396",
+        "decimal" : 18,
+        "info" : false
     }
 }

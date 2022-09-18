@@ -8,6 +8,7 @@ class Market(object):
         self.id = None
         self.name = None
         self.symbol = None
+        self.baeChain = None
         self.baseCurrency = None
         self.fee = None
         self.factoryAbi = None
@@ -20,9 +21,9 @@ class Market(object):
         
     def set_market(self, chainName : str = '', exchangeName : str = '') -> dict :
 
-        basePath = 'src/chain'
+        basePath = 'src'
     
-        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
+        marketDictPath = os.path.join(basePath , "list", "market_list.json")
         
         if Path(marketDictPath).exists() :
             with open(marketDictPath, "rt", encoding="utf-8") as f:
@@ -37,7 +38,7 @@ class Market(object):
             
             if isinstance(market[key], str):
             
-                key_path = os.path.join(basePath , chainName , "contract" , "abi", market[key])
+                key_path = os.path.join(basePath , "contract", "abi", market[key])
                 
                 if Path(key_path).exists() :
                     with open(key_path, "rt", encoding="utf-8") as f:

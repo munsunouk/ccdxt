@@ -44,9 +44,9 @@ class Token(object) :
         }
         '''
         
-        basePath = 'src/chain'
-        
-        marketDictPath = os.path.join(basePath , chainName , "contract" , "market_list.json")
+        basePath = 'src'
+    
+        marketDictPath = os.path.join(basePath , "list", "market_list.json")
         
         if Path(marketDictPath).exists() :
             with open(marketDictPath, "rt", encoding="utf-8") as f:
@@ -55,7 +55,7 @@ class Token(object) :
             print("marketDictPath doesnt exist")
             return {}
     
-        tokenDictPath = os.path.join(basePath , chainName , "contract" , "token_list.json")
+        tokenDictPath = os.path.join(basePath, "list", "token_list.json")
         
         if Path(tokenDictPath).exists() :
             with open(tokenDictPath, "rt", encoding="utf-8") as f:

@@ -7,7 +7,7 @@
         "decimal" : 6,
         "tokenA" : "oUSDT",
         "tokenB" : "MOOI",
-        "exchange" : "KlaySwap"
+        "exchange" : "klayswap"
     },
     "KSP-MOOI" : {
         "id" : 2,
@@ -17,7 +17,7 @@
         "decimal" : 18,
         "tokenA" : "KSP",
         "tokenB" : "MOOI",
-        "exchange" : "KlaySwap"
+        "exchange" : "klayswap"
     },
     "KLAY-MOOI" : {   
         "id" : 3,
@@ -27,6 +27,17 @@
         "decimal" : 18,
         "tokenA" : "KLAY",
         "tokenB" : "MOOI",
-        "exchange" : "KlaySwap"
+        "exchange" : "klayswap"
+    },
+    "oETH-oUSDT" : {
+        "id" : 4,
+        "name" : "KlaySwap LP oETH-oUSDT",
+        "symbol" : "KSLP",
+        "contract" : "0x029e2a1b2bb91b66bd25027e1c211e5628dbcb93",
+        "decimal" : 18,
+        "tokenA" : "oETH",
+        "tokenB" : "oUSDT",
+        "exchange" : "klayswap"
+
     }
 }
