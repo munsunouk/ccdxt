@@ -15,6 +15,19 @@ class Klexfinance(Exchange):
         
         self.load_exchange(self.chainName, self.exchangeName)
     
+    def fetch_balance(self) :
+        
+        result = []
+        
+        symbols = list(self.tokens.keys())
+        
+        for symbol in symbols :
+            
+            balance = self.partial_balance(symbol)
+            result.append(balance)
+            
+        return  result
+    
     def create_swap(self, amountA, tokenA, amountBMin, tokenB) :
         
         tokenA = self.tokens[tokenA]
@@ -37,7 +50,7 @@ class Klexfinance(Exchange):
         swap_struct, fund_struct = self.set_swap(amountA, tokenA, amountBMin, tokenB)
         
         tx = routerContract.functions.swap(swap_struct,fund_struct, \
-                                                             self.unlimit,deadline).buildTransaction(                                          
+                                           self.unlimit,deadline).buildTransaction(                                          
             {
                 "from" : self.account,
                 'gas' : 4000000,
@@ -71,8 +84,8 @@ class Klexfinance(Exchange):
         swap_struct = (
             self.set_checksum(pool['contract']),
             swap_kind,
-            self.set_checksum(tokenA['contract']),
-            self.set_checksum(tokenB['contract']),
+            tokenA['contract'].lower(),
+            tokenB['contract'].lower(),
             amountA,
             amountBMin, 
             user_data_encoded,

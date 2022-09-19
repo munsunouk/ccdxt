@@ -8,10 +8,10 @@ class Pool(object) :
 
         self.id = None
         self.name = None
-        self.symbol = None
         self.contract = None
         self.decimal = None
-        self.exchange = None
+        self.tokenA = None
+        self.tokenB = None
         
     def set_pool(self, chainName : str = '', exchangeName : str = '') -> dict :
 
@@ -46,5 +46,6 @@ class Pool(object) :
             if isinstance(poolDict[pool], dict) :
                 
                 exchangePool[pool] = poolDict[pool]
+                exchangePool[pool]["contract"] = exchangePool[pool]["contract"][exchangeName]
             
         return exchangePool

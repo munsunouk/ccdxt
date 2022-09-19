@@ -155,6 +155,17 @@ class Exchange(object):
         contract = self.w3.eth.contract(self.set_checksum(pair), self.chains['chainAbi'])
         return contract.functions.sync().call()
     
+    def decode(self,tx_hash) :
+        
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        
+        transaction = self.w3.eth.getTransaction(tx_hash)
+        
+        result = routerContract.decode_function_input(transaction.input)
+        
+        return result
+    
     def allowance(self, tokenSymbol):
         
         token = self.tokens[tokenSymbol]

@@ -6,8 +6,11 @@ if __name__ == "__main__" :
     klayswap.account = ''
     klayswap.privateKey = ''
     
-    #Token
-    print(klayswap.fetch_balance())
+    #decode
+    print(klayswap.decode('0xb18a25ee9fca4ae27b80d50b9d1f74f19775bd25c1425bc5483fc0a35033c889'))
     
-    # Swap
-    print(klayswap.create_swap(0.1, 'oUSDT' , 0.0000000000001, 'oETH'))
+    # #Token
+    # print(klayswap.fetch_balance())
+    
+    # # Swap
+    # print(klayswap.create_swap(0.1, 'oUSDT' , 0.0000000000001, 'oETH'))

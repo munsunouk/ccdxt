@@ -1,43 +1,44 @@
 {
     "oUSDT-MOOI" : {
         "id" : 1,
-        "name" : "KlaySwap LP oUSDT-MOOI",
-        "symbol" : "KSLP",
-        "contract" : "0x71f3a62c52f5ce71331b3af00bd63d617264b040",
+        "name" : "oUSDT-MOOI",
+        "contract" : {
+            "klayswap" : "0x71f3a62c52f5ce71331b3af00bd63d617264b040"
+        },
         "decimal" : 6,
         "tokenA" : "oUSDT",
-        "tokenB" : "MOOI",
-        "exchange" : "klayswap"
+        "tokenB" : "MOOI"
     },
     "KSP-MOOI" : {
         "id" : 2,
-        "name" : "KlaySwap LP KSP-MOOI",
-        "symbol" : "KSLP",
-        "contract" : "0xcf302e2fe70318ef98d0d3d58baf36eb7e6d0ea5",
+        "name" : "KSP-MOOI",
+        "contract" : {
+            "klayswap" : "0xcf302e2fe70318ef98d0d3d58baf36eb7e6d0ea5"
+        },
         "decimal" : 18,
         "tokenA" : "KSP",
-        "tokenB" : "MOOI",
-        "exchange" : "klayswap"
+        "tokenB" : "MOOI"
     },
     "KLAY-MOOI" : {   
         "id" : 3,
-        "name" : "KlaySwap LP KLAY-MOOI",
-        "symbol" : "KSLP",
-        "contract" : "0x0bedd35a5c6f957cb5409f277631a508bf5452e1",
+        "name" : "KLAY-MOOI",
+        "contract" : {
+            "klayswap" : "0x0bedd35a5c6f957cb5409f277631a508bf5452e1"
+        },
         "decimal" : 18,
         "tokenA" : "KLAY",
-        "tokenB" : "MOOI",
-        "exchange" : "klayswap"
+        "tokenB" : "MOOI"
     },
     "oETH-oUSDT" : {
         "id" : 4,
-        "name" : "KlaySwap LP oETH-oUSDT",
-        "symbol" : "KSLP",
-        "contract" : "0x029e2a1b2bb91b66bd25027e1c211e5628dbcb93",
+        "name" : "oETH-oUSDT",
+        "contract" : {
+           "klayswap" : "0x029e2a1b2bb91b66bd25027e1c211e5628dbcb93",
+           "pangeaswap" : "0x8De9Ecc56A69356c256A9534D3A6b0Dd5BD7352C"
+        },
         "decimal" : 18,
         "tokenA" : "oETH",
-        "tokenB" : "oUSDT",
-        "exchange" : "klayswap"
+        "tokenB" : "oUSDT"
 
     }
     

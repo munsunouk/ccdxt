@@ -76,8 +76,33 @@
         ]
     },
 
+    "pangeaswap" : {
+        "id": 4,
+        "name" : "Pangea swap",
+        "symbol": false,
+        "baseChain" : "klaytn",
+        "baseCurrency" : "klay",
+        "fee" : 0.2,
+        "factoryAbi" : "IPangeaFactory.json",
+        "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
+        "routerAbi" : "IPangeaRouter.json",
+        "routerAddress" : "0x42271971dbF42fbfEaF7F428604a86760300cB5B",
+        "info" : "https://app.pangeaswap.com/swap",
+        "symbols" : [
+
+            "oETH",
+            "oUSDT"
+            
+        ],
+        "pools" : [
+
+            "oETH-oUSDT"
+
+        ]
+    },
+
     "meshswap" : {
-        "id": 3,
+        "id": 5,
         "name" : "Meshswap",
         "symbol": "MESH",
         "baseChain" : "polygon",
