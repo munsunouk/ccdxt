@@ -1,7 +1,7 @@
 from src.base.exchange import Exchange
 import datetime
 
-class Meshswap(Exchange):
+class Palaswap(Exchange):
 
     def __init__(self):
 
@@ -9,8 +9,8 @@ class Meshswap(Exchange):
 
         #market info
         self.id = 1
-        self.chainName = "polygon"
-        self.exchangeName = "meshswap"
+        self.chainName = "klaytn"
+        self.exchangeName = "palaswap"
         self.address = None
         
         self.load_exchange(self.chainName, self.exchangeName)
@@ -34,8 +34,7 @@ class Meshswap(Exchange):
         
         routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
-        tx = routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,
-                                                               [tokenA,tokenB],self.account,deadline).buildTransaction(
+        tx = routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
@@ -57,4 +56,3 @@ class Meshswap(Exchange):
         }
            
         return tx_arrange
-    

@@ -67,6 +67,7 @@ class Token(object) :
         market = marketDict[exchangeName]
 
         tokenAvailable = market["symbols"]
+
         
         exchangeToken = {}
         
@@ -75,5 +76,6 @@ class Token(object) :
             if isinstance(tokenDict[token], dict) :
                 
                 exchangeToken[token] = tokenDict[token]
-            
+                exchangeToken[token]["contract"] = exchangeToken[token]["contract"][chainName]
+
         return exchangeToken

@@ -3,7 +3,9 @@
         "id" : 1,
         "name" : "MOOI",
         "symbol" : "MOOI",
-        "contract" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
+        "contract" : {
+            "klaytn" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d"
+        },
         "decimal" : 18,
         "info" : false
     },
@@ -11,7 +13,10 @@
         "id" : 2,
         "name" : "Orbit Bridge Klaytn USD Tether",
         "symbol" : "oUSDT",
-        "contract" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
+        "contract" : {
+            "klaytn" : "0x34d21b1e550D73cee41151c77F3c73359527a396",
+            "polygon" : "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F"
+        },
         "decimal" : 6,
         "info" : "https://bridge.orbitchain.io/"
     },
@@ -19,7 +24,10 @@
         "id" : 3,
         "name" : "Orbit Bridge Klaytn Ethereum",
         "symbol" : "oETH",
-        "contract" : "0x34d21b1e550d73cee41151c77f3c73359527a396",
+        "contract" : {
+            "klaytn" : "0x34d21b1e550d73cee41151c77f3c73359527a396",
+            "polygon" : "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624"
+        },
         "decimal" : 18,
         "info" : false
     }

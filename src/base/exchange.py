@@ -1,5 +1,6 @@
 from src.base import Chain, Market, Pool, Token 
 from web3 import Web3
+from web3.exceptions import ABIFunctionNotFound, TransactionNotFound, BadFunctionCallOutput
 from typing import Optional, Type, Union
 import json
 from eth_typing import HexAddress
@@ -46,15 +47,225 @@ class Exchange(object):
         #private info
         self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
         self.account = ''  # the wallet address "0x"-prefixed hexstring
+        
+    def block_number(self):
+        return self.w3.eth.block_number
+    
+    def get_contract(self, address : str ,abi : dict) :
+        '''
+        Returns a contract object.
+        '''
+        return self.w3.eth.contract(address, abi = abi)
+    
+    def decimals(self, tokenSymbol):
+        
+        token = self.tokens[tokenSymbol]
+        tokenAddress = self.set_checksum(token["contract"])
+        
+        if tokenAddress in self.__decimals:
+            return self.__decimals[tokenAddress]
 
-    def fetch_tokens(self) :
-        raise NotSupported('fetch_tokens() is not supported yet')
+        try:
+            tokenContract = self.get_contract(tokenAddress, self.chains['chainAbi'])
+            decimals = tokenContract.functions.decimals().call()
+            self.__decimals[tokenAddress] = decimals
+            return decimals
+        except ABIFunctionNotFound:
+            return 18
+        
+    def __exist(self, tokenAsymbol, tokenBsymbol):
+
+        pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
+        return int(pair_address, 16) != 0
+    
+    def getPair(self, tokenAsymbol, tokenBsymbol):
+
+        if (tokenAsymbol + tokenBsymbol) in self.__pairs:
+            return self.__pairs[tokenAsymbol + tokenBsymbol]
+        
+        tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
+        
+        tokenAaddress = self.set_checksum(tokenA["contract"])
+        tokenBaddress = self.set_checksum(tokenB["contract"])
+        
+        try:
+            factoryContract = self.get_contract(tokenAaddress, self.markets['factoryAbi'])
+
+            pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+            self.__pairs[tokenAaddress + tokenBaddress] = pair
+        except ABIFunctionNotFound:
+            return pair
+    
+    def __reserves(self, tokenAsymbol, tokenBsymbol):
+        
+        tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
+        
+        tokenAaddress = self.set_checksum(tokenA["contract"])
+        tokenBaddress = self.set_checksum(tokenB["contract"])
+
+        pair_address = self.getPair(tokenBaddress, tokenAaddress)
+        if pair_address in self.__pairs_reserves:
+            return self.__pairs_reserves[pair_address]
+        
+        try:
+        
+            liqudityContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+            reserves = liqudityContract.functions.getReserves().call()
+            if self.reversed(tokenAaddress, tokenBaddress):
+                reserves[0] = reserves[0] / self.decimals(tokenBsymbol)
+                reserves[1] = reserves[1] / self.decimals(tokenAsymbol)
+            else:
+                reserves[0] = reserves[0] / self.decimals(tokenAsymbol)
+                reserves[1] = reserves[1] / self.decimals(tokenBsymbol)
+            self.__pairs_reserves[pair_address] = reserves
+            
+            return reserves
+        
+        except ABIFunctionNotFound:
+            raise NotSupported('fetch_tokens() is not supported yet')
+        
+    def reserves(self, input = None, output = None, intermediate = None, refresh = False):
+        if intermediate is None:
+            return self.__reserves(input, output, refresh)
+        begin = self.__reserves(intermediate, input, refresh)
+        end = self.__reserves(intermediate, output, refresh)
+        if self.reversed(intermediate, input):
+            begin = [ begin[1], begin[0] ]
+        if self.reversed(intermediate, output):
+            end = [ end[1], end[0] ]
+        res = [ end[0] * begin[1], end[1] * begin[0]]
+        if self.reversed(input, output):
+            res = [ res[1], res[0] ]
+        return res
+    
+    def reserve_ratio(self, input = None, output = None, intermediate = None, refresh = False):
+        reserves = self.reserves(input, output, intermediate, refresh)
+        if self.reversed(input, output):
+            return reserves[0] / reserves[1]
+        else:
+            return reserves[1] / reserves[0]
+        
+    def getAmountsOut(self, amount, path):
+        return self.router_contract.functions.getAmountsOut(int(amount), path).call()[-1]
+    
+    def sync(self, tokenAsymbol, tokenBsymbol):
+        pair = self.getPair(tokenAsymbol, tokenBsymbol)
+        contract = self.w3.eth.contract(self.set_checksum(pair), self.chains['chainAbi'])
+        return contract.functions.sync().call()
+    
+    def allowance(self, tokenSymbol):
+        
+        token = self.tokens[tokenSymbol]
+        tokenAddress = self.set_checksum(token["contract"])
+        account = self.set_checksum(self.account)
+        routerAddress = self.set_checksum(self.markets['routerAbi'])
+        
+        contract = self.client.eth.contract(tokenAddress, self.chains['chainAbi'])
+        return contract.functions.allowance(account, routerAddress).call()
+        
+    def fees(self, input = None, output = None, intermediate = None, amount = 1):
+        ratio = self.reserve_ratio(input, output, intermediate)
+        amount = amount * self.decimals(input)
+        price = self.price(amount, input, output, intermediate)
+        price = price / self.decimals(output)
+        return 1 - price / ratio
+    
+    def estimate_gas(self):
+           return self.w3.eth.gasPrice / 1000000000
+        
+    def partial_balance(self, tokenSymbol : str) :
+        
+        token = self.tokens[tokenSymbol]
+        
+        tokenAaddress = self.set_checksum(token["contract"])
+        accountAddress = self.set_checksum(self.account)
+        
+        tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+        
+        balance = tokenContract.functions.balanceOf(accountAddress).call()
+        
+        balance = self.to_value(balance, token["decimal"])
+        
+        result = {
+            
+            "symbol" : token["symbol"],
+            "address" : accountAddress,
+            "balance" : balance
+            
+        }
+        
+        return result
+        
+    def get_TransactionCount(self,address : str) :
+        
+        nonce = self.w3.eth.getTransactionCount(address)
+        
+        return nonce
+
+    def fetch_tokens(self):
+
+        return self.tokens
 
     def fetch_balance(self) :
-        raise NotSupported('fetch_balance() is not supported yet')
+        
+        result = []
+        
+        symbols = list(self.tokens.keys())
+        
+        for symbol in symbols :
+            
+            balance = self.partial_balance(symbol)
+            result.append(balance)
+            
+        return  result
     
     def create_swap(self,amountA, tokenA, amountBMin, tokenB) :
         raise NotSupported('create_swap() is not supported yet')
+    
+    def check_approve(self, amountA : int, token : str, account : str, router : str)  :
+        
+        '''
+        Check token approved and transact approve if is not
+        
+        Parameters
+        ----------
+        token : token address
+        routerAddress: LP pool owner who allow
+        '''
+        
+        if (token == self.baseCurrncy) :
+            return
+        
+        contract = self.get_contract(token, self.chains['chainAbi'])
+        
+        approvedTokens = contract.functions.allowance(account,router).call()
+        
+        if approvedTokens < amountA :
+           
+           tx = self.get_approve(token, router)
+           
+           tx_receipt = self.fetch_transaction(tx)
+
+           return tx_receipt
+           
+        else : return
+        
+    def get_approve(self,token : str, router : str) :
+        
+        contract = self.get_contract(token, self.chains['chainAbi'])
+        
+        nonce = self.get_TransactionCount(self.account)
+        
+        tx = contract.functions.approve(router, self.unlimit).buildTransaction(
+            {
+                "from" : self.account,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
     
     def fetch_transaction(self, tx):
         
@@ -204,14 +415,6 @@ class Exchange(object):
     @staticmethod
     def set_network(network_path) :
         return Web3(Web3.HTTPProvider(network_path))
-
-    @staticmethod
-    def set_contract(w3, address : str ,abi : dict) :
-        '''
-        Returns a contract object.
-        '''
-        
-        return w3.eth.contract(address, abi = abi)
     
     @staticmethod
     def set_checksum(value) :
@@ -228,3 +431,4 @@ class Exchange(object):
     @staticmethod
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
+    

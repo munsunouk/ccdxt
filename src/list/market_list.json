@@ -3,7 +3,7 @@
         "id": 1,
         "name" : "KlaySwap",
         "symbol": "KSP",
-        "baeChain" : "klaytn",
+        "baseChain" : "klaytn",
         "baseCurrency" : "klay",
         "fee" : 0.3,
         "factoryAbi" : "IKlayswapFactory.json",
@@ -30,14 +30,64 @@
         "id": 2,
         "name" : "KLEX Finance",
         "symbol": "KLEX",
-        "baeChain" : "klaytn",
+        "baseChain" : "klaytn",
         "baseCurrency" : "klay",
-        "fee" : 0.3,
+        "fee" : 0.1,
         "factoryAbi" : "IKlexFinance.json",
         "factoryAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
         "routerAbi" : "IKlexFinance.json",
         "routerAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
-        "info" : "hhttps://www.klex.finance/",
+        "info" : "https://www.klex.finance/",
+        "symbols" : [
+
+            "oETH",
+            "oUSDT"
+            
+        ],
+        "pools" : [
+
+            "oETH-oUSDT"
+
+        ]
+    },
+
+    "palaswap" : {
+        "id": 3,
+        "name" : "Palaswap",
+        "symbol": "PALA",
+        "baseChain" : "klaytn",
+        "baseCurrency" : "klay",
+        "fee" : 0.2,
+        "factoryAbi" : "IUniswapFactory.json",
+        "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
+        "routerAbi" : "IUniswapRouter.json",
+        "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
+        "info" : "https://meshswap.fi/exchange/swap",
+        "symbols" : [
+
+            "oETH",
+            "oUSDT"
+            
+        ],
+        "pools" : [
+
+            "oETH-oUSDT"
+
+        ]
+    },
+
+    "meshswap" : {
+        "id": 3,
+        "name" : "Meshswap",
+        "symbol": "MESH",
+        "baseChain" : "polygon",
+        "baseCurrency" : "matic",
+        "fee" : 0.2,
+        "factoryAbi" : "IUniswapFactory.json",
+        "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
+        "routerAbi" : "IUniswapRouter.json",
+        "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
+        "info" : "https://meshswap.fi/exchange/swap",
         "symbols" : [
 
             "oETH",
