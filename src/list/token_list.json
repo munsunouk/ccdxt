@@ -14,7 +14,7 @@
         "name" : "Orbit Bridge Klaytn USD Tether",
         "symbol" : "oUSDT",
         "contract" : {
-            "klaytn" : "0x34d21b1e550D73cee41151c77F3c73359527a396",
+            "klaytn" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
             "polygon" : "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F"
         },
         "decimal" : 6,

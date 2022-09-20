@@ -100,6 +100,30 @@
 
         ]
     },
+    "neuronswap" : {
+        "id": 4,
+        "name" : "Neuron swap",
+        "symbol": "NR",    
+        "baseChain" : "klaytn",
+        "baseCurrency" : "klay",
+        "fee" : 0.3,
+        "factoryAbi" : "IUniswapFactory.json",
+        "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
+        "routerAbi" : "IUniswapRouter.json",
+        "routerAddress" : "0xfc5f327cf3599c21f3605116abceab74950ecbe5",
+        "info" : "https://www.neuronswap.com/swap",
+        "symbols" : [
+
+            "oETH",
+            "oUSDT"
+            
+        ],
+        "pools" : [
+
+            "oETH-oUSDT"
+
+        ]
+    },
 
     "meshswap" : {
         "id": 5,

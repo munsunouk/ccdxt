@@ -1,4 +1,4 @@
-from src.base import Chain, Market, Pool, Token 
+from src.base import Chain, Market, Token 
 from web3 import Web3
 from web3.exceptions import ABIFunctionNotFound, TransactionNotFound, BadFunctionCallOutput
 from typing import Optional, Type, Union
@@ -35,7 +35,6 @@ class Exchange(object):
         self.markets = None
         self.tokenList = None
         self.tokens = None
-        self.pools = None
         self.symbols = None
         
         self.factoryAbi = None
@@ -202,7 +201,6 @@ class Exchange(object):
         result = {
             
             "symbol" : token["symbol"],
-            "address" : accountAddress,
             "balance" : balance
             
         }
@@ -336,7 +334,6 @@ class Exchange(object):
         
         self.load_chains(chainName)
         self.load_markets(chainName, exchangeName)
-        self.load_pools(chainName, exchangeName)
         self.load_tokens(chainName, exchangeName)
         self.w3 = self.set_network(self.chains['mainnet']['public_node'])
     
@@ -357,16 +354,6 @@ class Exchange(object):
 
         if markets :
            self.markets = self.deep_extend(self.safe_market(),markets)
-           
-    def load_pools(self, chainName, exchangeName):
-        
-        pools = self.set_pools(chainName,exchangeName)
-
-        self.pools = {}
-
-        for pool in pools :
-
-            self.pools[pool] = self.deep_extend(self.safe_pool(), pools[pool])
             
     def load_tokens(self, chainName, exchangeName):
         
@@ -400,10 +387,6 @@ class Exchange(object):
         return json.dumps(Market().__dict__)
     
     @staticmethod
-    def safe_pool():
-        return json.dumps(Pool().__dict__)
-    
-    @staticmethod
     def safe_token():
         return json.dumps(Token().__dict__)
     
@@ -414,10 +397,6 @@ class Exchange(object):
     @staticmethod
     def set_markets(chainName,exchangeName):
         return Market().set_market(chainName,exchangeName)
-    
-    @staticmethod
-    def set_pools(chainName,exchangeName):
-        return Pool().set_pool(chainName,exchangeName)
     
     @staticmethod
     def set_tokens(chainName,exchangeName):
@@ -437,7 +416,7 @@ class Exchange(object):
 
     @staticmethod
     def to_value(value : float or int, exp : int=18)-> Decimal :
-        return Decimal(value) / Decimal(10 ** exp)
+        return round(float(Decimal(value) / Decimal(10 ** exp)),6)
     
     @staticmethod
     def to_array(value):

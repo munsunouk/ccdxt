@@ -8,10 +8,9 @@ class Palaswap(Exchange):
         super().__init__()
 
         #market info
-        self.id = 1
+        self.id = 3
         self.chainName = "klaytn"
         self.exchangeName = "palaswap"
-        self.address = None
         
         self.load_exchange(self.chainName, self.exchangeName)
     

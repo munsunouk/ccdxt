@@ -9,7 +9,7 @@ class Klexfinance(Exchange):
         super().__init__()
 
         #market info
-        self.id = 1
+        self.id = 2
         self.chainName = "klaytn"
         self.exchangeName = "klexfinance"
         

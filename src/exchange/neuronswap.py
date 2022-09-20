@@ -1,16 +1,16 @@
 from src.base.exchange import Exchange
 import datetime
 
-class Pangeaswap(Exchange):
+class Neuronswap(Exchange):
 
     def __init__(self):
 
         super().__init__()
 
         #market info
-        self.id = 4
+        self.id = 5
         self.chainName = "klaytn"
-        self.exchangeName = "pangeaswap"
+        self.exchangeName = "neuronswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
     
@@ -21,33 +21,20 @@ class Pangeaswap(Exchange):
         amountA = self.from_value(value = amountA, exp = tokenA["decimal"])
         amountBMin = self.from_value(value = amountBMin, exp = tokenB["decimal"])
         nonce = self.w3.eth.getTransactionCount(self.account)
-        
-        for pool in self.pools :
-            
-            if (self.pools[pool]["tokenA"] == tokenAsymbol) or (self.pools[pool]["tokenB"] == tokenAsymbol) \
-                and (self.pools[pool]["tokenA"] == tokenBsymbol) or (self.pools[pool]["tokenB"] == tokenBsymbol) :
-                    
-                    pool = self.pools[pool]
+        deadline = int(datetime.datetime.now().timestamp() + 1800)
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
+        tokenBaddress = self.set_checksum(tokenB['contract'])
         accountAddress = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets["routerAddress"])
-        poolAddress = self.set_checksum(pool["contract"])
         
         self.check_approve(amountA = amountA, token = tokenAaddress, \
                            account = accountAddress, router = routerAddress)
         
         routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
-        tx = routerContract.functions.exactInputSingle(
-            (
-                tokenAaddress,
-                amountA,
-                amountBMin,
-                poolAddress,
-                self.account,
-                False,
-            )).buildTransaction(
+        tx = routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,
+                                                               [tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
@@ -69,3 +56,4 @@ class Pangeaswap(Exchange):
         }
            
         return tx_arrange
+    

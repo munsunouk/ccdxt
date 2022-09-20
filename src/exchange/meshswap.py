@@ -11,14 +11,13 @@ class Meshswap(Exchange):
         self.id = 1
         self.chainName = "polygon"
         self.exchangeName = "meshswap"
-        self.address = None
         
         self.load_exchange(self.chainName, self.exchangeName)
     
-    def create_swap(self, amountA, tokenA, amountBMin, tokenB) :
+    def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         
-        tokenA = self.tokens[tokenA]
-        tokenB = self.tokens[tokenB]
+        tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
         amountA = self.from_value(value = amountA, exp = tokenA["decimal"])
         amountBMin = self.from_value(value = amountBMin, exp = tokenB["decimal"])
         nonce = self.w3.eth.getTransactionCount(self.account)
@@ -35,7 +34,7 @@ class Meshswap(Exchange):
         routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
         tx = routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,
-                                                               [tokenA,tokenB],self.account,deadline).buildTransaction(
+                                                               [tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
