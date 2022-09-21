@@ -126,7 +126,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@munseon_ug](https://twitter.com/munseon_ug) - email@example.com
+Contributer :[@munseon_ug](https://twitter.com/munseon_ug) 
 
 Project Link: [https://github.com/MunSunouk/ccdxt](https://github.com/MunSunouk/ccdxt)
 
