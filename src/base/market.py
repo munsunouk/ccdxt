@@ -34,6 +34,11 @@ class Market(object):
             
         market = marketDict[exchangeName]
         
+        for key in market['baseChain'][chainName] :
+            market[key] = market['baseChain'][chainName][key]
+        market['baseChain'] = chainName
+        market["contract"] = market["contract"][chainName]
+        
         for key in market :
             
             if isinstance(market[key], str):

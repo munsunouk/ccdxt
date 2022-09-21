@@ -3,150 +3,157 @@
         "id": 1,
         "name" : "KlaySwap",
         "symbol": "KSP",
-        "baseChain" : "klaytn",
-        "baseCurrency" : "klay",
         "fee" : 0.3,
         "factoryAbi" : "IKlayswapFactory.json",
-        "factoryAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
         "routerAbi" : "IKlayswapRouter.json",
-        "routerAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
-        "info" : "https://klayswap.com/",
-        "symbols" : [
-            "MOOI",
-            "oUSDT",
-            "oETH"
-        ],
-        "pools" : [
+        "baseChain" : {
 
-            "oUSDT-MOOI",
-            "KSP-MOOI",
-            "KLAY-MOOI",
-            "oETH-oUSDT"
+            "klaytn" : {
 
-        ]
+                "factoryAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
+                "routerAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
+                "symbols" : ["MOOI","oUSDT","oETH"]
+            }
+        },
+        "info" : "https://klayswap.com/"
     },
 
     "klexfinance" : {
         "id": 2,
         "name" : "KLEX Finance",
         "symbol": "KLEX",
-        "baseChain" : "klaytn",
-        "baseCurrency" : "klay",
         "fee" : 0.1,
         "factoryAbi" : "IKlexFinance.json",
-        "factoryAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
         "routerAbi" : "IKlexFinance.json",
-        "routerAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
-        "info" : "https://www.klex.finance/",
-        "symbols" : [
+        "baseChain" : {
 
-            "oETH",
-            "oUSDT"
-            
-        ],
-        "pools" : [
+            "klaytn" : {
 
-            "oETH-oUSDT"
-
-        ]
+                "factoryAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
+                "routerAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://www.klex.finance/"
+       
     },
 
     "palaswap" : {
         "id": 3,
         "name" : "Palaswap",
         "symbol": "PALA",
-        "baseChain" : "klaytn",
-        "baseCurrency" : "klay",
         "fee" : 0.2,
         "factoryAbi" : "IUniswapFactory.json",
-        "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
         "routerAbi" : "IUniswapRouter.json",
-        "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
-        "info" : "https://meshswap.fi/exchange/swap",
-        "symbols" : [
+        "baseChain" : {
 
-            "oETH",
-            "oUSDT"
-            
-        ],
-        "pools" : [
+            "klaytn" : {
 
-            "oETH-oUSDT"
-
-        ]
+                "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
+                "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://meshswap.fi/exchange/swap"
     },
 
     "pangeaswap" : {
         "id": 4,
         "name" : "Pangea swap",
         "symbol": false,
-        "baseChain" : "klaytn",
-        "baseCurrency" : "klay",
         "fee" : 0.2,
         "factoryAbi" : "IPangeaFactory.json",
-        "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
         "routerAbi" : "IPangeaRouter.json",
-        "routerAddress" : "0x42271971dbF42fbfEaF7F428604a86760300cB5B",
-        "info" : "https://app.pangeaswap.com/swap",
-        "symbols" : [
+        "baseChain" : {
 
-            "oETH",
-            "oUSDT"
-            
-        ],
-        "pools" : [
+            "klaytn" : {
 
-            "oETH-oUSDT"
-
-        ]
+                "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
+                "routerAddress" : "0x42271971dbF42fbfEaF7F428604a86760300cB5B",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://app.pangeaswap.com/swap"
     },
     "neuronswap" : {
-        "id": 4,
+        "id": 5,
         "name" : "Neuron swap",
-        "symbol": "NR",    
-        "baseChain" : "klaytn",
-        "baseCurrency" : "klay",
+        "symbol": "NR", 
         "fee" : 0.3,
         "factoryAbi" : "IUniswapFactory.json",
-        "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
+        "routerAbi" : "IUniswapRouter.json",   
+        "baseChain" : {
+
+            "klaytn" : {
+
+                "factoryAddress" : false,
+                "routerAddress" : "0xfc5f327cf3599c21f3605116abceab74950ecbe5",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://www.neuronswap.com/swap"
+
+    },
+    "claimswap" : {
+        "id": 6,
+        "name" : "Claim swap",
+        "symbol": "CLA",
+        "fee" : 0.15,
+        "factoryAbi" : "IUniswapFactory.json",
         "routerAbi" : "IUniswapRouter.json",
-        "routerAddress" : "0xfc5f327cf3599c21f3605116abceab74950ecbe5",
-        "info" : "https://www.neuronswap.com/swap",
-        "symbols" : [
+        "baseChain" : {
 
-            "oETH",
-            "oUSDT"
-            
-        ],
-        "pools" : [
+            "klaytn" : {
 
-            "oETH-oUSDT"
+                "factoryAddress" : "0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c",
+                "routerAddress" : "0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://app.claimswap.org/swap"
+    },
+    "definix" : {
+        "id": 6,
+        "name" : "definix",
+        "symbol": "FINIX",
+        "fee" : 0.15,
+        "factoryAbi" : "IUniswapFactory.json",
+        "routerAbi" : "IUniswapRouter.json",
+        "baseChain" : {
 
-        ]
+            "klaytn" : {
+
+                "factoryAddress" : "0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c",
+                "routerAddress" : "0x4e61743278ed45975e3038bedcaa537816b66b5b",
+                "symbols" : ["oUSDT","oETH"]
+            },
+            "bsc" : {
+
+                "factoryAddress" : false,
+                "routerAddress" : false,
+                "symbols" : ["oUSDT","oETH"]
+
+            }
+        },
+        "info" : "https://g2.klaytn.definix.com/swap"
     },
 
     "meshswap" : {
         "id": 5,
         "name" : "Meshswap",
         "symbol": "MESH",
-        "baseChain" : "polygon",
-        "baseCurrency" : "matic",
         "fee" : 0.2,
         "factoryAbi" : "IUniswapFactory.json",
-        "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
         "routerAbi" : "IUniswapRouter.json",
-        "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
-        "info" : "https://meshswap.fi/exchange/swap",
-        "symbols" : [
+        "baseChain" : {
 
-            "oETH",
-            "oUSDT"
-            
-        ],
-        "pools" : [
+            "polygon" : {
 
-            "oETH-oUSDT"
-
-        ]
+                "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
+                "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639",
+                "symbols" : ["oUSDT","oETH"]
+            }
+        },
+        "info" : "https://meshswap.fi/exchange/swap"
     }
 }

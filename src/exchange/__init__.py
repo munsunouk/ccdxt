@@ -4,3 +4,5 @@ from .meshswap import Meshswap
 from .palaswap import Palaswap
 from .pangeaswap import Pangeaswap
 from .neuronswap import Neuronswap
+from .claimswap import Claimswap
+from .definix import Definix
