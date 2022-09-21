@@ -89,8 +89,6 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- Supported Cryptocurrency Exchanges -->
 ## Supported Cryptocurrency Exchanges
 
-src/icon/chain-icons/rsz_polygon.jpg
-
 | logo                                                                                                                                                                                   | chain            | id            | name                                                                           | ver                                                                                                                                       | 
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------|--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------:|
 | [![klayswap](src/icon/market-icons/klayswap.jpg)](https://klayswap.com/)          | [![klaytn](src/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/)    | 1       | [Klayswap](https://klayswap.com/)            |                      [![API Version 2](https://img.shields.io/badge/*-lightgray)](https://klayswap.com/)
