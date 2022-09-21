@@ -89,6 +89,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- Supported Cryptocurrency Exchanges -->
 ## Supported Cryptocurrency Exchanges
 
+src/icon/chain-icons/rsz_polygon.jpg
 
 | logo                                                                                                                                                                                   | chain            | id            | name                                                                           | ver                                                                                                                                       | 
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------|--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------:|
@@ -99,7 +100,7 @@ _Below is an example of how you can instruct your audience on installing and set
 | [![neuron swap](src/icon/market-icons/neuronswap.jpg)](https://www.neuronswap.com/swap)          | [![klaytn](src/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/)      |  5       | [neuron swap](https://www.neuronswap.com/swap)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://www.neuronswap.com/swap)
 | [![claimswap](src/icon/market-icons/claimswap.jpg)](https://app.claimswap.org/swap)          | [![klaytn](src/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/)      |  6       | [claimswap](https://app.claimswap.org/swap)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://app.claimswap.org/swap)
 | [![definix](src/icon/market-icons/definix.jpg)](https://bsc.definix.com/)          | [![klaytn](src/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/) [![bsc](src/icon/chain-icons/rsz_binance.jpg)](https://bscscan.com/)   |  7       | [definix](https://bsc.definix.com/)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://bsc.definix.com/)
-|[![Meshswap](src/icon/market-icons/meshswap.jpg)](https://meshswap.fi/)          | polygon    |  6       | [Meshswap](https://meshswap.fi/)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://meshswap.fi/)                              
+|[![Meshswap](src/icon/market-icons/meshswap.jpg)](https://meshswap.fi/)          | [![polygon](src/icon/chain-icons/rsz_polygon.jpg)](https://polygon.technology/)    |  6       | [Meshswap](https://meshswap.fi/)                    | [![API Version *](https://img.shields.io/badge/*-lightgray)](https://meshswap.fi/)                              
 |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
