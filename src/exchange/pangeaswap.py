@@ -30,6 +30,7 @@ class Pangeaswap(Exchange):
                     pool = self.pools[pool]
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
+        tokenBaddress = self.set_checksum(tokenB['contract'])
         accountAddress = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         poolAddress = self.set_checksum(pool["contract"])
@@ -37,9 +38,9 @@ class Pangeaswap(Exchange):
         self.check_approve(amountA = amountA, token = tokenAaddress, \
                            account = accountAddress, router = routerAddress)
         
-        routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
-        tx = routerContract.functions.exactInputSingle(
+        tx = self.routerContract.functions.exactInputSingle(
             (
                 tokenAaddress,
                 amountA,
@@ -54,7 +55,7 @@ class Pangeaswap(Exchange):
                 "nonce": nonce,
             }
         )
-        tx_receipt = self.fetch_transaction(tx)
+        tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
         
         tx_arrange = {
             

@@ -45,11 +45,11 @@ class Klexfinance(Exchange):
         self.check_approve(amountA = amountA, token = tokenAaddress, \
                            account = accountAddress, router = routerAddress)
         
-        routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
         
         swap_struct, fund_struct = self.set_swap(amountA, tokenA, amountBMin, tokenB)
         
-        tx = routerContract.functions.swap(swap_struct,fund_struct, \
+        tx = self.routerContract.functions.swap(swap_struct,fund_struct, \
                                            self.unlimit,deadline).buildTransaction(                                          
             {
                 "from" : self.account,
@@ -58,7 +58,7 @@ class Klexfinance(Exchange):
             }
         )
                                                              
-        tx_receipt = self.fetch_transaction(tx)
+        tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
         
         tx_arrange = {
             

@@ -31,16 +31,16 @@ class Palaswap(Exchange):
         self.check_approve(amountA = amountA, token = tokenAaddress, \
                            account = accountAddress, router = routerAddress)
         
-        routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
-        tx = routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
                 "nonce": nonce,
             }
         )
-        tx_receipt = self.fetch_transaction(tx)
+        tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
         
         tx_arrange = {
             

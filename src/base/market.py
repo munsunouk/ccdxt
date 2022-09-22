@@ -15,6 +15,7 @@ class Market(object):
         self.factoryAddress = None
         self.routerAbi = None
         self.routerAddress = None
+        self.pairAbi = None
         self.info = None
         self.symbols = []
         self.pools = []
