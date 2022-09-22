@@ -7,7 +7,9 @@ from eth_typing import HexAddress
 from web3.contract import Contract
 from decimal import Decimal
 from src.base.errors import NotSupported
-
+from web3.datastructures import AttributeDict
+from eth_tester.exceptions import TransactionFailed
+import logging
 class Exchange(object):
     """Base exchange class"""
     has = {
@@ -46,6 +48,12 @@ class Exchange(object):
         #private info
         self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
         self.account = ''  # the wallet address "0x"-prefixed hexstring
+
+        logging.basicConfig(level=logging.INFO,
+                            filename=params['log'],
+                            filemode="w",
+                            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)
         
     def block_number(self):
         return self.w3.eth.block_number
@@ -276,7 +284,7 @@ class Exchange(object):
         
         return tx
     
-    def fetch_transaction(self, tx):
+    def fetch_transaction(self, tx, routerContract):
         
         '''
         Takes built transcations and transmits it to ethereum
@@ -327,8 +335,33 @@ class Exchange(object):
         signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
         
         tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+
+        tx_receipt = self.w3.eth.waitForTransactionReceipt(tx_hash)
+
+        if tx_receipt["status"] != 1:
+
+            return self.fetch_trade_fail(tx_hash)
+
+        function, input_args = routerContract.decode_function_input(self.get_transaction_data_field(tx))
+        path = input_args["path"]
+        assert len(path), f"Seeing a bad path routing {path}"
+
+        amount_in = input_args["amountIn"]
+        amount_out_min = input_args["amountOutMin"]
+
+        txDict = {
+            
+            'transaction_hash' : tx_receipt['transactionHash'].hex(),
+            'status' : tx_receipt["status"],
+            'block' :  tx_receipt['blockNumber'],
+            'timestamp' : datetime.datetime.now(),
+            'from' : tx_receipt['from'],
+            'to' : tx_receipt['to'],
+            'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+            
+        }
         
-        return self.w3.eth.waitForTransactionReceipt(tx_hash)
+        return tx_receipt
     
     def load_exchange(self,chainName,exchangeName):
         
@@ -364,6 +397,68 @@ class Exchange(object):
         for token in tokens :
 
             self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
+
+    def fetch_trade_fail(self,tx_hash) :
+
+        tx = self.w3.eth.get_transaction(tx_hash)
+    
+        replay_tx = {
+            "to": tx["to"],
+            "from": tx["from"],
+            "value": tx["value"],
+            "data": self.get_transaction_data_field(tx),
+        }
+
+        # Replay the transaction locally
+        try:
+            result = self.w3.eth.call(replay_tx)
+        except ValueError as e:
+            self.logger.debug("Revert exception result is: %s", e)
+            assert len(e.args) == 1, f"Something fishy going on with {e}"
+
+            data = e.args[0]
+            if type(data) == str:
+                # BNB Smart chain + geth
+                return data
+            else:
+                # Ganache
+                # {'message': 'VM Exception while processing transaction: revert BEP20: transfer amount exceeds balance', 'stack': 'CallError: VM Exception while processing transaction: revert BEP20: transfer amount exceeds balance\n    at Blockchain.simulateTransaction (/usr/local/lib/node_modules/ganache/dist/node/1.js:2:49094)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)', 'code': -32000, 'name': 'CallError', 'data': '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002642455032303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000'}
+                return data["message"]
+        except TransactionFailed as e:
+            # Ethereum Tester
+            return e.args[0]
+
+        # TODO:
+        # Not sure why this happens.
+        # When checking on bscchain:
+        # This transaction has been included and will be reflected in a short while.
+
+        receipt = self.w3.eth.get_transaction_receipt(tx_hash)
+        if receipt.status != 0:
+            self.logger.error("Queried revert reason for a transaction, but receipt tells it did not fail. tx_hash:%s, receipt: %s", tx_hash.hex(), receipt)
+
+        current_block_number = self.w3.eth.block_number
+        # TODO: Convert to logger record
+        self.logger.error(f"Transaction succeeded, when we tried to fetch its revert reason. Hash: {tx_hash.hex()}, tx block num: {tx.blockNumber}, current block number: {current_block_number}, transaction result {result.hex()}. Maybe the chain tip is unstable?")
+        return "<could not extract the revert reason>"
+
+    def get_transaction_data_field(self,tx: AttributeDict) -> str:
+
+        """Get the "Data" payload of a transaction.
+        Ethereum Tester has this in tx.data while Ganache has this in tx.input.
+        Yes, it is madness.
+        Example:
+        .. code-block::
+            tx = web3.eth.get_transaction(tx_hash)
+            function, input_args = router.decode_function_input(get_transaction_data_field(tx))
+            print("Transaction {tx_hash} called function {function}")
+        """
+        if "data" in tx:
+            return tx["data"]
+        else:
+            return tx["input"]
+
+
     
     @staticmethod
     def deep_extend(*args):
