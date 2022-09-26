@@ -1,34 +1,86 @@
 {
-    "MOOI" : {
-        "id" : 1,
-        "name" : "MOOI",
-        "symbol" : "MOOI",
-        "contract" : {
-            "klaytn" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d"
-        },
-        "decimal" : 18,
-        "info" : false
+    "REDi": {
+        "name": null,
+        "symbol": null,
+        "contract": null,
+        "detail": null
     },
-    "oUSDT" : {
-        "id" : 2,
-        "name" : "Orbit Bridge Klaytn USD Tether",
-        "symbol" : "oUSDT",
-        "contract" : {
-            "klaytn" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
-            "polygon" : "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F"
+    "TINDER": {
+        "name": "TINDER",
+        "symbol": "TINDER",
+        "contract": {
+            "klaytn": "0x7cd4a64946e91989a21548362c18052704fe5ed6"
         },
-        "decimal" : 6,
-        "info" : "https://bridge.orbitchain.io/"
+        "detail": "https://scope.klaytn.com/token/0x7cd4a64946e91989a21548362c18052704fe5ed6"
     },
-    "oETH" : {
-        "id" : 3,
-        "name" : "Orbit Bridge Klaytn Ethereum",
-        "symbol" : "oETH",
-        "contract" : {
-            "klaytn" : "0x34d21b1e550d73cee41151c77f3c73359527a396",
-            "polygon" : "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624"
+    "ICT": {
+        "name": "ICT",
+        "symbol": "ICT",
+        "contract": {
+            "klaytn": "0x2b5065d6049099295c68f5fcb97b8b0d3c354df7"
         },
-        "decimal" : 18,
-        "info" : false
+        "detail": "https://scope.klaytn.com/token/0x2b5065d6049099295c68f5fcb97b8b0d3c354df7"
+    },
+    "oQBZ": {
+        "name": "oQBZ",
+        "symbol": "oQBZ",
+        "contract": {
+            "klaytn": "0x507efa4e365fd5def42cb05ae3ecb51a30321588"
+        },
+        "detail": "https://scope.klaytn.com/token/0x507efa4e365fd5def42cb05ae3ecb51a30321588"
+    },
+    "FINIX": {
+        "name": "FINIX",
+        "symbol": "FINIX",
+        "contract": {
+            "klaytn": "0xd51c337147c8033a43f3b5ce0023382320c113aa"
+        },
+        "detail": "https://scope.klaytn.com/token/0xd51c337147c8033a43f3b5ce0023382320c113aa"
+    },
+    "MARD": {
+        "name": "MARD",
+        "symbol": "MARD",
+        "contract": {
+            "klaytn": "0x79bb4d71f6c168531a259dd6d40a8d5de5a34427"
+        },
+        "detail": "https://scope.klaytn.com/token/0x79bb4d71f6c168531a259dd6d40a8d5de5a34427"
+    },
+    "HALF": {
+        "name": null,
+        "symbol": null,
+        "contract": null,
+        "detail": null
+    },
+    "WRS": {
+        "name": "WRS",
+        "symbol": "WRS",
+        "contract": {
+            "klaytn": "0xfa86afa48e9306826010bc11977cfdb827c727dd"
+        },
+        "detail": "https://scope.klaytn.com/token/0xfa86afa48e9306826010bc11977cfdb827c727dd"
+    },
+    "oXVS": {
+        "name": "oXVS",
+        "symbol": "oXVS",
+        "contract": {
+            "klaytn": "0x735106530578fb0227422de25bb32c9adfb5ea2e"
+        },
+        "detail": "https://scope.klaytn.com/token/0x735106530578fb0227422de25bb32c9adfb5ea2e"
+    },
+    "oHANDY": {
+        "name": "oHANDY",
+        "symbol": "oHANDY",
+        "contract": {
+            "klaytn": "0x3f34671fba493ab39fbf4ecac2943ee62b654a88"
+        },
+        "detail": "https://scope.klaytn.com/token/0x3f34671fba493ab39fbf4ecac2943ee62b654a88"
+    },
+    "bKAI": {
+        "name": "bKAI",
+        "symbol": "bKAI",
+        "contract": {
+            "klaytn": "0x968d93a44b3ef61168ca621a59ddc0e56583e592"
+        },
+        "detail": "https://scope.klaytn.com/token/0x968d93a44b3ef61168ca621a59ddc0e56583e592"
     }
 }

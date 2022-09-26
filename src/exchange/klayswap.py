@@ -13,6 +13,14 @@ class Klayswap(Exchange):
         self.exchangeName = "klayswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
+        
+    def fetch_ticker(self) :
+        
+        #multicall(getpair -> estimatepos -> estimateneg)
+        
+        result = {}
+        
+        return result
     
     def create_swap(self, amountA, tokenA, amountBMin, tokenB) :
         

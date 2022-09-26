@@ -6,12 +6,10 @@ class Token(object) :
 
     def __init__(self) :
 
-        self.id = None
         self.name = None
         self.symbol = None
         self.contract = None
-        self.decimal = None
-        self.info = None
+        self.detail = None
         
     def set_token(self, chainName : str = '', exchangeName : str = '') -> dict :
         '''
@@ -24,23 +22,17 @@ class Token(object) :
         
         Returns
         -------
-        {
-            "MOOI" : {
-                "id" : 1,
-                "name" : "MOOI",
-                "symbol" : "MOOI",
-                "contract" : "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
-                "decimal" : 18,
-                "info" : false
+        "oUSDT" : {
+            "id" : 2,
+            "name" : "Orbit Bridge Klaytn USD Tether",
+            "symbol" : "oUSDT",
+            "contract" : {
+                "klaytn" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
+                "polygon" : "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F"
             },
-            "oUSDT" : {
-                "id" : 2,
-                "name" : "Orbit Bridge Klaytn USD Tether",
-                "symbol" : "oUSDT",
-                "contract" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167",
-                "decimal" : 6,
-                "info" : "https://bridge.orbitchain.io/"
-            }
+            "decimal" : 6,
+            "detail" : None,
+            "info" : "https://bridge.orbitchain.io/"
         }
         '''
         
