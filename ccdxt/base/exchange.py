@@ -1,7 +1,7 @@
-from src.base import Chain, Market, Token,Transaction
+from ccdxt.base import Chain, Market, Token,Transaction
 from web3 import Web3
 from web3.exceptions import ABIFunctionNotFound
-from src.base.errors import NotSupported
+from ccdxt.base.errors import NotSupported
 from decimal import Decimal
 import json
 import logging

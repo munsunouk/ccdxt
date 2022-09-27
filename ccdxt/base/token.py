@@ -38,15 +38,6 @@ class Token(object) :
         
         basePath = 'ccdxt'
     
-        marketDictPath = os.path.join(basePath , "list", "market_list.json")
-        
-        if Path(marketDictPath).exists() :
-            with open(marketDictPath, "rt", encoding="utf-8") as f:
-                marketDict = json.load(f)
-        else :
-            print("marketDictPath doesnt exist")
-            return {}
-    
         tokenDictPath = os.path.join(basePath, "list", "token_list.json")
         
         if Path(tokenDictPath).exists() :
@@ -56,18 +47,14 @@ class Token(object) :
             print("tokenDictPath doesnt exist")
             return {}
         
-        market = marketDict[exchangeName]
-
-        tokenAvailable = market["symbols"]
-
-        
-        exchangeToken = {}
-        
-        for token in tokenAvailable :
+        for token in tokenDict :
             
             if isinstance(tokenDict[token], dict) :
                 
-                exchangeToken[token] = tokenDict[token]
-                exchangeToken[token]["contract"] = exchangeToken[token]["contract"][chainName]
+                if isinstance(tokenDict[token]['contract'], dict):
+                
+                    if chainName in list(tokenDict[token]['contract'].keys()):
+                        
+                        tokenDict[token]['contract'] = tokenDict[token]['contract'][chainName]
 
-        return exchangeToken
+        return tokenDict

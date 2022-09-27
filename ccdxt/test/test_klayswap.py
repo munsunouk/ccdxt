@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/Users/munseon-ug/ccdxt')
 from ccdxt.exchange import Klayswap
 
 if __name__ == "__main__" :

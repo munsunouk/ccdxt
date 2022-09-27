@@ -37,8 +37,8 @@ class Market(object):
         
         for key in market['baseChain'][chainName] :
             market[key] = market['baseChain'][chainName][key]
+            
         market['baseChain'] = chainName
-        market["contract"] = market["contract"][chainName]
         
         for key in market :
             
