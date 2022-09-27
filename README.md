@@ -22,7 +22,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -68,20 +67,17 @@ if __name__ == "__main__" :
     print(klayswap.create_swap(0.1, 'oUSDT' , 0.0000000000001, 'oETH'))
 ```
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* pip
-  ```sh
-  pip install web3
-  ```
-
 ### Installation
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
+* pip
+  ```sh
+  pip install git+https://github.com/MunSunouk/ccbxt.git
+  ```
+
 *  Clone the repo
    ```sh
-   pip install git+https://github.com/MunSunouk/ccbxt.git
+   git clone https://github.com/MunSunouk/ccbxt.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
