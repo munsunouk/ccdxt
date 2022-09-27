@@ -22,7 +22,7 @@ class Market(object):
         
     def set_market(self, chainName : str = '', exchangeName : str = '') -> dict :
 
-        basePath = 'src'
+        basePath = 'ccdxt'
     
         marketDictPath = os.path.join(basePath , "list", "market_list.json")
         

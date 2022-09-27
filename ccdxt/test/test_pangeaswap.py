@@ -1,4 +1,4 @@
-from src.exchange import Pangeaswap
+from ccdxt.exchange import Pangeaswap
 
 if __name__ == "__main__" :
     

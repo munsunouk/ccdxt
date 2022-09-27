@@ -1,4 +1,4 @@
-from src.exchange import Klayswap
+from ccdxt.exchange import Klayswap
 
 if __name__ == "__main__" :
     

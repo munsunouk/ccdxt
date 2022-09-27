@@ -1,4 +1,4 @@
-from src.exchange import Klexfinance
+from ccdxt.exchange import Klexfinance
 
 if __name__ == "__main__" :
     

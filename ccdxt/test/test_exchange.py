@@ -1,4 +1,4 @@
-from src.base.exchange import Exchange
+from ccdxt.base.exchange import Exchange
 
 if __name__ == "__main__" :
 

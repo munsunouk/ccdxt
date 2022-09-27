@@ -1,4 +1,4 @@
-from src.exchange import Palaswap
+from ccdxt.exchange import Palaswap
 
 if __name__ == "__main__" :
     

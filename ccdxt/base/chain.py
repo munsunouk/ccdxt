@@ -18,7 +18,7 @@ class Chain(object):
         
     def set_chain(self, chainName : str = '') -> dict : 
 
-        basePath = 'src'
+        basePath = 'ccdxt'
     
         chainDictPath = os.path.join(basePath , "list", "chain_list.json")
         

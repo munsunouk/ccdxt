@@ -1,4 +1,4 @@
-from src.exchange import Neuronswap
+from ccdxt.exchange import Neuronswap
 
 if __name__ == "__main__" :
     
