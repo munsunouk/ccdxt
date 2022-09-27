@@ -72,12 +72,12 @@ _Below is an example of how you can instruct your audience on installing and set
 
 * pip
   ```sh
-  pip install git+https://github.com/MunSunouk/ccbxt.git
+  pip install git+https://github.com/MunSunouk/ccdxt.git
   ```
 
 *  Clone the repo
    ```sh
-   git clone https://github.com/MunSunouk/ccbxt.git
+   git clone https://github.com/MunSunouk/ccdxt.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
