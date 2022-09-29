@@ -17,10 +17,10 @@ class Chain(object):
         self.privatenet = None
         
     def set_chain(self, chainName : str = '') -> dict : 
-
-        basePath = 'ccdxt'
-    
-        chainDictPath = os.path.join(basePath , "list", "chain_list.json")
+        
+        basePath = Path(__file__).resolve().parent.parent
+        
+        chainDictPath = os.path.join(basePath, "list", "chain_list.json")
         
         if Path(chainDictPath).exists() :
             with open(chainDictPath, "rt", encoding="utf-8") as f:

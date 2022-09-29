@@ -1,6 +1,6 @@
-pragma solidity 0.5.6;
+pragma solidity >=0.8.0;
 
-interface IKlaySwapProtocol {
+interface IKlayswapRouter {
     function getPoolCount() external view returns (uint);
 
     function balanceOf(address account) external view returns (uint256);
@@ -8,6 +8,8 @@ interface IKlaySwapProtocol {
     function getPoolAddress(uint idx) external view returns (address);
 
     function tokenToPool(address token1, address token2) external view returns (address);
+
+    function getCurrentPool() external view returns (uint, uint);
 
     function poolExist(address poolAddr) external view returns (bool);
 

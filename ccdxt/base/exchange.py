@@ -23,6 +23,9 @@ class Exchange(Transaction):
         #     self.set_chains(self.chains)
         self.chainAbi = None
         self.network_path = None
+        
+        self.__decimals = {}
+        self.__pairs = {}
 
         #market info
         self.id = None
@@ -84,7 +87,30 @@ class Exchange(Transaction):
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
     
-    def getPair(self, tokenAsymbol, tokenBsymbol):
+    def get_pool(self, tokenAsymbol, tokenBsymbol) :
+        
+        if (tokenAsymbol + tokenBsymbol) in self.__pairs:
+            return self.__pairs[tokenAsymbol + tokenBsymbol]
+        
+        tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
+        
+        tokenAaddress = self.set_checksum(tokenA["contract"])
+        tokenBaddress = self.set_checksum(tokenB["contract"])
+        factoryAddress = self.set_checksum(self.markets['factoryAddress'])
+        
+        try:
+            factoryContract = self.get_contract(factoryAddress, self.markets['factoryAbi'])
+
+            pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
+            self.__pairs[tokenAaddress + tokenBaddress] = pair
+            return pair
+        except ABIFunctionNotFound:
+            return print("No ABI found")
+        
+        
+    
+    def get_pair(self, tokenAsymbol, tokenBsymbol):
 
         if (tokenAsymbol + tokenBsymbol) in self.__pairs:
             return self.__pairs[tokenAsymbol + tokenBsymbol]
@@ -100,8 +126,9 @@ class Exchange(Transaction):
 
             pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
             self.__pairs[tokenAaddress + tokenBaddress] = pair
-        except ABIFunctionNotFound:
             return pair
+        except ABIFunctionNotFound:
+            return print("No ABI found")
     
     def __reserves(self, tokenAsymbol, tokenBsymbol):
         
@@ -120,7 +147,9 @@ class Exchange(Transaction):
             liqudityContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
             reserves = liqudityContract.functions.getReserves().call()
             if self.reversed(tokenAaddress, tokenBaddress):
-                reserves[0] = reserves[0] / self.decimals(tokenBsymbol)
+                
+                
+                reserves[0] = self.from_value(reserves[0],self.decimals(tokenBsymbol))
                 reserves[1] = reserves[1] / self.decimals(tokenAsymbol)
             else:
                 reserves[0] = reserves[0] / self.decimals(tokenAsymbol)
@@ -145,6 +174,17 @@ class Exchange(Transaction):
         if self.reversed(input, output):
             res = [ res[1], res[0] ]
         return res
+    
+    def reversed(self,tokenAaddress,tokenBaddress) :
+        
+        try:
+            factoryContract = self.get_contract(tokenAaddress, self.markets['factoryAbi'])
+
+            pair = factoryContract.functions.tokenA(tokenAaddress).call()
+            self.__pairs[tokenAaddress + tokenBaddress] = pair
+            return pair
+        except ABIFunctionNotFound:
+            return print("No ABI found")
     
     def reserve_ratio(self, input = None, output = None, intermediate = None, refresh = False):
         reserves = self.reserves(input, output, intermediate, refresh)

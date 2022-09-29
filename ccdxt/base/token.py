@@ -36,7 +36,7 @@ class Token(object) :
         }
         '''
         
-        basePath = 'ccdxt'
+        basePath = Path(__file__).resolve().parent.parent
     
         tokenDictPath = os.path.join(basePath, "list", "token_list.json")
         
