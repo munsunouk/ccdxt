@@ -104,14 +104,14 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Multi chains Support
-    - [ ] klaytn
+- [ ] Multi chains Support
+    - [x] klaytn
     - [ ] polygon
     - [ ] fantom
     - [ ] etherium
-- [x] Multi call Support
-- [x] Optimism path Support
-- [x] Async Support
+- [ ] Multi call Support
+- [ ] Optimism path Support
+- [ ] Async Support
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
