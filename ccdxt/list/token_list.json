@@ -1,182 +1,194 @@
 {
+    "KLAY": {
+        "name": "KLAY",
+        "symbol": "KLAY",
+        "baseChain" : {
+            "klaytn" : "0x0000000000000000000000000000000000000000"
+        },
+        "decimals": 18
+    },
     "REDi": {
         "name": null,
         "symbol": null,
-        "contract": null,
-        "detail": null
+        "baseChain" : {
+            "klaytn" : null
+        },
+        "decimals": null
     },
     "TINDER": {
         "name": "TINDER",
         "symbol": "TINDER",
-        "contract": {
-            "klaytn": "0x7cd4a64946e91989a21548362c18052704fe5ed6"
+        "baseChain" : {
+            "klaytn" : "0x7cd4a64946e91989a21548362c18052704fe5ed6"
         },
-        "detail": "https://scope.klaytn.com/token/0x7cd4a64946e91989a21548362c18052704fe5ed6"
+        "decimals": null
     },
     "ICT": {
         "name": "ICT",
         "symbol": "ICT",
-        "contract": {
-            "klaytn": "0x2b5065d6049099295c68f5fcb97b8b0d3c354df7"
+        "baseChain" : {
+            "klaytn" : "0x2b5065d6049099295c68f5fcb97b8b0d3c354df7"
         },
-        "detail": "https://scope.klaytn.com/token/0x2b5065d6049099295c68f5fcb97b8b0d3c354df7"
+        "decimals": null
     },
     "oQBZ": {
         "name": "oQBZ",
         "symbol": "oQBZ",
-        "contract": {
-            "klaytn": "0x507efa4e365fd5def42cb05ae3ecb51a30321588"
+        "baseChain" : {
+            "klaytn" : "0x507efa4e365fd5def42cb05ae3ecb51a30321588"
         },
-        "detail": "https://scope.klaytn.com/token/0x507efa4e365fd5def42cb05ae3ecb51a30321588"
+        "decimals": null
     },
     "FINIX": {
         "name": "FINIX",
         "symbol": "FINIX",
-        "contract": {
-            "klaytn": "0xd51c337147c8033a43f3b5ce0023382320c113aa"
+        "baseChain" : {
+            "klaytn" : "0xd51c337147c8033a43f3b5ce0023382320c113aa"
         },
-        "detail": "https://scope.klaytn.com/token/0xd51c337147c8033a43f3b5ce0023382320c113aa"
+        "decimals": null
     },
     "MARD": {
         "name": "MARD",
         "symbol": "MARD",
-        "contract": {
-            "klaytn": "0x79bb4d71f6c168531a259dd6d40a8d5de5a34427"
+        "baseChain" : {
+            "klaytn" : "0x79bb4d71f6c168531a259dd6d40a8d5de5a34427"
         },
-        "detail": "https://scope.klaytn.com/token/0x79bb4d71f6c168531a259dd6d40a8d5de5a34427"
+        "decimals": null
     },
     "HALF": {
         "name": null,
         "symbol": null,
-        "contract": null,
-        "detail": null
+        "baseChain" : {
+            "klaytn" : null
+        },
+        "decimals": null
     },
     "WRS": {
         "name": "WRS",
         "symbol": "WRS",
-        "contract": {
-            "klaytn": "0xfa86afa48e9306826010bc11977cfdb827c727dd"
+        "baseChain" : {
+            "klaytn" : "0xfa86afa48e9306826010bc11977cfdb827c727dd"
         },
-        "detail": "https://scope.klaytn.com/token/0xfa86afa48e9306826010bc11977cfdb827c727dd"
+        "decimals": null
     },
     "oXVS": {
         "name": "oXVS",
         "symbol": "oXVS",
-        "contract": {
-            "klaytn": "0x735106530578fb0227422de25bb32c9adfb5ea2e"
+        "baseChain" : {
+            "klaytn" : "0x735106530578fb0227422de25bb32c9adfb5ea2e"
         },
-        "detail": "https://scope.klaytn.com/token/0x735106530578fb0227422de25bb32c9adfb5ea2e"
+        "decimals": null
     },
     "oHANDY": {
         "name": "oHANDY",
         "symbol": "oHANDY",
-        "contract": {
-            "klaytn": "0x3f34671fba493ab39fbf4ecac2943ee62b654a88"
+        "baseChain" : {
+            "klaytn" : "0x3f34671fba493ab39fbf4ecac2943ee62b654a88"
         },
-        "detail": "https://scope.klaytn.com/token/0x3f34671fba493ab39fbf4ecac2943ee62b654a88"
+        "decimals": null
     },
     "bKAI": {
         "name": "bKAI",
         "symbol": "bKAI",
-        "contract": {
-            "klaytn": "0x968d93a44b3ef61168ca621a59ddc0e56583e592"
+        "baseChain" : {
+            "klaytn" : "0x968d93a44b3ef61168ca621a59ddc0e56583e592"
         },
-        "detail": "https://scope.klaytn.com/token/0x968d93a44b3ef61168ca621a59ddc0e56583e592"
+        "decimals": null
     },
     "KDG": {
         "name": "KDG",
         "symbol": "KDG",
-        "contract": {
-            "klaytn": "0x02e7d9ad54a19a9a0721d9515cf9f80f9547d771"
+        "baseChain" : {
+            "klaytn" : "0x02e7d9ad54a19a9a0721d9515cf9f80f9547d771"
         },
-        "detail": "https://scope.klaytn.com/token/0x02e7d9ad54a19a9a0721d9515cf9f80f9547d771"
+        "decimals": null
     },
     "MEPS": {
         "name": "MEPS",
         "symbol": "MEPS",
-        "contract": {
-            "klaytn": "0x1e7af33c36c5f942687b8126af2012ea90eea041"
+        "baseChain" : {
+            "klaytn" : "0x1e7af33c36c5f942687b8126af2012ea90eea041"
         },
-        "detail": "https://scope.klaytn.com/token/0x1e7af33c36c5f942687b8126af2012ea90eea041"
+        "decimals": null
     },
     "ducato": {
         "name": "ducato",
         "symbol": "ducato",
-        "contract": {
-            "klaytn": "0xb7ab8c205dc282f83d0511b1dcd22a3ed4739597"
+        "baseChain" : {
+            "klaytn" : "0xb7ab8c205dc282f83d0511b1dcd22a3ed4739597"
         },
-        "detail": "https://scope.klaytn.com/token/0xb7ab8c205dc282f83d0511b1dcd22a3ed4739597"
+        "decimals": null
     },
     "ASAN": {
         "name": "ASAN",
         "symbol": "ASAN",
-        "contract": {
-            "klaytn": "0x27b33131a0b02879d63830292931281b1b83000f"
+        "baseChain" : {
+            "klaytn" : "0x27b33131a0b02879d63830292931281b1b83000f"
         },
-        "detail": "https://scope.klaytn.com/token/0x27b33131a0b02879d63830292931281b1b83000f"
+        "decimals": null
     },
     "TnT": {
         "name": "TnT",
         "symbol": "TnT",
-        "contract": {
-            "klaytn": "0x17d30e878ba5a546c76fada32d7a30c876fadb49"
+        "baseChain" : {
+            "klaytn" : "0x17d30e878ba5a546c76fada32d7a30c876fadb49"
         },
-        "detail": "https://scope.klaytn.com/token/0x17d30e878ba5a546c76fada32d7a30c876fadb49"
+        "decimals": null
     },
     "MSHARE": {
         "name": "MSHARE",
         "symbol": "MSHARE",
-        "contract": {
-            "klaytn": "0xfd7e99ab9822edc9b92e1f89a8a0b96a76e5740e"
+        "baseChain" : {
+            "klaytn" : "0xfd7e99ab9822edc9b92e1f89a8a0b96a76e5740e"
         },
-        "detail": "https://scope.klaytn.com/token/0xfd7e99ab9822edc9b92e1f89a8a0b96a76e5740e"
+        "decimals": null
     },
     "ksDUNAMU": {
         "name": "ksDUNAMU",
         "symbol": "ksDUNAMU",
-        "contract": {
-            "klaytn": "0x1add8ba5a695063962abe9b7da70ed2440006def"
+        "baseChain" : {
+            "klaytn" : "0x1add8ba5a695063962abe9b7da70ed2440006def"
         },
-        "detail": "https://scope.klaytn.com/token/0x1add8ba5a695063962abe9b7da70ed2440006def"
+        "decimals": null
     },
     "oETH": {
         "name": "oETH",
         "symbol": "oETH",
-        "contract": {
-            "klaytn": "0x34d21b1e550d73cee41151c77f3c73359527a396"
+        "baseChain" : {
+            "klaytn" : "0x34d21b1e550d73cee41151c77f3c73359527a396"
         },
-        "detail": "https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396"
+        "decimals": 18
     },
     "RST": {
         "name": "RST",
         "symbol": "RST",
-        "contract": {
-            "klaytn": "0xe5f59ea8b7c9806dc84e8f0862e0f6176f2f9cf2"
+        "baseChain" : {
+            "klaytn" : "0xe5f59ea8b7c9806dc84e8f0862e0f6176f2f9cf2"
         },
-        "detail": "https://scope.klaytn.com/token/0xe5f59ea8b7c9806dc84e8f0862e0f6176f2f9cf2"
+        "decimals": null
     },
     "VICE": {
         "name": "VICE",
         "symbol": "VICE",
-        "contract": {
-            "klaytn": "0x170a6b46fd7db6e42208ae222475e8cc9a83dd9d"
+        "baseChain" : {
+            "klaytn" : "0x170a6b46fd7db6e42208ae222475e8cc9a83dd9d"
         },
-        "detail": "https://scope.klaytn.com/token/0x170a6b46fd7db6e42208ae222475e8cc9a83dd9d"
+        "decimals": null
     },
     "KONE": {
         "name": "KONE",
         "symbol": "KONE",
-        "contract": {
-            "klaytn": "0xcd65df1a138f0a4e989336ca64b0498f5d26777c"
+        "baseChain" : {
+            "klaytn" : "0xcd65df1a138f0a4e989336ca64b0498f5d26777c"
         },
-        "detail": "https://scope.klaytn.com/token/0xcd65df1a138f0a4e989336ca64b0498f5d26777c"
+        "decimals": null
     },
     "oUSDT": {
         "name": "Orbit Bridge Klaytn USD Tether",
         "symbol": "oUSDT",
-        "contract": {
-            "klaytn": "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167"
+        "baseChain" : {
+            "klaytn" : "0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167"
         },
-        "detail": "https://scope.klaytn.com/token/0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167?tabId=tokenTransfer"
+        "decimals": 6
     }
 }

@@ -1,5 +1,5 @@
 from web3.exceptions import ContractLogicError
-
+from web3.exceptions import ABIFunctionNotFound
 error_hierarchy = {
     'BaseError': {
         'ExchangeError': {
@@ -18,6 +18,9 @@ error_hierarchy = {
                 'NullResponse': {},
             },
             'InsufficientFunds': {},
+            'InvalidToken' : {},
+            'InsufficientBalance' : {},
+            
             'InvalidAddress': {
                 'AddressPending': {},
             },
@@ -42,6 +45,7 @@ error_hierarchy = {
             'RequestTimeout': {},
         },
         'ContractLogicError' : {},
+        'ABIFunctionNotFound' : {},
     },
 }
 
@@ -161,6 +165,21 @@ class OnMaintenance(ExchangeNotAvailable):
 class InvalidNonce(NetworkError):
     pass
 
+from typing import Any
+
+
+class InvalidToken(ExchangeError):
+    """Raised when an invalid token address is used."""
+
+    def __init__(self, address: Any) -> None:
+        Exception.__init__(self, f"Invalid token address: {address}")
+
+
+class InsufficientBalance(ExchangeError):
+    """Raised when the account has insufficient balance for a transaction."""
+
+    def __init__(self, had: int, needed: int) -> None:
+        Exception.__init__(self, f"Insufficient balance. Had {had}, needed {needed}")
 
 class RequestTimeout(NetworkError):
     pass
@@ -168,8 +187,14 @@ class RequestTimeout(NetworkError):
 class ContractLogicError(ContractLogicError):
     pass
 
+class ABIFunctionNotFound(ABIFunctionNotFound) :
+    pass
+
 __all__ = [
     'error_hierarchy',
+    'InvalidToken',
+    'InsufficientBalance',
+    'ABIFunctionNotFound',
     'BaseError',
     'ExchangeError',
     'AuthenticationError',

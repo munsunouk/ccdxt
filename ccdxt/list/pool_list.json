@@ -1,0 +1,15 @@
+
+{
+    "CLA-WKLAY" : {
+        "id": null,
+        "name": "CLA-WKLAY",
+        "baseChain" : {
+            "klaytn" : {           
+                "Claimswap": "0x9ddcBC22bEB97899B5ceDCAbbA50A98314c3bAC1"
+            }
+        },
+        "tokenA": "CLA",
+        "tokenB": "WKLAY",
+        "decimals": 18
+    }
+}

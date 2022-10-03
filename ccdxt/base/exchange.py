@@ -1,6 +1,11 @@
-from ccdxt.base import Chain, Market, Token,Transaction
+from ccdxt.base import Chain, Market, Pool, Token, Transaction, Multicall
+from typing import List, Any, Optional, Sequence, Union, Tuple, Iterable, Dict
+from ccdxt.base.errors import ABIFunctionNotFound
+from eth_typing.evm import Address, ChecksumAddress
+from typing_extensions import ParamSpec, Concatenate
 from web3 import Web3
-from web3.exceptions import ABIFunctionNotFound
+from web3._utils.normalizers import BASE_RETURN_NORMALIZERS
+from web3._utils.abi import map_abi_data
 from ccdxt.base.errors import NotSupported
 from decimal import Decimal
 import json
@@ -8,45 +13,28 @@ import logging
 
 class Exchange(Transaction):
     """Base exchange class"""
-    has = {
-        
-        'createSwap': True,
-        'fetchTokens': None,
-        'fetchBalance': True,
-        
-    }
 
-    def __init__(self, config={}):
+    def __init__(self):
 
-        self.chains = None
-        # if self.chains:
-        #     self.set_chains(self.chains)
-        self.chainAbi = None
-        self.network_path = None
-        
-        self.__decimals = {}
-        self.__pairs = {}
+        #chain info
+        self.chains : Optional[dict] = None
+        self.network_path : Optional[str] = None
+        self.baseDecimal = 18
 
         #market info
         self.id = None
-        self.name = None
-        self.enableRateLimit = True
-        self.rateLimit = 2000  # milliseconds = seconds * 1000
-
-        self.markets = None
-        self.tokenList = None
-        self.tokens = None
-        self.symbols = None
+        self.chainName : Optional[str] = None
+        self.exchangeName : Optional[str] = None
+        self.rateLimit : Optional[int] = 2000  # milliseconds = seconds * 1000
+        self.markets : Optional[dict] = None
+        self.tokens : Optional[dict] = None
         
-        self.factoryAbi = None
-        self.routerAbi = None
-        
+        #etc
         self.unlimit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
-        self.baseCurrncy  = '0x0000000000000000000000000000000000000000'
         
         #private info
-        self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
-        self.account = ''  # the wallet address "0x"-prefixed hexstring
+        self.privateKey : Optional[str] = None  # a "0x"-prefixed hexstring private key for a wallet
+        self.account : Union[Address, str, None] = None  # the wallet address "0x"-prefixed hexstring
         
         #log
         self.log = './logfile.log'
@@ -71,13 +59,15 @@ class Exchange(Transaction):
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
         
-        if tokenAddress in self.__decimals:
-            return self.__decimals[tokenAddress]
+        if self.tokens[tokenSymbol]['decimal'] :
+            return self.tokens[tokenSymbol]['decimal']
 
         try:
             tokenContract = self.get_contract(tokenAddress, self.chains['chainAbi'])
             decimals = tokenContract.functions.decimals().call()
-            self.__decimals[tokenAddress] = decimals
+            self.tokens[tokenSymbol]["decimal"] = decimals
+            
+            self.save_token(self.tokens)
             return decimals
         except ABIFunctionNotFound:
             return 18
@@ -108,8 +98,6 @@ class Exchange(Transaction):
         except ABIFunctionNotFound:
             return print("No ABI found")
         
-        
-    
     def get_pair(self, tokenAsymbol, tokenBsymbol):
 
         if (tokenAsymbol + tokenBsymbol) in self.__pairs:
@@ -129,51 +117,6 @@ class Exchange(Transaction):
             return pair
         except ABIFunctionNotFound:
             return print("No ABI found")
-    
-    def __reserves(self, tokenAsymbol, tokenBsymbol):
-        
-        tokenA = self.tokens[tokenAsymbol]
-        tokenB = self.tokens[tokenBsymbol]
-        
-        tokenAaddress = self.set_checksum(tokenA["contract"])
-        tokenBaddress = self.set_checksum(tokenB["contract"])
-
-        pair_address = self.getPair(tokenBaddress, tokenAaddress)
-        if pair_address in self.__pairs_reserves:
-            return self.__pairs_reserves[pair_address]
-        
-        try:
-        
-            liqudityContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
-            reserves = liqudityContract.functions.getReserves().call()
-            if self.reversed(tokenAaddress, tokenBaddress):
-                
-                
-                reserves[0] = self.from_value(reserves[0],self.decimals(tokenBsymbol))
-                reserves[1] = reserves[1] / self.decimals(tokenAsymbol)
-            else:
-                reserves[0] = reserves[0] / self.decimals(tokenAsymbol)
-                reserves[1] = reserves[1] / self.decimals(tokenBsymbol)
-            self.__pairs_reserves[pair_address] = reserves
-            
-            return reserves
-        
-        except ABIFunctionNotFound:
-            raise NotSupported('fetch_tokens() is not supported yet')
-        
-    def reserves(self, input = None, output = None, intermediate = None, refresh = False):
-        if intermediate is None:
-            return self.__reserves(input, output, refresh)
-        begin = self.__reserves(intermediate, input, refresh)
-        end = self.__reserves(intermediate, output, refresh)
-        if self.reversed(intermediate, input):
-            begin = [ begin[1], begin[0] ]
-        if self.reversed(intermediate, output):
-            end = [ end[1], end[0] ]
-        res = [ end[0] * begin[1], end[1] * begin[0]]
-        if self.reversed(input, output):
-            res = [ res[1], res[0] ]
-        return res
     
     def reversed(self,tokenAaddress,tokenBaddress) :
         
@@ -234,16 +177,24 @@ class Exchange(Transaction):
         
     def partial_balance(self, tokenSymbol : str) :
         
-        token = self.tokens[tokenSymbol]
-        
-        tokenAaddress = self.set_checksum(token["contract"])
         accountAddress = self.set_checksum(self.account)
         
-        tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+        if token == self.chain['baseCurrency']:
+            balance = self.w3.eth.getBalance(accountAddress)
+            
+            balance = self.to_value(balance, self.baseDecimal)
         
-        balance = tokenContract.functions.balanceOf(accountAddress).call()
+        else :
         
-        balance = self.to_value(balance, token["decimal"])
+            token = self.tokens[tokenSymbol]
+            
+            tokenAaddress = self.set_checksum(token["contract"])
+            
+            tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+            
+            balance = tokenContract.functions.balanceOf(accountAddress).call()
+            
+            balance = self.to_value(balance, token["decimal"])
         
         result = {
             
@@ -264,11 +215,21 @@ class Exchange(Transaction):
 
         return self.tokens
 
-    def fetch_balance(self) :
+    def fetch_balance(self,*tokens) :
         
         result = []
         
-        symbols = list(self.tokens.keys())
+        if tokens is not None:
+            
+            if isinstance(tokens, list):
+            
+                symbols = tokens
+                
+            else :
+                symbols = list(tokens)
+        else :
+        
+            symbols = list(self.tokens.keys())
         
         for symbol in symbols :
             
@@ -288,6 +249,7 @@ class Exchange(Transaction):
         Parameters
         ----------
         token : token address
+        account : account address
         routerAddress: LP pool owner who allow
         '''
         
@@ -322,13 +284,16 @@ class Exchange(Transaction):
         )
         
         return tx
-    
+        
     def load_exchange(self,chainName,exchangeName):
         
         self.load_chains(chainName)
         self.load_markets(chainName, exchangeName)
+        self.load_pools(chainName, exchangeName)
         self.load_tokens(chainName, exchangeName)
+        
         self.w3 = self.set_network(self.chains['mainnet']['public_node'])
+        self.baseCurrncy = self.chains['baseContract']
     
     def load_chains(self, chainName) :
         
@@ -347,6 +312,15 @@ class Exchange(Transaction):
 
         if markets :
            self.markets = self.deep_extend(self.safe_market(),markets)
+           
+    def load_pools(self, chainName, exchangeName):
+        
+        pools = self.set_pools(chainName,exchangeName)
+
+        self.pools = {}
+
+        if pools :
+           self.pools = self.deep_extend(self.safe_market(),pools)
             
     def load_tokens(self, chainName, exchangeName):
         
@@ -357,6 +331,13 @@ class Exchange(Transaction):
         for token in tokens :
 
             self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
+            
+    def load_all(self) :
+        
+        self.all_chains = self.set_all_chains()
+        self.all_markets = self.set_all_markets()
+        self.all_pools = self.set_all_pools()
+        self.all_tokens = self.set_all_tokens()
 
     @staticmethod
     def deep_extend(*args):
@@ -373,15 +354,19 @@ class Exchange(Transaction):
     
     @staticmethod
     def safe_chain():
-        return json.dumps(Chain().__dict__)
+        return Chain().__dict__
 
     @staticmethod
     def safe_market():
-        return json.dumps(Market().__dict__)
+        return Market().__dict__
+    
+    @staticmethod
+    def safe_pool():
+        return Pool().__dict__
     
     @staticmethod
     def safe_token():
-        return json.dumps(Token().__dict__)
+        return Token().__dict__
     
     @staticmethod
     def set_chains(chainName):
@@ -392,12 +377,40 @@ class Exchange(Transaction):
         return Market().set_market(chainName,exchangeName)
     
     @staticmethod
+    def set_pools(chainName,exchangeName):
+        return Pool().set_pool(chainName,exchangeName)
+    
+    @staticmethod
     def set_tokens(chainName,exchangeName):
         return Token().set_token(chainName,exchangeName)
     
     @staticmethod
+    def set_all_chains():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_markets():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_pools():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_tokens():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_multicall():
+        return Multicall().set_multicall()
+    
+    @staticmethod
+    def save_token(tokens):
+        return Token().save_token(tokens)
+    
+    @staticmethod
     def set_network(network_path) :
-        return Web3(Web3.HTTPProvider(network_path))
+        return Web3(Web3.HTTPProvider(network_path, request_kwargs={"timeout": 60}))
     
     @staticmethod
     def set_checksum(value) :

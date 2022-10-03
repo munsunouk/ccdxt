@@ -9,7 +9,7 @@ class Token(object) :
         self.name = None
         self.symbol = None
         self.contract = None
-        self.detail = None
+        self.decimals = None
         
     def set_token(self, chainName : str = '', exchangeName : str = '') -> dict :
         '''
@@ -46,15 +46,44 @@ class Token(object) :
         else :
             print("tokenDictPath doesnt exist")
             return {}
-        
+
         for token in tokenDict :
             
             if isinstance(tokenDict[token], dict) :
                 
-                if isinstance(tokenDict[token]['contract'], dict):
+                if chainName in list(tokenDict[token]['baseChain'].keys()):
                 
-                    if chainName in list(tokenDict[token]['contract'].keys()):
+                    if exchangeName in list(tokenDict[token]['baseChain'][chainName][exchangeName].keys()):
                         
-                        tokenDict[token]['contract'] = tokenDict[token]['contract'][chainName]
+                        tokenDict[token]['tokenAddress'] = tokenDict[token]['baseChain'][chainName][exchangeName]
+                        tokenDict[token]['baseChain'] = chainName
 
         return tokenDict
+    
+    def set_all_tokens(self) :
+        
+        basePath = Path(__file__).resolve().parent.parent
+    
+        tokenDictPath = os.path.join(basePath, "list", "token_list.json")
+        
+        if Path(tokenDictPath).exists() :
+            with open(tokenDictPath, "rt", encoding="utf-8") as f:
+                tokenDict = json.load(f)
+        else :
+            print("tokenDictPath doesnt exist")
+            return {}
+        
+        return tokenDict
+
+    def save_token(self,tokens) :
+        
+        basePath = Path(__file__).resolve().parent.parent
+        
+        tokenDictPath = os.path.join(basePath, "list", "token_list.json")
+        
+        if Path(tokenDictPath).exists() :
+            with open(tokenDictPath, 'w', encoding="utf-8") as f:     
+                json.dump(tokens, f, indent=4)
+                
+        else :
+            print("tokenDictPath doesnt exist")

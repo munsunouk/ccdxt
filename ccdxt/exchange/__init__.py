@@ -6,3 +6,16 @@ from .pangeaswap import Pangeaswap
 from .neuronswap import Neuronswap
 from .claimswap import Claimswap
 from .definix import Definix
+
+__all__ = [
+    
+    'Klayswap',
+    'Klexfinance',
+    'Meshswap',
+    'Palaswap',
+    'Pangeaswap',
+    'Neuronswap',
+    'Claimswap',
+    'Definix'
+    
+]

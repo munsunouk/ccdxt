@@ -1,8 +1,17 @@
 from ccdxt.base.exchange import Exchange
+from ccdxt.base.errors import InsufficientBalance, InvalidToken
 import datetime
 
-class Meshswap(Exchange):
-
+class Quickswap(Exchange):
+    
+    has = {
+        
+        'createSwap': True,
+        'fetchTicker': True,
+        'fetchBalance': True,
+        
+    }
+    
     def __init__(self):
 
         super().__init__()
@@ -10,10 +19,10 @@ class Meshswap(Exchange):
         #market info
         self.id = 1
         self.chainName = "polygon"
-        self.exchangeName = "meshswap"
+        self.exchangeName = "quickswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
-    
+        
     def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol) :
         
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))

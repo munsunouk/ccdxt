@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import os
+from typing import Optional
 
 class Market(object):
 
@@ -8,19 +9,16 @@ class Market(object):
         self.id = None
         self.name = None
         self.symbol = None
-        self.baeChain = None
+        self.baseChain = None
         self.baseCurrency = None
         self.fee = None
         self.factoryAbi = None
         self.factoryAddress = None
         self.routerAbi = None
         self.routerAddress = None
-        self.pairAbi = None
         self.info = None
-        self.symbols = []
-        self.pools = []
         
-    def set_market(self, chainName : str = '', exchangeName : str = '') -> dict :
+    def set_market(self, chainName : str = None, exchangeName : Optional[str] = None) -> dict :
 
         basePath = Path(__file__).resolve().parent.parent
     
@@ -52,3 +50,18 @@ class Market(object):
                         market[key] = keyDict
         
         return market
+    
+    def set_all_markets(self) :
+        
+        basePath = Path(__file__).resolve().parent.parent
+    
+        marketDictPath = os.path.join(basePath , "list", "market_list.json")
+        
+        if Path(marketDictPath).exists() :
+            with open(marketDictPath, "rt", encoding="utf-8") as f:
+                marketDict = json.load(f)
+        else :
+            print("marketDictPath doesnt exist")
+            return {}
+        
+        return marketDict

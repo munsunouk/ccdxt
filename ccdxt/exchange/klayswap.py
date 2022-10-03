@@ -1,7 +1,16 @@
 from ccdxt.base.exchange import Exchange
+from ccdxt.base.errors import InsufficientBalance
 import datetime
 
 class Klayswap(Exchange):
+    
+    has = {
+        
+        'createSwap': True,
+        'fetchTicker': True,
+        'fetchBalance': True,
+        
+    }
 
     def __init__(self):
 
@@ -16,22 +25,27 @@ class Klayswap(Exchange):
         
     def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol) :
         
-        tokenA = self.tokens[tokenAsymbol]
-        tokenB = self.tokens[tokenBsymbol]
-        
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))
         
         pool = self.get_pool(tokenAsymbol, tokenBsymbol)
         
         reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
-        slippage = self.get_slippage(reserve, amountAin)
+        amountBout = self.get_amount_out(pool,tokenAsymbol,amountin)
         
-        amountBout = self.get_estimatePos(pool,tokenAsymbol,amountin)
+        price_amount = amountBout / amountin
         
-        amountBout = amountBout * slippage 
+        price_value = amountBout / self.to_value(value = amountin, exp = self.decimals(tokenAsymbol))
         
-        amountout = self.to_value(value = amountBout, exp = self.decimals(tokenBsymbol))
+        price_amount = self.to_value(value = price_value, exp = self.decimals(tokenBsymbol))
+        
+        price_impact = float((reserve - price_amount) / reserve)
+
+        amountBlose = amountBout * price_impact
+        
+        amountB = amountBout - amountBlose
+        
+        amountout = self.to_value(value = amountB, exp = self.decimals(tokenBsymbol))
         
         result = {
             
@@ -39,7 +53,6 @@ class Klayswap(Exchange):
             "tokenAsymbol" : tokenAsymbol,
             "amountBout" : amountout,
             "tokenBsymbol" : tokenBsymbol,
-            "slippage" : slippage
             
         }
         
@@ -47,11 +60,17 @@ class Klayswap(Exchange):
     
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         
+        tokenAbalance = self.partial_balance(tokenAsymbol)
+        if amountA > tokenAbalance:
+            raise InsufficientBalance(tokenAbalance, amountA)
+        
+        if tokenAsymbol == tokenBsymbol:
+            raise ValueError
+        
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
         amountA = self.from_value(value = amountA, exp = tokenA["decimal"])
         amountBMin = self.from_value(value = amountBMin, exp = tokenB["decimal"])
-        nonce = self.w3.eth.getTransactionCount(self.account)
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
         tokenBaddress = self.set_checksum(tokenB['contract'])
@@ -63,14 +82,13 @@ class Klayswap(Exchange):
         
         self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
-        tx = self.routerContract.functions.exchangeKctPos(tokenAaddress, amountA, \
-                                               tokenBaddress, amountBMin, []).buildTransaction(
-            {
-                "from" : self.account,
-                'gas' : 4000000,
-                "nonce": nonce,
-            }
-        )
+        if tokenAsymbol == self.baseCurrncy:
+            tx = self.eth_to_token(tokenBaddress, amountBMin)
+        elif tokenBsymbol == self.baseCurrncy:
+            tx = self.token_to_eth(tokenAaddress, amountA)
+        else:
+            tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+
         tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
         
         tx_arrange = {
@@ -87,7 +105,52 @@ class Klayswap(Exchange):
            
         return tx_arrange
     
-    def get_estimatePos(self,pool,tokenAsymbol,amountIn) :
+    def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
+        
+        nonce = self.w3.eth.getTransactionCount(self.account)
+        
+        tx = self.routerContract.functions.exchangeKctPos(tokenAaddress, amountA, \
+                                               tokenBaddress, amountBMin, []).buildTransaction(
+            {
+                "from" : self.account,
+                'gas' : 4000000,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
+    
+    def eth_to_token(self, tokenBaddress, amountBMin)  :
+        
+        nonce = self.w3.eth.getTransactionCount(self.account)
+        
+        tx = self.routerContract.functions.exchangeKctPos(
+                                               tokenBaddress, amountBMin, []).buildTransaction(
+            {
+                "from" : self.account,
+                'gas' : 4000000,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
+    
+    def token_to_eth(self, tokenAaddress, amountA) :
+        
+        nonce = self.w3.eth.getTransactionCount(self.account)
+        
+        tx = self.routerContract.functions.exchangeKlayNeg(
+                                                tokenAaddress, amountA, []).buildTransaction(
+            {
+                "from" : self.account,
+                'gas' : 4000000,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
+    
+    def get_amount_out(self,pool,tokenAsymbol,amountIn) :
         
         tokenA = self.tokens[tokenAsymbol]
         
@@ -95,9 +158,9 @@ class Klayswap(Exchange):
         
         poolAddress = self.set_checksum(pool)
         
-        self.routerContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
+        self.factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
         
-        amountOut = self.routerContract.functions.estimatePos(tokenAaddress,amountIn).call()
+        amountOut = self.factoryContract.functions.estimatePos(tokenAaddress,amountIn).call()
         
         return amountOut
     
@@ -114,20 +177,13 @@ class Klayswap(Exchange):
         routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
         reserves = routerContract.functions.getCurrentPool().call()
         
-        print(tokenA)
-        print(tokenAaddress)
-        
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenAsymbol))
         else:
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenAsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenBsymbol))
+            
+        reserve = reserves[1] / reserves[0]
         
-        return reserves
-    
-    def get_slippage(self, reserve, amount) :
-        
-        slippage = round(amount * 100 / reserve[0],6)
-        
-        return slippage
+        return reserve

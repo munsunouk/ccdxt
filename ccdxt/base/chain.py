@@ -8,7 +8,7 @@ class Chain(object):
 
         self.id = None
         self.name = None
-        self.baeChain = None
+        self.baseChain = None
         self.baseCurrency = None
         self.limit = None
         self.chainAbi = None
@@ -43,6 +43,21 @@ class Chain(object):
                         chain[key] = keyDict
         
         return chain
+    
+    def set_all_chains(self) :
+        
+        basePath = Path(__file__).resolve().parent.parent
+        
+        chainDictPath = os.path.join(basePath, "list", "chain_list.json")
+        
+        if Path(chainDictPath).exists() :
+            with open(chainDictPath, "rt", encoding="utf-8") as f:
+                chainDict = json.load(f)
+        else :
+            print("chainDictPath doesnt exist")
+            return {}
+        
+        return chainDict
         
         
         

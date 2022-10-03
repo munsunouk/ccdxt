@@ -109,6 +109,9 @@ _Below is an example of how you can instruct your audience on installing and set
     - [ ] polygon
     - [ ] fantom
     - [ ] etherium
+- [x] Multi call Support
+- [x] Optimism path Support
+- [x] Async Support
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
