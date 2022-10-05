@@ -109,7 +109,7 @@ _Below is an example of how you can instruct your audience on installing and set
     - [ ] polygon
     - [ ] fantom
     - [ ] etherium
-- [ ] Multi call Support
+- [x] Multi call Support
 - [ ] Optimism path Support
 - [ ] Async Support
 

@@ -1,4 +1,4 @@
-from ccdxt.base import Chain, Market, Pool, Token, Transaction, Multicall
+from ccdxt.base import Chain, Market, Pool, Token, Transaction
 from typing import List, Any, Optional, Sequence, Union, Tuple, Iterable, Dict
 from ccdxt.base.errors import ABIFunctionNotFound
 from eth_typing.evm import Address, ChecksumAddress
@@ -294,6 +294,14 @@ class Exchange(Transaction):
         
         self.w3 = self.set_network(self.chains['mainnet']['public_node'])
         self.baseCurrncy = self.chains['baseContract']
+        
+    def load_multicall(self,chainName):
+        
+        self.load_chains(chainName)
+        self.load_all()
+        
+        self.w3 = self.set_network(self.chains['mainnet']['public_node'])
+        self.baseCurrncy = self.chains['baseContract']
     
     def load_chains(self, chainName) :
         
@@ -334,7 +342,7 @@ class Exchange(Transaction):
             
     def load_all(self) :
         
-        self.all_chains = self.set_all_chains()
+        # self.all_chains = self.set_all_chains()
         self.all_markets = self.set_all_markets()
         self.all_pools = self.set_all_pools()
         self.all_tokens = self.set_all_tokens()
@@ -400,9 +408,9 @@ class Exchange(Transaction):
     def set_all_tokens():
         return Chain().set_all_chains()
     
-    @staticmethod
-    def set_multicall():
-        return Multicall().set_multicall()
+    # @staticmethod
+    # def set_multicall():
+    #     return Multicall().set_multicall()
     
     @staticmethod
     def save_token(tokens):

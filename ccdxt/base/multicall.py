@@ -4,19 +4,22 @@ import os
 from web3._utils.abi import get_abi_output_types
 from ccdxt.base.exchange import Exchange
 
-class Multicaller(Exchange):
+class Multicall(Exchange):
     
-    def __init__(self, chainName, exchangeName):
+    def __init__(self, chainName):
         super().__init__()
         
         self.maxRetries = 4
         self.batches = 1
         self.verbose = False
+        self.chainName = chainName
         
-        self.mcContract = self.loadMultiCall()
-        self.reset()
+        self.mcContract = self.set_multicall(chainName)
     
-    def set_multicall(self) :
+    def set_multicall(self,chainName) :
+        
+        # swapscanner = "0xf50782a24afcb26acb85d086cf892bfffb5731b5"
+        test = "0x778fabd0de783287853372c83dfcaba83bdf5f9c"
         
         basePath = Path(__file__).resolve().parent.parent
         
@@ -24,14 +27,21 @@ class Multicaller(Exchange):
         
         if Path(multicall_path).exists() :
             with open(multicall_path, "rt", encoding="utf-8") as f:
-                self.mulAbi = json.load(f)
+                mulAbi = json.load(f)
+                
+        self.load_multicall(chainName)
+        
+        self.reset()
+        
+        multiCall = self.w3.eth.contract(self.set_checksum(swapscanner), abi=mulAbi)
+        return multiCall
     
     def addCall(self, address, functionName, args=None):
         if not args is None:
             args = self.listToString(args)
             
         address = self.set_checksum(address)
-        contract = self.get_contract(address, self.mulAbi)
+        contract = self.get_contract(address, self.chains['chainAbi'])
         callData = self.getCallData(contract, functionName, args)
         fn = self.getFunction(contract, functionName)
         self.payload.append((address, callData))
@@ -81,31 +91,31 @@ class Multicaller(Exchange):
 				# self.reset()
 				# raise e
         self.reset()
-        return(outputData)
+        return outputData
     
     def getCallData(self, contract, functionName, argsString):
         args = self.stringToList(argsString)
         callData = contract.encodeABI(fn_name=functionName, args=args)
-        return(callData)
+        return callData
     
     def getFunction(self, contract, functionName):
         fn = contract.get_function_by_name(fn_name=functionName)
-        return(fn)
+        return fn
     
     def stringToList(self, inputString):
         if inputString is None :
-            return(None)
+            return None
         outputList = json.loads(inputString)
-        return(outputList)
+        return outputList
     
     def listToString(self, inputList):
         inputList = self.iterArgs(inputList)
         outputString = json.dumps(inputList)
-        return(outputString)
+        return outputString
     
     def split(self, a, n):
         k, m = divmod(len(a), n)
-        return (list(a[i*k+min(i, m):(i+1)*k+min(i+1, m)] for i in range(n)))
+        return list(a[i*k+min(i, m):(i+1)*k+min(i+1, m)] for i in range(n))
     
     def reset(self):
         self.payload = []
