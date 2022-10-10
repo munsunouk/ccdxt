@@ -95,7 +95,7 @@ _Below is an example of how you can instruct your audience on installing and set
 | [![claimswap](ccdxt/icon/market-icons/claimswap.jpg)](https://app.claimswap.org/swap)          | [![klaytn](ccdxt/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/)      |  6       | [claimswap](https://app.claimswap.org/swap)                    | [![API Version 1](https://img.shields.io/badge/1-lightgray)](https://app.claimswap.org/swap)
 | [![definix](ccdxt/icon/market-icons/definix.jpg)](https://bsc.definix.com/)          | [![klaytn](ccdxt/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/) [![bsc](ccdxt/icon/chain-icons/rsz_binance.jpg)](https://bscscan.com/)   |  7       | [definix](https://bsc.definix.com/)                    | [![API Version 1](https://img.shields.io/badge/1-lightgray)](https://bsc.definix.com/)
 |[![Meshswap](ccdxt/icon/market-icons/meshswap.jpg)](https://meshswap.fi/)          | [![polygon](ccdxt/icon/chain-icons/rsz_polygon.jpg)](https://polygon.technology/)    |  6       | [Meshswap](https://meshswap.fi/)                    | [![API Version 1](https://img.shields.io/badge/1-lightgray)](https://meshswap.fi/)                              
-|
+|[![Oribitbridge](ccdxt/icon/market-icons/orbitbridge.png)](https://bridge.orbitchain.io/)          | [![klaytn](ccdxt/icon/chain-icons/rsz_klaytn.jpg)](https://klaytn.foundation/) [![polygon](ccdxt/icon/chain-icons/rsz_polygon.jpg)](https://polygon.technology/)   |  7       | [orbitbridge](https://bridge.orbitchain.io/)                    | [![API Version 1](https://img.shields.io/badge/1-lightgray)](https://bridge.orbitchain.io/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
