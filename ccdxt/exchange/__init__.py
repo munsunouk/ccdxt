@@ -6,6 +6,7 @@ from .pangeaswap import Pangeaswap
 from .neuronswap import Neuronswap
 from .claimswap import Claimswap
 from .definix import Definix
+from .orbitbridge import Orbitbridge
 
 __all__ = [
     
@@ -16,6 +17,7 @@ __all__ = [
     'Pangeaswap',
     'Neuronswap',
     'Claimswap',
-    'Definix'
-    
+    'Definix',
+    'Orbitbridge'
+
 ]

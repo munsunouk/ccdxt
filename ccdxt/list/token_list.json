@@ -1138,5 +1138,35 @@
         "symbol": "NR",
         "contract": "0x340073962a8561CB9E0c271AAb7E182d5F5aF5C8",
         "decimals": "6"
+    },
+    "MOOI": {
+        "name": "MOOI",
+        "symbol": "MOOI",
+        "contract": "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
+        "decimals": "18"
+    },
+    "KASH": {
+        "name": "KASH",
+        "symbol": "KASH",
+        "contract": "0xce40569d65106c32550626822b91565643c07823",
+        "decimals": "18"
+    },
+    "ZEMIT": {
+        "name": "ZEMIT",
+        "symbol": "ZEMIT",
+        "contract": "0xa6f631a84657c370c77677bcf052d60c4548187b",
+        "decimals": "18"
+    },
+    "oMOOI": {
+        "name": "oMOOI",
+        "symbol": "oMOOI",
+        "contract": "0x746351AB4B9d4f802B7b770f33184d0A6B17363D",
+        "decimals": "18"
+    },
+    "oZEMIT": {
+        "name": "oZEMIT",
+        "symbol": "oZEMIT",
+        "contract": "0xA34E0eaCB7fbB0b0d45da89b083E0f87fcdf6157",
+        "decimals": "18"
     }
 }

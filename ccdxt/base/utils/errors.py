@@ -1,5 +1,6 @@
 from web3.exceptions import ContractLogicError
 from web3.exceptions import ABIFunctionNotFound
+from typing import Optional
 error_hierarchy = {
     'BaseError': {
         'ExchangeError': {
@@ -33,6 +34,7 @@ error_hierarchy = {
                 'DuplicateOrderId': {},
             },
             'NotSupported': {},
+            'RevertError' : {},
         },
         'NetworkError': {
             'DDoSProtection': {
@@ -46,6 +48,18 @@ error_hierarchy = {
         },
         'ContractLogicError' : {},
         'ABIFunctionNotFound' : {},
+        'DataTypeError' : {},
+        'AddressError' : {},
+        'MathError' : {
+            
+            'AdditionOverFlowError',
+            'SubtractionOverFlowError',
+            'MultiplicationOverFlowError',
+            'DivisionByZero',
+            'ModuloByZeroError',
+            'NegativeNumbers'
+            
+            },
     },
 }
 
@@ -56,7 +70,6 @@ class BaseError(Exception):
 
 class ExchangeError(BaseError):
     pass
-
 
 class AuthenticationError(ExchangeError):
     pass
@@ -180,6 +193,29 @@ class InsufficientBalance(ExchangeError):
 
     def __init__(self, had: int, needed: int) -> None:
         Exception.__init__(self, f"Insufficient balance. Had {had}, needed {needed}")
+        
+class RevertError(ExchangeError) :
+    
+    """
+    Reverts the transaction and breaks.
+    All the changes of state DB in current transaction will be rolled back.
+    """
+    
+    def __init__(self, message: Optional[str] = None, code: int = 0) -> None:
+        Exception.__init__(self, f"Revert error: {code} or {message} is invalid")
+        
+class DataTypeError(BaseError):
+    """Error when data type is invalid."""
+
+    def __init__(self, message: Optional[str]):
+        Exception.__init__(self, f"Datatype error: {message}")
+        
+class AddressError(BaseError):
+    """Error when having an invalid address."""
+
+    def __init__(self, message: Optional[str]):
+        Exception.__init__(self, f"Address error: {message}")
+    
 
 class RequestTimeout(NetworkError):
     pass
@@ -189,6 +225,27 @@ class ContractLogicError(ContractLogicError):
 
 class ABIFunctionNotFound(ABIFunctionNotFound) :
     pass
+
+class MathError(BaseError):
+    pass
+
+class AdditionOverFlowError(MathError):
+	pass
+
+class SubtractionOverFlowError(MathError):
+	pass
+
+class MultiplicationOverFlowError(MathError):
+	pass
+
+class DivisionByZero(MathError):
+	pass
+
+class ModuloByZeroError(MathError):
+	pass
+
+class NegativeNumbers(MathError):
+	pass
 
 __all__ = [
     'error_hierarchy',
@@ -226,4 +283,13 @@ __all__ = [
     'InvalidNonce',
     'RequestTimeout',
     'ContractLogicError',
+    'RevertError',
+    'DataTypeError',
+    'AddressError',
+    'AdditionOverFlowError',
+    'SubtractionOverFlowError',
+    'MultiplicationOverFlowError',
+    'DivisionByZero',
+    'ModuloByZeroError',
+    'NegativeNumbers'
 ]

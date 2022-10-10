@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import os
+from ccdxt.base.utils.type import is_dict
 
 class Pool(object):
 
@@ -40,18 +41,22 @@ class Pool(object):
             print("poolDictPath doesnt exist")
             return {}
         
+        pool_involve = {}
+        
         for pool in poolDict :
             
-            if isinstance(poolDict[pool], dict) :
+            if is_dict(poolDict[pool]) :
                 
                 if chainName in list(poolDict[pool]['baseChain'].keys()):
                 
-                    if exchangeName in list(poolDict[pool]['baseChain'][chainName][exchangeName].keys()):
+                    if exchangeName in list(poolDict[pool]['baseChain'][chainName].keys()):
                         
-                        poolDict[pool]['poolAddress'] = poolDict[pool]['baseChain'][chainName][exchangeName]
-                        poolDict[pool]['baseChain'] = chainName
+                        pool_involve[pool] = poolDict[pool]
+                        
+                        pool_involve[pool]['poolAddress'] = poolDict[pool]['baseChain'][chainName][exchangeName]
+                        pool_involve[pool]['baseChain'] = chainName
 
-        return poolDict
+        return pool_involve
     
     def set_all_pools(self) :
         

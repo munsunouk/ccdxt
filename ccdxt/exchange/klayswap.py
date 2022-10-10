@@ -1,5 +1,5 @@
 from ccdxt.base.exchange import Exchange
-from ccdxt.base.errors import InsufficientBalance
+from ccdxt.base.utils.errors import InsufficientBalance
 import datetime
 
 class Klayswap(Exchange):
@@ -18,7 +18,7 @@ class Klayswap(Exchange):
 
         #market info
         self.id = 1
-        self.chainName = "klaytn"
+        self.chainName = "KLAYTN"
         self.exchangeName = "klayswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
@@ -61,16 +61,16 @@ class Klayswap(Exchange):
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         
         tokenAbalance = self.partial_balance(tokenAsymbol)
-        if amountA > tokenAbalance:
-            raise InsufficientBalance(tokenAbalance, amountA)
         
-        if tokenAsymbol == tokenBsymbol:
-            raise ValueError
-        
+        self.tokenAsymbol = tokenAsymbol
+        self.tokenBsymbol = tokenBsymbol
+        self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
+        self.require(tokenAsymbol == tokenBsymbol, ValueError)
+
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
-        amountA = self.from_value(value = amountA, exp = tokenA["decimal"])
-        amountBMin = self.from_value(value = amountBMin, exp = tokenB["decimal"])
+        amountA = self.from_value(value = amountA, exp = int(tokenA["decimals"]))
+        amountBMin = self.from_value(value = amountBMin, exp = int(tokenB["decimals"]))
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
         tokenBaddress = self.set_checksum(tokenB['contract'])
@@ -89,21 +89,9 @@ class Klayswap(Exchange):
         else:
             tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
-        tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
-        
-        tx_arrange = {
-            
-            'transaction_hash' : tx_receipt['transactionHash'].hex(),
-            'status' : None,
-            'block' :  tx_receipt['blockNumber'],
-            'timestamp' : datetime.datetime.now(),
-            'from' : tx_receipt['from'],
-            'to' : tx_receipt['to'],
-            'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
-            
-        }
+        tx_receipt = self.fetch_transaction(tx, 'SWAP')
            
-        return tx_arrange
+        return tx_receipt
     
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         

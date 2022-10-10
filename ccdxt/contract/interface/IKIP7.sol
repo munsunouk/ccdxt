@@ -1,4 +1,4 @@
-pragma solidity 0.5.6;
+pragma solidity >=0.8.0;
 
 interface IKIP7{
     event Transfer(address indexed from, address indexed to, uint256 value);

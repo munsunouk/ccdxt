@@ -1,5 +1,5 @@
 from ccdxt.base.exchange import Exchange
-from ccdxt.base.errors import InsufficientBalance, InvalidToken
+from ccdxt.base.utils.errors import InsufficientBalance, InvalidToken
 import datetime
 
 class Quickswap(Exchange):

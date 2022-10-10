@@ -2,7 +2,7 @@
     "KDAI-KLAY": {
         "name": "KDAI-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xa3987cf6C14F1992e8b4a9E23192Eb79dC2969b8"
             }
         },
@@ -13,7 +13,7 @@
     "KETH-KLAY": {
         "name": "KETH-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x27F80731dDdb90C51cD934E9BD54bfF2D4E99e8a"
             }
         },
@@ -21,10 +21,11 @@
         "tokenB": "KLAY",
         "decimals": "18"
     },
+
     "ISR-KLAY": {
         "name": "ISR-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x869440673a24E3C3F18C173D8A964b2F2621245b"
             }
         },
@@ -35,7 +36,7 @@
     "ABL-KLAY": {
         "name": "ABL-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9609861EEC1DC15756fD0F5429FB96E475790920"
             }
         },
@@ -46,7 +47,7 @@
     "KUSDT-KWBTC": {
         "name": "KUSDT-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9103Beb39283dA9C49B020D6546FD7C39f9bbc5b",
                 "definix": "0xd7e66f34d76779396Ed62e0F097Be4a82D2F4B57",
                 "palaswap": "0x2d2926AC369e5b1d32e56d0fBBC7471Ee29a8bCD",
@@ -60,7 +61,7 @@
     "KORC-KSP": {
         "name": "KORC-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x6dc6bd65638B18057F7E6a2e8f136F3E77CC2038",
                 "ufoswap": "0x0e6a384E8df683152Aa2087D7E6ce02f4176D07D",
                 "claimswap": "0xB71e24e4545dACa0a2B3b644BdF178bddfbb2c67"
@@ -73,7 +74,7 @@
     "AGOV-KLAY": {
         "name": "AGOV-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x5C6795E72c47D7FA2B0C7A6446D671Aa2e381D1e"
             }
         },
@@ -84,7 +85,7 @@
     "BEE-KLAY": {
         "name": "BEE-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x1453b3cBe0167Dfac91204Eb26822fC12208F516"
             }
         },
@@ -95,7 +96,7 @@
     "BBC-KLAY": {
         "name": "BBC-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9d9De38C473D769D76034200F122995d8b6550Ea"
             }
         },
@@ -106,7 +107,7 @@
     "KDAI-KUSDT": {
         "name": "KDAI-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xc320066b25B731A11767834839Fe57f9b2186f84"
             }
         },
@@ -117,7 +118,7 @@
     "CLBK-KLAY": {
         "name": "CLBK-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x55A5dCC23A7A697052AB5D881530849CA0EfAD34"
             }
         },
@@ -128,7 +129,7 @@
     "KHANDY-KLAY": {
         "name": "KHANDY-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xCe28F9330658b6b4871c081e0a9A332Ae8a7d8c1"
             }
         },
@@ -139,7 +140,7 @@
     "KDAI-KORC": {
         "name": "KDAI-KORC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x587a01F81E5c078CD7C03F09f45705530fFB7B94"
             }
         },
@@ -150,7 +151,7 @@
     "KETH-KSP": {
         "name": "KETH-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xa8F8f1153523eAeDce48CEc2Ddbe1Bcd483d0CD8"
             }
         },
@@ -161,7 +162,7 @@
     "KDAI-KSP": {
         "name": "KDAI-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x64E58F35e9D4e2aB6380908905177cE150aa8608"
             }
         },
@@ -172,7 +173,7 @@
     "KDAI-KXRP": {
         "name": "KDAI-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4B50d0e4F29bF5B39a6234B11753fDB3b28E76Fc"
             }
         },
@@ -183,7 +184,7 @@
     "KDUCATO-KLAY": {
         "name": "KDUCATO-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xfc4DA06cF1d201B6CB9D99265614daC4937Ad6a2"
             }
         },
@@ -194,7 +195,7 @@
     "HIBS-KLAY": {
         "name": "HIBS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x6bF915F013DC12274ADF57e3c68fe8464ddc8B10"
             }
         },
@@ -205,7 +206,7 @@
     "KBELT-KLAY": {
         "name": "KBELT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x157c39202fAE6233FEc3f8B3bCb2158200d0A863"
             }
         },
@@ -216,7 +217,7 @@
     "KBNB-KLAY": {
         "name": "KBNB-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xE20B9aeAcAC615Da0fdBEB05d4F75E16FA1F6B95"
             }
         },
@@ -227,7 +228,7 @@
     "KBNB-KSP": {
         "name": "KBNB-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x7328B85eFF28C3068F69FE662632d37D48ba227f"
             }
         },
@@ -238,7 +239,7 @@
     "KAUTO-KLAY": {
         "name": "KAUTO-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x11Dd0Daf4C80402AD61Ea4F6B37ab60544188938"
             }
         },
@@ -249,7 +250,7 @@
     "BUZ-KLAY": {
         "name": "BUZ-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x58FCF8638e8BfA38239d293960923ec7377aaB40"
             }
         },
@@ -260,7 +261,7 @@
     "KBNB-KETH": {
         "name": "KBNB-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8119f0CeC72a26fE23CA1aB076137Ea5D8a19d54",
                 "definix": "0xc56f5b123bFB89170136DbD536DF3fa28ABAC69E"
             }
@@ -272,7 +273,7 @@
     "KAI-KUSDT": {
         "name": "KAI-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x5787492D753D5f59365E2F98e2f18C3AE3baD6e7"
             }
         },
@@ -283,7 +284,7 @@
     "INFR-KLAY": {
         "name": "INFR-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x3C2e0aC31792740DE948626FBBAf63B17fF203d8"
             }
         },
@@ -294,7 +295,7 @@
     "KISDT-KLAY": {
         "name": "KISDT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xd7152a7AbCd6d7ef2b1a5423598073b32b456965"
             }
         },
@@ -305,7 +306,7 @@
     "INFR-KORC": {
         "name": "INFR-KORC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x75437D99D6905d23CBad9CedF40C3aC80C15CbE2"
             }
         },
@@ -316,7 +317,7 @@
     "KUSDT-sBWPM": {
         "name": "KUSDT-sBWPM",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xB6eaA073881C9cac7141EF20b25A588914a367b2"
             }
         },
@@ -327,7 +328,7 @@
     "KFI-KLAY": {
         "name": "KFI-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xD74D4B4d2FB186BB7F31E4000c59ADE70BbD8a23"
             }
         },
@@ -338,7 +339,7 @@
     "KETH-KICX": {
         "name": "KETH-KICX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xF4048Ce0A0947F138101e4a92C44c79585d826E5"
             }
         },
@@ -349,7 +350,7 @@
     "KAI-bKAI": {
         "name": "KAI-bKAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x711094b9bc6E42F2b5Fc0e8F72833097903348d8"
             }
         },
@@ -360,7 +361,7 @@
     "KAI-KDAI": {
         "name": "KAI-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x92e51BF6EC87623beb774f7356629B61005b1586"
             }
         },
@@ -371,7 +372,7 @@
     "HOUSE-KLAY": {
         "name": "HOUSE-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8ad37f3f3fB663A67c7140947F80894a973B789B"
             }
         },
@@ -382,7 +383,7 @@
     "AKLAY-KLAY": {
         "name": "AKLAY-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xE74C8D8137541C0EE2C471cdAF4DCf03C383Cd22"
             }
         },
@@ -393,7 +394,7 @@
     "KUSDT-PER": {
         "name": "KUSDT-PER",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xe55f6452C5B04108dcC2E75aE31D6Ca141a4F9B7"
             }
         },
@@ -404,7 +405,7 @@
     "FINIX-KLAY": {
         "name": "FINIX-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x298ED5f16523eEe6E32FA9bcfD675B58878d823B"
             }
         },
@@ -415,7 +416,7 @@
     "FINIX-KSP": {
         "name": "FINIX-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xFA9B69f7e750Bff5C3e79067fea2034D9210Bc18",
                 "definix": "0x0754Be11a1a1a58358B70441142643981e47d796"
             }
@@ -427,7 +428,7 @@
     "KFI-KSP": {
         "name": "KFI-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x75F22E8F0004c73F8C7faDEBdb6b77813eE90C4F"
             }
         },
@@ -438,7 +439,7 @@
     "CLBK-KSP": {
         "name": "CLBK-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x480A0b9d002f3325dbBE3a617d997148D466b6b6"
             }
         },
@@ -449,7 +450,7 @@
     "DONT1BUY-TESTTTT": {
         "name": "DONT1BUY-TESTTTT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x3FC89C80d0AC2338FCF00Fddb940e90B31cfF496"
             }
         },
@@ -460,7 +461,7 @@
     "JUN-KUSDT": {
         "name": "JUN-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x391330644903Fd2d6CCB084965B1C350ff6C4c56"
             }
         },
@@ -471,7 +472,7 @@
     "JUNS-KLAY": {
         "name": "JUNS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xff99d881e868d7f15a12b08CD1e390AF675c0554"
             }
         },
@@ -482,7 +483,7 @@
     "IMI-KLAY": {
         "name": "IMI-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xc1c86DA716f867A9989248e5b3dfe6361EC62c17"
             }
         },
@@ -493,7 +494,7 @@
     "KAERGO-KLAY": {
         "name": "KAERGO-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x3151239FEa9b2719802EF30d76A6f9c3cCfbf8F3"
             }
         },
@@ -504,7 +505,7 @@
     "HOUSE-KFI": {
         "name": "HOUSE-KFI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8330BA34f46f62D76b216a3675A54392362F05Eb"
             }
         },
@@ -515,7 +516,7 @@
     "TESTSTABLE-TESTTOKEN": {
         "name": "TESTSTABLE-TESTTOKEN",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xcC8A9C7A6518f032bAd2DA30A169A87dD50C8029"
             }
         },
@@ -526,7 +527,7 @@
     "ICEAMERICANO-KLAY": {
         "name": "ICEAMERICANO-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x109caF21DC505D907F1eF8C9FaD4375c267BC7b9"
             }
         },
@@ -537,7 +538,7 @@
     "!!@#-KLAY": {
         "name": "!!@#-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x0703f577FAFcc5115260Eee60177927eC8E5354D"
             }
         },
@@ -548,7 +549,7 @@
     "JSD-KLAY": {
         "name": "JSD-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xA117Da8980f97D53E56ea0d952d8e753B0F2aC45"
             }
         },
@@ -559,7 +560,7 @@
     "KUSDC-KUSDT": {
         "name": "KUSDC-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x2E9269B718cc816De6A9E3C27E5bdb0F6A01b0ac"
             }
         },
@@ -570,7 +571,7 @@
     "BYPE-KLAY": {
         "name": "BYPE-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x0264512aA13603546f90485145Fb5788d55C29bb"
             }
         },
@@ -581,7 +582,7 @@
     "KAI-KUSDC": {
         "name": "KAI-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xCe6Ea2568ed8074836a0fC7F7f72A40Bc142B98f"
             }
         },
@@ -592,7 +593,7 @@
     "KDAI-KSD": {
         "name": "KDAI-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x797Ff7657f998CfA64288D8c0626AA7cC8190c2d"
             }
         },
@@ -603,7 +604,7 @@
     "CT-KLAY": {
         "name": "CT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x90b66b912026Accf305Bf08754a4016F2dB40DE0"
             }
         },
@@ -614,7 +615,7 @@
     "CEIK-KLAY": {
         "name": "CEIK-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x50E746EdaA283365136ed86a4E5DfDdc6CD3cF9e"
             }
         },
@@ -625,7 +626,7 @@
     "KFI-KSTA": {
         "name": "KFI-KSTA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9D73151D5C1aa82b45f228A22ba2C851A8e6bfDe"
             }
         },
@@ -636,7 +637,7 @@
     "KETH-KSD": {
         "name": "KETH-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xcD546688CB62b60deBe3860ED31B69f4d8EBCE3e"
             }
         },
@@ -647,7 +648,7 @@
     "bus-sKAI": {
         "name": "bus-sKAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xBB09846A7d8b4e641A77a435B2dde5f0152A1899"
             }
         },
@@ -658,7 +659,7 @@
     "KXRP-bus": {
         "name": "KXRP-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x06F60e2f1D64b776aD5b063cBb508520C9b80c0b"
             }
         },
@@ -669,7 +670,7 @@
     "KDAI-bus": {
         "name": "KDAI-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8f996B6Da00a596eCff40ED36F4a8c3Ca58FE863"
             }
         },
@@ -680,7 +681,7 @@
     "SKLAY-bus": {
         "name": "SKLAY-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8bD4B18c6955F7b1eb284c9934A291d133C4aDb8"
             }
         },
@@ -691,7 +692,7 @@
     "KORC-bus": {
         "name": "KORC-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9115ED3f815Dc1fFc2BC35D27460bdDea17DF846"
             }
         },
@@ -702,7 +703,7 @@
     "KUSDC-bus": {
         "name": "KUSDC-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8c946ba75D7C5Ed9A5118d1bF8E689c6b151Bd2C"
             }
         },
@@ -713,7 +714,7 @@
     "KSD-bus": {
         "name": "KSD-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xF8b64937D298b826117AB56535a1384cD0cFB8dD"
             }
         },
@@ -724,7 +725,7 @@
     "WEMIX-bus": {
         "name": "WEMIX-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x402ad424a4D5199Ee49cD88774B379aDBE6344e2"
             }
         },
@@ -735,7 +736,7 @@
     "KCBANK-KLAY": {
         "name": "KCBANK-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x0202014aD5a0B09348CAd8b51F880Ec88b38f2Ac"
             }
         },
@@ -746,7 +747,7 @@
     "KDFA-KLAY": {
         "name": "KDFA-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x124C5d6b4F4ab77c90d53657C09BD168E003797b"
             }
         },
@@ -757,7 +758,7 @@
     "KAPT-KLAY": {
         "name": "KAPT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8f48e5B0392548E4fe6600909B4874344F8a53ff"
             }
         },
@@ -768,7 +769,7 @@
     "BORA-KLAY": {
         "name": "BORA-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xbbcA9B2D17987aCE3E98E376931c540270CE71bB"
             }
         },
@@ -779,7 +780,7 @@
     "BORA-KSP": {
         "name": "BORA-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x26d454097139A66695855A5F3900CBFe65Aa5590"
             }
         },
@@ -790,7 +791,7 @@
     "KAI-bus": {
         "name": "KAI-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x850608e3fE9E5C2BAfcB91b361d4740BDb1a6080"
             }
         },
@@ -801,7 +802,7 @@
     "CEIK-KSP": {
         "name": "CEIK-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xcc81d437Ffc161D349D6186B1A1f8ddE515093d6"
             }
         },
@@ -812,7 +813,7 @@
     "KDG-KLAY": {
         "name": "KDG-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xEC7d05F076731A40015D24a0cD34AB087A7E86dB"
             }
         },
@@ -823,7 +824,7 @@
     "BORA-bus": {
         "name": "BORA-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x24699dE66C08E0DAE52C9c878F0A81B3302F45A8"
             }
         },
@@ -834,7 +835,7 @@
     "KBIOT-KLAY": {
         "name": "KBIOT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xB0aeE3F0f0048CCc1531c01AFD6ebcc9A237EC09"
             }
         },
@@ -845,7 +846,7 @@
     "KRNO-KSD": {
         "name": "KRNO-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x5876aa130DE74D9d8924E8ff05a0bC4387Ee93F0"
             }
         },
@@ -856,7 +857,7 @@
     "KUSDT-tAVELK": {
         "name": "KUSDT-tAVELK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x0b5dBD999eEda642B1B2F93B5034A9155456f5Fc"
             }
         },
@@ -867,7 +868,7 @@
     "KRNO-bus": {
         "name": "KRNO-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x6D0b572220C9c81Ca7e7aE14AeF40783bAf80010"
             }
         },
@@ -878,7 +879,7 @@
     "KDOTR-KLAY": {
         "name": "KDOTR-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xCf88f747F0319e52b95D604fBa2806E8D0D9A6Aa"
             }
         },
@@ -889,7 +890,7 @@
     "KBUSD-KUSDT": {
         "name": "KBUSD-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x2C4581ea232527be6B1DbD140e1786BC76ccAd61"
             }
         },
@@ -900,7 +901,7 @@
     "META-bus": {
         "name": "META-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x7f911B22357881EaFE92DC5FB8Dd95f7095f7BF8"
             }
         },
@@ -911,7 +912,7 @@
     "DANTA-KLAY": {
         "name": "DANTA-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xd5cE89c23Eed3B7fdc0bcCb8d992CA89626B74d6"
             }
         },
@@ -922,7 +923,7 @@
     "KCYCLUB-KLAY": {
         "name": "KCYCLUB-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x61F62B613ea0359F2d708d6FFD73ACc2f8551c70"
             }
         },
@@ -933,7 +934,7 @@
     "GRD-KLAY": {
         "name": "GRD-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x86f70D533665dc980E02Cb22124cb6A2862cb3EA"
             }
         },
@@ -944,7 +945,7 @@
     "KGALA-bus": {
         "name": "KGALA-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xD13c941580f48B104fE66732295874Ea6C7B0128"
             }
         },
@@ -955,7 +956,7 @@
     "KRNO-KSP": {
         "name": "KRNO-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x2fEBbAed702b9a1D9F6ffccD67701550ac546115"
             }
         },
@@ -966,7 +967,7 @@
     "CLA-KLAY": {
         "name": "CLA-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xf42141c37FaAdc28BcaFb16229a5ff0419942644"
             }
         },
@@ -977,7 +978,7 @@
     "GCT-KLAY": {
         "name": "GCT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8b57d2a42c784B6C7987b68BfF4D9D753E10a1Eb"
             }
         },
@@ -988,7 +989,7 @@
     "KPACE-KSP": {
         "name": "KPACE-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xBad54E0a7E992cF7516c70028474298d9801EF6C"
             }
         },
@@ -999,7 +1000,7 @@
     "GOLF-KLAY": {
         "name": "GOLF-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xADA20239f542C89d2E08DEeEd322316141EFB134"
             }
         },
@@ -1010,7 +1011,7 @@
     "CLA-KUSDT": {
         "name": "CLA-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x08F3b4d28445e33f1D84C64cf7fA419dF16BaD5E",
                 "claimswap": "0x19782447b7f3B8C01F07eF9136f378a92EF09664"
             }
@@ -1022,7 +1023,7 @@
     "BANANA-KLAY": {
         "name": "BANANA-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xfe352Ada98Dc4Bbe57701077C650fD0284746Df2"
             }
         },
@@ -1033,7 +1034,7 @@
     "KUSDT-KXRP": {
         "name": "KUSDT-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xA2be534e5DD028288625bB376c81A9Eea3D9f0D5",
                 "definix": "0x4CAC28FBCE94A011c6eDDEd62aA91CDa4eb2BC3F",
                 "palaswap": "0xf1B48634169018bd5B02906d77c8C9b738A87BCb",
@@ -1047,7 +1048,7 @@
     "KUSDC-KXRP": {
         "name": "KUSDC-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x767bd4DD8BA6aC59EBd1172f91590E1C3C265cf6"
             }
         },
@@ -1058,7 +1059,7 @@
     "CATC-KLAY": {
         "name": "CATC-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4a0D778C62f1449C8A65697259a2932B5BF2D8F1"
             }
         },
@@ -1069,7 +1070,7 @@
     "IBP-KSP": {
         "name": "IBP-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x9c4494f969d368Cc2dF1FF1aDD67af88194a456c"
             }
         },
@@ -1080,7 +1081,7 @@
     "IBP-KLAY": {
         "name": "IBP-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x3D0e8E3855E777FCFA72aE5A3F9807Ec3001079f"
             }
         },
@@ -1091,7 +1092,7 @@
     "IJM-KLAY": {
         "name": "IJM-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4ddA45Fa2A1ae64b53274E727A9BC045134a6986"
             }
         },
@@ -1102,7 +1103,7 @@
     "IJM-MIX": {
         "name": "IJM-MIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x1996aC2A0bB286C6366813E61d44c47c13F2c54D"
             }
         },
@@ -1113,7 +1114,7 @@
     "KDRC-KLAY": {
         "name": "KDRC-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xADf14eEcA02687D2884DD12dD273D5C386141d8c"
             }
         },
@@ -1124,7 +1125,7 @@
     "KP-KUSDT": {
         "name": "KP-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4242baD2227AA3bBF0CCe62D0F8D03e241959120"
             }
         },
@@ -1135,7 +1136,7 @@
     "KUSDT-test_h": {
         "name": "KUSDT-test_h",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x932EB7CF50D283cb29815a057b0134e3aC84A499",
                 "palaswap": "0x38E3c2d31A776DFa53A894c8EAf9e42b267F896f"
             }
@@ -1147,7 +1148,7 @@
     "INS-KLAY": {
         "name": "INS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x3aC97747e48ad799E7859Cce02319F910C01F897"
             }
         },
@@ -1158,7 +1159,7 @@
     "KXRP-TOP": {
         "name": "KXRP-TOP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4051B8613fEeF0c5ed8E63EF9cC1dDE7e318Df0f"
             }
         },
@@ -1169,7 +1170,7 @@
     "KXRP-TOP2": {
         "name": "KXRP-TOP2",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x456bc7B87b129932A499724B1fB0A0fc60E2bdD3"
             }
         },
@@ -1180,7 +1181,7 @@
     "HOOK-KLAY": {
         "name": "HOOK-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x5Ce8558679068A5f55e96680f1aEb051ED29F470"
             }
         },
@@ -1191,7 +1192,7 @@
     "KLEVA-KSP": {
         "name": "KLEVA-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x1f2600199ED4cF0eAeeA79f589A657983cbe2Ed2"
             }
         },
@@ -1202,7 +1203,7 @@
     "KUSDT-WEMIX": {
         "name": "KUSDT-WEMIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F",
                 "claimswap": "0x05FB8A1aC76cd6B4b9c3be2B465E27e0FB2ca8bF"
             }
@@ -1214,7 +1215,7 @@
     "BT-KLAY": {
         "name": "BT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x02BD497a572C18Ad8FbC9a46B17ecdB6660DED7c"
             }
         },
@@ -1225,7 +1226,7 @@
     "BS-KLAY": {
         "name": "BS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xb75872ac98f6049AAf2fC2275520C5168506C768"
             }
         },
@@ -1236,7 +1237,7 @@
     "AZIT-KLAY": {
         "name": "AZIT-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4EdC3b875ceEEbc94E64aDFBFd757A9dCE522481"
             }
         },
@@ -1247,7 +1248,7 @@
     "AZIT-KSP": {
         "name": "AZIT-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x6362E713d22047DF468f6e2819164034dA8CE59E"
             }
         },
@@ -1258,7 +1259,7 @@
     "CRE-KSP": {
         "name": "CRE-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x501784b3871Cd42A01f445aa416c409A8d9425c1"
             }
         },
@@ -1269,7 +1270,7 @@
     "EKL-KLAY": {
         "name": "EKL-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x5DB231ac93faAAd876155dc0853BB11a2f4b0fB2"
             }
         },
@@ -1280,7 +1281,7 @@
     "KIDS-KLAY": {
         "name": "KIDS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xdd513Ca4A9Dc78434CdB3d34fe6471614A7a4f05"
             }
         },
@@ -1291,7 +1292,7 @@
     "COM-KLAY": {
         "name": "COM-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x1AE07994Acb53A17CdE572E81F18E9695DbFbAa0"
             }
         },
@@ -1302,7 +1303,7 @@
     "BTIS-KLAY": {
         "name": "BTIS-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x411B7534dB55B17C71B0ee0BdF8462c5952cb59E"
             }
         },
@@ -1313,7 +1314,7 @@
     "HC-KLAY": {
         "name": "HC-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x718AF77de38abD5E665D1cDbB785F08bd6778B7b"
             }
         },
@@ -1324,7 +1325,7 @@
     "RaB-RaGa": {
         "name": "RaB-RaGa",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x83DaEE07F0A011A9d22B7e6FE1Bab0d8B383ad90"
             }
         },
@@ -1335,7 +1336,7 @@
     "FDM-KLAY": {
         "name": "FDM-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x775e55e82C447836F9119271d92Ccfe048201374"
             }
         },
@@ -1346,7 +1347,7 @@
     "BOMUL-PIB": {
         "name": "BOMUL-PIB",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x763c8A2F6D0AeedEfb3C573096fCceD0DA60Ed64"
             }
         },
@@ -1357,7 +1358,7 @@
     "KSP-NIK": {
         "name": "KSP-NIK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x4A8B7B6902326c15D45F05C8FeB87845eD9a8750"
             }
         },
@@ -1368,7 +1369,7 @@
     "KSP-Nolze": {
         "name": "KSP-Nolze",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x296405BA80E641138A278D10f326142eD72E8c96"
             }
         },
@@ -1379,7 +1380,7 @@
     "DLP-KLAY": {
         "name": "DLP-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x62fDbA641e107782A8288e66D15085308D9Ed4b3"
             }
         },
@@ -1390,7 +1391,7 @@
     "MARD-NGIT": {
         "name": "MARD-NGIT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x6d6dF324146bdcba55A7b603a6C37c6080B4427e"
             }
         },
@@ -1401,7 +1402,7 @@
     "KETH-NIK": {
         "name": "KETH-NIK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x8DF8ef24466846d3c1B2881d32841F906FcdD307"
             }
         },
@@ -1412,7 +1413,7 @@
     "KTX-bus": {
         "name": "KTX-bus",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x1ff21FB20143ecA49047d4659a43d2c0fF6bb95E"
             }
         },
@@ -1423,7 +1424,7 @@
     "KBI-KLAY": {
         "name": "KBI-KLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0x693b9DF5384bDDF86e40552C33b56049E0AC675C"
             }
         },
@@ -1434,7 +1435,7 @@
     "KXRP-NIK": {
         "name": "KXRP-NIK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "klayswap": "0xa1975bD8BDb133e0260106950E4Cb50f20b6FF2c"
             }
         },
@@ -1445,7 +1446,7 @@
     "FINIX-WKLAY": {
         "name": "FINIX-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x8fD25bb623a988E52c65f68A68E8780014F0892d",
                 "ufoswap": "0x06775d345fE89761e95077463db76bA7Db5eA22F"
             }
@@ -1457,7 +1458,7 @@
     "FINIX-KUSDT": {
         "name": "FINIX-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x3737811657E9d3E9638144411307838cBcE13775"
             }
         },
@@ -1468,7 +1469,7 @@
     "SIX-WKLAY": {
         "name": "SIX-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x92f204c1d9D31A70e40A50D744fF0aA3b2600FD9"
             }
         },
@@ -1479,7 +1480,7 @@
     "KXRP-WKLAY": {
         "name": "KXRP-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xd16B4B651c8A6A58086A1449eF852Fdf38922047",
                 "ufoswap": "0x2F0EB6da63C8477882396D0fC4988f6d8d260FA2",
                 "palaswap": "0xBDd6de24Eb9A29Cf7E03Ca1a3982CeD6716e8d00"
@@ -1492,7 +1493,7 @@
     "KUSDT-WKLAY": {
         "name": "KUSDT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xcCCd396490e84823Ad17ab9781476a17150AD8e2",
                 "ufoswap": "0x473e0A6da8E38C032de7531439F578736925c552",
                 "palaswap": "0xAb47eDf354348e14cFcc1949b38BF2317d510B79"
@@ -1505,7 +1506,7 @@
     "FINIX-KBNB": {
         "name": "FINIX-KBNB",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x85234cf8FAc4D5e03a553d766C64901b811A31e4"
             }
         },
@@ -1516,7 +1517,7 @@
     "KSP-WKLAY": {
         "name": "KSP-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x6480509e573b731CA7845d13eC38e82aA61f081D",
                 "ufoswap": "0x83930e8574823cCBDC6c2d7386F33A6F9BA7D0D7"
             }
@@ -1528,7 +1529,7 @@
     "FINIX-KXRP": {
         "name": "FINIX-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x24A57A78Ab79aa0EBCc330Bc75130840d9a1B7BA"
             }
         },
@@ -1539,7 +1540,7 @@
     "FINIX-KWBTC": {
         "name": "FINIX-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x82CfAd8eD757EabEFFE33ba824684897cDDb615d"
             }
         },
@@ -1550,7 +1551,7 @@
     "KDAI-WKLAY": {
         "name": "KDAI-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xf21b19117AE3c2a9aB614D11Ba579e17399d8Fe1"
             }
         },
@@ -1561,7 +1562,7 @@
     "CT-WKLAY": {
         "name": "CT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x25B517b3B29239D6eC107683ABEEb09ab9327513"
             }
         },
@@ -1572,7 +1573,7 @@
     "FINIX-KETH": {
         "name": "FINIX-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xa89d1961DeC8b1B6cF0cDb5141509F5eD617F557"
             }
         },
@@ -1583,7 +1584,7 @@
     "KFI-WKLAY": {
         "name": "KFI-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xA1a439bCd42e90a698CE18900DB6C6664AFFB8B6"
             }
         },
@@ -1594,7 +1595,7 @@
     "KAI-KFI": {
         "name": "KAI-KFI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xd56Efa8167826993936f461AadF7e63e31b96f7B"
             }
         },
@@ -1605,7 +1606,7 @@
     "WKLAY-sKAI": {
         "name": "WKLAY-sKAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x7f5a6399a5c5914af2950FFf8AeCB249Ef002352"
             }
         },
@@ -1616,7 +1617,7 @@
     "KSP-KXRP": {
         "name": "KSP-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xdDFFCAFFDA85123dBb7090aD6bfb9bdf0564c0BE"
             }
         },
@@ -1627,7 +1628,7 @@
     "DOT-WKLAY": {
         "name": "DOT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x551D6e15e2DB28C918Ed95D65C9090F1ffe0B75C"
             }
         },
@@ -1638,7 +1639,7 @@
     "HIBS-WKLAY": {
         "name": "HIBS-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x1A90CA7B5247C4a1A97d2448E39223F772405711"
             }
         },
@@ -1649,7 +1650,7 @@
     "LINK-WKLAY": {
         "name": "LINK-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x090FF95B4B43B9039C3227F44e7D25E46fA38075"
             }
         },
@@ -1660,7 +1661,7 @@
     "KUSDT-SOL": {
         "name": "KUSDT-SOL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x6ad807078a519540be154C6ef26e3a8E57f60D28"
             }
         },
@@ -1671,7 +1672,7 @@
     "LUNA-WKLAY": {
         "name": "LUNA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x081e910402ac46e990aAD42F1c8E2C57279113d7"
             }
         },
@@ -1682,7 +1683,7 @@
     "MIX-WKLAY": {
         "name": "MIX-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x3964981AF7392Fa68341D2E39915FE25Bef2F241"
             }
         },
@@ -1693,7 +1694,7 @@
     "CFXT-WKLAY": {
         "name": "CFXT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x4B438B207c6C072d9b4aDfB1f91dCc5092a72329"
             }
         },
@@ -1704,7 +1705,7 @@
     "WKLAY-XE": {
         "name": "WKLAY-XE",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xECCc9Fe2d2f54C81A4FF096C9739892b52F30dF2"
             }
         },
@@ -1715,7 +1716,7 @@
     "KUSDT-XE": {
         "name": "KUSDT-XE",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x6933Ed29F83f2B8Cf6f0b59492C74df1391bBc29"
             }
         },
@@ -1726,7 +1727,7 @@
     "blue-red": {
         "name": "blue-red",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x5b6A03057A254b99cDAd5244FCAF914ecEDB4C69"
             }
         },
@@ -1737,7 +1738,7 @@
     "WKLAY-d": {
         "name": "WKLAY-d",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xF7f02B5B3b45F1D5594600fBf24104F75E946aE4"
             }
         },
@@ -1748,7 +1749,7 @@
     "KUSDT-clam": {
         "name": "KUSDT-clam",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x273502B020b41A558155fa3dE48d82B1204C7DA2"
             }
         },
@@ -1759,7 +1760,7 @@
     "ORCA-WKLAY": {
         "name": "ORCA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x607C1BfFae84dcb6C0f238e26473eEb1a43464ef"
             }
         },
@@ -1770,7 +1771,7 @@
     "FINIX-MULE": {
         "name": "FINIX-MULE",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x7e5e3Be4b76d2613d593a304ACC2BADb3DD95aC5"
             }
         },
@@ -1781,7 +1782,7 @@
     "KETH-KWBTC": {
         "name": "KETH-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xdfAe6078a710A51D0c528214c536622245f377D9",
                 "ufoswap": "0x0c9993656de0EF10f0203bf850c55F842711D831",
                 "claimswap": "0x9a288d513a4DC0d55B0422e1966Bde19D274d4FA",
@@ -1795,7 +1796,7 @@
     "AKLAY-KSD": {
         "name": "AKLAY-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x0E71651548a070D5a8840910aBA37f290272b009",
                 "claimswap": "0x2768507Ff7b4aa5a0bD65ADb043B405593Ae3CB2"
             }
@@ -1807,7 +1808,7 @@
     "NOAH-WKLAY": {
         "name": "NOAH-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xa83cBEa8126cf93Cc77B4b37246E57732804d591"
             }
         },
@@ -1818,7 +1819,7 @@
     "KDAI-KWBTC": {
         "name": "KDAI-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xEea2a763089007A0cEA3D7231AA1171425DF78d6"
             }
         },
@@ -1829,7 +1830,7 @@
     "AV-WKLAY": {
         "name": "AV-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x1Ec196DBb5342b97674855FfB6e8d0B46398c827"
             }
         },
@@ -1840,7 +1841,7 @@
     "WGC-WKLAY": {
         "name": "WGC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x7471c5fCB5f719bbC108975144896537860d031f"
             }
         },
@@ -1851,7 +1852,7 @@
     "FINIX-KDAI": {
         "name": "FINIX-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x447f5B82B29A07a9aAc299F2860BD6042fD3E933"
             }
         },
@@ -1862,7 +1863,7 @@
     "KSP-KWBTC": {
         "name": "KSP-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xe25965DDDf91C032583dB4b69AB79C9322046088"
             }
         },
@@ -1873,7 +1874,7 @@
     "HAM-WKLAY": {
         "name": "HAM-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x73ed3E2D3b00b91435Ca4F2681Da50428aE86287"
             }
         },
@@ -1884,7 +1885,7 @@
     "KDAI-KETH": {
         "name": "KDAI-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xF048F8d5770F80bD6d0E76861ca11b56eF74322B",
                 "palaswap": "0xD13Dbb8C2ACd70a8F90BBe2f706B94a8Fe7FCdfd",
                 "claimswap": "0xFa41FD870D4Ae02A171f81991445F9EaCe21931F"
@@ -1897,7 +1898,7 @@
     "TESTCATC-WKLAY": {
         "name": "TESTCATC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xfB0432b9274795f4ab32110524d0eba3659191e6"
             }
         },
@@ -1908,7 +1909,7 @@
     "CATC-WKLAY": {
         "name": "CATC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x34831E9c9E1F05dC8317aBcaca951c3B34d3673f"
             }
         },
@@ -1919,7 +1920,7 @@
     "WKLAY-db": {
         "name": "WKLAY-db",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xf56A4275e6A6e3e7Cba02030580a408c1B719D47"
             }
         },
@@ -1930,7 +1931,7 @@
     "HT-WKLAY": {
         "name": "HT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xE23EAcc9BC68D329D18a14dEF9ddD8bD5d362c90"
             }
         },
@@ -1941,7 +1942,7 @@
     "TGTN2-WKLAY": {
         "name": "TGTN2-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x88a11848F384df89456de32E4493A80094649698"
             }
         },
@@ -1952,7 +1953,7 @@
     "BANANA-WKLAY": {
         "name": "BANANA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x4fa30e6420875f4C5A6991230b7ceA6e997f2B13"
             }
         },
@@ -1963,7 +1964,7 @@
     "SF-WKLAY": {
         "name": "SF-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x9fdbD336A9fbb41D0b022b0E8B622bc801D85b3c"
             }
         },
@@ -1974,7 +1975,7 @@
     "IJM-WKLAY": {
         "name": "IJM-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x6d53b95a66748d44b743c386e97e90795f05A358"
             }
         },
@@ -1985,7 +1986,7 @@
     "Palm-WKLAY": {
         "name": "Palm-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x4aaADf9280F20113C0b7F51b0696b7B33Ebc4eEA"
             }
         },
@@ -1996,7 +1997,7 @@
     "KBT-WKLAY": {
         "name": "KBT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x27AA4C5300faD23EBF6FD1B1d58e3B02F37AA336"
             }
         },
@@ -2007,7 +2008,7 @@
     "BANANA-KONGZ": {
         "name": "BANANA-KONGZ",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x9aB4E4Bf1a4Fa27A618f0Cb080943F5b2bf65685"
             }
         },
@@ -2018,7 +2019,7 @@
     "AAA-WKLAY": {
         "name": "AAA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x41F3F2B9a2cfD9c6a2566354C47c4c74C0a6C1cC"
             }
         },
@@ -2029,7 +2030,7 @@
     "GTPS-WKLAY": {
         "name": "GTPS-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x62fcE44eE76EB3743c76fDD69554b1826B0C4BfE"
             }
         },
@@ -2040,7 +2041,7 @@
     "BGL-WKLAY": {
         "name": "BGL-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x069C4d637162D603E29B1518938e135C2f3B7908"
             }
         },
@@ -2051,7 +2052,7 @@
     "BTIS-WKLAY": {
         "name": "BTIS-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xbE3D25186b5a3Ace7723A1B68A77443fe2B242a8"
             }
         },
@@ -2062,7 +2063,7 @@
     "BTIS-KDAI": {
         "name": "BTIS-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x0255E7e933D08AcD5b553BBD67C1b6130f7341eB"
             }
         },
@@ -2073,7 +2074,7 @@
     "BTIS-KXRP": {
         "name": "BTIS-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xB4E9Ac31648427a4CD1d3aa1016E30E4685727B9"
             }
         },
@@ -2084,7 +2085,7 @@
     "BTIS-KETH": {
         "name": "BTIS-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x55554010Cba0fD5F839b030DfF3eE1eDAf75cA71"
             }
         },
@@ -2095,7 +2096,7 @@
     "BTIS-KUSDC": {
         "name": "BTIS-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x6ef2e5e203E03BdC1C1C1e5267A0F73589475A5B"
             }
         },
@@ -2106,7 +2107,7 @@
     "BTIS-WEMIX": {
         "name": "BTIS-WEMIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xBe2BE31778Cd51C9C21DEa522516FFB5B8FF4dfE"
             }
         },
@@ -2117,7 +2118,7 @@
     "BTIS-PALA": {
         "name": "BTIS-PALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x4FCfFFa5D37dE8c7D823574E5e1c2F35901f3682"
             }
         },
@@ -2128,7 +2129,7 @@
     "BTIS-KSD": {
         "name": "BTIS-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0x1FcEf53a94F7A629C7b54e6855fc87B0122551Ad"
             }
         },
@@ -2139,7 +2140,7 @@
     "SQUID-WKLAY": {
         "name": "SQUID-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xE64dF0a70Dd35782EA6d08Fd83f2d44e3a6E0640"
             }
         },
@@ -2150,7 +2151,7 @@
     "REAL-WKLAY": {
         "name": "REAL-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "definix": "0xBF30f107e78480560CE92bE18187428fCEA85618"
             }
         },
@@ -2161,7 +2162,7 @@
     "KORC-WKLAY": {
         "name": "KORC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0x55d863bAC692DE8A12353396984091330b3c70E2",
                 "claimswap": "0x40Ba6e0d8C682B8A54a795aF7bA33Ad9347f3F8C"
             }
@@ -2173,7 +2174,7 @@
     "KUSDT-UFO": {
         "name": "KUSDT-UFO",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0x755D15e79d5371503e28B0987386DA230623c974"
             }
         },
@@ -2184,7 +2185,7 @@
     "SKLAY-WKLAY": {
         "name": "SKLAY-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0xEB77a7c94fCfD9211D86eABa556DD9eDa09575BC"
             }
         },
@@ -2195,7 +2196,7 @@
     "KORC-KUSDT": {
         "name": "KORC-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0x26679764fA33b09798Aa2bAa5CD25d58e7f82E7a",
                 "claimswap": "0xf990D585E014113Bc61031C42A3D3b06fa2bbCcc"
             }
@@ -2207,7 +2208,7 @@
     "KORC-UFO": {
         "name": "KORC-UFO",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0x2ef80ed5348C0E1CafF7099BF66667F4a4c63E6b"
             }
         },
@@ -2218,7 +2219,7 @@
     "KSP-UFO": {
         "name": "KSP-UFO",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0xE1269C440E5140c8E54d14EaA008796C62D23Dd9"
             }
         },
@@ -2229,7 +2230,7 @@
     "CLA-WKLAY": {
         "name": "CLA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "ufoswap": "0x1226Ea157f9f199Dd46F38E99B5e54fE1340AC10"
             }
         },
@@ -2240,7 +2241,7 @@
     "PALA-WKLAY": {
         "name": "PALA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0xc556be31D170cA00241231371E139C8e4c0fc204"
             }
         },
@@ -2251,7 +2252,7 @@
     "KUSDT-PALA": {
         "name": "KUSDT-PALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x2caA83Af6bBF61Dc15e7BCC5952bbb554358AD11"
             }
         },
@@ -2262,7 +2263,7 @@
     "ATTEN-PALA": {
         "name": "ATTEN-PALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0xbc25D598E2785A0565E9B8A60596aa9Bd8FD736F",
                 "claimswap": "0x6D2f374527938c76d2BE05dE577f1B4F24e0368f"
             }
@@ -2274,7 +2275,7 @@
     "ATTEN-WKLAY": {
         "name": "ATTEN-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0xf8f1B9bb7F06a7C60ad19260D084D9AD9C9d9a47"
             }
         },
@@ -2285,7 +2286,7 @@
     "ATTEN-KBNB": {
         "name": "ATTEN-KBNB",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x491578980069c0d006A28F6bCb307511B777693A"
             }
         },
@@ -2296,7 +2297,7 @@
     "KXRP-PALA": {
         "name": "KXRP-PALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x44608c68800763d3884E25d963560b9a5aA43902"
             }
         },
@@ -2307,7 +2308,7 @@
     "ATTEN-KDAI": {
         "name": "ATTEN-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x1c599095b13eF83b3236dDbe3188DED6081bc745"
             }
         },
@@ -2318,7 +2319,7 @@
     "ATTEN-KUSDC": {
         "name": "ATTEN-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0xaf56eD56CDEe9ab2D4182bBB0977F82D4E2f4961"
             }
         },
@@ -2329,7 +2330,7 @@
     "ATTEN-KETH": {
         "name": "ATTEN-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x62901A469D39d557c9D9E64991D158DD5315312F"
             }
         },
@@ -2340,7 +2341,7 @@
     "UFO-WKLAY": {
         "name": "UFO-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0xb52C28131a3688cEc192546B32206d07281A3D42"
             }
         },
@@ -2351,7 +2352,7 @@
     "KETH-WKLAY": {
         "name": "KETH-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x0b8194512242cE49c5ad9B2Eb89E3A834028c38D"
             }
         },
@@ -2362,7 +2363,7 @@
     "HOOK-KUSDT": {
         "name": "HOOK-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x6BB2577a3bf57f5B4bCB0b90017c21EFFf0E81f2"
             }
         },
@@ -2373,7 +2374,7 @@
     "HOOK-PALA": {
         "name": "HOOK-PALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "palaswap": "0x98FdD37399222211D7047f10bf47fa3bEdc916F4"
             }
         },
@@ -2384,7 +2385,7 @@
     "CLA-KWBTC": {
         "name": "CLA-KWBTC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xBbd4ec62dF5cB1BeaF441396C435CE21e23cE44E"
             }
         },
@@ -2395,7 +2396,7 @@
     "CLA-KXRP": {
         "name": "CLA-KXRP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x4202577b18d2f380b9DBE61ee2eE5Ba6bb105Bc0"
             }
         },
@@ -2406,7 +2407,7 @@
     "CLA-KETH": {
         "name": "CLA-KETH",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x30D93e58039ccDeF4C16Ad8cDc3A10b36BC2887A"
             }
         },
@@ -2417,7 +2418,7 @@
     "CLA-WEMIX": {
         "name": "CLA-WEMIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x9f59eD46b523Dc0caDaE811244AB2EA53Aa5dcD0"
             }
         },
@@ -2428,7 +2429,7 @@
     "CLA-KBUSD": {
         "name": "CLA-KBUSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x0Ce993Fb26B00385Ad265E2B6de259978481A17A"
             }
         },
@@ -2439,7 +2440,7 @@
     "CLA-KUSDC": {
         "name": "CLA-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x402DAf2Ea624cD16274B5895bB497312D9D0DDB2"
             }
         },
@@ -2450,7 +2451,7 @@
     "CLA-KSP": {
         "name": "CLA-KSP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x53e4B74D26F86d2110fCE488eb1Fe7311b5B7F43"
             }
         },
@@ -2461,7 +2462,7 @@
     "CLA-KDAI": {
         "name": "CLA-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xb8ACf06a8C53e0AC8d45e76583c4093f039e0d84"
             }
         },
@@ -2472,7 +2473,7 @@
     "CLA-CQT": {
         "name": "CLA-CQT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x002533eA6b0b7CDe2a7439DE32a81DAE7c4902B2"
             }
         },
@@ -2483,7 +2484,7 @@
     "GTK-NV2": {
         "name": "GTK-NV2",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x8c526002cacdD10266823EAF599E5d4FCC656929"
             }
         },
@@ -2494,7 +2495,7 @@
     "BRW0-GTK": {
         "name": "BRW0-GTK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x9C37c83C3f5EEf4066b48540440ecd5d239F4158"
             }
         },
@@ -2505,7 +2506,7 @@
     "BRW1-GTK": {
         "name": "BRW1-GTK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x29B5CF5676A1e148178180F98A97843d7c61a7Ac"
             }
         },
@@ -2516,7 +2517,7 @@
     "BRW2-GTK": {
         "name": "BRW2-GTK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x0100D12D1150149D2e77FA89a58F38eFBd0E24e7"
             }
         },
@@ -2527,7 +2528,7 @@
     "BRW4-GTK": {
         "name": "BRW4-GTK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x0788f71c4d602A32C20E0D49FbD2deA547CFbC57"
             }
         },
@@ -2538,7 +2539,7 @@
     "WKLAY-testRSymbol": {
         "name": "WKLAY-testRSymbol",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xB96e49A74cb7b996F9d80460f89a49c320C378Da"
             }
         },
@@ -2549,7 +2550,7 @@
     "GTK-SDS": {
         "name": "GTK-SDS",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x20e474d20C71c6289bfE9A46dBc72C5572Aa676D"
             }
         },
@@ -2560,7 +2561,7 @@
     "GTK-SDS1": {
         "name": "GTK-SDS1",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xdF83144C34bc583B17DD474260f08D743Cc8c02D"
             }
         },
@@ -2571,7 +2572,7 @@
     "GTK-SDSU3": {
         "name": "GTK-SDSU3",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x8571eA37EFfD836225D1AC4678ab1aDa879BDEa1"
             }
         },
@@ -2582,7 +2583,7 @@
     "ABC-WKLAY": {
         "name": "ABC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x9Fdaba59152b290610F56867fFDB8231A2D81452"
             }
         },
@@ -2593,7 +2594,7 @@
     "DAL-M2": {
         "name": "DAL-M2",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xCd84D0D37397268db152A65268c9DDC62D9d4A87"
             }
         },
@@ -2604,7 +2605,7 @@
     "CLA-KLEVA": {
         "name": "CLA-KLEVA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x812F6373a0d78789f4D4618331B3E34052Cc8fdA"
             }
         },
@@ -2615,7 +2616,7 @@
     "CLA-KOKOA": {
         "name": "CLA-KOKOA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xd5911ccF83c9148EedfE46D1e065234e9930a875"
             }
         },
@@ -2626,7 +2627,7 @@
     "CLA-KSD": {
         "name": "CLA-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xf521020083561f97Bd4Ead7f30D92B7305b04278"
             }
         },
@@ -2637,7 +2638,7 @@
     "STAT NFT-WKLAY": {
         "name": "STAT NFT-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x489b3dDdB5d98Eb386D1B28bA5DF4bb75BAB9098"
             }
         },
@@ -2648,7 +2649,7 @@
     "CLA-KBT": {
         "name": "CLA-KBT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xa7E2eFDC0eB00B4ACbc604EAfEF2874FD5d4eebb"
             }
         },
@@ -2659,7 +2660,7 @@
     "KLEVA-WEMIX": {
         "name": "KLEVA-WEMIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x4a79d0Cdf4D1349850B84B8a7f460d889Ff74956"
             }
         },
@@ -2670,7 +2671,7 @@
     "KUSDT-preEKL": {
         "name": "KUSDT-preEKL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x67E2728c065aaba9b7989C77300CF0877bf91017"
             }
         },
@@ -2681,7 +2682,7 @@
     "WKLAY-xKLIM": {
         "name": "WKLAY-xKLIM",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x938A583Bf4b50B200821D4682b3Ecd420eAe8875"
             }
         },
@@ -2692,7 +2693,7 @@
     "WKLAY-preEKL": {
         "name": "WKLAY-preEKL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x50D5F31F82beCfb2e3f53041B00d3687CdCD1Dbd"
             }
         },
@@ -2703,7 +2704,7 @@
     "HC-KUSDC": {
         "name": "HC-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x97d9445a0aA16E3Cf7A6951ace32edb9397fE8dd"
             }
         },
@@ -2714,7 +2715,7 @@
     "CLA-HOUSE": {
         "name": "CLA-HOUSE",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x8c4b8a07221e29696026a661fAe7C51aA83835DE"
             }
         },
@@ -2725,7 +2726,7 @@
     "KBiFi-WKLAY": {
         "name": "KBiFi-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xD4307240cBbc783694d021557Dc18b40140b12C5"
             }
         },
@@ -2736,7 +2737,7 @@
     "HUB-WKLAY": {
         "name": "HUB-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xE4Ad58A1CE45c7b88A2Ea97aDe793806c94b5678"
             }
         },
@@ -2747,7 +2748,7 @@
     "HUB-KUSDT": {
         "name": "HUB-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x00618e12B973C201A8F959bFCfcd2e56A4232E6e"
             }
         },
@@ -2758,7 +2759,7 @@
     "HUB-KDAI": {
         "name": "HUB-KDAI",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x47816eA154d342956034f43bC691fb8cE0812d0f"
             }
         },
@@ -2769,7 +2770,7 @@
     "KUSDT-TOP": {
         "name": "KUSDT-TOP",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x896fab465a3F0c5bf5732055a77D823f5a84B2b8"
             }
         },
@@ -2780,7 +2781,7 @@
     "WKLAY-t1004": {
         "name": "WKLAY-t1004",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xD9a323fE676DcF98Afa82eDAC70a66bbFDc5F0d3"
             }
         },
@@ -2791,7 +2792,7 @@
     "KOKOA-KSD": {
         "name": "KOKOA-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xFE8E87F29097bf8549B24F90A65bC28aA44FF068"
             }
         },
@@ -2802,7 +2803,7 @@
     "GLD-tttx": {
         "name": "GLD-tttx",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xb33D930d55F358507aa05667fe9358e40c3Fe5d6"
             }
         },
@@ -2813,7 +2814,7 @@
     "GLD-ttxx": {
         "name": "GLD-ttxx",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x5C3835a86d5B01E7FaB3A704c0D4CbEDb928F5a8"
             }
         },
@@ -2824,7 +2825,7 @@
     "GLD-txt": {
         "name": "GLD-txt",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xFdDAdD722aBCB25c309ebE85F8d43C5068B0efD8"
             }
         },
@@ -2835,7 +2836,7 @@
     "CLA-HOOK": {
         "name": "CLA-HOOK",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x6D318da2dDE1863E14aB9A08004baE6872a647f7"
             }
         },
@@ -2846,7 +2847,7 @@
     "E-KSD": {
         "name": "E-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xf2f27f3035Fba9F3b90872f508f3aa9C8D222145"
             }
         },
@@ -2857,7 +2858,7 @@
     "GLD-SSD": {
         "name": "GLD-SSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x35b0142529d37bfec491f9B3e842aDFeF43495D8"
             }
         },
@@ -2868,7 +2869,7 @@
     "EYE-KSD": {
         "name": "EYE-KSD",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x123a1eb60EaEb12f48340A9ADaCd2408E8d91e86"
             }
         },
@@ -2879,7 +2880,7 @@
     "HC-KUSDT": {
         "name": "HC-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x7c1C247939FA178361c877D2C7D0666BAc4451ab"
             }
         },
@@ -2890,7 +2891,7 @@
     "BJC-WKLAY": {
         "name": "BJC-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xCF64b227d084a6B95693eA12B5a0097d6774bBe9"
             }
         },
@@ -2901,7 +2902,7 @@
     "HUB-preEKL": {
         "name": "HUB-preEKL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x5EC3ED662EE37689CfD2a3E174D0Ba97E49B1C0f"
             }
         },
@@ -2912,7 +2913,7 @@
     "EKL-postEKL": {
         "name": "EKL-postEKL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x5FC6be3e2FBC56da360f89F06A775852A89eB2E3"
             }
         },
@@ -2923,7 +2924,7 @@
     "KUSDT-postEKL": {
         "name": "KUSDT-postEKL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xb2bA2c098AcdC7423f6773097DCdB563c2820171"
             }
         },
@@ -2934,7 +2935,7 @@
     "KUSDT-SCNR": {
         "name": "KUSDT-SCNR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xBD4615c75E02515C91672f440c0665C773C5988d"
             }
         },
@@ -2945,7 +2946,7 @@
     "KOKOA-KUSDC": {
         "name": "KOKOA-KUSDC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x4f0c6cd4Ce6Ae962Aa36f1EEc2Ff0de1c7B67989"
             }
         },
@@ -2956,7 +2957,7 @@
     "META-WKLAY": {
         "name": "META-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x1A20CA46CF405d1F673b0f9BE90A670D75bF237D"
             }
         },
@@ -2967,7 +2968,7 @@
     "KETH-KGALA": {
         "name": "KETH-KGALA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x04D6bF51A50B9706E5c48411A9a1f1b9b68FfDc1"
             }
         },
@@ -2978,7 +2979,7 @@
     "SALT-cKFC": {
         "name": "SALT-cKFC",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x9cc5706A1f9f40235e6F3F73FC37C6497666112b"
             }
         },
@@ -2989,7 +2990,7 @@
     "SALT-cMATE": {
         "name": "SALT-cMATE",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x56F5FD03b1a824fA43e3e81cD384f8e5d046B675"
             }
         },
@@ -3000,7 +3001,7 @@
     "CLA-SALT": {
         "name": "CLA-SALT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x1c243f10a461d82132E27672Eb6FC23C4aA2dCc9"
             }
         },
@@ -3011,7 +3012,7 @@
     "HC-INS": {
         "name": "HC-INS",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x953a3868f18d383b9015760a175C76dac569899f"
             }
         },
@@ -3022,7 +3023,7 @@
     "KSTA-WKLAY": {
         "name": "KSTA-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x3d0F9CDe1788350fC73C7edCa89C286848139aF4"
             }
         },
@@ -3033,7 +3034,7 @@
     "SALT-cCLAN": {
         "name": "SALT-cCLAN",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x8E608553760C9D1C5Cbb6e288a10E59C24E7EE1c"
             }
         },
@@ -3044,7 +3045,7 @@
     "WKLAY-cCLAN": {
         "name": "WKLAY-cCLAN",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x273a6C7f37B8Ef1A8e0fE3e4854d98423496498D"
             }
         },
@@ -3055,7 +3056,7 @@
     "KUSDT-PLR": {
         "name": "KUSDT-PLR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x5bc0b87BAa5A58fC05275754c4bB59f1c37f0edB"
             }
         },
@@ -3066,7 +3067,7 @@
     "KUSDT-SRCO": {
         "name": "KUSDT-SRCO",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x1F55B8bcb379F56B388Cac003d607F022b39E989"
             }
         },
@@ -3077,7 +3078,7 @@
     "CLA-OYAT": {
         "name": "CLA-OYAT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x495a7D74EFA8E2Ece7D667Ab579A83DA5dD41219"
             }
         },
@@ -3088,7 +3089,7 @@
     "WKLAY-cMONGZ": {
         "name": "WKLAY-cMONGZ",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xDF9Dee169AAAaFfE14825c08022d58D191b1E4B1"
             }
         },
@@ -3099,7 +3100,7 @@
     "B-C": {
         "name": "B-C",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xD3E0e55EdDAbff5e76Ca095661278f6aBD1431D9"
             }
         },
@@ -3110,7 +3111,7 @@
     "KKK2-WKLAY": {
         "name": "KKK2-WKLAY",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x4C00f18e65DA67B5D1C91F45CdD77B420e7F4Cd1"
             }
         },
@@ -3121,7 +3122,7 @@
     "sBOMUL-vBOMUL": {
         "name": "sBOMUL-vBOMUL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x7A88E47e2fAF7Bec766f58A5dCbb1762B5E4048F"
             }
         },
@@ -3132,7 +3133,7 @@
     "GGD-SF": {
         "name": "GGD-SF",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0xc08634F38A3cC444A03159B1FCdC333021535ee9"
             }
         },
@@ -3143,7 +3144,7 @@
     "SF-vBOMUL": {
         "name": "SF-vBOMUL",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x4130af87E4D3E3367E6b4D1D56e1f1d188F7C050"
             }
         },
@@ -3154,7 +3155,7 @@
     "WKLAY-YURA": {
         "name": "WKLAY-YURA",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x09f10aDf2DCBfC7B0fC035edc126D8945Ad06A54"
             }
         },
@@ -3165,7 +3166,7 @@
     "EKLP-KUSDT": {
         "name": "EKLP-KUSDT",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "claimswap": "0x3862bED41bAaf93016C9ba2E22f30fCb60f0Bd0e"
             }
         },
@@ -3176,7 +3177,7 @@
     "RRT-WEMIX": {
         "name": "RRT-WEMIX",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "roundrobin": "0x11D7cAdD3dE9C81eFFd403C1467eb995B9035989"
             }
         },
@@ -3187,7 +3188,7 @@
     "RRT-ducato ": {
         "name": "RRT-ducato ",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "roundrobin": "0xC2026e37b65B153fBf89D229C52F39B1194F6096"
             }
         },
@@ -3198,7 +3199,7 @@
     "WKLAY-ducato ": {
         "name": "WKLAY-ducato ",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "roundrobin": "0xDb9758cda2f9193547Bdc67431842F5F7fe8A2EB"
             }
         },
@@ -3209,7 +3210,7 @@
     "KDAI-NR": {
         "name": "KDAI-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0xA2e28083d45D5e0e12FF642CBAfAa7856e4239A0"
             }
         },
@@ -3220,7 +3221,7 @@
     "KETH-NR": {
         "name": "KETH-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x65387a5d7a707700cEa932cB9F349b2687450C12"
             }
         },
@@ -3231,7 +3232,7 @@
     "KUSDT-NR": {
         "name": "KUSDT-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x8B0Ca6C463f292d38a0405DDe5260196ACe787c4"
             }
         },
@@ -3242,7 +3243,7 @@
     "KSP-NR": {
         "name": "KSP-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x9404b0B5178f0a6db20b0B44b158DBc0118a3Ac2"
             }
         },
@@ -3253,7 +3254,7 @@
     "KORC-NR": {
         "name": "KORC-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x3e2C93dcf82069b6BAA113C4EbE2D9C7bEA437Ff"
             }
         },
@@ -3264,7 +3265,7 @@
     "KBNB-NR": {
         "name": "KBNB-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x7EC5C9ECFF440e0391BC9Fc37687d7206dcf64bE"
             }
         },
@@ -3275,7 +3276,7 @@
     "KXRP-NR": {
         "name": "KXRP-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0xF9828fF7Aa1FBaD67e270c3946D60a0dcED0A4a5"
             }
         },
@@ -3286,12 +3287,67 @@
     "KUSDC-NR": {
         "name": "KUSDC-NR",
         "baseChain": {
-            "klaytn": {
+            "KLAYTN": {
                 "neuronswap": "0x000F3d418250beA77Fd76Ca7c9bDaB5dceb49bC4"
             }
         },
         "tokenA": "KUSDC",
         "tokenB": "NR",
+        "decimals": "18"
+    },
+    "KUSDT-KSP": {
+        "name": "KUSDT-KSP",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0xe75a6a3a800a2c5123e67e3bde911ba761fe0705"
+            }
+        },
+        "tokenA": "KUSDT",
+        "tokenB": "KSP",
+        "decimals": "18"
+    },
+    "KASH-KUSDT" : {
+        "name": "KASH-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "claimswap": "0x37da2227781c585ec541e2ceb83cc602484102b8"
+            }
+        },
+        "tokenA": "KASH",
+        "tokenB": "KUSDT",
+        "decimals": "18"
+    },
+    "MOOI-KUSDT": {
+        "name": "MOOI-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x71f3a62c52f5ce71331b3af00bd63d617264b040"
+            }
+        },
+        "tokenA": "MOOI",
+        "tokenB": "KUSDT",
+        "decimals": "6"
+    },
+    "ZEMIT-KUSDT": {
+        "name": "ZEMIT-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0xa6f631a84657c370c77677bcf052d60c4548187b"
+            }
+        },
+        "tokenA": "ZEMIT",
+        "tokenB": "KUSDT",
+        "decimals": "6"
+    },
+    "KETH-KUSDT": {
+        "name": "KETH-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x029e2a1b2bb91b66bd25027e1c211e5628dbcb93"
+            }
+        },
+        "tokenA": "KETH",
+        "tokenB": "KUSDT",
         "decimals": "18"
     }
 }

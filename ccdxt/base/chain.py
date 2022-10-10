@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import os
+from ccdxt.base.utils.type import is_str
 
 class Chain(object):
 
@@ -33,7 +34,7 @@ class Chain(object):
         
         for key in chain :
             
-            if isinstance(chain[key], str):
+            if is_str(chain[key]):
             
                 key_path = os.path.join(basePath, "contract", "abi", chain[key])
                 

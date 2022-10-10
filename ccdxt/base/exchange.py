@@ -1,14 +1,14 @@
 from ccdxt.base import Chain, Market, Pool, Token, Transaction
-from typing import List, Any, Optional, Sequence, Union, Tuple, Iterable, Dict
-from ccdxt.base.errors import ABIFunctionNotFound
-from eth_typing.evm import Address, ChecksumAddress
-from typing_extensions import ParamSpec, Concatenate
-from web3 import Web3
-from web3._utils.normalizers import BASE_RETURN_NORMALIZERS
-from web3._utils.abi import map_abi_data
-from ccdxt.base.errors import NotSupported
+from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
+from ccdxt.base.utils.validation import *
+from ccdxt.base.utils import SafeMath
+
+from typing import Optional, Union
+from eth_typing.evm import Address
 from decimal import Decimal
-import json
+
+from web3 import Web3
+
 import logging
 
 class Exchange(Transaction):
@@ -45,30 +45,62 @@ class Exchange(Transaction):
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger(__name__)
         
-    def block_number(self):
+    def add_wallet(self) :
+        
+        self.public_key = ''
+        self._private_key = ''
+        
+    def block_number(self) -> str:
+        """
+        Returns
+        -------
+        result: Block number
+        """
         return self.w3.eth.block_number
     
     def get_contract(self, address : str ,abi : dict) :
         '''
-        Returns a contract object.
+        Parameters
+        ----------
+        address : Contract address
+        abi : Contract abi
+        
+        Returns
+        -------
+        result: a contract object.
         '''
+        
+        # if is_score_address(address) :
+        
         return self.w3.eth.contract(address, abi = abi)
+        
+        # else:
+        #     raise AddressError("Address is wrong.")
     
     def decimals(self, tokenSymbol):
+        '''
+        Parameters
+        ----------
+        tokenSymbol : token symbol
+        
+        Returns
+        -------
+        result: decimals of token
+        '''
         
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
         
-        if self.tokens[tokenSymbol]['decimal'] :
-            return self.tokens[tokenSymbol]['decimal']
+        if self.tokens[tokenSymbol]['decimals'] :
+            return int(self.tokens[tokenSymbol]['decimals'])
 
         try:
             tokenContract = self.get_contract(tokenAddress, self.chains['chainAbi'])
             decimals = tokenContract.functions.decimals().call()
-            self.tokens[tokenSymbol]["decimal"] = decimals
+            self.tokens[tokenSymbol]["decimals"] = decimals
             
             self.save_token(self.tokens)
-            return decimals
+            return int(decimals)
         except ABIFunctionNotFound:
             return 18
         
@@ -144,6 +176,10 @@ class Exchange(Transaction):
         contract = self.w3.eth.contract(self.set_checksum(pair), self.chains['chainAbi'])
         return contract.functions.sync().call()
     
+    def require(self, execute_result: bool, msg: str):
+        if not execute_result:
+            RevertError(msg)
+    
     def decode(self,tx_hash) :
         
         routerAddress = self.set_checksum(self.markets["routerAddress"])
@@ -175,18 +211,18 @@ class Exchange(Transaction):
     def estimate_gas(self):
            return self.w3.eth.gasPrice / 1000000000
         
-    def partial_balance(self, tokenSymbol : str) :
+    def partial_balance(self, tokenSymbol : str) -> dict :
+        
+        token = self.tokens[tokenSymbol]
         
         accountAddress = self.set_checksum(self.account)
         
-        if token == self.chain['baseCurrency']:
+        if token == self.chains['baseCurrency']:
             balance = self.w3.eth.getBalance(accountAddress)
             
             balance = self.to_value(balance, self.baseDecimal)
         
         else :
-        
-            token = self.tokens[tokenSymbol]
             
             tokenAaddress = self.set_checksum(token["contract"])
             
@@ -194,7 +230,7 @@ class Exchange(Transaction):
             
             balance = tokenContract.functions.balanceOf(accountAddress).call()
             
-            balance = self.to_value(balance, token["decimal"])
+            balance = self.to_value(balance, int(token["decimals"]))
         
         result = {
             
@@ -215,13 +251,13 @@ class Exchange(Transaction):
 
         return self.tokens
 
-    def fetch_balance(self,*tokens) :
+    def fetch_balance(self, tokens = None) :
         
         result = []
         
         if tokens is not None:
             
-            if isinstance(tokens, list):
+            if is_list(tokens) :
             
                 symbols = tokens
                 
@@ -264,7 +300,7 @@ class Exchange(Transaction):
            
            tx = self.get_approve(token, router)
            
-           tx_receipt = self.fetch_transaction(tx)
+           tx_receipt = self.fetch_transaction(tx, round = "CHECK")
 
            return tx_receipt
            
@@ -321,6 +357,15 @@ class Exchange(Transaction):
         if markets :
            self.markets = self.deep_extend(self.safe_market(),markets)
            
+    def load_bridge(self, chainName, bridgeName):
+        
+        markets = self.set_markets(chainName,bridgeName)
+
+        self.bridge = {}
+
+        if markets :
+           self.bridge = self.deep_extend(self.safe_market(),markets)
+           
     def load_pools(self, chainName, exchangeName):
         
         pools = self.set_pools(chainName,exchangeName)
@@ -351,8 +396,8 @@ class Exchange(Transaction):
     def deep_extend(*args):
         result = None
         for arg in args:
-            if isinstance(arg, dict):
-                if not isinstance(result, dict):
+            if is_dict(arg):
+                if not is_dict(result):
                     result = {}
                 for key in arg:
                     result[key] = Exchange.deep_extend(result[key] if key in result else None, arg[key])
@@ -391,7 +436,7 @@ class Exchange(Transaction):
     @staticmethod
     def set_tokens(chainName,exchangeName):
         return Token().set_token(chainName,exchangeName)
-    
+
     @staticmethod
     def set_all_chains():
         return Chain().set_all_chains()
@@ -426,11 +471,11 @@ class Exchange(Transaction):
     
     @staticmethod
     def from_value(value : float or int, exp : int=18) -> int :
-        return int(round(value * 10 ** exp))
+        return int(round(SafeMath.mul(value, 10 ** exp)))
 
     @staticmethod
-    def to_value(value : float or int, exp : int=18)-> Decimal :
-        return round(float(Decimal(value) / Decimal(10 ** exp)),6)
+    def to_value(value : float or int, exp : int=18)-> Decimal :  
+        return round(SafeMath.div(float(Decimal(value)), 10 ** exp),6)
     
     @staticmethod
     def to_array(value):

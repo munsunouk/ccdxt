@@ -8,7 +8,7 @@
         "routerAbi" : "klayswap_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
                 "routerAddress" : "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654"
@@ -26,7 +26,7 @@
         "routerAbi" : "klexfinance_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27",
                 "routerAddress" : "0xb519cf56c63f013b0320e89e1004a8de8139da27"
@@ -45,7 +45,7 @@
         "routerAbi" : "uniswapv2_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
                 "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639"
@@ -63,7 +63,7 @@
         "routerAbi" : "pancakeswap_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0x2be2C91cCA2df52b41a9e42723c46fD029359c95",
                 "routerAddress" : "0x42271971dbF42fbfEaF7F428604a86760300cB5B"
@@ -80,7 +80,7 @@
         "routerAbi" : "uniswapv2_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0xe334e8c7073e9aaae3cab998eecca33f56df6621",
                 "routerAddress" : "0xfc5f327cf3599c21f3605116abceab74950ecbe5"
@@ -98,7 +98,7 @@
         "routerAbi" : "uniswapv2_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c",
                 "routerAddress" : "0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D"
@@ -107,7 +107,7 @@
         "info" : "https://app.claimswap.org/swap"
     },
     "definix" : {
-        "id": 6,
+        "id": 7,
         "name" : "Definix",
         "symbol": "FINIX",
         "fee" : 0.15,
@@ -115,23 +115,23 @@
         "routerAbi" : "uniswapv2_router_abi.json",
         "baseChain" : {
 
-            "klaytn" : {
+            "KLAYTN" : {
 
                 "factoryAddress" : "0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c",
                 "routerAddress" : "0x4e61743278ed45975e3038bedcaa537816b66b5b"
             },
-            "bsc" : {
+            "BSC" : {
 
                 "factoryAddress" : false,
                 "routerAddress" : false
 
             }
         },
-        "info" : "https://g2.klaytn.definix.com/swap"
+        "info" : "https://g2.KLAYTN.definix.com/swap"
     },
 
     "meshswap" : {
-        "id": 5,
+        "id": 8,
         "name" : "Meshswap",
         "symbol": "MESH",
         "fee" : 0.2,
@@ -139,12 +139,27 @@
         "routerAbi" : "uniswapv2_router_abi.json",
         "baseChain" : {
 
-            "polygon" : {
+            "MATIC" : {
 
                 "factoryAddress" : "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
                 "routerAddress" : "0x10f4a785f458bc144e3706575924889954946639"
             }
         },
         "info" : "https://meshswap.fi/exchange/swap"
+    },
+    "orbitbridge" : {
+        "id": 9,
+        "name" : "Orbitbridge",
+        "symbol": "ORC",
+        "baseChain" : {
+            "KLAYTN" : {
+                "baseCurrency" : "KLAY",
+                "bridgeAbi" : "EthVault_abi.json",
+                "bridgeAddress" : "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d",
+                "fee" : 0
+            }
+        },
+        "info" : "https://bridge.orbitchain.io/"
     }
 }
+

@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 import os
+import itertools
+from ccdxt.base.utils.type import is_dict
 
 class Token(object) :
 
@@ -46,19 +48,42 @@ class Token(object) :
         else :
             print("tokenDictPath doesnt exist")
             return {}
-
-        for token in tokenDict :
+        
+        poolDictPath = os.path.join(basePath, "list", "pool_list.json")
+        
+        if Path(poolDictPath).exists() :
+            with open(poolDictPath, "rt", encoding="utf-8") as f:
+                poolDict = json.load(f)
+        else :
+            print("poolDictPath doesnt exist")
+            return {}
+        
+        pool_involve = {}
+        
+        for pool in poolDict :
             
-            if isinstance(tokenDict[token], dict) :
+            if is_dict(poolDict[pool]) :
                 
-                if chainName in list(tokenDict[token]['baseChain'].keys()):
+                if chainName in list(poolDict[pool]['baseChain'].keys()):
                 
-                    if exchangeName in list(tokenDict[token]['baseChain'][chainName][exchangeName].keys()):
+                    if exchangeName in list(poolDict[pool]['baseChain'][chainName].keys()):
                         
-                        tokenDict[token]['tokenAddress'] = tokenDict[token]['baseChain'][chainName][exchangeName]
-                        tokenDict[token]['baseChain'] = chainName
+                        pool_involve[pool] = poolDict[pool]
+                        
+                        pool_involve[pool]['poolAddress'] = poolDict[pool]['baseChain'][chainName][exchangeName]
+                        pool_involve[pool]['baseChain'] = chainName
+        
+        all_pools = pool_involve.keys()
+        result = list(map(lambda x: x.split("-"), all_pools))
+        token_list = list(set(list(itertools.chain.from_iterable(result))))
+        
+        token_involve = {}
 
-        return tokenDict
+        for token in token_list :
+            
+            token_involve[token] = tokenDict[token]
+
+        return token_involve
     
     def set_all_tokens(self) :
         

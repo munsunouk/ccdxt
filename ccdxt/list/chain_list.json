@@ -1,5 +1,5 @@
 {
-    "klaytn"  :  {
+    "KLAYTN"  :  {
 
         "name" : "Klaytn",
         "baseChain" : "klaytn",
@@ -26,7 +26,34 @@
         }
     },
 
-    "polygon"  :  {
+    "ORBIT"  :  {
+
+        "name" : "Orbit",
+        "baseChain" : "orbit",
+        "baseCurrency" : "ORC",
+        "baseContract" : "0x0000000000000000000000000000000000000000",
+        "limit" : true,
+        "chainAbi" : "orbit_hub_abi.json",
+        "mainnet" : {
+
+            "chain_id" : "0x7e1",
+            "name" : "Orbit chain",
+            "public_node" : "https://rpc.orbitchain.io/",
+            "webscoket" : false,
+            "block_scope" : "https://explorer.orbitchain.io/"
+
+        },
+        "testnet" : {
+
+            "chain_id" : null,
+            "name" : null,
+            "public_node" : null,
+            "webscoket" : false,
+            "block_scope" : null
+        }
+    },
+
+    "MATIC"  :  {
 
         "id" : 2,
         "name" : "Polygon",
