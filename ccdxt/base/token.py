@@ -63,6 +63,12 @@ class Token(object) :
         
         pool_involve = {}
         
+        pass_list = ['orbitbridge', 'swapscanner']
+        
+        if (exchangeName == None) or (exchangeName in pass_list) :
+            
+            return tokenDict
+        
         for pool in poolDict :
             
             if is_dict(poolDict[pool]) :

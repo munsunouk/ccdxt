@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import os
 from ccdxt.base.utils.type import is_dict
-
+from typing import Optional
 class Pool(object):
 
     def __init__(self) :
@@ -28,7 +28,9 @@ class Pool(object):
         
         return lpAbi
         
-    def set_pool(self, chainName : str = '', exchangeName : str = '') -> dict :
+    def set_pool(self, chainName : str = '', exchangeName : Optional[str] = None) -> dict :
+        
+        pass_list = ['orbitbridge', 'swapscanner']
         
         basePath = Path(__file__).resolve().parent.parent
         
@@ -45,6 +47,10 @@ class Pool(object):
             return poolDict
         
         pool_involve = {}
+        
+        if (exchangeName == None) or (exchangeName in pass_list) :
+            
+            return poolDict
         
         for pool in poolDict :
             
