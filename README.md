@@ -6,8 +6,6 @@
 [![Commit][commit-shield]][commit-url]
 ![CommitLast][commitLast-shield]
 [![MIT License][license-shield]][license-url]
-[![Blog][blog-shield]][blog-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -145,12 +143,6 @@ Project Link: [https://github.com/MunSunouk/ccdxt](https://github.com/MunSunouk/
 
 [license-shield]: https://img.shields.io/github/license/MunSunouk/ccbxt?style=for-the-badge
 [license-url]: https://github.com/MunSunouk/ccbxt/master/LICENSE.txt
-
-[blog-shield]: https://img.shields.io/badge/-Blog-000000?style=for-the-badge&logo=Tistory&&logoColor=white
-[blog-url]: https://baobao.tistory.com/
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin-url]: https://www.linkedin.com/in/%EC%84%A0%EC%9A%B1-%EB%AC%B8-854b5219a/
 
 [Python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Solidity-shield]: https://img.shields.io/badge/Solidity-%23363636.svg?style=for-the-badge&logo=solidity&logoColor=white
