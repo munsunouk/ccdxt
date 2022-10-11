@@ -1,6 +1,6 @@
 from ccdxt.base.exchange import Exchange
 import datetime
-
+from ccdxt.base.utils.errors import InsufficientBalance
 class Meshswap(Exchange):
 
     def __init__(self):
@@ -9,7 +9,7 @@ class Meshswap(Exchange):
 
         #market info
         self.id = 1
-        self.chainName = "polygon"
+        self.chainName = "MATIC"
         self.exchangeName = "meshswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
@@ -52,16 +52,17 @@ class Meshswap(Exchange):
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         
         tokenAbalance = self.partial_balance(tokenAsymbol)
-        if amountA > tokenAbalance:
-            raise InsufficientBalance(tokenAbalance, amountA)
         
-        if tokenAsymbol == tokenBsymbol:
-            raise ValueError
+        self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
+        self.require(tokenAsymbol == tokenBsymbol, ValueError)
         
+        self.tokenAsymbol = tokenAsymbol
+        self.tokenBsymbol = tokenBsymbol
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
-        amountA = self.from_value(value = amountA, exp = tokenA["decimal"])
-        amountBMin = self.from_value(value = amountBMin, exp = tokenB["decimal"])
+        
+        amountA = self.from_value(value = amountA, exp = self.decimals(tokenAsymbol))
+        amountBMin = self.from_value(value = amountBMin, exp = self.decimals(tokenBsymbol))
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
         tokenBaddress = self.set_checksum(tokenB['contract'])
@@ -80,28 +81,16 @@ class Meshswap(Exchange):
         else:
             tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
-        tx_receipt = self.fetch_transaction(tx, tokenAaddress, tokenBaddress)
-        
-        tx_arrange = {
-            
-            'transaction_hash' : tx_receipt['transactionHash'].hex(),
-            'status' : None,
-            'block' :  tx_receipt['blockNumber'],
-            'timestamp' : datetime.datetime.now(),
-            'from' : tx_receipt['from'],
-            'to' : tx_receipt['to'],
-            'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
-            
-        }
-           
-        return tx_arrange
+        tx_receipt = self.fetch_transaction(tx, 'SWAP')
+
+        return tx_receipt
     
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).transact(
+        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     'gas' : 3000000,
@@ -116,7 +105,7 @@ class Meshswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, [tokenAaddress,tokenBaddress],self.account,deadline).transact(
+        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, [tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),
@@ -131,7 +120,7 @@ class Meshswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).transact(
+        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),

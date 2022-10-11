@@ -30,7 +30,7 @@ class Orbitbridge(Exchange):
     def create_bridge(self, amount, tokenSymbol,fromChain, toChain, toAddr) :
         
         self.load_bridge(fromChain, self.exchangeName)
-        self.load_exchange(fromChain, 'klayswap')
+        self.load_exchange(fromChain)
         
         self.tokenSymbol = tokenSymbol
         self.fromChain = fromChain
@@ -65,6 +65,20 @@ class Orbitbridge(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         
         tx = self.routerContract.functions.depositToken(tokenAddress, toChain, toAddr, amount).buildTransaction(                                          
+            {
+                "from" : self.account,
+                'gas' : 4000000,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
+    
+    def _requestSwap(self, tokenAddress: ChecksumAddress, toChain: str, toAddr: ChecksumAddress, amount: int):
+        
+        nonce = self.w3.eth.getTransactionCount(self.account)
+        
+        tx = self.routerContract.functions.requestSwap(tokenAddress, toChain, toAddr, amount).buildTransaction(                                          
             {
                 "from" : self.account,
                 'gas' : 4000000,

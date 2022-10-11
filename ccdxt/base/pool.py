@@ -41,6 +41,9 @@ class Pool(object):
             print("poolDictPath doesnt exist")
             return {}
         
+        if exchangeName == None :
+            return poolDict
+        
         pool_involve = {}
         
         for pool in poolDict :

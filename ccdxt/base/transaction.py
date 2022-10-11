@@ -77,70 +77,137 @@ class Transaction(object) :
         
         if round == 'CHECK' :
             
-            return print("approved token :",tx_receipt)
+            return print("approved token ")
         
-        if round == 'BRIDGE' :
-            
-            function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
-            
-            deposit = self.routerContract.events.Deposit()
-            
-            events = deposit.processReceipt(tx_receipt, errors=DISCARD)
-            
-            amount_in = events[-1]["args"]['amount']
-            
-            txDict = {
-                
-                'transaction_hash' : tx_receipt['transactionHash'].hex(),
-                'status' : tx_receipt["status"],
-                'block' :  tx_receipt['blockNumber'],
-                'timestamp' : datetime.datetime.now(),
-                'function' : function,
-                'from' : tx_receipt['from'],
-                'amountIn' : amount_in,
-                'tokenA' : self.tokenSymbol,
-                'to' : tx_receipt['to'],
-                'from_chain' : self.fromChain,
-                'to_chain' : self.toChain,
-                'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
-                
-            }
-            
-            return txDict
+        if self.chains['name'] == "KLAYTN" :
         
-        if round == 'SWAP' :
-
-            function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
-            path = input_args["path"]
-            
-            swap = self.routerContract.events.ExchangePos()
-            
-            events = swap.processReceipt(tx_receipt, errors=DISCARD)
-            
-            amount0_in = events[-1]["args"]["amountA"]
-            amount1_out = events[-1]["args"]["amountB"]
-            
-            amount0_in = self.to_value(amount0_in, self.decimals(self.tokenAsymbol))
-            amount1_out = self.to_value(amount1_out, self.decimals(self.tokenBsymbol))
-
-            txDict = {
+            if round == 'BRIDGE' :
                 
-                'transaction_hash' : tx_receipt['transactionHash'].hex(),
-                'status' : tx_receipt["status"],
-                'block' :  tx_receipt['blockNumber'],
-                'timestamp' : datetime.datetime.now(),
-                'function' : function,
-                'from' : tx_receipt['from'],
-                'amountIn' : amount0_in,
-                'tokenA' : self.tokenAsymbol,
-                'to' : tx_receipt['to'],
-                'amountOut' : amount1_out,
-                'tokenB' : self.tokenBsymbol,
-                'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+                function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
                 
-            }
+                deposit = self.routerContract.events.Deposit()
+                
+                events = deposit.processReceipt(tx_receipt, errors=DISCARD)
+                
+                amount_in = events[-1]["args"]['amount']
+                
+                txDict = {
+                    
+                    'transaction_hash' : tx_receipt['transactionHash'].hex(),
+                    'status' : tx_receipt["status"],
+                    'block' :  tx_receipt['blockNumber'],
+                    'timestamp' : datetime.datetime.now(),
+                    'function' : function,
+                    'from' : tx_receipt['from'],
+                    'amountIn' : amount_in,
+                    'tokenA' : self.tokenSymbol,
+                    'to' : tx_receipt['to'],
+                    'from_chain' : self.fromChain,
+                    'to_chain' : self.toChain,
+                    'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+                    
+                }
+                
+                return txDict
             
-            return txDict
+            if (round == 'SWAP') & (self.markets['name'] == 'Klayswap') :
+
+                function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
+                path = input_args["path"]
+                
+                swap = self.routerContract.events.ExchangePos()
+                
+                events = swap.processReceipt(tx_receipt, errors=DISCARD)
+                
+                amount0_in = events[-1]["args"]["amountA"]
+                amount1_out = events[-1]["args"]["amountB"]
+                
+                amount0_in = self.to_value(amount0_in, self.decimals(self.tokenAsymbol))
+                amount1_out = self.to_value(amount1_out, self.decimals(self.tokenBsymbol))
+
+                txDict = {
+                    
+                    'transaction_hash' : tx_receipt['transactionHash'].hex(),
+                    'status' : tx_receipt["status"],
+                    'block' :  tx_receipt['blockNumber'],
+                    'timestamp' : datetime.datetime.now(),
+                    'function' : function,
+                    'from' : tx_receipt['from'],
+                    'amountIn' : amount0_in,
+                    'tokenA' : self.tokenAsymbol,
+                    'to' : tx_receipt['to'],
+                    'amountOut' : amount1_out,
+                    'tokenB' : self.tokenBsymbol,
+                    'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+                    
+                }
+                
+                return txDict
+            
+        if self.chains['name'] == "MATIC" :
+        
+            if round == 'BRIDGE' :
+                
+                function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
+                
+                deposit = self.routerContract.events.SwapRequest()
+                
+                events = deposit.processReceipt(tx_receipt, errors=DISCARD)
+                
+                amount_in = events[-1]["args"]['amount']
+                
+                txDict = {
+                    
+                    'transaction_hash' : tx_receipt['transactionHash'].hex(),
+                    'status' : tx_receipt["status"],
+                    'block' :  tx_receipt['blockNumber'],
+                    'timestamp' : datetime.datetime.now(),
+                    'function' : function,
+                    'from' : tx_receipt['from'],
+                    'amountIn' : amount_in,
+                    'tokenA' : self.tokenSymbol,
+                    'to' : tx_receipt['to'],
+                    'from_chain' : self.fromChain,
+                    'to_chain' : self.toChain,
+                    'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+                    
+                }
+                
+                return txDict
+            
+            if (round == 'SWAP') & (self.markets['name'] == 'Meshswap') :
+
+                function, input_args = self.routerContract.decode_function_input(self.get_transaction_data_field(tx))
+                path = input_args["path"]
+                
+                swap = self.routerContract.events.ExchangePos()
+                
+                events = swap.processReceipt(tx_receipt, errors=DISCARD)
+                
+                amount0_in = events[-1]["args"]["amount0"]
+                amount1_out = events[-1]["args"]["amount1"]
+                
+                amount0_in = self.to_value(amount0_in, self.decimals(self.tokenAsymbol))
+                amount1_out = self.to_value(amount1_out, self.decimals(self.tokenBsymbol))
+
+                txDict = {
+                    
+                    'transaction_hash' : tx_receipt['transactionHash'].hex(),
+                    'status' : tx_receipt["status"],
+                    'block' :  tx_receipt['blockNumber'],
+                    'timestamp' : datetime.datetime.now(),
+                    'function' : function,
+                    'from' : tx_receipt['from'],
+                    'amountIn' : amount0_in,
+                    'tokenA' : self.tokenAsymbol,
+                    'to' : tx_receipt['to'],
+                    'amountOut' : amount1_out,
+                    'tokenB' : self.tokenBsymbol,
+                    'transaction_fee:' : tx_receipt['gasUsed'] * tx_receipt['effectiveGasPrice'] / 10 ** 18 ,
+                    
+                }
+                
+                return txDict
         
     def fetch_trade_fail(self,tx_hash) :
 

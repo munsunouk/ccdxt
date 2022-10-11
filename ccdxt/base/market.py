@@ -32,6 +32,9 @@ class Market(object):
         else :
             print("marketDictPath doesnt exist")
             return {}
+        
+        if exchangeName == None :
+            return marketDict
             
         market = marketDict[exchangeName]
         

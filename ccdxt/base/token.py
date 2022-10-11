@@ -58,6 +58,9 @@ class Token(object) :
             print("poolDictPath doesnt exist")
             return {}
         
+        if exchangeName == None :
+            return tokenDict
+        
         pool_involve = {}
         
         for pool in poolDict :

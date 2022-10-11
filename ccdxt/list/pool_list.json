@@ -3349,5 +3349,16 @@
         "tokenA": "KETH",
         "tokenB": "KUSDT",
         "decimals": "18"
+    },
+    "oZEMIT-USDC": {
+        "name": "oZEMIT-USDC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x0ca328146511617e85742773858ff113c7738b15"
+            }
+        },
+        "tokenA": "oZEMIT",
+        "tokenB": "USDC",
+        "decimals": "6"
     }
 }

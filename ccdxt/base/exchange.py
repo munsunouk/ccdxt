@@ -2,12 +2,15 @@ from ccdxt.base import Chain, Market, Pool, Token, Transaction
 from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
 from ccdxt.base.utils.validation import *
 from ccdxt.base.utils import SafeMath
+from eth_account import Account
 
 from typing import Optional, Union
 from eth_typing.evm import Address
 from decimal import Decimal
 
 from web3 import Web3
+from web3.middleware import geth_poa_middleware, construct_sign_and_send_raw_middleware
+
 
 import logging
 
@@ -321,7 +324,7 @@ class Exchange(Transaction):
         
         return tx
         
-    def load_exchange(self,chainName,exchangeName):
+    def load_exchange(self,chainName,exchangeName=None):
         
         self.load_chains(chainName)
         self.load_markets(chainName, exchangeName)
@@ -329,6 +332,7 @@ class Exchange(Transaction):
         self.load_tokens(chainName, exchangeName)
         
         self.w3 = self.set_network(self.chains['mainnet']['public_node'])
+        
         self.baseCurrncy = self.chains['baseContract']
         
     def load_multicall(self,chainName):
@@ -468,6 +472,11 @@ class Exchange(Transaction):
     @staticmethod
     def set_checksum(value) :
         return Web3.toChecksumAddress(value)
+    
+    def set_pos(self) :
+        self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+        account = Account.from_key(self.privateKey)
+        self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
     
     @staticmethod
     def from_value(value : float or int, exp : int=18) -> int :

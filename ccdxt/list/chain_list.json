@@ -1,7 +1,7 @@
 {
     "KLAYTN"  :  {
 
-        "name" : "Klaytn",
+        "name" : "KLAYTN",
         "baseChain" : "klaytn",
         "baseCurrency" : "KLAY",
         "baseContract" : "0x0000000000000000000000000000000000000000",
@@ -28,7 +28,7 @@
 
     "ORBIT"  :  {
 
-        "name" : "Orbit",
+        "name" : "ORBIT",
         "baseChain" : "orbit",
         "baseCurrency" : "ORC",
         "baseContract" : "0x0000000000000000000000000000000000000000",
@@ -56,7 +56,7 @@
     "MATIC"  :  {
 
         "id" : 2,
-        "name" : "Polygon",
+        "name" : "MATIC",
         "baseChain" : "polygon",
         "baseCurrency" : "MATIC",
         "baseContract" : "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",

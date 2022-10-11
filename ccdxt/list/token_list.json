@@ -1168,5 +1168,11 @@
         "symbol": "oZEMIT",
         "contract": "0xA34E0eaCB7fbB0b0d45da89b083E0f87fcdf6157",
         "decimals": "18"
+    },
+    "USDC" : {
+        "name" : "USDC",
+        "symbol" : "USDC",
+        "contract" : "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "decimals" : "6"
     }
 }
