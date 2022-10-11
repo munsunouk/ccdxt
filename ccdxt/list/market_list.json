@@ -160,6 +160,23 @@
             }
         },
         "info" : "https://bridge.orbitchain.io/"
+    },
+    "swapscanner" : {
+        "id": 10,
+        "name" : "Swapscanner",
+        "symbol": "SRC",
+        "fee" : 0.3,
+        "factoryAbi" : "swapscanner_router_abi.json",
+        "routerAbi" : "test1.json",
+        "baseChain" : {
+
+            "KLAYTN" : {
+
+                "factoryAddress" : "0xf50782a24afcb26acb85d086cf892bfffb5731b5",
+                "routerAddress" : "0xf50782a24afcb26acb85d086cf892bfffb5731b5"
+            }
+        },
+        "info" : "https://g2.KLAYTN.definix.com/swap"
     }
 }
 
