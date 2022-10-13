@@ -46,7 +46,7 @@ class Exchange(Transaction):
                             filename=self.log,
                             filemode="w",
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger(__name__)    
         
     def add_wallet(self) :
         

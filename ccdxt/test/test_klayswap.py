@@ -9,7 +9,11 @@ if __name__ == "__main__" :
     klayswap.privateKey = ''
     
     # #Token
+<<<<<<< HEAD
     print(klayswap.fetch_balance(['KUSDT']))
+=======
+    # print(klayswap.fetch_balance(['MOOI','KETH']))
+>>>>>>> b7b378547437940162b5ce590f14c744c431e0d8
     
     # # Swap
-    # print(klayswap.create_swap(0.1, 'oUSDT' , 0.0000000000001, 'oETH'))
+    # print(klayswap.create_swap(0.1, 'KUSDT' , 0.0000000000001, 'KETH'))
