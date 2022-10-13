@@ -91,6 +91,8 @@ class Transaction(object) :
                 
                 amount_in = events[-1]["args"]['amount']
                 
+                amount_in = self.to_value(amount_in, self.decimals(self.tokenSymbol))
+                
                 txDict = {
                     
                     'transaction_hash' : tx_receipt['transactionHash'].hex(),
@@ -155,6 +157,8 @@ class Transaction(object) :
                 events = deposit.processReceipt(tx_receipt, errors=DISCARD)
                 
                 amount_in = events[-1]["args"]['amount']
+                
+                amount_in = self.to_value(amount_in, self.decimals(self.tokenSymbol))
                 
                 txDict = {
                     

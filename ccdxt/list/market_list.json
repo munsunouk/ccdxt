@@ -160,7 +160,7 @@
             },
             "MATIC" : {
                 "baseCurrency" : "MATIC",
-                "bridgeAbi" : "KlatnMinter_abi",
+                "bridgeAbi" : "KlatnMinter_abi.json",
                 "bridgeAddress" : "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d",
                 "fee" : 0.1
             }

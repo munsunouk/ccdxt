@@ -3328,8 +3328,8 @@
         "tokenB": "KUSDT",
         "decimals": "6"
     },
-    "ZEMIT-KUSDT": {
-        "name": "ZEMIT-KUSDT",
+    "KUSDT-ZEMIT": {
+        "name": "KUSDT-ZEMIT",
         "baseChain": {
             "KLAYTN": {
                 "klayswap": "0xa6f631a84657c370c77677bcf052d60c4548187b"
@@ -3350,15 +3350,15 @@
         "tokenB": "KUSDT",
         "decimals": "18"
     },
-    "oZEMIT-USDC": {
-        "name": "oZEMIT-USDC",
+    "USDC-oZEMIT": {
+        "name": "USDC-oZEMIT",
         "baseChain": {
             "MATIC": {
                 "meshswap": "0x0ca328146511617e85742773858ff113c7738b15"
             }
         },
-        "tokenA": "oZEMIT",
-        "tokenB": "USDC",
+        "tokenA": "USDC",
+        "tokenB": "oZEMIT",
         "decimals": "6"
     }
 }

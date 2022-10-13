@@ -29,6 +29,8 @@ class Klayswap(Exchange):
         
         pool = self.get_pool(tokenAsymbol, tokenBsymbol)
         
+        pool = self.set_checksum(pool)
+        
         reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
         amountBout = self.get_amount_out(pool,tokenAsymbol,amountin)
@@ -168,10 +170,13 @@ class Klayswap(Exchange):
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenAsymbol))
+            
+            reserve = reserves[0] / reserves[1]
+            
         else:
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenAsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenBsymbol))
             
-        reserve = reserves[1] / reserves[0]
+            reserve = reserves[1] / reserves[0]
         
         return reserve

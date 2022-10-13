@@ -90,10 +90,13 @@ class SafeMath:
 		if (a < 0 or b < 0):
 			raise NegativeNumbers("Numbers cannot be negative")
 		c = a * b
-		if (c / a != b):
-			raise MultiplicationOverFlowError
-		else:
-			return c
+  
+		return c
+  
+		# if (c // a != b):
+		# 	raise MultiplicationOverFlowError
+		# else:
+		# 	return c
 
 	def div(a: Union[int, float], b: Union[int, float, Decimal]) -> Union[int, float]:
 		'''

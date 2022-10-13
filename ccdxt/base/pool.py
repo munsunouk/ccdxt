@@ -82,15 +82,15 @@ class Pool(object):
         
         return poolDict
     
-    def save_pool(pools) :
+    # def save_pool(self, pools) :
         
-        basePath = Path(__file__).resolve().parent.parent
+    #     basePath = Path(__file__).resolve().parent.parent
     
-        poolDictPath = os.path.join(basePath , "list", "pool_list.json")
+    #     poolDictPath = os.path.join(basePath , "list", "pool_list.json")
         
-        if Path(poolDictPath).exists() :
-            with open(poolDictPath, 'w', encoding="utf-8") as f:     
-                json.dump(pools, f, indent=4)
+    #     if Path(poolDictPath).exists() :
+    #         with open(poolDictPath, 'w', encoding="utf-8") as f:     
+    #             json.dump(pools, f, indent=4)
                 
-        else :
-            print("poolDictPath doesnt exist")
+    #     else :
+    #         print("poolDictPath doesnt exist")

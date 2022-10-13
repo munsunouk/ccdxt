@@ -38,7 +38,11 @@ class Orbitbridge(Exchange):
         
         token = self.tokens[tokenSymbol]
         
+        # base = self.tokens[]
+
         tokenBalance = self.partial_balance(tokenSymbol)
+        
+        # baseBalance = self.partial_balance(tokenSymbol)
         
         self.require(amount > tokenBalance['balance'], InsufficientBalance(tokenBalance, amount))
 
@@ -49,12 +53,25 @@ class Orbitbridge(Exchange):
         toAddrress = self.set_checksum(toAddr)
         bridgeAddress = self.set_checksum(self.bridge["bridgeAddress"])
         
-        self.check_approve(amountA = amount, token = tokenAddress, \
+        if fromChain == 'KLAYTN' :
+            
+            self.check_approve(amountA = amount, token = tokenAddress, \
                            account = accountAddress, router = bridgeAddress)
-        
-        self.routerContract = self.get_contract(bridgeAddress, self.bridge['bridgeAbi'])
+            
+            self.routerContract = self.get_contract(bridgeAddress, self.bridge['bridgeAbi'])
 
-        tx = self._depositToken(tokenAddress, toChain, toAddrress, amount)
+            tx = self._depositToken(tokenAddress, toChain, toAddrress, amount)
+            
+        elif fromChain == 'MATIC' :
+            
+            self.set_pos()
+            
+            self.check_approve(amountA = amount, token = tokenAddress, \
+                           account = accountAddress, router = bridgeAddress)
+            
+            self.routerContract = self.get_contract(bridgeAddress, self.bridge['bridgeAbi'])
+            
+            tx = self._requestSwap(tokenAddress, toChain, toAddrress, amount)
 
         tx_receipt = self.fetch_transaction(tx, round = 'BRIDGE')
            
@@ -81,7 +98,7 @@ class Orbitbridge(Exchange):
         tx = self.routerContract.functions.requestSwap(tokenAddress, toChain, toAddr, amount).buildTransaction(                                          
             {
                 "from" : self.account,
-                'gas' : 4000000,
+                # 'gas' : 4000000,
                 "nonce": nonce,
             }
         )

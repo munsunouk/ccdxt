@@ -99,10 +99,17 @@ class Exchange(Transaction):
 
         try:
             tokenContract = self.get_contract(tokenAddress, self.chains['chainAbi'])
-            decimals = tokenContract.functions.decimals().call()
-            self.tokens[tokenSymbol]["decimals"] = decimals
             
-            self.save_token(self.tokens)
+            if "decimals" not in self.tokens[tokenSymbol] :
+            
+                decimals = tokenContract.functions.decimals().call()
+                self.tokens[tokenSymbol]["decimals"] = decimals
+                
+                # self.save_token(self.tokens)
+            
+            else :
+                decimals = self.tokens[tokenSymbol]["decimals"]
+                
             return int(decimals)
         except ABIFunctionNotFound:
             return 18
@@ -111,44 +118,83 @@ class Exchange(Transaction):
 
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
-    
-    def get_pool(self, tokenAsymbol, tokenBsymbol) :
         
-        if (tokenAsymbol + tokenBsymbol) in self.__pairs:
-            return self.__pairs[tokenAsymbol + tokenBsymbol]
-        
+    def get_pool(self, tokenAsymbol, tokenBsymbol):
+
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
-        factoryAddress = self.set_checksum(self.markets['factoryAddress'])
+        
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         try:
-            factoryContract = self.get_contract(factoryAddress, self.markets['factoryAbi'])
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            
+            token_sort = sorted([tokenAsymbol, tokenBsymbol])
+            
+            pool_name = token_sort[0] + '-' + token_sort[1]
+            
+            if pool_name not in self.pools :
 
-            pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
-            self.__pairs[tokenAaddress + tokenBaddress] = pair
+                pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
+                
+                self.pools = self.deep_extend(self.pools, 
+                            {
+                                pool_name : {
+                                    "name" : pool_name,
+                                    "baseChain" : {
+                                        self.chainName : {
+                                            self.exchangeName : pair
+                                        }
+                                    }
+                                }
+                                
+                            })
+                # Pool().save_pool(self.pools)
+            else :
+                pair = dict(self.pools[pool_name])['poolAddress']
             return pair
         except ABIFunctionNotFound:
             return print("No ABI found")
         
     def get_pair(self, tokenAsymbol, tokenBsymbol):
 
-        if (tokenAsymbol + tokenBsymbol) in self.__pairs:
-            return self.__pairs[tokenAsymbol + tokenBsymbol]
-        
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
         
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        
         try:
-            factoryContract = self.get_contract(tokenAaddress, self.markets['factoryAbi'])
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            
+            token_sort = sorted([tokenAsymbol, tokenBsymbol])
+            
+            pool_name = token_sort[0] + '-' + token_sort[1]
+            
+            if pool_name not in self.pools :
 
-            pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
-            self.__pairs[tokenAaddress + tokenBaddress] = pair
+                pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+                
+                self.pools = self.deep_extend(self.pools, 
+                            {
+                                pool_name : {
+                                    "name" : pool_name,
+                                    "baseChain" : {
+                                        self.chainName : {
+                                            self.exchangeName : pair
+                                        }
+                                    }
+                                }
+                                
+                            })
+                # Pool().save_pool(self.pools)
+            else :
+                pair = dict(self.pools[pool_name])['poolAddress']
             return pair
         except ABIFunctionNotFound:
             return print("No ABI found")
@@ -201,7 +247,7 @@ class Exchange(Transaction):
         account = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets['routerAbi'])
         
-        contract = self.client.eth.contract(tokenAddress, self.chains['chainAbi'])
+        contract = self.w3.eth.contract(tokenAddress, self.chains['chainAbi'])
         return contract.functions.allowance(account, routerAddress).call()
         
     def fees(self, input = None, output = None, intermediate = None, amount = 1):
@@ -319,6 +365,9 @@ class Exchange(Transaction):
             {
                 "from" : self.account,
                 "nonce": nonce,
+                # "gasPrice" : self.w3.toWei(10,'gwei')
+                # 'maxFeePerGas': self.w3.toWei(20,'gwei'),
+                # 'maxPriorityFeePerGas': self.w3.toWei(20,'gwei'),
             }
         )
         
@@ -461,9 +510,9 @@ class Exchange(Transaction):
     # def set_multicall():
     #     return Multicall().set_multicall()
     
-    @staticmethod
-    def save_token(tokens):
-        return Token().save_token(tokens)
+    # @staticmethod
+    # def save_token(tokens):
+    #     return Token().save_token(tokens)
     
     @staticmethod
     def set_network(network_path) :

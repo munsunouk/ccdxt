@@ -109,15 +109,15 @@ class Token(object) :
         
         return tokenDict
 
-    def save_token(self,tokens) :
+    # def save_token(self,tokens) :
         
-        basePath = Path(__file__).resolve().parent.parent
+    #     basePath = Path(__file__).resolve().parent.parent
         
-        tokenDictPath = os.path.join(basePath, "list", "token_list.json")
+    #     tokenDictPath = os.path.join(basePath, "list", "token_list.json")
         
-        if Path(tokenDictPath).exists() :
-            with open(tokenDictPath, 'w', encoding="utf-8") as f:     
-                json.dump(tokens, f, indent=4)
+    #     if Path(tokenDictPath).exists() :
+    #         with open(tokenDictPath, 'w', encoding="utf-8") as f:     
+    #             json.dump(tokens, f, indent=4)
                 
-        else :
-            print("tokenDictPath doesnt exist")
+    #     else :
+    #         print("tokenDictPath doesnt exist")

@@ -20,6 +20,8 @@ class Meshswap(Exchange):
         
         pool = self.get_pair(tokenAsymbol, tokenBsymbol)
         
+        pool = self.set_checksum(pool)
+        
         reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
         amountBout = self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
@@ -88,12 +90,15 @@ class Meshswap(Exchange):
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         
         nonce = self.w3.eth.getTransactionCount(self.account)
-        deadline = int(datetime.datetime.now().timestamp() + 1800)\
-                                               
+        deadline = int(datetime.datetime.now().timestamp() + 1800)
+
         tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
-                    'gas' : 3000000,
+                    # "gasPrice" : self.w3.toHex(25000000000),
+                    # 'gas': 250000,
+                    # 'maxPriorityFeePerGas': self.w3.toWei(20,'gwei'),
+                    # 'maxFeePerGas': self.w3.toWei(30,'gwei'),
                     "nonce": nonce,
                 }
             )                                      
@@ -140,9 +145,9 @@ class Meshswap(Exchange):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB['contract'])
         
-        self.factoryContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
         
-        amountOut = self.factoryContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()[-1]
+        amountOut = self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()[-1]
         
         return amountOut
     
@@ -152,20 +157,22 @@ class Meshswap(Exchange):
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         
-        factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
-        
-        tokenA = factoryContract.functions.tokenA().call()
-        
         routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
-        reserves = routerContract.functions.getCurrentPool().call()
+        
+        tokenA = routerContract.functions.token0().call()
+
+        reserves = routerContract.functions.getReserves().call()
         
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenAsymbol))
+            
+            reserve = reserves[0] / reserves[1]
+            
         else:
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenAsymbol))
             reserves[1] = self.to_value(reserves[1], self.decimals(tokenBsymbol))
             
-        reserve = reserves[1] / reserves[0]
+            reserve = reserves[1] / reserves[0]
         
         return reserve
