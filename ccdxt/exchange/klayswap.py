@@ -62,6 +62,13 @@ class Klayswap(Exchange):
     
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         '''
+        Parameters
+        ----------
+        amountA : tokenA amount input
+        tokenAsymbol: symbol of token input
+        amountBMin : tokenB amount output which is expactation as minimun
+        tokenBsymbol : symbol of tokenB output
+        
         Return 
         {
         'transaction_hash': '0x21895bbec44e6dab91668fb338a43b3eb59fa78ae623499bf8f313ef827301c4', 

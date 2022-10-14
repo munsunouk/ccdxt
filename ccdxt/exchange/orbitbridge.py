@@ -29,6 +29,20 @@ class Orbitbridge(Exchange):
 
     def create_bridge(self, amount, tokenSymbol,fromChain, toChain, toAddr) :
         '''
+        Info
+        ----------
+        create bridge amount of token in fromChain to toChain`s toAddr after check approve
+        
+        Parameters
+        ----------
+        amount : token amount input
+        tokenAsymbol: symbol of token input
+        fromChain : name of chain token transfering
+        toChain : name of chain token transfered
+        toAddr : address of account of toChain`s chain 
+        
+        Returns
+        -------
         {
         'transaction_hash': '0x6ea0feb76b39e4a2b03e553b4fbbacf8aefb8e5a1f7911893891fc49e5d8db79', 
         'status': 1, 
