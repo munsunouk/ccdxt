@@ -108,13 +108,10 @@ class Orbitbridge(Exchange):
     def decode(self,fromChain, tx_hash) :
         
         self.load_bridge(fromChain, self.exchangeName)
-        self.load_exchange(fromChain, 'klayswap')
-        
+        self.load_exchange(fromChain)
         routerAddress = self.set_checksum(self.bridge["bridgeAddress"])
         routerContract = self.get_contract(routerAddress, self.bridge['bridgeAbi'])
-        
-        # print(self.bridge['bridgeAbi'])
-        
+
         transaction = self.w3.eth.getTransaction(tx_hash)
         
         result = routerContract.decode_function_input(transaction.input)
