@@ -28,6 +28,22 @@ class Orbitbridge(Exchange):
         self.exchangeName = "orbitbridge"
 
     def create_bridge(self, amount, tokenSymbol,fromChain, toChain, toAddr) :
+        '''
+        {
+        'transaction_hash': '0x6ea0feb76b39e4a2b03e553b4fbbacf8aefb8e5a1f7911893891fc49e5d8db79', 
+        'status': 1, 
+        'block': 34314503, 
+        'timestamp': datetime.datetime(2022, 10, 14, 10, 18, 6, 614884), 
+        'function': <Function requestSwap(address,string,bytes,uint256)>,
+        'from': '0x78352F58E3ae5C0ee221E64F6Dc82c7ef77E5cDF', 
+        'amountIn': 0.622748, 
+        'tokenA': 'oZEMIT', 
+        'to': '0x9Abc3F6c11dBd83234D6E6b2c373Dfc1893F648D', 
+        'from_chain': 'MATIC', 
+        'to_chain': 'KLAYTN', 
+        'transaction_fee:': 0.009408398005397502
+        }
+        '''
         
         self.load_bridge(fromChain, self.exchangeName)
         self.load_exchange(fromChain)
