@@ -121,7 +121,7 @@ The easiest way to install the CCDXT library is to use a package manager:
     - [ ] fantom
     - [ ] etherium
 - [x] Multi call Support
-- [x] Cross chsins Support
+- [x] Cross chains Support
 - [ ] Optimism path Support
 - [ ] Async Support
 
