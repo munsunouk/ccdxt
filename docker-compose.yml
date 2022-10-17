@@ -1,0 +1,10 @@
+version: "0.1"
+services:
+
+  ccdxt : 
+
+    image: ccdxt:latest
+
+    restart: always
+
+    container_name: ccdxt

@@ -1,3 +1,27 @@
+Metadata-Version: 2.1
+Name: ccdxt
+Version: 0.1
+Summary: Python DEX trading API
+Home-page: https://github.com/MunSunouk
+Author: Mun Sunouk
+Author-email: mun_sunouk@gmail.com
+License: MIT
+Keywords: python,api,library,crypto,decentralized,blockchain,cryptocurrency,swap,trade,arbitrage,dex,web3py
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # CCDXT – CryptoCurrency Decentralized eXchange Trading Library
 
 <!-- PROJECT SHIELDS -->
@@ -77,9 +101,7 @@ if __name__ == "__main__" :
 ```
 
 ### Installation
-The easiest way to install the CCDXT library is to use a package manager:
-
-- [ccdxt in **PyPI**](https://pypi.org/project/ccdxt/0.1/) (Python 3.7.3+)
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 * pip
   ```sh
@@ -121,7 +143,7 @@ The easiest way to install the CCDXT library is to use a package manager:
     - [ ] fantom
     - [ ] etherium
 - [x] Multi call Support
-- [x] Cross chains Support
+- [x] Cross chsins Support
 - [ ] Optimism path Support
 - [ ] Async Support
 

@@ -218,6 +218,18 @@ class Exchange(object):
         return self.tokens
 
     def fetch_balance(self) :
+        '''
+        [
+            {
+                'symbol': 'KETH', 
+                'balance': 0.000587
+            }, 
+            {
+                'symbol': 'ZEMIT', 
+                'balance': 1.888802
+            }
+        ]
+        '''
         
         result = []
         

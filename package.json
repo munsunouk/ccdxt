@@ -1,0 +1,33 @@
+{
+
+    "name" : "ccdxt",
+    "version" : "0.1",
+    "description": "Python DEX trading API",
+    "main": "./ccdxt.py",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MunSunouk/ccdxt.git"
+    },
+    "readme": "README.md",
+    "author": {
+        "name": "Mun Sunouk",
+        "email": "mun_sunouk@gmail.com",
+        "url": "https://github.com/MunSunouk"
+    },
+    "homepage" : "https://github.com/MunSunouk",
+    "license": "MIT",
+    "keywords": [
+      "python",
+      "api",
+      "library",
+      "crypto",
+      "decentralized",
+      "blockchain",
+      "cryptocurrency",
+      "swap",
+      "trade",
+      "arbitrage",
+      "dex",
+      "web3py"
+    ]
+}

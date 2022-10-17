@@ -48,11 +48,6 @@ class Exchange(Transaction):
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger(__name__)    
         
-    def add_wallet(self) :
-        
-        self.public_key = ''
-        self._private_key = ''
-        
     def block_number(self) -> str:
         """
         Returns

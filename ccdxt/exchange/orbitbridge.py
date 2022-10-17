@@ -28,6 +28,36 @@ class Orbitbridge(Exchange):
         self.exchangeName = "orbitbridge"
 
     def create_bridge(self, amount, tokenSymbol,fromChain, toChain, toAddr) :
+        '''
+        Info
+        ----------
+        create bridge amount of token in fromChain to toChain`s toAddr after check approve
+        
+        Parameters
+        ----------
+        amount : token amount input
+        tokenAsymbol: symbol of token input
+        fromChain : name of chain token transfering
+        toChain : name of chain token transfered
+        toAddr : address of account of toChain`s chain 
+        
+        Returns
+        -------
+        {
+        'transaction_hash': '0x6ea0feb76b39e4a2b03e553b4fbbacf8aefb8e5a1f7911893891fc49e5d8db79', 
+        'status': 1, 
+        'block': 34314503, 
+        'timestamp': datetime.datetime(2022, 10, 14, 10, 18, 6, 614884), 
+        'function': <Function requestSwap(address,string,bytes,uint256)>,
+        'from': '0x78352F58E3ae5C0ee221E64F6Dc82c7ef77E5cDF', 
+        'amountIn': 0.622748, 
+        'tokenA': 'oZEMIT', 
+        'to': '0x9Abc3F6c11dBd83234D6E6b2c373Dfc1893F648D', 
+        'from_chain': 'MATIC', 
+        'to_chain': 'KLAYTN', 
+        'transaction_fee:': 0.009408398005397502
+        }
+        '''
         
         self.load_bridge(fromChain, self.exchangeName)
         self.load_exchange(fromChain)
@@ -108,13 +138,10 @@ class Orbitbridge(Exchange):
     def decode(self,fromChain, tx_hash) :
         
         self.load_bridge(fromChain, self.exchangeName)
-        self.load_exchange(fromChain, 'klayswap')
-        
+        self.load_exchange(fromChain)
         routerAddress = self.set_checksum(self.bridge["bridgeAddress"])
         routerContract = self.get_contract(routerAddress, self.bridge['bridgeAbi'])
-        
-        # print(self.bridge['bridgeAbi'])
-        
+
         transaction = self.w3.eth.getTransaction(tx_hash)
         
         result = routerContract.decode_function_input(transaction.input)

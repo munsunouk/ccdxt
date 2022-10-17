@@ -61,6 +61,30 @@ class Klayswap(Exchange):
         return result
     
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
+        '''
+        Parameters
+        ----------
+        amountA : tokenA amount input
+        tokenAsymbol: symbol of token input
+        amountBMin : tokenB amount output which is expactation as minimun
+        tokenBsymbol : symbol of tokenB output
+        
+        Return 
+        {
+        'transaction_hash': '0x21895bbec44e6dab91668fb338a43b3eb59fa78ae623499bf8f313ef827301c4', 
+        'status': 1, 
+        'block': 34314499, 
+        'timestamp': datetime.datetime(2022, 10, 14, 10, 17, 58, 885156), 
+        'function': <Function swapExactTokensForTokens(uint256,uint256,address[],address,uint256)>, 
+        'from': '0x78352F58E3ae5C0ee221E64F6Dc82c7ef77E5cDF', 
+        'amountIn': 0.1, 
+        'tokenA': 'USDC', 
+        'to': '0x10f4A785F458Bc144e3706575924889954946639', 
+        'amountOut': 0.623371, 
+        'tokenB': 'oZEMIT', 
+        'transaction_fee:': 0.023495964646856035
+        }
+        '''
         
         tokenAbalance = self.partial_balance(tokenAsymbol)
         
