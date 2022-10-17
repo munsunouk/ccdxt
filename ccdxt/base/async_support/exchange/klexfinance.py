@@ -28,6 +28,19 @@ class Klexfinance(Exchange):
             
         return  result
     
+    def fetch_balance(self) :
+        
+        result = []
+        
+        symbols = list(self.tokens.keys())
+        
+        for symbol in symbols :
+            
+            balance = self.partial_balance(symbol)
+            result.append(balance)
+            
+        return  result
+    
     def create_swap(self, amountA, tokenA, amountBMin, tokenB) :
         
         tokenA = self.tokens[tokenA]
@@ -73,6 +86,72 @@ class Klexfinance(Exchange):
         }
            
         return tx_arrange
+    
+    def partial_balance(self, token : str) :
+        
+        token = self.tokens[token]
+        
+        tokenAaddress = self.set_checksum(token["contract"])
+        accountAddress = self.set_checksum(self.account)
+        
+        chainContract = self.set_contract(self.w3, tokenAaddress, self.chains['chainAbi'])
+        
+        balance = chainContract.functions.balanceOf(accountAddress).call()
+        
+        balance = self.to_value(balance, token["decimal"])
+        
+        result = {
+            
+            "symbol" : token["symbol"],
+            "address" : accountAddress,
+            "balance" : balance
+            
+        }
+        
+        return result
+    
+    def check_approve(self, amountA : int, token : str, account : str, router : str)  :
+        
+        '''
+        Check token approved and transact approve if is not
+        
+        Parameters
+        ----------
+        token : token address
+        routerAddress: LP pool owner who allow
+        '''
+        
+        if (token == self.baseCurrncy) :
+            return
+        
+        contract = self.set_contract(self.w3, token, self.chains['chainAbi'])
+        
+        approvedTokens = contract.functions.allowance(account,router).call()
+        
+        if approvedTokens < amountA :
+           
+           tx = self.get_approve(token, router)
+           
+           tx_receipt = self.fetch_transaction(tx)
+
+           return tx_receipt
+           
+        else : return
+        
+    def get_approve(self,token : str, router : str) :
+        
+        contract = self.set_contract(self.w3, token, self.chains['chainAbi'])
+        
+        nonce = self.get_TransactionCount(self.account)
+        
+        tx = contract.functions.approve(router, self.unlimit).buildTransaction(
+            {
+                "from" : self.account,
+                "nonce": nonce,
+            }
+        )
+        
+        return tx
     
     def set_swap(self, amountA, tokenA, amountBMin, tokenB) :
         
