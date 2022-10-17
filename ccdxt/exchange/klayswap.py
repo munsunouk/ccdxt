@@ -1,7 +1,5 @@
 import ccdxt
 
-print(dir(ccdxt))
-
 from ccdxt.base.exchange import Exchange
 from ccdxt.base.utils.errors import InsufficientBalance
 import datetime
