@@ -79,7 +79,7 @@ if __name__ == "__main__" :
 ### Installation
 The easiest way to install the CCDXT library is to use a package manager:
 
-- [ccxt in **PyPI**](https://pypi.org/project/ccdxt/0.1/) (Python 3.7.3+)
+- [ccdxt in **PyPI**](https://pypi.org/project/ccdxt/0.1/) (Python 3.7.3+)
 
 * pip
   ```sh
