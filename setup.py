@@ -23,7 +23,7 @@ with open(package_json, encoding='utf-8') as f:
 setup(
     
     name="ccdxt",
-    version="0.14",
+    version="0.15",
     
     description=package['description'],
     long_description=long_description,
