@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import json
 from os import path
 
@@ -23,7 +23,7 @@ with open(package_json, encoding='utf-8') as f:
 setup(
     
     name="ccdxt",
-    version="0.2",
+    version="0.21",
     
     description=package['description'],
     long_description=long_description,
@@ -33,8 +33,8 @@ setup(
     author=package['author']['name'],
     author_email=package['author']['email'],
     license=package['license'],
-    packages=["ccdxt"],
-    # install_requires=['web3','eth-tester'],
+    packages=find_packages(where='ccdxt'),
+    package_dir={'': 'ccdxt'},
     
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -52,7 +52,7 @@ setup(
     ],
     
     keywords=package['keywords'],
-    
+
     install_requires=[
         "web3",
         "eth-tester==0.7.0b1"
