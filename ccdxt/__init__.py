@@ -1,4 +1,4 @@
-from .exchange import Klayswap
+from .exchange.klayswap import Klayswap
 from .base.exchange import Exchange
 from .base.chain import Chain
 from .base.market import Market
