@@ -18,7 +18,7 @@ class Exchange(object):
         
     }
 
-    def __init__(self, config={}):
+    def __init__(self):
 
         self.chains = None
         # if self.chains:
