@@ -1,4 +1,4 @@
-from web3.exceptions import ContractLogicError
+# from web3.exceptions import ContractLogicError
 from web3.exceptions import ABIFunctionNotFound
 from typing import Optional
 error_hierarchy = {
@@ -46,7 +46,7 @@ error_hierarchy = {
             'InvalidNonce': {},
             'RequestTimeout': {},
         },
-        'ContractLogicError' : {},
+        # 'ContractLogicError' : {},
         'ABIFunctionNotFound' : {},
         'DataTypeError' : {},
         'AddressError' : {},
@@ -220,8 +220,8 @@ class AddressError(BaseError):
 class RequestTimeout(NetworkError):
     pass
 
-class ContractLogicError(ContractLogicError):
-    pass
+# class ContractLogicError(ContractLogicError):
+#     pass
 
 class ABIFunctionNotFound(ABIFunctionNotFound) :
     pass
@@ -282,7 +282,7 @@ __all__ = [
     'OnMaintenance',
     'InvalidNonce',
     'RequestTimeout',
-    'ContractLogicError',
+    # 'ContractLogicError',
     'RevertError',
     'DataTypeError',
     'AddressError',
