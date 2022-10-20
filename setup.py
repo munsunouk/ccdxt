@@ -18,7 +18,7 @@ with open(package_json, encoding='utf-8') as f:
 setup(
     
     name="ccdxt",
-    version="0.37",
+    version="0.38",
     
     description=package['description'],
     long_description=long_description,
@@ -29,7 +29,6 @@ setup(
     author_email=package['author']['email'],
     license=package['license'],
     packages=find_packages(),
-    # package_dir={'': 'ccdxt'},
     
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -50,7 +49,7 @@ setup(
 
     install_requires=[
 
-        "web3",
+        "web3>=5.31.0",
 
     ],
     

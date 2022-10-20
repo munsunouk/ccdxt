@@ -1,4 +1,4 @@
-from ccdxt.base.exchange import Exchange
+from ccdxt.base.async_support.exchange import Exchange
 
 if __name__ == "__main__" :
 

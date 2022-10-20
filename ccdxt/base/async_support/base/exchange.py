@@ -1,74 +1,112 @@
-from src.base import Chain, Market, Token 
-from web3 import Web3
-from web3.exceptions import ABIFunctionNotFound, TransactionNotFound, BadFunctionCallOutput
-from typing import Optional, Type, Union
-import json
-from eth_typing import HexAddress
-from web3.contract import Contract
-from decimal import Decimal
-from src.base.errors import NotSupported
+from ccdxt.base import Chain, Market, Pool, Token, Transaction
+from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
+from ccdxt.base.utils.validation import *
+from ccdxt.base.utils import SafeMath
+from eth_account import Account
 
-class Exchange(object):
+from typing import Optional, Union
+from eth_typing.evm import Address
+from decimal import Decimal
+
+from web3 import Web3
+from web3.eth import AsyncEth
+from web3.middleware import geth_poa_middleware, construct_sign_and_send_raw_middleware
+
+import asyncio
+import logging
+
+class Exchange(Transaction):
     """Base exchange class"""
-    has = {
-        
-        'createSwap': True,
-        'fetchTokens': None,
-        'fetchBalance': True,
-        
-    }
 
     def __init__(self):
 
-        self.chains = None
-        # if self.chains:
-        #     self.set_chains(self.chains)
-        self.chainAbi = None
-        self.network_path = None
+        #chain info
+        self.chains : Optional[dict] = None
+        self.network_path : Optional[str] = None
+        self.baseDecimal = 18
 
         #market info
         self.id = None
-        self.name = None
-        self.enableRateLimit = True
-        self.rateLimit = 2000  # milliseconds = seconds * 1000
-
-        self.markets = None
-        self.tokenList = None
-        self.tokens = None
-        self.symbols = None
+        self.chainName : Optional[str] = None
+        self.exchangeName : Optional[str] = None
+        self.rateLimit : Optional[int] = 2000  # milliseconds = seconds * 1000
+        self.markets : Optional[dict] = None
+        self.tokens : Optional[dict] = None
         
-        self.factoryAbi = None
-        self.routerAbi = None
-        
+        #etc
         self.unlimit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
-        self.baseCurrncy  = '0x0000000000000000000000000000000000000000'
         
         #private info
-        self.privateKey = ''  # a "0x"-prefixed hexstring private key for a wallet
-        self.account = ''  # the wallet address "0x"-prefixed hexstring
+        self.privateKey : Optional[str] = None  # a "0x"-prefixed hexstring private key for a wallet
+        self.account : Union[Address, str, None] = None  # the wallet address "0x"-prefixed hexstring
         
-    def block_number(self):
+        #log
+        self.log = './logfile.log'
+
+        logging.basicConfig(level=logging.INFO,
+                            filename=self.log,
+                            filemode="w",
+                            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)    
+        
+    async def block_number(self) -> str:
+        """
+        Returns
+        -------
+        result: Block number
+        """
         return self.w3.eth.block_number
     
     def get_contract(self, address : str ,abi : dict) :
         '''
-        Returns a contract object.
+        Parameters
+        ----------
+        address : Contract address
+        abi : Contract abi
+        
+        Returns
+        -------
+        result: a contract object.
         '''
+        
+        # if is_score_address(address) :
+        
         return self.w3.eth.contract(address, abi = abi)
+        
+        # else:
+        #     raise AddressError("Address is wrong.")
     
-    def decimals(self, tokenSymbol):
+    async def decimals(self, tokenSymbol):
+        '''
+        Parameters
+        ----------
+        tokenSymbol : token symbol
+        
+        Returns
+        -------
+        result: decimals of token
+        '''
         
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
         
-        if tokenAddress in self.__decimals:
-            return self.__decimals[tokenAddress]
+        if self.tokens[tokenSymbol]['decimals'] :
+            return int(self.tokens[tokenSymbol]['decimals'])
 
         try:
             tokenContract = self.get_contract(tokenAddress, self.chains['chainAbi'])
-            decimals = tokenContract.functions.decimals().call()
-            self.__decimals[tokenAddress] = decimals
-            return decimals
+            
+            if "decimals" not in self.tokens[tokenSymbol] :
+            
+                decimals = tokenContract.functions.decimals().call()
+                self.tokens[tokenSymbol]["decimals"] = decimals
+                
+                # self.save_token(self.tokens)
+            
+            else :
+                decimals = self.tokens[tokenSymbol]["decimals"]
+                
+            return int(decimals)
         except ABIFunctionNotFound:
             return 18
         
@@ -76,68 +114,97 @@ class Exchange(object):
 
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
-    
-    def getPair(self, tokenAsymbol, tokenBsymbol):
-
-        if (tokenAsymbol + tokenBsymbol) in self.__pairs:
-            return self.__pairs[tokenAsymbol + tokenBsymbol]
         
+    async def get_pool(self, tokenAsymbol, tokenBsymbol):
+
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
+        
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        
+        try:
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            
+            token_sort = sorted([tokenAsymbol, tokenBsymbol])
+            
+            pool_name = token_sort[0] + '-' + token_sort[1]
+            
+            if pool_name not in self.pools :
+
+                pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
+                
+                self.pools = self.deep_extend(self.pools, 
+                            {
+                                pool_name : {
+                                    "name" : pool_name,
+                                    "baseChain" : {
+                                        self.chainName : {
+                                            self.exchangeName : pair
+                                        }
+                                    }
+                                }
+                                
+                            })
+                # Pool().save_pool(self.pools)
+            else :
+                pair = dict(self.pools[pool_name])['poolAddress']
+            return pair
+        except ABIFunctionNotFound:
+            return print("No ABI found")
+        
+    def get_pair(self, tokenAsymbol, tokenBsymbol):
+
+        tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
+        
+        tokenAaddress = self.set_checksum(tokenA["contract"])
+        tokenBaddress = self.set_checksum(tokenB["contract"])
+        
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        
+        try:
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            
+            token_sort = sorted([tokenAsymbol, tokenBsymbol])
+            
+            pool_name = token_sort[0] + '-' + token_sort[1]
+            
+            if pool_name not in self.pools :
+
+                pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+                
+                self.pools = self.deep_extend(self.pools, 
+                            {
+                                pool_name : {
+                                    "name" : pool_name,
+                                    "baseChain" : {
+                                        self.chainName : {
+                                            self.exchangeName : pair
+                                        }
+                                    }
+                                }
+                                
+                            })
+                # Pool().save_pool(self.pools)
+            else :
+                pair = dict(self.pools[pool_name])['poolAddress']
+            return pair
+        except ABIFunctionNotFound:
+            return print("No ABI found")
+    
+    def reversed(self,tokenAaddress,tokenBaddress) :
         
         try:
             factoryContract = self.get_contract(tokenAaddress, self.markets['factoryAbi'])
 
-            pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+            pair = factoryContract.functions.tokenA(tokenAaddress).call()
             self.__pairs[tokenAaddress + tokenBaddress] = pair
-        except ABIFunctionNotFound:
             return pair
-    
-    def __reserves(self, tokenAsymbol, tokenBsymbol):
-        
-        tokenA = self.tokens[tokenAsymbol]
-        tokenB = self.tokens[tokenBsymbol]
-        
-        tokenAaddress = self.set_checksum(tokenA["contract"])
-        tokenBaddress = self.set_checksum(tokenB["contract"])
-
-        pair_address = self.getPair(tokenBaddress, tokenAaddress)
-        if pair_address in self.__pairs_reserves:
-            return self.__pairs_reserves[pair_address]
-        
-        try:
-        
-            liqudityContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
-            reserves = liqudityContract.functions.getReserves().call()
-            if self.reversed(tokenAaddress, tokenBaddress):
-                reserves[0] = reserves[0] / self.decimals(tokenBsymbol)
-                reserves[1] = reserves[1] / self.decimals(tokenAsymbol)
-            else:
-                reserves[0] = reserves[0] / self.decimals(tokenAsymbol)
-                reserves[1] = reserves[1] / self.decimals(tokenBsymbol)
-            self.__pairs_reserves[pair_address] = reserves
-            
-            return reserves
-        
         except ABIFunctionNotFound:
-            raise NotSupported('fetch_tokens() is not supported yet')
-        
-    def reserves(self, input = None, output = None, intermediate = None, refresh = False):
-        if intermediate is None:
-            return self.__reserves(input, output, refresh)
-        begin = self.__reserves(intermediate, input, refresh)
-        end = self.__reserves(intermediate, output, refresh)
-        if self.reversed(intermediate, input):
-            begin = [ begin[1], begin[0] ]
-        if self.reversed(intermediate, output):
-            end = [ end[1], end[0] ]
-        res = [ end[0] * begin[1], end[1] * begin[0]]
-        if self.reversed(input, output):
-            res = [ res[1], res[0] ]
-        return res
+            return print("No ABI found")
     
     def reserve_ratio(self, input = None, output = None, intermediate = None, refresh = False):
         reserves = self.reserves(input, output, intermediate, refresh)
@@ -153,6 +220,10 @@ class Exchange(object):
         pair = self.getPair(tokenAsymbol, tokenBsymbol)
         contract = self.w3.eth.contract(self.set_checksum(pair), self.chains['chainAbi'])
         return contract.functions.sync().call()
+    
+    def require(self, execute_result: bool, msg: str):
+        if not execute_result:
+            RevertError(msg)
     
     def decode(self,tx_hash) :
         
@@ -172,7 +243,7 @@ class Exchange(object):
         account = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets['routerAbi'])
         
-        contract = self.client.eth.contract(tokenAddress, self.chains['chainAbi'])
+        contract = self.w3.eth.contract(tokenAddress, self.chains['chainAbi'])
         return contract.functions.allowance(account, routerAddress).call()
         
     def fees(self, input = None, output = None, intermediate = None, amount = 1):
@@ -185,18 +256,26 @@ class Exchange(object):
     def estimate_gas(self):
            return self.w3.eth.gasPrice / 1000000000
         
-    def partial_balance(self, tokenSymbol : str) :
+    def partial_balance(self, tokenSymbol : str) -> dict :
         
         token = self.tokens[tokenSymbol]
         
-        tokenAaddress = self.set_checksum(token["contract"])
         accountAddress = self.set_checksum(self.account)
         
-        tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+        if token == self.chains['baseCurrency']:
+            balance = self.w3.eth.getBalance(accountAddress)
+            
+            balance = self.to_value(balance, self.baseDecimal)
         
-        balance = tokenContract.functions.balanceOf(accountAddress).call()
-        
-        balance = self.to_value(balance, token["decimal"])
+        else :
+            
+            tokenAaddress = self.set_checksum(token["contract"])
+            
+            tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+            
+            balance = tokenContract.functions.balanceOf(accountAddress).call()
+            
+            balance = self.to_value(balance, int(token["decimals"]))
         
         result = {
             
@@ -217,23 +296,21 @@ class Exchange(object):
 
         return self.tokens
 
-    def fetch_balance(self) :
-        '''
-        [
-            {
-                'symbol': 'KETH', 
-                'balance': 0.000587
-            }, 
-            {
-                'symbol': 'ZEMIT', 
-                'balance': 1.888802
-            }
-        ]
-        '''
+    def fetch_balance(self, tokens = None) :
         
         result = []
         
-        symbols = list(self.tokens.keys())
+        if tokens is not None:
+            
+            if is_list(tokens) :
+            
+                symbols = tokens
+                
+            else :
+                symbols = list(tokens)
+        else :
+        
+            symbols = list(self.tokens.keys())
         
         for symbol in symbols :
             
@@ -253,6 +330,7 @@ class Exchange(object):
         Parameters
         ----------
         token : token address
+        account : account address
         routerAddress: LP pool owner who allow
         '''
         
@@ -267,7 +345,7 @@ class Exchange(object):
            
            tx = self.get_approve(token, router)
            
-           tx_receipt = self.fetch_transaction(tx)
+           tx_receipt = self.fetch_transaction(tx, round = "CHECK")
 
            return tx_receipt
            
@@ -283,71 +361,32 @@ class Exchange(object):
             {
                 "from" : self.account,
                 "nonce": nonce,
+                # "gasPrice" : self.w3.toWei(10,'gwei')
+                # 'maxFeePerGas': self.w3.toWei(20,'gwei'),
+                # 'maxPriorityFeePerGas': self.w3.toWei(20,'gwei'),
             }
         )
         
         return tx
-    
-    def fetch_transaction(self, tx):
         
-        '''
-        Takes built transcations and transmits it to ethereum
-        
-        Parameters
-        ----------
-        w3 : web3 object
-        privateKey : users private key
-        tx : Transaction to be transmitted
-        
-        Returns
-        -------
-        Transaction reciept = 
-        
-            AttributeDict(
-                {
-                    'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
-                    'blockNumber': 99072001, 
-                    'contractAddress': None, 
-                    'cumulativeGasUsed': 88596, 
-                    'effectiveGasPrice': 250000000000, 
-                    'from': '0xdaf07D203C01467644e7305BE9caA6E9Fe12ac9a', 
-                    'gasUsed': 31259, 
-                    'logs': [AttributeDict(
-                        {
-                            'address': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
-                            'blockHash': HexBytes('0x01af4f5a6e68726ab17426e1b1f43f8b2e2602676626d936c4e5dfe045d91957'), 
-                            'blockNumber': 99072001, 
-                            'data': '0x000000000000000000000000000000000000000000000000000000003b9aca00', 
-                            'logIndex': 1, 
-                            'removed': False, 
-                            'topics': [HexBytes('0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'), 
-                            HexBytes('0x000000000000000000000000daf07d203c01467644e7305be9caa6e9fe12ac9a'), 
-                            HexBytes('0x000000000000000000000000c6a2ad8cc6e4a7e08fc37cc5954be07d499e7654')], 
-                            'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
-                            'transactionIndex': 1
-                        }
-                    )],
-                    'logsBloom': HexBytes('0x00000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000001000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000010000040000000000000000000006000000000000000000000000000000000'), 
-                    'status': 1, 
-                    'to': '0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167', 
-                    'transactionHash': HexBytes('0x02bf327810bc2113eecf5d91f110ad2b91310272576b5ee5353a69e33e98c030'), 
-                    'transactionIndex': 1, 
-                    'type': '0x2'
-                }
-            )
-        '''
-        signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
-        
-        tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
-        
-        return self.w3.eth.waitForTransactionReceipt(tx_hash)
-    
-    def load_exchange(self,chainName,exchangeName):
+    def load_exchange(self,chainName,exchangeName=None):
         
         self.load_chains(chainName)
         self.load_markets(chainName, exchangeName)
+        self.load_pools(chainName, exchangeName)
         self.load_tokens(chainName, exchangeName)
-        self.w3 = self.set_network(self.chains['mainnet']['public_node'])
+        
+        self.w3 = self.set_async_network(self.chains['mainnet']['public_node'])
+        
+        self.baseCurrncy = self.chains['baseContract']
+        
+    def load_multicall(self,chainName):
+        
+        self.load_chains(chainName)
+        self.load_all()
+        
+        self.w3 = self.set_async_network(self.chains['mainnet']['public_node'])
+        self.baseCurrncy = self.chains['baseContract']
     
     def load_chains(self, chainName) :
         
@@ -366,6 +405,24 @@ class Exchange(object):
 
         if markets :
            self.markets = self.deep_extend(self.safe_market(),markets)
+           
+    def load_bridge(self, chainName, bridgeName):
+        
+        markets = self.set_markets(chainName,bridgeName)
+
+        self.bridge = {}
+
+        if markets :
+           self.bridge = self.deep_extend(self.safe_market(),markets)
+           
+    def load_pools(self, chainName, exchangeName):
+        
+        pools = self.set_pools(chainName,exchangeName)
+
+        self.pools = {}
+
+        if pools :
+           self.pools = self.deep_extend(self.safe_market(),pools)
             
     def load_tokens(self, chainName, exchangeName):
         
@@ -376,13 +433,20 @@ class Exchange(object):
         for token in tokens :
 
             self.tokens[token] = self.deep_extend(self.safe_token(), tokens[token])
-    
+            
+    def load_all(self) :
+        
+        # self.all_chains = self.set_all_chains()
+        self.all_markets = self.set_all_markets()
+        self.all_pools = self.set_all_pools()
+        self.all_tokens = self.set_all_tokens()
+
     @staticmethod
     def deep_extend(*args):
         result = None
         for arg in args:
-            if isinstance(arg, dict):
-                if not isinstance(result, dict):
+            if is_dict(arg):
+                if not is_dict(result):
                     result = {}
                 for key in arg:
                     result[key] = Exchange.deep_extend(result[key] if key in result else None, arg[key])
@@ -392,15 +456,19 @@ class Exchange(object):
     
     @staticmethod
     def safe_chain():
-        return json.dumps(Chain().__dict__)
+        return Chain().__dict__
 
     @staticmethod
     def safe_market():
-        return json.dumps(Market().__dict__)
+        return Market().__dict__
+    
+    @staticmethod
+    def safe_pool():
+        return Pool().__dict__
     
     @staticmethod
     def safe_token():
-        return json.dumps(Token().__dict__)
+        return Token().__dict__
     
     @staticmethod
     def set_chains(chainName):
@@ -411,26 +479,65 @@ class Exchange(object):
         return Market().set_market(chainName,exchangeName)
     
     @staticmethod
+    def set_pools(chainName,exchangeName):
+        return Pool().set_pool(chainName,exchangeName)
+    
+    @staticmethod
     def set_tokens(chainName,exchangeName):
         return Token().set_token(chainName,exchangeName)
+
+    @staticmethod
+    def set_all_chains():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_markets():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_pools():
+        return Chain().set_all_chains()
+    
+    @staticmethod
+    def set_all_tokens():
+        return Chain().set_all_chains()
+    
+    # @staticmethod
+    # def set_multicall():
+    #     return Multicall().set_multicall()
+    
+    # @staticmethod
+    # def save_token(tokens):
+    #     return Token().save_token(tokens)
     
     @staticmethod
     def set_network(network_path) :
-        return Web3(Web3.HTTPProvider(network_path))
+        return Web3(Web3.HTTPProvider(network_path, request_kwargs={"timeout": 60}))
+    
+    @staticmethod
+    def set_async_network(network_path) :
+        return Web3(Web3.AsyncHTTPProvider(network_path, request_kwargs={"timeout": 60}), \
+               modules={'eth': (AsyncEth,)}, middlewares=[])
     
     @staticmethod
     def set_checksum(value) :
         return Web3.toChecksumAddress(value)
     
+    def set_pos(self) :
+        self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+        account = Account.from_key(self.privateKey)
+        self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
+    
     @staticmethod
-    def from_value(value : float or int, exp : int=18) -> int :
-        return int(round(value * 10 ** exp))
+    async def from_value(value : float or int, exp : int=18) -> int :
+        return int(round(SafeMath.mul(value, 10 ** exp)))
 
     @staticmethod
-    def to_value(value : float or int, exp : int=18)-> Decimal :
-        return round(float(Decimal(value) / Decimal(10 ** exp)),6)
+    async def to_value(value : float or int, exp : int=18)-> Decimal :  
+        return round(SafeMath.div(float(Decimal(value)), 10 ** exp),6)
     
     @staticmethod
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
     
+
