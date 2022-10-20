@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 import os
-from web3._utils.abi import get_abi_output_types
+# from web3._utils.abi import get_abi_output_types
 from ccdxt.base.exchange import Exchange
 
 class Multicall(Exchange):
@@ -45,7 +45,7 @@ class Multicall(Exchange):
         callData = self.getCallData(contract, functionName, args)
         fn = self.getFunction(contract, functionName)
         self.payload.append((address, callData))
-        self.decoders.append(get_abi_output_types(fn.abi))
+        # self.decoders.append(get_abi_output_types(fn.abi))
         
     def execute(self):
         retries = 0
