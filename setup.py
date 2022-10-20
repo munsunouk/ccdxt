@@ -55,7 +55,7 @@ setup(
 
     install_requires=[
 
-        "web3==5.31.1",
+        "web3",
         # "eth-tester==v0.1.0-beta.33"
     ],
     
