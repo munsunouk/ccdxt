@@ -1,5 +1,5 @@
 # from web3.exceptions import ContractLogicError
-from web3.exceptions import ABIFunctionNotFound
+from web3.exceptions import NoABIFunctionsFound
 from typing import Optional
 error_hierarchy = {
     'BaseError': {
@@ -223,7 +223,7 @@ class RequestTimeout(NetworkError):
 # class ContractLogicError(ContractLogicError):
 #     pass
 
-class ABIFunctionNotFound(ABIFunctionNotFound) :
+class ABIFunctionNotFound(NoABIFunctionsFound) :
     pass
 
 class MathError(BaseError):
