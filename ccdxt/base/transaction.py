@@ -1,4 +1,4 @@
-# from web3.logs import DISCARD
+from web3.logs import DISCARD
 from web3.datastructures import AttributeDict
 
 import datetime
@@ -87,7 +87,7 @@ class Transaction(object) :
                 
                 deposit = self.routerContract.events.Deposit()
                 
-                events = deposit.processReceipt(tx_receipt)
+                events = deposit.processReceipt(tx_receipt, errors=DISCARD)
                 
                 amount_in = events[-1]["args"]['amount']
                 
@@ -119,7 +119,7 @@ class Transaction(object) :
                 
                 swap = self.routerContract.events.ExchangePos()
                 
-                events = swap.processReceipt(tx_receipt)
+                events = swap.processReceipt(tx_receipt, errors=DISCARD)
                 
                 amount0_in = events[-1]["args"]["amountA"]
                 amount1_out = events[-1]["args"]["amountB"]
@@ -154,7 +154,7 @@ class Transaction(object) :
                 
                 deposit = self.routerContract.events.SwapRequest()
                 
-                events = deposit.processReceipt(tx_receipt)
+                events = deposit.processReceipt(tx_receipt, errors=DISCARD)
                 
                 amount_in = events[-1]["args"]['amount']
                 
@@ -186,7 +186,7 @@ class Transaction(object) :
                 
                 swap = self.routerContract.events.ExchangePos()
                 
-                events = swap.processReceipt(tx_receipt)
+                events = swap.processReceipt(tx_receipt, errors=DISCARD)
                 
                 amount0_in = events[-1]["args"]["amount0"]
                 amount1_out = events[-1]["args"]["amount1"]
