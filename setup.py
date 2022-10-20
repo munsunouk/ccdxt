@@ -23,7 +23,7 @@ with open(package_json, encoding='utf-8') as f:
 setup(
     
     name="ccdxt",
-    version="0.22",
+    version="0.23",
     
     description=package['description'],
     long_description=long_description,
@@ -33,7 +33,7 @@ setup(
     author=package['author']['name'],
     author_email=package['author']['email'],
     license=package['license'],
-    packages=find_packages(where='ccdxt'),
+    packages=find_packages(),
     package_dir={'': 'ccdxt'},
     
     classifiers=[
