@@ -53,10 +53,16 @@ setup(
     
     keywords=package['keywords'],
 
+    # install_requires=[
+
+    #     "web3==4.9.1",
+    #     "eth-tester==v0.1.0-beta.33"
+    # ],
+    
     install_requires=[
 
-        "web3==4.9.1",
-        "eth-tester==v0.1.0-beta.33"
+        "web3",
+        "eth-tester"
     ],
     
     extras_require={
