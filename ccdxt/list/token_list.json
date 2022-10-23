@@ -1174,5 +1174,101 @@
         "symbol" : "USDC",
         "contract" : "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
         "decimals" : "6"
+    },
+    "KETHW" : {
+        "name" : "KETHW",
+        "symbol" : "KETHW",
+        "contract" : "0x5a36597fb14c8f28ea3c3163754f8149ef1d45a8",
+        "decimals" : "18"
+    },
+    "oUSDT" : {
+        "name" : "oUSDT",
+        "symbol" : "oUSDT",
+        "contract" : "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F",
+        "decimals" : "6"
+    },
+    "oXRP" : {
+        "name" : "oXRP",
+        "symbol" : "oXRP",
+        "contract" : "0xCc2a9051E904916047c26C90f41c000D4f273456",
+        "decimals" : "6"
+    },
+    "oETHW" : {
+        "name" : "oETHW",
+        "symbol" : "oETHW",
+        "contract" : "0x5a36597fb14c8f28ea3c3163754f8149ef1d45a8",
+        "decimals" : "18"
+    },
+    "oETH" : {
+        "name" : "oETH",
+        "symbol" : "oETH",
+        "contract" : "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624",
+        "decimals" : "18"
+    },
+    "oKLAY" : {
+        "name" : "oKLAY",
+        "symbol" : "oKLAY",
+        "contract" : "0x0A02D33031917d836Bd7Af02F9f7F6c74d67805F",
+        "decimals" : "18"
+    },
+    "KMATIC" : {
+        "name" : "KMATIC",
+        "symbol" : "KMATIC",
+        "contract" : "0xa006ba407cfc6584c90bac24ed971261885a0fd6",
+        "decimals" : "18"
+    },
+    "MATIC" : {
+        "name" : "MATIC",
+        "symbol" : "MATIC",
+        "contract" : "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "decimals" : "18"
+    },
+    "KMESH" : {
+        "name" : "KMESH",
+        "symbol" : "KMESH",
+        "contract" : "0x127a75b751ba810e459121af6207d83841c586b7",
+        "decimals" : "18"
+    },
+    "MESH" : {
+        "name" : "MESH",
+        "symbol" : "MESH",
+        "contract" : "0x82362ec182db3cf7829014bc61e9be8a2e82868a",
+        "decimals" : "18"
+    },
+    "oKSP" : {
+        "name" : "oKSP",
+        "symbol" : "oKSP",
+        "contract" : "0x3D3B92Fe0B4c26b74F8fF13A32dD764F4DFD8b51",
+        "decimals" : "18"
+    },
+    "KXDT" : {
+        "name" : "KXDT",
+        "symbol" : "KXDT",
+        "contract" : "0xaeeca95c899660dc74886168d0ffdebf3669179d",
+        "decimals" : "18"
+    },
+    "oXDT" : {
+        "name" : "oXDT",
+        "symbol" : "oXDT",
+        "contract" : "0xBC493Cad080A13474A374FC351191BfF12E04E4b",
+        "decimals" : "18"
+    },
+    "GHUB" : {
+        "name" : "GHUB",
+        "symbol" : "GHUB",
+        "contract" : "0x4836cc1f355bb2a61c210eaa0cd3f729160cd95e",
+        "decimals" : "18"
+    },
+    "oGHUB" : {
+        "name" : "oGHUB",
+        "symbol" : "oGHUB",
+        "contract" : "0xbdccf75601e8b11e1b11a99f9f846a036532b898",
+        "decimals" : "18"
+    },
+    "oORC" : {
+        "name" : "oORC",
+        "symbol" : "oORC",
+        "contract" : "0x12c9ffe6538f20a982fd4d17912f0ca00fa82d30",
+        "decimals" : "18"
     }
 }

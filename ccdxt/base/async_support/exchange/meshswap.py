@@ -1,18 +1,7 @@
-import ccdxt
-
 from ccdxt.base.async_support.base.exchange import Exchange
-from ccdxt.base.utils.errors import InsufficientBalance
 import datetime
-
-class Klayswap(Exchange):
-    
-    has = {
-        
-        'createSwap': True,
-        'fetchTicker': True,
-        'fetchBalance': True,
-        
-    }
+from ccdxt.base.utils.errors import InsufficientBalance
+class Meshswap(Exchange):
 
     def __init__(self):
 
@@ -20,22 +9,22 @@ class Klayswap(Exchange):
 
         #market info
         self.id = 1
-        self.chainName = "KLAYTN"
-        self.exchangeName = "klayswap"
+        self.chainName = "MATIC"
+        self.exchangeName = "meshswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
-        
+    
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol) :
         
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))
         
-        pool = self.get_pool(tokenAsymbol, tokenBsymbol)
+        pool = self.get_pair(tokenAsymbol, tokenBsymbol)
         
-        pool = self.set_checksum(pool)    
+        pool = self.set_checksum(pool)
         
         reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
-        amountBout = self.get_amount_out(pool,tokenAsymbol,amountin)
+        amountBout = self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
         
         price_amount = amountBout / amountin
         
@@ -60,45 +49,22 @@ class Klayswap(Exchange):
             
         }
         
-        return result 
+        return result
     
     async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
-        '''
-        Parameters
-        ----------
-        amountA : tokenA amount input
-        tokenAsymbol: symbol of token input
-        amountBMin : tokenB amount output which is expactation as minimun
-        tokenBsymbol : symbol of tokenB output
-        
-        Return 
-        {
-        'transaction_hash': '0x21895bbec44e6dab91668fb338a43b3eb59fa78ae623499bf8f313ef827301c4', 
-        'status': 1, 
-        'block': 34314499, 
-        'timestamp': datetime.datetime(2022, 10, 14, 10, 17, 58, 885156), 
-        'function': <Function swapExactTokensForTokens(uint256,uint256,address[],address,uint256)>, 
-        'from': '0x78352F58E3ae5C0ee221E64F6Dc82c7ef77E5cDF', 
-        'amountIn': 0.1, 
-        'tokenA': 'USDC', 
-        'to': '0x10f4A785F458Bc144e3706575924889954946639', 
-        'amountOut': 0.623371, 
-        'tokenB': 'oZEMIT', 
-        'transaction_fee:': 0.023495964646856035
-        }
-        '''
         
         tokenAbalance = await self.partial_balance(tokenAsymbol)
         
-        self.tokenAsymbol = tokenAsymbol
-        self.tokenBsymbol = tokenBsymbol
         self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
         self.require(tokenAsymbol == tokenBsymbol, ValueError)
-
+        
+        self.tokenAsymbol = tokenAsymbol
+        self.tokenBsymbol = tokenBsymbol
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
-        amountA = self.from_value(value = amountA, exp = int(tokenA["decimals"]))
-        amountBMin = self.from_value(value = amountBMin, exp = int(tokenB["decimals"]))
+        
+        amountA = self.from_value(value = amountA, exp = self.decimals(tokenAsymbol))
+        amountBMin = self.from_value(value = amountBMin, exp = self.decimals(tokenBsymbol))
         
         tokenAaddress = self.set_checksum(tokenA['contract'])
         tokenBaddress = self.set_checksum(tokenB['contract'])
@@ -118,65 +84,70 @@ class Klayswap(Exchange):
             tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
         tx_receipt = self.fetch_transaction(tx, 'SWAP')
-           
+
         return tx_receipt
     
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         
         nonce = self.w3.eth.getTransactionCount(self.account)
-        
-        tx = self.routerContract.functions.exchangeKctPos(tokenAaddress, amountA, \
-                                               tokenBaddress, amountBMin, []).buildTransaction(
-            {
-                "from" : self.account,
-                'gas' : 4000000,
-                "nonce": nonce,
-            }
-        )
+        deadline = int(datetime.datetime.now().timestamp() + 1800)
+
+        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+                {
+                    "from" : self.account,
+                    # "gasPrice" : self.w3.toHex(25000000000),
+                    # 'gas': 250000,
+                    # 'maxPriorityFeePerGas': self.w3.toWei(20,'gwei'),
+                    # 'maxFeePerGas': self.w3.toWei(30,'gwei'),
+                    "nonce": nonce,
+                }
+            )                                      
         
         return tx
     
-    def eth_to_token(self, tokenBaddress, amountBMin)  :
+    def eth_to_token(self, tokenAaddress, tokenBaddress, amountBMin)  :
         
         nonce = self.w3.eth.getTransactionCount(self.account)
-        
-        tx = self.routerContract.functions.exchangeKctPos(
-                                               tokenBaddress, amountBMin, []).buildTransaction(
-            {
-                "from" : self.account,
-                'gas' : 4000000,
-                "nonce": nonce,
-            }
-        )
+        deadline = int(datetime.datetime.now().timestamp() + 1800)\
+                                               
+        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, [tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+                {
+                    "from" : self.account,
+                    "gasPrice" : self.w3.toHex(25000000000),
+                    "nonce": nonce,
+                }
+            )                                      
         
         return tx
-    
-    def token_to_eth(self, tokenAaddress, amountA) :
+
+    def token_to_eth(self, tokenAaddress, amountA, tokenBaddress, amountBMin) :
         
         nonce = self.w3.eth.getTransactionCount(self.account)
-        
-        tx = self.routerContract.functions.exchangeKlayNeg(
-                                                tokenAaddress, amountA, []).buildTransaction(
-            {
-                "from" : self.account,
-                'gas' : 4000000,
-                "nonce": nonce,
-            }
-        )
+        deadline = int(datetime.datetime.now().timestamp() + 1800)\
+                                               
+        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+                {
+                    "from" : self.account,
+                    "gasPrice" : self.w3.toHex(25000000000),
+                    "nonce": nonce,
+                }
+            )                                      
         
         return tx
     
-    def get_amount_out(self,pool,tokenAsymbol,amountIn) :
+    def get_amount_out(self,tokenAsymbol,amountIn,tokenBsymbol) :
+        
+        routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         tokenA = self.tokens[tokenAsymbol]
+        tokenB = self.tokens[tokenBsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
+        tokenBaddress = self.set_checksum(tokenB['contract'])
         
-        poolAddress = self.set_checksum(pool)
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
         
-        self.factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
-        
-        amountOut = self.factoryContract.functions.estimatePos(tokenAaddress,amountIn).call()
+        amountOut = self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()[-1]
         
         return amountOut
     
@@ -186,12 +157,11 @@ class Klayswap(Exchange):
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         
-        factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
-        
-        tokenA = factoryContract.functions.tokenA().call()
-        
         routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
-        reserves = routerContract.functions.getCurrentPool().call()
+        
+        tokenA = routerContract.functions.token0().call()
+
+        reserves = routerContract.functions.getReserves().call()
         
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))

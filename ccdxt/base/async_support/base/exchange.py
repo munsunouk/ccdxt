@@ -1,3 +1,4 @@
+import re
 from ccdxt.base import Chain, Market, Pool, Token, Transaction
 from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
 from ccdxt.base.utils.validation import *
@@ -9,7 +10,7 @@ from eth_typing.evm import Address
 from decimal import Decimal
 
 from web3 import Web3
-from web3.eth import AsyncEth
+# from web3.eth import AsyncEth
 from web3.middleware import geth_poa_middleware, construct_sign_and_send_raw_middleware
 
 import asyncio
@@ -73,10 +74,10 @@ class Exchange(Transaction):
         
         return self.w3.eth.contract(address, abi = abi)
         
-        # else:
+        # else:load_exchange
         #     raise AddressError("Address is wrong.")
     
-    async def decimals(self, tokenSymbol):
+    def decimals(self, tokenSymbol):
         '''
         Parameters
         ----------
@@ -115,7 +116,7 @@ class Exchange(Transaction):
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
         
-    async def get_pool(self, tokenAsymbol, tokenBsymbol):
+    def get_pool(self, tokenAsymbol, tokenBsymbol):
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -131,7 +132,7 @@ class Exchange(Transaction):
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
             pool_name = token_sort[0] + '-' + token_sort[1]
-            
+        
             if pool_name not in self.pools :
 
                 pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
@@ -171,7 +172,7 @@ class Exchange(Transaction):
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
             pool_name = token_sort[0] + '-' + token_sort[1]
-            
+
             if pool_name not in self.pools :
 
                 pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
@@ -256,7 +257,7 @@ class Exchange(Transaction):
     def estimate_gas(self):
            return self.w3.eth.gasPrice / 1000000000
         
-    def partial_balance(self, tokenSymbol : str) -> dict :
+    async def partial_balance(self, tokenSymbol : str) -> dict :
         
         token = self.tokens[tokenSymbol]
         
@@ -285,6 +286,8 @@ class Exchange(Transaction):
         }
         
         return result
+    
+        # return balance
         
     def get_TransactionCount(self,address : str) :
         
@@ -296,7 +299,7 @@ class Exchange(Transaction):
 
         return self.tokens
 
-    def fetch_balance(self, tokens = None) :
+    async def fetch_balance(self, tokens = None) :
         
         result = []
         
@@ -311,11 +314,15 @@ class Exchange(Transaction):
         else :
         
             symbols = list(self.tokens.keys())
-        
-        for symbol in symbols :
             
-            balance = self.partial_balance(symbol)
-            result.append(balance)
+        balance_list = [self.partial_balance(symbol) for symbol in symbols]
+            
+        result.append[await asyncio.gather(*balance_list)]
+        
+        # for symbol in symbols :
+            
+        #     balance = await self.partial_balance(symbol)
+        #     result.append(balance)
             
         return  result
     
@@ -376,7 +383,9 @@ class Exchange(Transaction):
         self.load_pools(chainName, exchangeName)
         self.load_tokens(chainName, exchangeName)
         
-        self.w3 = self.set_async_network(self.chains['mainnet']['public_node'])
+        # self.w3 = self.set_async_network(self.chains['mainnet']['public_node'])
+        
+        self.w3 = self.set_network(self.chains['mainnet']['public_node'])
         
         self.baseCurrncy = self.chains['baseContract']
         
@@ -525,15 +534,15 @@ class Exchange(Transaction):
     
     def set_pos(self) :
         self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-        account = Account.from_key(self.privateKey)
-        self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
+        # account = Account.from_key(self.privateKey)
+        # self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
     
     @staticmethod
-    async def from_value(value : float or int, exp : int=18) -> int :
+    def from_value(value : float or int, exp : int=18) -> int :
         return int(round(SafeMath.mul(value, 10 ** exp)))
 
     @staticmethod
-    async def to_value(value : float or int, exp : int=18)-> Decimal :  
+    def to_value(value : float or int, exp : int=18)-> Decimal :  
         return round(SafeMath.div(float(Decimal(value)), 10 ** exp),6)
     
     @staticmethod

@@ -2198,7 +2198,8 @@
         "baseChain": {
             "KLAYTN": {
                 "ufoswap": "0x26679764fA33b09798Aa2bAa5CD25d58e7f82E7a",
-                "claimswap": "0xf990D585E014113Bc61031C42A3D3b06fa2bbCcc"
+                "claimswap": "0xf990D585E014113Bc61031C42A3D3b06fa2bbCcc",
+                "klayswap": "0x94f390a8438b5de00b868d3ae47863db90fb92c3"
             }
         },
         "tokenA": "KORC",
@@ -3295,16 +3296,16 @@
         "tokenB": "NR",
         "decimals": "18"
     },
-    "KUSDT-KSP": {
-        "name": "KUSDT-KSP",
+    "KSP-KUSDT": {
+        "name": "KSP-KUSDT",
         "baseChain": {
             "KLAYTN": {
                 "klayswap": "0xe75a6a3a800a2c5123e67e3bde911ba761fe0705"
             }
         },
-        "tokenA": "KUSDT",
-        "tokenB": "KSP",
-        "decimals": "18"
+        "tokenA": "KSP",
+        "tokenB": "KUSDT",
+        "decimals": "6"
     },
     "KASH-KUSDT" : {
         "name": "KASH-KUSDT",
@@ -3317,15 +3318,15 @@
         "tokenB": "KUSDT",
         "decimals": "18"
     },
-    "MOOI-KUSDT": {
-        "name": "MOOI-KUSDT",
+    "KUSDT-MOOI": {
+        "name": "KUSDT-MOOI",
         "baseChain": {
             "KLAYTN": {
                 "klayswap": "0x71f3a62c52f5ce71331b3af00bd63d617264b040"
             }
         },
-        "tokenA": "MOOI",
-        "tokenB": "KUSDT",
+        "tokenA": "KUSDT",
+        "tokenB": "MOOI",
         "decimals": "6"
     },
     "KUSDT-ZEMIT": {
@@ -3360,5 +3361,225 @@
         "tokenA": "USDC",
         "tokenB": "oZEMIT",
         "decimals": "6"
+    },
+    "USDC-oMOOI": {
+        "name": "USDC-oMOOI",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xa91a3bd6A175F870fA76662b1ED2577D361FE711"
+            }
+        },
+        "tokenA": "USDC",
+        "tokenB": "oMOOI",
+        "decimals": "6"
+    },
+    "oETH-oUSDT": {
+        "name": "oETH-oUSDT",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xff85431402b84d60a9b21cbdce45b0dcb83a56fd"
+            }
+        },
+        "tokenA": "oETH",
+        "tokenB": "oUSDT",
+        "decimals": "6"
+    },
+    "oUSDT-oXRP": {
+        "name": "oUSDT-oXRP",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xbeba04852cdb1579a38b6116de36ae927f7a2d28"
+            }
+        },
+        "tokenA": "oUSDT",
+        "tokenB": "oXRP",
+        "decimals": "6"
+    },
+    "KETHW-KUSDT": {
+        "name": "KETHW-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x1ca3480fbc668bc28d3162eff1c89a1085ce9f57"
+            }
+        },
+        "tokenA": "KETHW",
+        "tokenB": "KUSDT",
+        "decimals": "6"
+    },
+    "oETHW-oUSDT": {
+        "name": "oETHW-oUSDT",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
+            }
+        },
+        "tokenA": "oETHW",
+        "tokenB": "oUSDT",
+        "decimals": "6"
+    },
+    "USDC-oKLAY": {
+        "name": "oKLAY-USDC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x77e5ca3896bf700bc4465fa871eaf987e87de49b"
+            }
+        },
+        "tokenA": "USDC",
+        "tokenB": "oKLAY",
+        "decimals": "6"
+    },
+    "KLAY-KUSDT": {
+        "name": "KLAY-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0xd83f1b074d81869eff2c46c530d7308ffec18036"
+            }
+        },
+        "tokenA": "KLAY",
+        "tokenB": "KUSDT",
+        "decimals": "6"
+    },
+    "KMATIC-KSP": {
+        "name": "KMATIC-KSP",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0xb80777424dc2d8bda03e123da4301fbb4d2aa3dd"
+            }
+        },
+        "tokenA": "KMATIC",
+        "tokenB": "KSP",
+        "decimals": "18"
+    },
+    "MATIC-USDC": {
+        "name": "MATIC-USDC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
+            }
+        },
+        "tokenA": "MATIC",
+        "tokenB": "USDC",
+        "decimals": "6"
+    },
+    "KMESH-KSP": {
+        "name": "KMESH-KSP",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x5b4c3d00a0819dd96fa9ac13dda2bdca332f31d4"
+            }
+        },
+        "tokenA": "KMESH",
+        "tokenB": "KSP",
+        "decimals": "18"
+    },
+    "MESH-USDC": {
+        "name": "MESH-USDC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
+            }
+        },
+        "tokenA": "MESH",
+        "tokenB": "USDC",
+        "decimals": "6"
+    },
+    "oKLAY-oKSP": {
+        "name": "oKLAY-oKSP",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
+            }
+        },
+        "tokenA": "oKLAY",
+        "tokenB": "oKSP",
+        "decimals": "18"
+    },
+    "MESH-oKSP": {
+        "name": "MESH-oKSP",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xCCC103a39Cb756130f98209cAa1a5C4cFf071C1e"
+            }
+        },
+        "tokenA": "MESH",
+        "tokenB": "oKSP",
+        "decimals": "18"
+    },
+    "MATIC-oKSP": {
+        "name": "MATIC-oKSP",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
+            }
+        },
+        "tokenA": "MATIC",
+        "tokenB": "oKSP",
+        "decimals": "18"
+    },
+    "KLAY-KXDT": {
+        "name": "KLAY-KXDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0xcb9e54c3364907721186d507623006dc66b430c7"
+            }
+        },
+        "tokenA": "KLAY",
+        "tokenB": "KXDT",
+        "decimals": "18"
+    },
+    "MESH-oXDT": {
+        "name": "MESH-oXDT",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xe90CD966B735d06472E2eEDF4D8E9a65d81Ec575"
+            }
+        },
+        "tokenA": "MESH",
+        "tokenB": "oXDT",
+        "decimals": "18"
+    },
+    "GHUB-KUSDT": {
+        "name": "GHUB-KUSDT",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x22010f02a8d078da7b61fb7bc915b2033738f76c"
+            }
+        },
+        "tokenA": "GHUB",
+        "tokenB": "KUSDT",
+        "decimals": "6"
+    },
+    "MATIC-oGHUB": {
+        "name": "MATIC-oGHUB",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
+            }
+        },
+        "tokenA": "MATIC",
+        "tokenB": "oGHUB",
+        "decimals": "18"
+    },
+    "KUSDT-KORC": {
+        "name": "KUSDT-KORC",
+        "baseChain": {
+            "KLAYTN": {
+                "klayswap": "0x94f390a8438b5de00b868d3ae47863db90fb92c3"
+            }
+        },
+        "tokenA": "KUSDT",
+        "tokenB": "KORC",
+        "decimals": "6"
+    },
+    "MESH-oORC": {
+        "name": "MESH-oORC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0xe21270209976244664a87ACAAAC2CadcA5beE5D4"
+            }
+        },
+        "tokenA": "MESH",
+        "tokenB": "oORC",
+        "decimals": "18"
     }
 }

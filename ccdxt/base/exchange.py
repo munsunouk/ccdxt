@@ -519,8 +519,8 @@ class Exchange(Transaction):
     
     def set_pos(self) :
         self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-        account = Account.from_key(self.privateKey)
-        self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
+        # account = Account.from_key(self.privateKey)
+        # self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
     
     @staticmethod
     def from_value(value : float or int, exp : int=18) -> int :
