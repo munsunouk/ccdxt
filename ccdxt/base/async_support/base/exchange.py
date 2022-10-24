@@ -1,17 +1,28 @@
 import re
+import itertools
+
 from ccdxt.base import Chain, Market, Pool, Token, Transaction
 from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
 from ccdxt.base.utils.validation import *
 from ccdxt.base.utils import SafeMath
 from eth_account import Account
-
-from typing import Optional, Union
-from eth_typing.evm import Address
 from decimal import Decimal
 
+from typing import Optional, Union, Tuple, Callable, Any
+from eth_typing.evm import Address
+from eth_typing import ChecksumAddress
+from eth_abi.exceptions import DecodingError
+# from decimal import Decimal
+
 from web3 import Web3
-# from web3.eth import AsyncEth
-from web3.middleware import geth_poa_middleware, construct_sign_and_send_raw_middleware
+from web3.eth import AsyncEth
+from web3._utils.normalizers import BASE_RETURN_NORMALIZERS
+from web3._utils.abi import get_abi_output_types, map_abi_data
+from web3.middleware import async_geth_poa_middleware,geth_poa_middleware, construct_sign_and_send_raw_middleware
+from web3.types import TxParams, FunctionIdentifier, BlockIdentifier, ABI, ABIFunction, CallOverrideParams
+from web3._utils.contracts import prepare_transaction, find_matching_fn_abi
+from web3.contract import Contract, ContractFunction, ACCEPTABLE_EMPTY_STRINGS
+from web3.exceptions import BadFunctionCallOutput
 
 import asyncio
 import logging
@@ -48,7 +59,99 @@ class Exchange(Transaction):
                             filename=self.log,
                             filemode="w",
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        self.logger = logging.getLogger(__name__)    
+        self.logger = logging.getLogger(__name__)
+        
+    async def call_contract_function(
+            self,
+            web3: Web3,
+            address: ChecksumAddress,
+            normalizers: Tuple[Callable[..., Any], ...],
+            function_identifier: FunctionIdentifier,
+            transaction: TxParams,
+            block_id: Optional[BlockIdentifier] = None,
+            contract_abi: Optional[ABI] = None,
+            fn_abi: Optional[ABIFunction] = None,
+            state_override: Optional[CallOverrideParams] = None,
+            fn_args: Any = [],
+            fn_kwargs: Any = {}) -> Any:
+        """
+        Helper function for interacting with a contract function using the
+        `eth_call` API.
+        """
+        print(fn_abi)
+        call_transaction = prepare_transaction(
+            address,
+            web3,
+            fn_identifier=function_identifier,
+            contract_abi=contract_abi,
+            fn_abi=fn_abi,
+            transaction=transaction,
+            fn_args=fn_args,
+            fn_kwargs=fn_kwargs,
+        )
+
+        return_data = await web3.eth.call(
+            call_transaction,
+            block_identifier=block_id,
+            state_override=state_override,
+        )
+
+        if fn_abi is None:
+            fn_abi = find_matching_fn_abi(contract_abi, web3.codec, function_identifier, fn_args, fn_kwargs)
+
+        output_types = get_abi_output_types(fn_abi)
+
+        try:
+            output_data = web3.codec.decode_abi(output_types, return_data)
+        except DecodingError as e:
+            # Provide a more helpful error message than the one provided by
+            # eth-abi-utils
+            is_missing_code_error = (
+                return_data in ACCEPTABLE_EMPTY_STRINGS
+                and web3.eth.get_code(address) in ACCEPTABLE_EMPTY_STRINGS)
+            if is_missing_code_error:
+                msg = (
+                    "Could not transact with/call contract function, is contract "
+                    "deployed correctly and chain synced?"
+                )
+            else:
+                msg = (
+                    f"Could not decode contract function call to {function_identifier} with "
+                    f"return data: {str(return_data)}, output_types: {output_types}"
+                )
+            raise BadFunctionCallOutput(msg) from e
+
+        _normalizers = itertools.chain(
+            BASE_RETURN_NORMALIZERS,
+            normalizers,
+        )
+        normalized_data = map_abi_data(_normalizers, output_types, output_data)
+
+        if len(normalized_data) == 1:
+            return normalized_data[0]
+        else:
+            return normalized_data
+        
+    async def call_function(self, function: ContractFunction, tx_kwargs=None, block_id=None):
+        tx: TxParams = {}
+        if not tx_kwargs:
+            tx_kwargs = {}
+        tx.update(tx_kwargs)
+        # tx["data"] = function._encode_transaction_data()
+        tx["to"] = self.account
+        return await self.call_contract_function(
+            web3=self.w3,
+            address=self.account,
+            transaction=tx,
+            normalizers=tuple(),
+            function_identifier=function.function_identifier,
+            contract_abi=None,
+            fn_abi=function.abi,
+            fn_args=function.args,
+            fn_kwargs=function.kwargs,
+            block_id=block_id,
+            # **kwargs,
+        )
         
     async def block_number(self) -> str:
         """
@@ -58,7 +161,7 @@ class Exchange(Transaction):
         """
         return self.w3.eth.block_number
     
-    def get_contract(self, address : str ,abi : dict) :
+    async def get_contract(self, address : str ,abi : dict) :
         '''
         Parameters
         ----------
@@ -116,7 +219,7 @@ class Exchange(Transaction):
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
         
-    def get_pool(self, tokenAsymbol, tokenBsymbol):
+    async def get_pool(self, tokenAsymbol, tokenBsymbol):
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -127,7 +230,7 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         try:
-            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            factoryContract = await self.get_contract(routerAddress, self.markets['factoryAbi'])
             
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
@@ -135,7 +238,7 @@ class Exchange(Transaction):
         
             if pool_name not in self.pools :
 
-                pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
+                pair = await factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
                 
                 self.pools = self.deep_extend(self.pools, 
                             {
@@ -156,7 +259,7 @@ class Exchange(Transaction):
         except ABIFunctionNotFound:
             return print("No ABI found")
         
-    def get_pair(self, tokenAsymbol, tokenBsymbol):
+    async def get_pair(self, tokenAsymbol, tokenBsymbol):
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -167,7 +270,7 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         try:
-            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
+            factoryContract = await self.get_contract(routerAddress, self.markets['factoryAbi'])
             
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
@@ -175,7 +278,7 @@ class Exchange(Transaction):
 
             if pool_name not in self.pools :
 
-                pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+                pair = await self.call_function(factoryContract.functions.getPair(tokenAaddress, tokenBaddress))
                 
                 self.pools = self.deep_extend(self.pools, 
                             {
@@ -237,7 +340,7 @@ class Exchange(Transaction):
         
         return result
     
-    def allowance(self, tokenSymbol):
+    async def allowance(self, tokenSymbol):
         
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
@@ -245,7 +348,7 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets['routerAbi'])
         
         contract = self.w3.eth.contract(tokenAddress, self.chains['chainAbi'])
-        return contract.functions.allowance(account, routerAddress).call()
+        return await self.call_function(contract.functions.allowance(account, routerAddress))
         
     def fees(self, input = None, output = None, intermediate = None, amount = 1):
         ratio = self.reserve_ratio(input, output, intermediate)
@@ -264,7 +367,7 @@ class Exchange(Transaction):
         accountAddress = self.set_checksum(self.account)
         
         if token == self.chains['baseCurrency']:
-            balance = self.w3.eth.getBalance(accountAddress)
+            balance = await self.w3.eth.getBalance(accountAddress)
             
             balance = self.to_value(balance, self.baseDecimal)
         
@@ -272,9 +375,9 @@ class Exchange(Transaction):
             
             tokenAaddress = self.set_checksum(token["contract"])
             
-            tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
+            tokenContract = await self.get_contract(tokenAaddress, self.chains['chainAbi'])
             
-            balance = tokenContract.functions.balanceOf(accountAddress).call()
+            balance = await tokenContract.functions.balanceOf(accountAddress).call()
             
             balance = self.to_value(balance, int(token["decimals"]))
         
@@ -315,14 +418,14 @@ class Exchange(Transaction):
         
             symbols = list(self.tokens.keys())
             
-        balance_list = [self.partial_balance(symbol) for symbol in symbols]
+        # balance_list = [self.partial_balance(symbol) for symbol in symbols]
             
-        result.append[await asyncio.gather(*balance_list)]
+        # result.append[await asyncio.gather(*balance_list)]
         
-        # for symbol in symbols :
+        for symbol in symbols :
             
-        #     balance = await self.partial_balance(symbol)
-        #     result.append(balance)
+            balance = await self.partial_balance(symbol)
+            result.append(balance)
             
         return  result
     

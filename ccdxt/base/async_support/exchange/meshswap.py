@@ -18,13 +18,13 @@ class Meshswap(Exchange):
         
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))
         
-        pool = self.get_pair(tokenAsymbol, tokenBsymbol)
+        pool = await self.get_pair(tokenAsymbol, tokenBsymbol)
         
         pool = self.set_checksum(pool)
         
-        reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
+        reserve = await self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
-        amountBout = self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
+        amountBout = await self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
         
         price_amount = amountBout / amountin
         
@@ -135,7 +135,7 @@ class Meshswap(Exchange):
         
         return tx
     
-    def get_amount_out(self,tokenAsymbol,amountIn,tokenBsymbol) :
+    async def get_amount_out(self,tokenAsymbol,amountIn,tokenBsymbol) :
         
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
@@ -145,23 +145,24 @@ class Meshswap(Exchange):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB['contract'])
         
-        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = await self.get_contract(routerAddress, self.markets['routerAbi'])
         
-        amountOut = self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()[-1]
+        amountOut = await self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()
+        result = amountOut[-1]
         
-        return amountOut
+        return result
     
-    def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
+    async def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
         
         tokenA = self.tokens[tokenAsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         
-        routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
+        routerContract = await self.get_contract(poolAddress, self.markets['routerAbi'])
         
-        tokenA = routerContract.functions.token0().call()
+        tokenA = await routerContract.functions.token0().call()
 
-        reserves = routerContract.functions.getReserves().call()
+        reserves = await routerContract.functions.getReserves().call()
         
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))

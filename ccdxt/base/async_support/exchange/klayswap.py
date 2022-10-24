@@ -29,13 +29,13 @@ class Klayswap(Exchange):
         
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))
         
-        pool = self.get_pool(tokenAsymbol, tokenBsymbol)
+        pool = await self.get_pool(tokenAsymbol, tokenBsymbol)
         
         pool = self.set_checksum(pool)    
         
-        reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
+        reserve = await self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
-        amountBout = self.get_amount_out(pool,tokenAsymbol,amountin)
+        amountBout = await self.get_amount_out(pool,tokenAsymbol,amountin)
         
         price_amount = amountBout / amountin
         
@@ -166,7 +166,7 @@ class Klayswap(Exchange):
         
         return tx
     
-    def get_amount_out(self,pool,tokenAsymbol,amountIn) :
+    async def get_amount_out(self,pool,tokenAsymbol,amountIn) :
         
         tokenA = self.tokens[tokenAsymbol]
         
@@ -174,24 +174,24 @@ class Klayswap(Exchange):
         
         poolAddress = self.set_checksum(pool)
         
-        self.factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
+        self.factoryContract = await self.get_contract(poolAddress, self.markets['factoryAbi'])
         
-        amountOut = self.factoryContract.functions.estimatePos(tokenAaddress,amountIn).call()
+        amountOut = await self.factoryContract.functions.estimatePos(tokenAaddress,amountIn).call()
         
         return amountOut
     
-    def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
+    async def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
         
         tokenA = self.tokens[tokenAsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         
-        factoryContract = self.get_contract(poolAddress, self.markets['factoryAbi'])
+        factoryContract = await self.get_contract(poolAddress, self.markets['factoryAbi'])
         
-        tokenA = factoryContract.functions.tokenA().call()
+        tokenA = await factoryContract.functions.tokenA().call()
         
-        routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
-        reserves = routerContract.functions.getCurrentPool().call()
+        routerContract = await self.get_contract(poolAddress, self.markets['routerAbi'])
+        reserves = await routerContract.functions.getCurrentPool().call()
         
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))
