@@ -1,8 +1,12 @@
+# from urllib3 import Retry
 import ccdxt
 
 from ccdxt.base.async_support.base.exchange import Exchange
-from ccdxt.base.utils.errors import InsufficientBalance
+from ccdxt.base.utils.errors import InsufficientBalance, ContractLogicError
 import datetime
+import time
+
+from functools import wraps
 
 class Klayswap(Exchange):
     
@@ -24,6 +28,23 @@ class Klayswap(Exchange):
         self.exchangeName = "klayswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
+        
+    def retry(method):
+        @wraps(method)
+        def retry_method(self, *args):
+            for i in range(5):
+                
+                print('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                
+                # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                time.sleep(60)
+                try:
+                    return method(self, *args)
+                except :
+                    if i == 5 - 1:
+                        raise
+                    
+        return retry_method
         
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol) :
         
@@ -62,6 +83,7 @@ class Klayswap(Exchange):
         
         return result 
     
+    @retry
     async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         '''
         Parameters

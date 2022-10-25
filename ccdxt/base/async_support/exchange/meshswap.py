@@ -1,6 +1,11 @@
 from ccdxt.base.async_support.base.exchange import Exchange
-import datetime
 from ccdxt.base.utils.errors import InsufficientBalance
+
+import datetime
+import time
+
+from functools import wraps
+
 class Meshswap(Exchange):
 
     def __init__(self):
@@ -51,11 +56,30 @@ class Meshswap(Exchange):
         
         return result
     
+    def retry(method):
+        @wraps(method)
+        def retry_method(self, *args):
+            for i in range(5):
+                
+                print('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                
+                # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                time.sleep(60)
+                try:
+                    return method(self, *args)
+                except :
+                    if i == 5 - 1:
+                        raise
+                    
+        return retry_method
+    
+    @retry
     async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
         
         tokenAbalance = await self.partial_balance(tokenAsymbol)
+        print(tokenAbalance)
         
-        self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
+        self.require(amountA < tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
         self.require(tokenAsymbol == tokenBsymbol, ValueError)
         
         self.tokenAsymbol = tokenAsymbol

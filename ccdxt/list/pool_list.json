@@ -3581,5 +3581,16 @@
         "tokenA": "MESH",
         "tokenB": "oORC",
         "decimals": "18"
+    },
+    "USDC-oUSDC": {
+        "name": "USDC-oUSDC",
+        "baseChain": {
+            "MATIC": {
+                "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
+            }
+        },
+        "tokenA": "USDC",
+        "tokenB": "oUSDC",
+        "decimals": "18"
     }
 }

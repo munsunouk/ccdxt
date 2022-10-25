@@ -93,7 +93,7 @@ class Klayswap(Exchange):
         self.tokenAsymbol = tokenAsymbol
         self.tokenBsymbol = tokenBsymbol
         self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
-        self.require(tokenAsymbol == tokenBsymbol, ValueError)
+        # self.require(tokenAsymbol == tokenBsymbol, ValueError)
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]

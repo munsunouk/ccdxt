@@ -1270,5 +1270,11 @@
         "symbol" : "oORC",
         "contract" : "0x12c9ffe6538f20a982fd4d17912f0ca00fa82d30",
         "decimals" : "18"
+    },
+    "oUSDC" : {
+        "name" : "oUSDC",
+        "symbol" : "oUSDC",
+        "contract" : "0x5bef2617ecca9a39924c09017c5f1e25efbb3ba8",
+        "decimals" : "6"
     }
 }

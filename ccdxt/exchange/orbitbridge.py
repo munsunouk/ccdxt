@@ -74,7 +74,7 @@ class Orbitbridge(Exchange):
         
         # baseBalance = self.partial_balance(tokenSymbol)
         
-        self.require(amount > tokenBalance['balance'], InsufficientBalance(tokenBalance, amount))
+        self.require(amount < tokenBalance['balance'], InsufficientBalance(tokenBalance, amount))
 
         amount = self.from_value(value = amount, exp = int(token["decimals"]))
         

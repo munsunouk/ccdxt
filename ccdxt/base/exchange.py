@@ -11,6 +11,9 @@ from decimal import Decimal
 from web3 import Web3
 from web3.middleware import geth_poa_middleware, construct_sign_and_send_raw_middleware
 
+from functools import wraps
+import datetime
+import time
 
 import logging
 
@@ -221,8 +224,9 @@ class Exchange(Transaction):
         return contract.functions.sync().call()
     
     def require(self, execute_result: bool, msg: str):
+        
         if not execute_result:
-            RevertError(msg)
+            raise msg
     
     def decode(self,tx_hash) :
         
@@ -511,7 +515,7 @@ class Exchange(Transaction):
     
     @staticmethod
     def set_network(network_path) :
-        return Web3(Web3.HTTPProvider(network_path, request_kwargs={"timeout": 60}))
+        return Web3(Web3.HTTPProvider(network_path, request_kwargs={"timeout": 300}))
     
     @staticmethod
     def set_checksum(value) :
@@ -533,4 +537,17 @@ class Exchange(Transaction):
     @staticmethod
     def to_array(value):
         return list(value.values()) if type(value) is dict else value
+    
+    def retry(method):
+        @wraps(method)
+        def retry_method(self, *args):
+            for i in range(5):
+                
+                logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                time.sleep(60)
+                try:
+                    return method(self, *args)
+                except :
+                    if i == 5 - 1:
+                        raise
     

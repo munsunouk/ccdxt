@@ -14,7 +14,7 @@ from eth_typing import ChecksumAddress
 from eth_abi.exceptions import DecodingError
 # from decimal import Decimal
 
-from web3 import Web3
+from web3 import Web3, middleware
 from web3.eth import AsyncEth
 from web3._utils.normalizers import BASE_RETURN_NORMALIZERS
 from web3._utils.abi import get_abi_output_types, map_abi_data
@@ -23,9 +23,14 @@ from web3.types import TxParams, FunctionIdentifier, BlockIdentifier, ABI, ABIFu
 from web3._utils.contracts import prepare_transaction, find_matching_fn_abi
 from web3.contract import Contract, ContractFunction, ACCEPTABLE_EMPTY_STRINGS
 from web3.exceptions import BadFunctionCallOutput
+from web3.gas_strategies.time_based import medium_gas_price_strategy
 
 import asyncio
 import logging
+from functools import wraps
+
+import datetime
+import time
 
 class Exchange(Transaction):
     """Base exchange class"""
@@ -637,6 +642,10 @@ class Exchange(Transaction):
     
     def set_pos(self) :
         self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+        # self.w3.eth.set_gas_price_strategy(medium_gas_price_strategy)
+        # self.w3.middleware_onion.add(middleware.time_based_cache_middleware)
+        # self.w3.middleware_onion.add(middleware.latest_block_based_cache_middleware)
+        # self.w3.middleware_onion.add(middleware.simple_cache_middleware)
         # account = Account.from_key(self.privateKey)
         # self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
     
@@ -653,3 +662,17 @@ class Exchange(Transaction):
         return list(value.values()) if type(value) is dict else value
     
 
+    def retry(method):
+        @wraps(method)
+        def retry_method(self, *args):
+            for i in range(5):
+                
+                logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                time.sleep(60)
+                try:
+                    return method(self, *args)
+                except :
+                    if i == 5 - 1:
+                        raise
+                    
+        return retry_method

@@ -55,8 +55,10 @@ class Meshswap(Exchange):
         
         tokenAbalance = self.partial_balance(tokenAsymbol)
         
-        self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
-        self.require(tokenAsymbol == tokenBsymbol, ValueError)
+        # print(tokenAsymbol==tokenBsymbol)
+        
+        self.require(amountA < tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
+        # self.require(tokenAsymbol == tokenBsymbol, ValueError)
         
         self.tokenAsymbol = tokenAsymbol
         self.tokenBsymbol = tokenBsymbol
