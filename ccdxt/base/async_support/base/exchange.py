@@ -1,8 +1,8 @@
 import re
 import itertools
 
-from ccdxt.base import Chain, Market, Pool, Token
-from ccdxt.base.async_support.base import Transaction
+from ccdxt.base import Chain, Market, Pool, Token, Transaction
+# from ccdxt.base.async_support.base import Transaction
 from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
 from ccdxt.base.utils.validation import *
 from ccdxt.base.utils import SafeMath
@@ -65,7 +65,7 @@ class Exchange(Transaction):
                             filename=self.log,
                             filemode="w",
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger(__name__)    
         
     async def block_number(self) -> str:
         """
@@ -75,7 +75,7 @@ class Exchange(Transaction):
         """
         return self.w3.eth.block_number
     
-    async def get_contract(self, address : str ,abi : dict) :
+    def get_contract(self, address : str ,abi : dict) :
         '''
         Parameters
         ----------
@@ -133,7 +133,7 @@ class Exchange(Transaction):
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
         
-    async def get_pool(self, tokenAsymbol, tokenBsymbol):
+    def get_pool(self, tokenAsymbol, tokenBsymbol):
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -144,15 +144,15 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         try:
-            factoryContract = await self.get_contract(routerAddress, self.markets['factoryAbi'])
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
             
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
             pool_name = token_sort[0] + '-' + token_sort[1]
-        
+            
             if pool_name not in self.pools :
 
-                pair = await factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
+                pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
                 
                 self.pools = self.deep_extend(self.pools, 
                             {
@@ -173,7 +173,7 @@ class Exchange(Transaction):
         except ABIFunctionNotFound:
             return print("No ABI found")
         
-    async def get_pair(self, tokenAsymbol, tokenBsymbol):
+    def get_pair(self, tokenAsymbol, tokenBsymbol):
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -184,15 +184,15 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
         try:
-            factoryContract = await self.get_contract(routerAddress, self.markets['factoryAbi'])
+            factoryContract = self.get_contract(routerAddress, self.markets['factoryAbi'])
             
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
             
             pool_name = token_sort[0] + '-' + token_sort[1]
-
+            
             if pool_name not in self.pools :
 
-                pair = await self.call_function(factoryContract.functions.getPair(tokenAaddress, tokenBaddress))
+                pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
                 
                 self.pools = self.deep_extend(self.pools, 
                             {
@@ -254,7 +254,7 @@ class Exchange(Transaction):
         
         return result
     
-    async def allowance(self, tokenSymbol):
+    def allowance(self, tokenSymbol):
         
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
@@ -262,7 +262,7 @@ class Exchange(Transaction):
         routerAddress = self.set_checksum(self.markets['routerAbi'])
         
         contract = self.w3.eth.contract(tokenAddress, self.chains['chainAbi'])
-        return await self.call_function(contract.functions.allowance(account, routerAddress))
+        return contract.functions.allowance(account, routerAddress).call()
         
     def fees(self, input = None, output = None, intermediate = None, amount = 1):
         ratio = self.reserve_ratio(input, output, intermediate)
@@ -281,7 +281,7 @@ class Exchange(Transaction):
         accountAddress = self.set_checksum(self.account)
         
         if token == self.chains['baseCurrency']:
-            balance = await self.w3.eth.getBalance(accountAddress)
+            balance = self.w3.eth.getBalance(accountAddress)
             
             balance = self.to_value(balance, self.baseDecimal)
         
@@ -289,9 +289,9 @@ class Exchange(Transaction):
             
             tokenAaddress = self.set_checksum(token["contract"])
             
-            tokenContract = await self.get_contract(tokenAaddress, self.chains['chainAbi'])
+            tokenContract = self.get_contract(tokenAaddress, self.chains['chainAbi'])
             
-            balance = await tokenContract.functions.balanceOf(accountAddress).call()
+            balance = tokenContract.functions.balanceOf(accountAddress).call()
             
             balance = self.to_value(balance, int(token["decimals"]))
         
@@ -332,9 +332,7 @@ class Exchange(Transaction):
         
             symbols = list(self.tokens.keys())
             
-        # balance_list = [self.partial_balance(symbol) for symbol in symbols]
-            
-        # result.append[await asyncio.gather(*balance_list)]
+        # result.append[asyncio.gather(self.partial_balance(*symbols))]
         
         for symbol in symbols :
             
@@ -346,7 +344,7 @@ class Exchange(Transaction):
     def create_swap(self,amountA, tokenA, amountBMin, tokenB) :
         raise NotSupported('create_swap() is not supported yet')
     
-    async def check_approve(self, amountA : int, token : str, account : str, router : str)  :
+    def check_approve(self, amountA : int, token : str, account : str, router : str)  :
         
         '''
         Check token approved and transact approve if is not
@@ -361,27 +359,27 @@ class Exchange(Transaction):
         if (token == self.baseCurrncy) :
             return
         
-        contract = await self.get_contract(token, self.chains['chainAbi'])
+        contract = self.get_contract(token, self.chains['chainAbi'])
         
-        approvedTokens = await contract.functions.allowance(account,router).call()
+        approvedTokens = contract.functions.allowance(account,router).call()
         
         if approvedTokens < amountA :
            
-           tx = await self.get_approve(token, router)
+           tx = self.get_approve(token, router)
            
-           tx_receipt = await self.fetch_transaction(tx, round = "CHECK")
+           tx_receipt = self.fetch_transaction(tx, round = "CHECK")
 
            return tx_receipt
            
         else : return
         
-    async def get_approve(self,token : str, router : str) :
+    def get_approve(self,token : str, router : str) :
         
-        contract = await self.get_contract(token, self.chains['chainAbi'])
+        contract = self.get_contract(token, self.chains['chainAbi'])
         
-        nonce = await self.get_TransactionCount(self.account)
+        nonce = self.get_TransactionCount(self.account)
         
-        tx = await contract.functions.approve(router, self.unlimit).buildTransaction(
+        tx = contract.functions.approve(router, self.unlimit).buildTransaction(
             {
                 "from" : self.account,
                 "nonce": nonce,
@@ -551,12 +549,8 @@ class Exchange(Transaction):
     
     def set_pos(self) :
         self.w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-        # self.w3.eth.set_gas_price_strategy(medium_gas_price_strategy)
-        # self.w3.middleware_onion.add(middleware.time_based_cache_middleware)
-        # self.w3.middleware_onion.add(middleware.latest_block_based_cache_middleware)
-        # self.w3.middleware_onion.add(middleware.simple_cache_middleware)
-        # account = Account.from_key(self.privateKey)
-        # self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
+        account = Account.from_key(self.privateKey)
+        self.w3.middleware_onion.add(construct_sign_and_send_raw_middleware(account))
     
     @staticmethod
     def from_value(value : float or int, exp : int=18) -> int :
@@ -571,17 +565,4 @@ class Exchange(Transaction):
         return list(value.values()) if type(value) is dict else value
     
 
-    def retry(method):
-        @wraps(method)
-        def retry_method(self, *args):
-            for i in range(5):
-                
-                logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
-                time.sleep(60)
-                try:
-                    return method(self, *args)
-                except :
-                    if i == 5 - 1:
-                        raise
-                    
-        return retry_method
+

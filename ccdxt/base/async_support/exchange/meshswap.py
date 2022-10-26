@@ -18,18 +18,35 @@ class Meshswap(Exchange):
         self.exchangeName = "meshswap"
         
         self.load_exchange(self.chainName, self.exchangeName)
+        
+    def retry(method):
+        @wraps(method)
+        def retry_method(self, *args):
+            for i in range(5):
+                
+                print('{} - {} - Attempt {}'.format(datetime.datetime.now(), method.__name__, i))
+                
+                # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                time.sleep(60)
+                try:
+                    return method(self, *args)
+                except :
+                    if i == 5 - 1:
+                        raise
+                    
+        return retry_method
     
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol) :
         
         amountin = self.from_value(value = amountAin, exp = self.decimals(tokenAsymbol))
         
-        pool = await self.get_pair(tokenAsymbol, tokenBsymbol)
+        pool = self.get_pair(tokenAsymbol, tokenBsymbol)
         
         pool = self.set_checksum(pool)
         
-        reserve = await self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
+        reserve = self.get_reserves(pool, tokenAsymbol, tokenBsymbol)
         
-        amountBout = await self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
+        amountBout = self.get_amount_out(tokenAsymbol,amountin,tokenBsymbol)
         
         price_amount = amountBout / amountin
         
@@ -56,32 +73,11 @@ class Meshswap(Exchange):
         
         return result
     
-    def retry(method):
-        @wraps(method)
-        def retry_method(self, *args):
-            for i in range(5):
-                
-                print('{} - {} - Attempt {}'.format(datetime.datetime.now(), method.__name__, i))
-                
-                # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
-                time.sleep(60)
-                try:
-                    return method(self, *args)
-                except :
-                    if i == 5 - 1:
-                        raise
-                    
-        return retry_method
-    
-    @retry
-    # async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
-      
     async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path = None) :  
         
         tokenAbalance = await self.partial_balance(tokenAsymbol)
-        print(tokenAbalance)
         
-        self.require(amountA < tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
+        self.require(amountA > tokenAbalance['balance'], InsufficientBalance(tokenAbalance, amountA))
         self.require(tokenAsymbol == tokenBsymbol, ValueError)
         
         self.tokenAsymbol = tokenAsymbol
@@ -97,11 +93,6 @@ class Meshswap(Exchange):
         accountAddress = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
-        self.check_approve(amountA = amountA, token = tokenAaddress, \
-                           account = accountAddress, router = routerAddress)
-        
-        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
-        
         if path != None :
             
             self.path = [self.set_checksum(self.tokens[token]['contract']) for token in path]
@@ -109,6 +100,11 @@ class Meshswap(Exchange):
         else :
         
             self.path = [tokenAaddress,tokenBaddress]
+        
+        self.check_approve(amountA = amountA, token = tokenAaddress, \
+                           account = accountAddress, router = routerAddress)
+        
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
 
         if tokenAsymbol == self.baseCurrncy:
             tx = self.eth_to_token(tokenBaddress, amountBMin)
@@ -123,10 +119,10 @@ class Meshswap(Exchange):
     
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         
-        nonce = self.w3.eth.getTransactionCount(self.account)
+        nonce = self.w3.eth.get_transaction_count(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)
 
-        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,self.path,self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,self.path,self.account,deadline).build_transaction(
                 {
                     "from" : self.account,
                     # "gasPrice" : self.w3.toHex(25000000000),
@@ -141,10 +137,10 @@ class Meshswap(Exchange):
     
     def eth_to_token(self, tokenAaddress, tokenBaddress, amountBMin)  :
         
-        nonce = self.w3.eth.getTransactionCount(self.account)
+        nonce = self.w3.eth.get_transaction_count(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, self.path, self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, self.path,self.account,deadline).build_transaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),
@@ -156,10 +152,10 @@ class Meshswap(Exchange):
 
     def token_to_eth(self, tokenAaddress, amountA, tokenBaddress, amountBMin) :
         
-        nonce = self.w3.eth.getTransactionCount(self.account)
+        nonce = self.w3.eth.get_transaction_count(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin, self.path, self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin,self.path,self.account,deadline).build_transaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),
@@ -169,7 +165,7 @@ class Meshswap(Exchange):
         
         return tx
     
-    async def get_amount_out(self,tokenAsymbol,amountIn,tokenBsymbol) :
+    def get_amount_out(self,tokenAsymbol,amountIn,tokenBsymbol) :
         
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
@@ -179,24 +175,23 @@ class Meshswap(Exchange):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB['contract'])
         
-        self.routerContract = await self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
         
-        amountOut = await self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()
-        result = amountOut[-1]
+        amountOut = self.routerContract.functions.getAmountsOut(amountIn, [tokenAaddress, tokenBaddress]).call()[-1]
         
-        return result
+        return amountOut
     
-    async def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
+    def get_reserves(self, poolAddress, tokenAsymbol, tokenBsymbol):
         
         tokenA = self.tokens[tokenAsymbol]
         
         tokenAaddress = self.set_checksum(tokenA["contract"])
         
-        routerContract = await self.get_contract(poolAddress, self.markets['routerAbi'])
+        routerContract = self.get_contract(poolAddress, self.markets['routerAbi'])
         
-        tokenA = await routerContract.functions.token0().call()
+        tokenA = routerContract.functions.token0().call()
 
-        reserves = await routerContract.functions.getReserves().call()
+        reserves = routerContract.functions.getReserves().call()
         
         if tokenA != tokenAaddress :
             reserves[0] = self.to_value(reserves[0], self.decimals(tokenBsymbol))

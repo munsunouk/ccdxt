@@ -67,9 +67,9 @@ class Transaction(object) :
         '''
         signed_tx =self.w3.eth.account.signTransaction(tx, self.privateKey)
         
-        tx_hash = self.w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+        tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 
-        tx_receipt = self.w3.eth.waitForTransactionReceipt(tx_hash)
+        tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
 
         if tx_receipt["status"] != 1:
 
