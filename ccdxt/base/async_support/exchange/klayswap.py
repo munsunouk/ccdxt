@@ -34,7 +34,7 @@ class Klayswap(Exchange):
         def retry_method(self, *args):
             for i in range(5):
                 
-                print('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                print('{} - {} - Attempt {}'.format(datetime.datetime.now(), method.__name__, i))
                 
                 # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
                 time.sleep(60)
@@ -83,8 +83,10 @@ class Klayswap(Exchange):
         
         return result 
     
-    @retry
-    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
+    # @retry
+    # async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
+    
+    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path = None) :
         '''
         Parameters
         ----------
@@ -110,6 +112,14 @@ class Klayswap(Exchange):
         }
         '''
         
+        if path != None :
+            
+            self.path = [self.tokens[token]['contract'] for token in path]
+            
+        else :
+        
+            self.path = []
+        
         tokenAbalance = await self.partial_balance(tokenAsymbol)
         
         self.tokenAsymbol = tokenAsymbol
@@ -127,28 +137,28 @@ class Klayswap(Exchange):
         accountAddress = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets["routerAddress"])
         
-        self.check_approve(amountA = amountA, token = tokenAaddress, \
+        await self.check_approve(amountA = amountA, token = tokenAaddress, \
                            account = accountAddress, router = routerAddress)
         
-        self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        self.routerContract = await self.get_contract(routerAddress, self.markets['routerAbi'])
 
         if tokenAsymbol == self.baseCurrncy:
-            tx = self.eth_to_token(tokenBaddress, amountBMin)
+            tx = await self.eth_to_token(tokenBaddress, amountBMin)
         elif tokenBsymbol == self.baseCurrncy:
-            tx = self.token_to_eth(tokenAaddress, amountA)
+            tx = await self.token_to_eth(tokenAaddress, amountA)
         else:
-            tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
-        tx_receipt = self.fetch_transaction(tx, 'SWAP')
+        tx_receipt = await self.fetch_transaction(tx, 'SWAP')
            
         return tx_receipt
     
-    def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
+    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin)  :
         
-        nonce = self.w3.eth.getTransactionCount(self.account)
+        nonce = await self.w3.eth.getTransactionCount(self.account)
         
-        tx = self.routerContract.functions.exchangeKctPos(tokenAaddress, amountA, \
-                                               tokenBaddress, amountBMin, []).buildTransaction(
+        tx = await self.routerContract.functions.exchangeKctPos(tokenAaddress, amountA, \
+                                               tokenBaddress, amountBMin, self.path).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
@@ -158,12 +168,12 @@ class Klayswap(Exchange):
         
         return tx
     
-    def eth_to_token(self, tokenBaddress, amountBMin)  :
+    async def eth_to_token(self, tokenBaddress, amountBMin)  :
         
-        nonce = self.w3.eth.getTransactionCount(self.account)
+        nonce = await self.w3.eth.getTransactionCount(self.account)
         
-        tx = self.routerContract.functions.exchangeKctPos(
-                                               tokenBaddress, amountBMin, []).buildTransaction(
+        tx = await self.routerContract.functions.exchangeKctPos(
+                                               tokenBaddress, amountBMin, self.path).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,
@@ -178,7 +188,7 @@ class Klayswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         
         tx = self.routerContract.functions.exchangeKlayNeg(
-                                                tokenAaddress, amountA, []).buildTransaction(
+                                                tokenAaddress, amountA, self.path).buildTransaction(
             {
                 "from" : self.account,
                 'gas' : 4000000,

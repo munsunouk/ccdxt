@@ -1,7 +1,8 @@
 import re
 import itertools
 
-from ccdxt.base import Chain, Market, Pool, Token, Transaction
+from ccdxt.base import Chain, Market, Pool, Token
+from ccdxt.base.async_support.base import Transaction
 from ccdxt.base.utils.errors import ABIFunctionNotFound, RevertError, AddressError, NotSupported
 from ccdxt.base.utils.validation import *
 from ccdxt.base.utils import SafeMath
@@ -65,98 +66,6 @@ class Exchange(Transaction):
                             filemode="w",
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger(__name__)
-        
-    async def call_contract_function(
-            self,
-            web3: Web3,
-            address: ChecksumAddress,
-            normalizers: Tuple[Callable[..., Any], ...],
-            function_identifier: FunctionIdentifier,
-            transaction: TxParams,
-            block_id: Optional[BlockIdentifier] = None,
-            contract_abi: Optional[ABI] = None,
-            fn_abi: Optional[ABIFunction] = None,
-            state_override: Optional[CallOverrideParams] = None,
-            fn_args: Any = [],
-            fn_kwargs: Any = {}) -> Any:
-        """
-        Helper function for interacting with a contract function using the
-        `eth_call` API.
-        """
-        print(fn_abi)
-        call_transaction = prepare_transaction(
-            address,
-            web3,
-            fn_identifier=function_identifier,
-            contract_abi=contract_abi,
-            fn_abi=fn_abi,
-            transaction=transaction,
-            fn_args=fn_args,
-            fn_kwargs=fn_kwargs,
-        )
-
-        return_data = await web3.eth.call(
-            call_transaction,
-            block_identifier=block_id,
-            state_override=state_override,
-        )
-
-        if fn_abi is None:
-            fn_abi = find_matching_fn_abi(contract_abi, web3.codec, function_identifier, fn_args, fn_kwargs)
-
-        output_types = get_abi_output_types(fn_abi)
-
-        try:
-            output_data = web3.codec.decode_abi(output_types, return_data)
-        except DecodingError as e:
-            # Provide a more helpful error message than the one provided by
-            # eth-abi-utils
-            is_missing_code_error = (
-                return_data in ACCEPTABLE_EMPTY_STRINGS
-                and web3.eth.get_code(address) in ACCEPTABLE_EMPTY_STRINGS)
-            if is_missing_code_error:
-                msg = (
-                    "Could not transact with/call contract function, is contract "
-                    "deployed correctly and chain synced?"
-                )
-            else:
-                msg = (
-                    f"Could not decode contract function call to {function_identifier} with "
-                    f"return data: {str(return_data)}, output_types: {output_types}"
-                )
-            raise BadFunctionCallOutput(msg) from e
-
-        _normalizers = itertools.chain(
-            BASE_RETURN_NORMALIZERS,
-            normalizers,
-        )
-        normalized_data = map_abi_data(_normalizers, output_types, output_data)
-
-        if len(normalized_data) == 1:
-            return normalized_data[0]
-        else:
-            return normalized_data
-        
-    async def call_function(self, function: ContractFunction, tx_kwargs=None, block_id=None):
-        tx: TxParams = {}
-        if not tx_kwargs:
-            tx_kwargs = {}
-        tx.update(tx_kwargs)
-        # tx["data"] = function._encode_transaction_data()
-        tx["to"] = self.account
-        return await self.call_contract_function(
-            web3=self.w3,
-            address=self.account,
-            transaction=tx,
-            normalizers=tuple(),
-            function_identifier=function.function_identifier,
-            contract_abi=None,
-            fn_abi=function.abi,
-            fn_args=function.args,
-            fn_kwargs=function.kwargs,
-            block_id=block_id,
-            # **kwargs,
-        )
         
     async def block_number(self) -> str:
         """
@@ -437,7 +346,7 @@ class Exchange(Transaction):
     def create_swap(self,amountA, tokenA, amountBMin, tokenB) :
         raise NotSupported('create_swap() is not supported yet')
     
-    def check_approve(self, amountA : int, token : str, account : str, router : str)  :
+    async def check_approve(self, amountA : int, token : str, account : str, router : str)  :
         
         '''
         Check token approved and transact approve if is not
@@ -452,27 +361,27 @@ class Exchange(Transaction):
         if (token == self.baseCurrncy) :
             return
         
-        contract = self.get_contract(token, self.chains['chainAbi'])
+        contract = await self.get_contract(token, self.chains['chainAbi'])
         
-        approvedTokens = contract.functions.allowance(account,router).call()
+        approvedTokens = await contract.functions.allowance(account,router).call()
         
         if approvedTokens < amountA :
            
-           tx = self.get_approve(token, router)
+           tx = await self.get_approve(token, router)
            
-           tx_receipt = self.fetch_transaction(tx, round = "CHECK")
+           tx_receipt = await self.fetch_transaction(tx, round = "CHECK")
 
            return tx_receipt
            
         else : return
         
-    def get_approve(self,token : str, router : str) :
+    async def get_approve(self,token : str, router : str) :
         
-        contract = self.get_contract(token, self.chains['chainAbi'])
+        contract = await self.get_contract(token, self.chains['chainAbi'])
         
-        nonce = self.get_TransactionCount(self.account)
+        nonce = await self.get_TransactionCount(self.account)
         
-        tx = contract.functions.approve(router, self.unlimit).buildTransaction(
+        tx = await contract.functions.approve(router, self.unlimit).buildTransaction(
             {
                 "from" : self.account,
                 "nonce": nonce,

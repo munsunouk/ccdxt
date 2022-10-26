@@ -61,7 +61,7 @@ class Meshswap(Exchange):
         def retry_method(self, *args):
             for i in range(5):
                 
-                print('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
+                print('{} - {} - Attempt {}'.format(datetime.datetime.now(), method.__name__, i))
                 
                 # logging.warning('{} - {} - Attempt {}'.format(datetime.now(), method.__name__, i))
                 time.sleep(60)
@@ -74,7 +74,9 @@ class Meshswap(Exchange):
         return retry_method
     
     @retry
-    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
+    # async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol) :
+      
+    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path = None) :  
         
         tokenAbalance = await self.partial_balance(tokenAsymbol)
         print(tokenAbalance)
@@ -99,6 +101,14 @@ class Meshswap(Exchange):
                            account = accountAddress, router = routerAddress)
         
         self.routerContract = self.get_contract(routerAddress, self.markets['routerAbi'])
+        
+        if path != None :
+            
+            self.path = [self.set_checksum(self.tokens[token]['contract']) for token in path]
+            
+        else :
+        
+            self.path = [tokenAaddress,tokenBaddress]
 
         if tokenAsymbol == self.baseCurrncy:
             tx = self.eth_to_token(tokenBaddress, amountBMin)
@@ -116,7 +126,7 @@ class Meshswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)
 
-        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapExactTokensForTokens(amountA,amountBMin,self.path,self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     # "gasPrice" : self.w3.toHex(25000000000),
@@ -134,7 +144,7 @@ class Meshswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, [tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapETHForExactTokens(amountBMin, tokenBaddress, self.path, self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),
@@ -149,7 +159,7 @@ class Meshswap(Exchange):
         nonce = self.w3.eth.getTransactionCount(self.account)
         deadline = int(datetime.datetime.now().timestamp() + 1800)\
                                                
-        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin,[tokenAaddress,tokenBaddress],self.account,deadline).buildTransaction(
+        tx = self.routerContract.functions.swapTokensForExactETH(amountA,amountBMin, self.path, self.account,deadline).buildTransaction(
                 {
                     "from" : self.account,
                     "gasPrice" : self.w3.toHex(25000000000),
