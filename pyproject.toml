@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "nozomi"
+version = "0.1.0"
+description = ""
+authors = ["文 善郁 <mun_sunouk@cocone.co.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.7.9,<3.10"
+web3 = ">=6.0,<7.0"
+zmq = "^0.0.0"
+pytz = "^2022.7"
+gspread = "^5.7.2"
+pytest = "^7.2.0"
+mysql-connector-python = "^8.0.31"
+pytest-asyncio = "^0.20.3"
+slack-sdk = "^3.19.5"
+ccxt = "^3.0.76"
+scrapy = "^2.8.0"
+proxy-requests = "^0.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"

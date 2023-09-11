@@ -1,0 +1,8610 @@
+{
+  "KDAI-KLAY": {
+    "name": "KDAI-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa3987cf6C14F1992e8b4a9E23192Eb79dC2969b8"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kETH-KLAY": {
+    "name": "kETH-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x27F80731dDdb90C51cD934E9BD54bfF2D4E99e8a"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "ISR-KLAY": {
+    "name": "ISR-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x869440673a24E3C3F18C173D8A964b2F2621245b"
+      }
+    },
+    "tokenA": "ISR",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "ABL-KLAY": {
+    "name": "ABL-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9609861EEC1DC15756fD0F5429FB96E475790920"
+      }
+    },
+    "tokenA": "ABL",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kUSDT-kWBTC": {
+    "name": "kUSDT-kWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9103Beb39283dA9C49B020D6546FD7C39f9bbc5b"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "kWBTC",
+    "decimals": "18"
+  },
+  "KDAI-kUSDT": {
+    "name": "KDAI-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc320066b25B731A11767834839Fe57f9b2186f84"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KHANDY-KLAY": {
+    "name": "KHANDY-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCe28F9330658b6b4871c081e0a9A332Ae8a7d8c1"
+      }
+    },
+    "tokenA": "KHANDY",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "KDAI-kORC": {
+    "name": "KDAI-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x587a01F81E5c078CD7C03F09f45705530fFB7B94"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "kETH-KSP": {
+    "name": "kETH-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa8F8f1153523eAeDce48CEc2Ddbe1Bcd483d0CD8"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "KSP",
+    "decimals": "18"
+  },
+  "KDAI-KSP": {
+    "name": "KDAI-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x64E58F35e9D4e2aB6380908905177cE150aa8608"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KDAI-kXRP": {
+    "name": "KDAI-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4B50d0e4F29bF5B39a6234B11753fDB3b28E76Fc"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "kXRP",
+    "decimals": 6
+  },
+  "kORC-kXRP": {
+    "name": "kORC-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x805CB5eB7063f132cEAf56b2c7182c897a024a83"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KDUCATO-KLAY": {
+    "name": "KDUCATO-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfc4DA06cF1d201B6CB9D99265614daC4937Ad6a2"
+      }
+    },
+    "tokenA": "KDUCATO",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "HIBS-KLAY": {
+    "name": "HIBS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6bF915F013DC12274ADF57e3c68fe8464ddc8B10"
+      }
+    },
+    "tokenA": "HIBS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KBELT-KLAY": {
+    "name": "KBELT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x157c39202fAE6233FEc3f8B3bCb2158200d0A863"
+      }
+    },
+    "tokenA": "KBELT",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "kBNB-KLAY": {
+    "name": "kBNB-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE20B9aeAcAC615Da0fdBEB05d4F75E16FA1F6B95"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "kBNB-KSP": {
+    "name": "kBNB-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7328B85eFF28C3068F69FE662632d37D48ba227f"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "KSP",
+    "decimals": "18"
+  },
+  "KAUTO-KLAY": {
+    "name": "KAUTO-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x11Dd0Daf4C80402AD61Ea4F6B37ab60544188938"
+      }
+    },
+    "tokenA": "KAUTO",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "BUZ-KLAY": {
+    "name": "BUZ-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x58FCF8638e8BfA38239d293960923ec7377aaB40"
+      }
+    },
+    "tokenA": "BUZ",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kBNB-kETH": {
+    "name": "kBNB-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8119f0CeC72a26fE23CA1aB076137Ea5D8a19d54"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "kETH",
+    "decimals": "18"
+  },
+  "KAI-kUSDT": {
+    "name": "KAI-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5787492D753D5f59365E2F98e2f18C3AE3baD6e7"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kORC-kUSDT": {
+    "name": "kORC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x94F390a8438b5De00B868d3aE47863Db90fB92c3"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "INFR-KLAY": {
+    "name": "INFR-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3C2e0aC31792740DE948626FBBAf63B17fF203d8"
+      }
+    },
+    "tokenA": "INFR",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KISDT-KLAY": {
+    "name": "KISDT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd7152a7AbCd6d7ef2b1a5423598073b32b456965"
+      }
+    },
+    "tokenA": "KISDT",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "INFR-kORC": {
+    "name": "INFR-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x75437D99D6905d23CBad9CedF40C3aC80C15CbE2"
+      }
+    },
+    "tokenA": "INFR",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "kUSDT-sBWPM": {
+    "name": "kUSDT-sBWPM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB6eaA073881C9cac7141EF20b25A588914a367b2"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "sBWPM",
+    "decimals": 18
+  },
+  "KFI-KLAY": {
+    "name": "KFI-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD74D4B4d2FB186BB7F31E4000c59ADE70BbD8a23"
+      }
+    },
+    "tokenA": "KFI",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kETH-KICX": {
+    "name": "kETH-KICX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF4048Ce0A0947F138101e4a92C44c79585d826E5"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "KICX",
+    "decimals": "18"
+  },
+  "KAI-bKAI": {
+    "name": "KAI-bKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x711094b9bc6E42F2b5Fc0e8F72833097903348d8"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "bKAI",
+    "decimals": 18
+  },
+  "KAI-KDAI": {
+    "name": "KAI-KDAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x92e51BF6EC87623beb774f7356629B61005b1586"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "KDAI",
+    "decimals": 18
+  },
+  "HOUSE-KLAY": {
+    "name": "HOUSE-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8ad37f3f3fB663A67c7140947F80894a973B789B"
+      }
+    },
+    "tokenA": "HOUSE",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "AKLAY-KLAY": {
+    "name": "AKLAY-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE74C8D8137541C0EE2C471cdAF4DCf03C383Cd22"
+      }
+    },
+    "tokenA": "AKLAY",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "PER-kUSDT": {
+    "name": "PER-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe55f6452C5B04108dcC2E75aE31D6Ca141a4F9B7"
+      }
+    },
+    "tokenA": "PER",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "FINIX-KLAY": {
+    "name": "FINIX-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x298ED5f16523eEe6E32FA9bcfD675B58878d823B"
+      }
+    },
+    "tokenA": "FINIX",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "FINIX-KSP": {
+    "name": "FINIX-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xFA9B69f7e750Bff5C3e79067fea2034D9210Bc18"
+      }
+    },
+    "tokenA": "FINIX",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KFI-KSP": {
+    "name": "KFI-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x75F22E8F0004c73F8C7faDEBdb6b77813eE90C4F"
+      }
+    },
+    "tokenA": "KFI",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "DONT1BUY-TESTTTT": {
+    "name": "DONT1BUY-TESTTTT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3FC89C80d0AC2338FCF00Fddb940e90B31cfF496"
+      }
+    },
+    "tokenA": "DONT1BUY",
+    "tokenB": "TESTTTT",
+    "decimals": 18
+  },
+  "JUN-kUSDT": {
+    "name": "JUN-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x391330644903Fd2d6CCB084965B1C350ff6C4c56"
+      }
+    },
+    "tokenA": "JUN",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "JUNS-KLAY": {
+    "name": "JUNS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xff99d881e868d7f15a12b08CD1e390AF675c0554"
+      }
+    },
+    "tokenA": "JUNS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "IMI-KLAY": {
+    "name": "IMI-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc1c86DA716f867A9989248e5b3dfe6361EC62c17"
+      }
+    },
+    "tokenA": "IMI",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KAERGO-KLAY": {
+    "name": "KAERGO-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3151239FEa9b2719802EF30d76A6f9c3cCfbf8F3"
+      }
+    },
+    "tokenA": "KAERGO",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "HOUSE-KFI": {
+    "name": "HOUSE-KFI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8330BA34f46f62D76b216a3675A54392362F05Eb"
+      }
+    },
+    "tokenA": "HOUSE",
+    "tokenB": "KFI",
+    "decimals": 18
+  },
+  "TESTSTABLE-TESTTOKEN": {
+    "name": "TESTSTABLE-TESTTOKEN",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcC8A9C7A6518f032bAd2DA30A169A87dD50C8029"
+      }
+    },
+    "tokenA": "TESTSTABLE",
+    "tokenB": "TESTTOKEN",
+    "decimals": 18
+  },
+  "ICEAMERICANO-KLAY": {
+    "name": "ICEAMERICANO-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x109caF21DC505D907F1eF8C9FaD4375c267BC7b9"
+      }
+    },
+    "tokenA": "ICEAMERICANO",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "JSD-KLAY": {
+    "name": "JSD-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA117Da8980f97D53E56ea0d952d8e753B0F2aC45"
+      }
+    },
+    "tokenA": "JSD",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kUSDC-kUSDT": {
+    "name": "kUSDC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2E9269B718cc816De6A9E3C27E5bdb0F6A01b0ac"
+      }
+    },
+    "tokenA": "kUSDC",
+    "tokenB": "kUSDT",
+    "decimals": "6"
+  },
+  "BYPE-KLAY": {
+    "name": "BYPE-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0264512aA13603546f90485145Fb5788d55C29bb"
+      }
+    },
+    "tokenA": "BYPE",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KAI-kUSDC": {
+    "name": "KAI-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCe6Ea2568ed8074836a0fC7F7f72A40Bc142B98f"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "KDAI-KSD": {
+    "name": "KDAI-KSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x797Ff7657f998CfA64288D8c0626AA7cC8190c2d"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "KSD",
+    "decimals": 18
+  },
+  "CT-KLAY": {
+    "name": "CT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x90b66b912026Accf305Bf08754a4016F2dB40DE0"
+      }
+    },
+    "tokenA": "CT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "CEIK-KLAY": {
+    "name": "CEIK-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x50E746EdaA283365136ed86a4E5DfDdc6CD3cF9e"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KFI-KSTA": {
+    "name": "KFI-KSTA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9D73151D5C1aa82b45f228A22ba2C851A8e6bfDe"
+      }
+    },
+    "tokenA": "KFI",
+    "tokenB": "KSTA",
+    "decimals": 18
+  },
+  "kETH-KSD": {
+    "name": "kETH-KSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcD546688CB62b60deBe3860ED31B69f4d8EBCE3e"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "KSD",
+    "decimals": "18"
+  },
+  "bus-sKAI": {
+    "name": "bus-sKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xBB09846A7d8b4e641A77a435B2dde5f0152A1899"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "sKAI",
+    "decimals": 18
+  },
+  "bus-kXRP": {
+    "name": "bus-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x06F60e2f1D64b776aD5b063cBb508520C9b80c0b"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KDAI-bus": {
+    "name": "KDAI-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8f996B6Da00a596eCff40ED36F4a8c3Ca58FE863"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "SKLAY-bus": {
+    "name": "SKLAY-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8bD4B18c6955F7b1eb284c9934A291d133C4aDb8"
+      }
+    },
+    "tokenA": "SKLAY",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "kORC-bus": {
+    "name": "kORC-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9115ED3f815Dc1fFc2BC35D27460bdDea17DF846"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "bus",
+    "decimals": "18"
+  },
+  "bus-kUSDC": {
+    "name": "bus-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8c946ba75D7C5Ed9A5118d1bF8E689c6b151Bd2C"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "KSD-bus": {
+    "name": "KSD-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF8b64937D298b826117AB56535a1384cD0cFB8dD"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "WEMIX-bus": {
+    "name": "WEMIX-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x402ad424a4D5199Ee49cD88774B379aDBE6344e2"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "KCBANK-KLAY": {
+    "name": "KCBANK-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0202014aD5a0B09348CAd8b51F880Ec88b38f2Ac"
+      }
+    },
+    "tokenA": "KCBANK",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "KDFA-KLAY": {
+    "name": "KDFA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x124C5d6b4F4ab77c90d53657C09BD168E003797b"
+      }
+    },
+    "tokenA": "KDFA",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "KAPT-KLAY": {
+    "name": "KAPT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8f48e5B0392548E4fe6600909B4874344F8a53ff"
+      }
+    },
+    "tokenA": "KAPT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BORA-KLAY": {
+    "name": "BORA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbbcA9B2D17987aCE3E98E376931c540270CE71bB"
+      }
+    },
+    "tokenA": "BORA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BORA-KSP": {
+    "name": "BORA-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x26d454097139A66695855A5F3900CBFe65Aa5590"
+      }
+    },
+    "tokenA": "BORA",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KAI-bus": {
+    "name": "KAI-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x850608e3fE9E5C2BAfcB91b361d4740BDb1a6080"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "CEIK-KSP": {
+    "name": "CEIK-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcc81d437Ffc161D349D6186B1A1f8ddE515093d6"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KDG-KLAY": {
+    "name": "KDG-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xEC7d05F076731A40015D24a0cD34AB087A7E86dB"
+      }
+    },
+    "tokenA": "KDG",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BORA-bus": {
+    "name": "BORA-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x24699dE66C08E0DAE52C9c878F0A81B3302F45A8"
+      }
+    },
+    "tokenA": "BORA",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "KBIOT-KLAY": {
+    "name": "KBIOT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB0aeE3F0f0048CCc1531c01AFD6ebcc9A237EC09"
+      }
+    },
+    "tokenA": "KBIOT",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "KRNO-KSD": {
+    "name": "KRNO-KSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5876aa130DE74D9d8924E8ff05a0bC4387Ee93F0"
+      }
+    },
+    "tokenA": "KRNO",
+    "tokenB": "KSD",
+    "decimals": 18
+  },
+  "kUSDT-tAVELK": {
+    "name": "kUSDT-tAVELK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0b5dBD999eEda642B1B2F93B5034A9155456f5Fc"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "tAVELK",
+    "decimals": 18
+  },
+  "KRNO-bus": {
+    "name": "KRNO-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6D0b572220C9c81Ca7e7aE14AeF40783bAf80010"
+      }
+    },
+    "tokenA": "KRNO",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "KDOTR-KLAY": {
+    "name": "KDOTR-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCf88f747F0319e52b95D604fBa2806E8D0D9A6Aa"
+      }
+    },
+    "tokenA": "KDOTR",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "kBUSD-kUSDT": {
+    "name": "kBUSD-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2C4581ea232527be6B1DbD140e1786BC76ccAd61"
+      }
+    },
+    "tokenA": "kBUSD",
+    "tokenB": "kUSDT",
+    "decimals": "6"
+  },
+  "META-bus": {
+    "name": "META-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7f911B22357881EaFE92DC5FB8Dd95f7095f7BF8"
+      }
+    },
+    "tokenA": "META",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "DANTA-KLAY": {
+    "name": "DANTA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd5cE89c23Eed3B7fdc0bcCb8d992CA89626B74d6"
+      }
+    },
+    "tokenA": "DANTA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KCYCLUB-KLAY": {
+    "name": "KCYCLUB-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x61F62B613ea0359F2d708d6FFD73ACc2f8551c70"
+      }
+    },
+    "tokenA": "KCYCLUB",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "GRD-KLAY": {
+    "name": "GRD-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1a994e2e67f7e8f87E3b5faC22621de0E498d573"
+      }
+    },
+    "tokenA": "GRD",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KGALA-bus": {
+    "name": "KGALA-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD13c941580f48B104fE66732295874Ea6C7B0128"
+      }
+    },
+    "tokenA": "KGALA",
+    "tokenB": "bus",
+    "decimals": "18"
+  },
+  "KRNO-KSP": {
+    "name": "KRNO-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2fEBbAed702b9a1D9F6ffccD67701550ac546115"
+      }
+    },
+    "tokenA": "KRNO",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "CLA-KLAY": {
+    "name": "CLA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf42141c37FaAdc28BcaFb16229a5ff0419942644"
+      }
+    },
+    "tokenA": "CLA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "GCT-KLAY": {
+    "name": "GCT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8b57d2a42c784B6C7987b68BfF4D9D753E10a1Eb"
+      }
+    },
+    "tokenA": "GCT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KPACE-KSP": {
+    "name": "KPACE-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xBad54E0a7E992cF7516c70028474298d9801EF6C"
+      }
+    },
+    "tokenA": "KPACE",
+    "tokenB": "KSP",
+    "decimals": "18"
+  },
+  "GOLF-KLAY": {
+    "name": "GOLF-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xADA20239f542C89d2E08DEeEd322316141EFB134"
+      }
+    },
+    "tokenA": "GOLF",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "CLA-kUSDT": {
+    "name": "CLA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x08F3b4d28445e33f1D84C64cf7fA419dF16BaD5E"
+      }
+    },
+    "tokenA": "CLA",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "BANANA-KLAY": {
+    "name": "BANANA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfe352Ada98Dc4Bbe57701077C650fD0284746Df2"
+      }
+    },
+    "tokenA": "BANANA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kUSDC-kXRP": {
+    "name": "kUSDC-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x767bd4DD8BA6aC59EBd1172f91590E1C3C265cf6"
+      }
+    },
+    "tokenA": "kUSDC",
+    "tokenB": "kXRP",
+    "decimals": "6"
+  },
+  "CATC-KLAY": {
+    "name": "CATC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4a0D778C62f1449C8A65697259a2932B5BF2D8F1"
+      }
+    },
+    "tokenA": "CATC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "IBP-KSP": {
+    "name": "IBP-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9c4494f969d368Cc2dF1FF1aDD67af88194a456c"
+      }
+    },
+    "tokenA": "IBP",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "IBP-KLAY": {
+    "name": "IBP-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3D0e8E3855E777FCFA72aE5A3F9807Ec3001079f"
+      }
+    },
+    "tokenA": "IBP",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "IJM-KLAY": {
+    "name": "IJM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4ddA45Fa2A1ae64b53274E727A9BC045134a6986"
+      }
+    },
+    "tokenA": "IJM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "IJM-MIX": {
+    "name": "IJM-MIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1996aC2A0bB286C6366813E61d44c47c13F2c54D"
+      }
+    },
+    "tokenA": "IJM",
+    "tokenB": "MIX",
+    "decimals": 18
+  },
+  "KDRC-KLAY": {
+    "name": "KDRC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xADf14eEcA02687D2884DD12dD273D5C386141d8c"
+      }
+    },
+    "tokenA": "KDRC",
+    "tokenB": "KLAY",
+    "decimals": "18"
+  },
+  "KP-kUSDT": {
+    "name": "KP-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4242baD2227AA3bBF0CCe62D0F8D03e241959120"
+      }
+    },
+    "tokenA": "KP",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kUSDT-test_h": {
+    "name": "kUSDT-test_h",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x932EB7CF50D283cb29815a057b0134e3aC84A499"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "test_h",
+    "decimals": 9
+  },
+  "INS-KLAY": {
+    "name": "INS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3aC97747e48ad799E7859Cce02319F910C01F897"
+      }
+    },
+    "tokenA": "INS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "TOP-kXRP": {
+    "name": "TOP-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4051B8613fEeF0c5ed8E63EF9cC1dDE7e318Df0f"
+      }
+    },
+    "tokenA": "TOP",
+    "tokenB": "kXRP",
+    "decimals": "18"
+  },
+  "TOP2-kXRP": {
+    "name": "TOP2-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x456bc7B87b129932A499724B1fB0A0fc60E2bdD3"
+      }
+    },
+    "tokenA": "TOP2",
+    "tokenB": "kXRP",
+    "decimals": "18"
+  },
+  "HOOK-KLAY": {
+    "name": "HOOK-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5Ce8558679068A5f55e96680f1aEb051ED29F470"
+      }
+    },
+    "tokenA": "HOOK",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLEVA-KSP": {
+    "name": "KLEVA-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1f2600199ED4cF0eAeeA79f589A657983cbe2Ed2"
+      }
+    },
+    "tokenA": "KLEVA",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "kUSDT-WEMIX": {
+    "name": "kUSDT-WEMIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "WEMIX",
+    "decimals": "18"
+  },
+  "BT-KLAY": {
+    "name": "BT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x02BD497a572C18Ad8FbC9a46B17ecdB6660DED7c"
+      }
+    },
+    "tokenA": "BT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BS-KLAY": {
+    "name": "BS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb75872ac98f6049AAf2fC2275520C5168506C768"
+      }
+    },
+    "tokenA": "BS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "AZIT-KLAY": {
+    "name": "AZIT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4EdC3b875ceEEbc94E64aDFBFd757A9dCE522481"
+      }
+    },
+    "tokenA": "AZIT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "AZIT-KSP": {
+    "name": "AZIT-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6362E713d22047DF468f6e2819164034dA8CE59E"
+      }
+    },
+    "tokenA": "AZIT",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "CRE-KSP": {
+    "name": "CRE-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x501784b3871Cd42A01f445aa416c409A8d9425c1"
+      }
+    },
+    "tokenA": "CRE",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "EKL-KLAY": {
+    "name": "EKL-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5DB231ac93faAAd876155dc0853BB11a2f4b0fB2"
+      }
+    },
+    "tokenA": "EKL",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KIDS-KLAY": {
+    "name": "KIDS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdd513Ca4A9Dc78434CdB3d34fe6471614A7a4f05"
+      }
+    },
+    "tokenA": "KIDS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "COM-KLAY": {
+    "name": "COM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1AE07994Acb53A17CdE572E81F18E9695DbFbAa0"
+      }
+    },
+    "tokenA": "COM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BTIS-KLAY": {
+    "name": "BTIS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x411B7534dB55B17C71B0ee0BdF8462c5952cb59E"
+      }
+    },
+    "tokenA": "BTIS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "HC-KLAY": {
+    "name": "HC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x718AF77de38abD5E665D1cDbB785F08bd6778B7b"
+      }
+    },
+    "tokenA": "HC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "RaB-RaGa": {
+    "name": "RaB-RaGa",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x83DaEE07F0A011A9d22B7e6FE1Bab0d8B383ad90"
+      }
+    },
+    "tokenA": "RaB",
+    "tokenB": "RaGa",
+    "decimals": 18
+  },
+  "FDM-KLAY": {
+    "name": "FDM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x775e55e82C447836F9119271d92Ccfe048201374"
+      }
+    },
+    "tokenA": "FDM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BOMUL-PIB": {
+    "name": "BOMUL-PIB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x763c8A2F6D0AeedEfb3C573096fCceD0DA60Ed64"
+      }
+    },
+    "tokenA": "BOMUL",
+    "tokenB": "PIB",
+    "decimals": 18
+  },
+  "KSP-NIK": {
+    "name": "KSP-NIK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4A8B7B6902326c15D45F05C8FeB87845eD9a8750"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "NIK",
+    "decimals": 16
+  },
+  "KSP-Nolze": {
+    "name": "KSP-Nolze",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x296405BA80E641138A278D10f326142eD72E8c96"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "Nolze",
+    "decimals": 18
+  },
+  "DLP-KLAY": {
+    "name": "DLP-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x62fDbA641e107782A8288e66D15085308D9Ed4b3"
+      }
+    },
+    "tokenA": "DLP",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "MARD-NGIT": {
+    "name": "MARD-NGIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6d6dF324146bdcba55A7b603a6C37c6080B4427e"
+      }
+    },
+    "tokenA": "MARD",
+    "tokenB": "NGIT",
+    "decimals": 18
+  },
+  "kETH-NIK": {
+    "name": "kETH-NIK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8DF8ef24466846d3c1B2881d32841F906FcdD307"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "NIK",
+    "decimals": "16"
+  },
+  "KTX-bus": {
+    "name": "KTX-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1ff21FB20143ecA49047d4659a43d2c0fF6bb95E"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "KBI-KLAY": {
+    "name": "KBI-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x693b9DF5384bDDF86e40552C33b56049E0AC675C"
+      }
+    },
+    "tokenA": "KBI",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "NIK-kXRP": {
+    "name": "NIK-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa1975bD8BDb133e0260106950E4Cb50f20b6FF2c"
+      }
+    },
+    "tokenA": "NIK",
+    "tokenB": "kXRP",
+    "decimals": "16"
+  },
+  "KSP-kUSDT": {
+    "name": "KSP-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE75a6A3a800A2C5123e67e3bde911Ba761FE0705"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "kUSDT-ZEMIT": {
+    "name": "kUSDT-ZEMIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa6f631a84657c370c77677bcf052d60c4548187b"
+      }
+    },
+    "tokenA": "ZEMIT",
+    "tokenB": "kUSDT",
+    "decimals": "6"
+  },
+  "kETH-kUSDT": {
+    "name": "kETH-kUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xff85431402b84d60a9b21cbdce45b0dcb83a56fd"
+      },
+      "polygon": {
+        "meshswap": "0xff85431402B84d60a9B21cbDCe45B0Dcb83a56fD"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "kUSDT-kXRP": {
+    "name": "kUSDT-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA2be534e5DD028288625bB376c81A9Eea3D9f0D5"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "kXRP",
+    "decimals": "18"
+  },
+  "mUSDC-oZEMIT": {
+    "name": "mUSDC-oZEMIT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x0cA328146511617e85742773858fF113C7738b15"
+      },
+      "polygon": {
+        "meshswap": "0x0cA328146511617e85742773858fF113C7738b15"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oZEMIT",
+    "decimals": 6
+  },
+  "mUSDC-oMOOI": {
+    "name": "mUSDC-oMOOI",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xa91a3bd6A175F870fA76662b1ED2577D361FE711"
+      },
+      "polygon": {
+        "meshswap": "0xa91a3bd6A175F870fA76662b1ED2577D361FE711"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oMOOI",
+    "decimals": 6
+  },
+  "KETHW-kUSDT": {
+    "name": "KETHW-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1ca3480fbc668bc28d3162eff1c89a1085ce9f57"
+      }
+    },
+    "tokenA": "KETHW",
+    "tokenB": "kUSDT",
+    "decimals": "6"
+  },
+  "oETHW-kUSDT": {
+    "name": "oETHW-kUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
+      },
+      "polygon": {
+        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
+      }
+    },
+    "tokenA": "oETHW",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "mUSDC-oKLAY": {
+    "name": "mUSDC-oKLAY",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x77e5cA3896Bf700BC4465fA871eAf987e87dE49B"
+      },
+      "polygon": {
+        "meshswap": "0x77e5cA3896Bf700BC4465fA871eAf987e87dE49B"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oKLAY",
+    "decimals": 18
+  },
+  "KLAY-kUSDT": {
+    "name": "KLAY-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd83f1b074d81869eff2c46c530d7308ffec18036"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kUSDT",
+    "decimals": "6"
+  },
+  "kMATIC-KSP": {
+    "name": "kMATIC-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb80777424dc2d8bda03e123da4301fbb4d2aa3dd"
+      }
+    },
+    "tokenA": "kMATIC",
+    "tokenB": "KSP",
+    "decimals": "18"
+  },
+  "MATIC-mUSDC": {
+    "name": "MATIC-mUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
+      }
+    },
+    "tokenA": "MATIC",
+    "tokenB": "mUSDC",
+    "decimals": "6"
+  },
+  "KMESH-KSP": {
+    "name": "KMESH-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5b4c3d00a0819dd96fa9ac13dda2bdca332f31d4"
+      }
+    },
+    "tokenA": "KMESH",
+    "tokenB": "KSP",
+    "decimals": "18"
+  },
+  "MESH-mUSDC": {
+    "name": "MESH-mUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
+      },
+      "polygon": {
+        "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "oKLAY-oKSP": {
+    "name": "oKLAY-oKSP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
+      },
+      "polygon": {
+        "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
+      }
+    },
+    "tokenA": "oKLAY",
+    "tokenB": "oKSP",
+    "decimals": 18
+  },
+  "MESH-oKSP": {
+    "name": "MESH-oKSP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xCCC103a39Cb756130f98209cAa1a5C4cFf071C1e"
+      },
+      "polygon": {
+        "meshswap": "0xCCC103a39Cb756130f98209cAa1a5C4cFf071C1e"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oKSP",
+    "decimals": 18
+  },
+  "MATIC-oKSP": {
+    "name": "MATIC-oKSP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
+      }
+    },
+    "tokenA": "MATIC",
+    "tokenB": "oKSP",
+    "decimals": "18"
+  },
+  "KLAY-kXDT": {
+    "name": "KLAY-kXDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcb9e54c3364907721186d507623006dc66b430c7"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kXDT",
+    "decimals": "18"
+  },
+  "GHUB-kUSDT": {
+    "name": "GHUB-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x22010F02A8d078da7B61Fb7Bc915b2033738F76c"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "MATIC-oGHUB": {
+    "name": "MATIC-oGHUB",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
+      }
+    },
+    "tokenA": "MATIC",
+    "tokenB": "oGHUB",
+    "decimals": "18"
+  },
+  "kUSDT-kORC": {
+    "name": "kUSDT-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x94f390a8438b5de00b868d3ae47863db90fb92c3"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "kORC",
+    "decimals": "6"
+  },
+  "MESH-kORC": {
+    "name": "MESH-kORC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xe21270209976244664a87ACAAAC2CadcA5beE5D4"
+      },
+      "polygon": {
+        "meshswap": "0xe21270209976244664a87ACAAAC2CadcA5beE5D4"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "mUSDC-kUSDC": {
+    "name": "mUSDC-kUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
+      },
+      "polygon": {
+        "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "kETH-kUSDC": {
+    "name": "kETH-kUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x2bAb2b10E423491c12C449d99ad8AaeD5C46Fe4a"
+      },
+      "polygon": {
+        "meshswap": "0x2bAb2b10E423491c12C449d99ad8AaeD5C46Fe4a"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "mUSDC-WETH": {
+    "name": "mUSDC-WETH",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x2915D57D076Ca2233F73B2E724Fea4F3DB967F9B"
+      },
+      "polygon": {
+        "meshswap": "0x2915D57D076Ca2233F73B2E724Fea4F3DB967F9B"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "mUSDC-oAUTO": {
+    "name": "mUSDC-oAUTO",
+    "baseChain": {
+      "MATIC": {
+        "sushiswap": "0xd8d51ea2edca2c2ea15a053a5730f559d79a1570"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oAUTO",
+    "decimals": "6"
+  },
+  "KLAY-KAUTO": {
+    "name": "KLAY-KAUTO",
+    "baseChain": {
+      "KLATN": {
+        "klayswap": "0x11dd0daf4c80402ad61ea4f6b37ab60544188938"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KAUTO",
+    "decimals": "6"
+  },
+  "KLAY-kBNB": {
+    "name": "KLAY-kBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE20B9aeAcAC615Da0fdBEB05d4F75E16FA1F6B95"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kBNB",
+    "decimals": 18
+  },
+  "KLAY-SKLAY": {
+    "name": "KLAY-SKLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x073FDe66B725D0eF5b54059ACa22bBFC63a929ce"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SKLAY",
+    "decimals": 18
+  },
+  "kETH-kWBTC": {
+    "name": "kETH-kWBTC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x82916890DD5A6Ca892acA21700532dCF3745fb01"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kWBTC",
+    "decimals": 18
+  },
+  "mUSDC-WMATIC": {
+    "name": "mUSDC-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
+      },
+      "MATIC": {
+        "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "WETH-WMATIC": {
+    "name": "WETH-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x54e911F419e78d3E286c70D28a52933705069A31"
+      },
+      "MATIC": {
+        "meshswap": "0x54e911F419e78d3E286c70D28a52933705069A31"
+      }
+    },
+    "tokenA": "WETH",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "SD-wMOOI": {
+    "name": "SD-wMOOI",
+    "baseChain": {
+      "MOOI": {
+        "mooiswap": "0xb4763817c7572CaF54074A9e2b5470Def4b78209"
+      }
+    },
+    "tokenA": "SD",
+    "tokenB": "wMOOI",
+    "decimals": 18
+  },
+  "JGT-wMOOI": {
+    "name": "JGT-wMOOI",
+    "baseChain": {
+      "MOOI": {
+        "mooiswap": "0x2efE62f6D1dd84A4923e8d43dB10448d41880d8e"
+      }
+    },
+    "tokenA": "JGT",
+    "tokenB": "wMOOI",
+    "decimals": 18
+  },
+  "CLAW-wMOOI": {
+    "name": "CLAW-wMOOI",
+    "baseChain": {
+      "MOOI": {
+        "mooiswap": "0xbe810d48d4D0D977f7610a35A60B1ad1132480bD"
+      }
+    },
+    "tokenA": "CLAW",
+    "tokenB": "wMOOI",
+    "decimals": 18
+  },
+  "KLAY-kETH": {
+    "name": "KLAY-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x27F80731dDdb90C51cD934E9BD54bfF2D4E99e8a"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "KLAY-kORC": {
+    "name": "KLAY-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe9ddb7A6994bD9cDF97CF11774A72894597D878B"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-WIKEN": {
+    "name": "KLAY-WIKEN",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6119b1540AA3BeA20518f5e239f64d98EBe9AafF"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "WIKEN",
+    "decimals": 18
+  },
+  "KLAY-SSX": {
+    "name": "KLAY-SSX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x01D71c376425b4fECCB7b8719a760110091b3eB9"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SSX",
+    "decimals": 18
+  },
+  "KLAY-REDi": {
+    "name": "KLAY-REDi",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5e9BC710d817aFfA64e0fD93f3f7602E9f4dD396"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "REDi",
+    "decimals": 18
+  },
+  "kWBTC-kUSDT": {
+    "name": "kWBTC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9103Beb39283dA9C49B020D6546FD7C39f9bbc5b"
+      }
+    },
+    "tokenA": "kWBTC",
+    "tokenB": "kUSDT",
+    "decimals": 8
+  },
+  "KSP-kORC": {
+    "name": "KSP-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6dc6bd65638B18057F7E6a2e8f136F3E77CC2038"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-KSP": {
+    "name": "KLAY-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x34cF46c21539e03dEb26E4FA406618650766f3b9"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KLAY-WEMIX": {
+    "name": "KLAY-WEMIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x917EeD7ae9E7D3b0D875dd393Af93fFf3Fc301F8"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "WEMIX",
+    "decimals": 18
+  },
+  "KLAY-oTRIX": {
+    "name": "KLAY-oTRIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0B8f6200597a3b75f4d1bF0668b8ECBA2Dc77afb"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oTRIX",
+    "decimals": 18
+  },
+  "KLAY-PIB": {
+    "name": "KLAY-PIB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2ecDF3088488A8e91c332B9eE86bb87D4E9cCe82"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PIB",
+    "decimals": 18
+  },
+  "KSLO-KSVE": {
+    "name": "KSLO-KSVE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x44FC752B7209Bdf19cC318e2191117E35b43b06D"
+      }
+    },
+    "tokenA": "KSLO",
+    "tokenB": "KSVE",
+    "decimals": 8
+  },
+  "KLAY-oHANDY": {
+    "name": "KLAY-oHANDY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCe28F9330658b6b4871c081e0a9A332Ae8a7d8c1"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oHANDY",
+    "decimals": 18
+  },
+  "KLAY-MNR": {
+    "name": "KLAY-MNR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE641811D4a0c80d1260D4036Df54D90559b9aB54"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MNR",
+    "decimals": 18
+  },
+  "KLAY-TRCL": {
+    "name": "KLAY-TRCL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8E4e386950F6C03b25d0f9aA8Bd89C1B159E8Aee"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TRCL",
+    "decimals": 18
+  },
+  "KLAY-kXRP": {
+    "name": "KLAY-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x86E614ef51B305C36a0608bAa57fcaaa45844D87"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KSP-kXRP": {
+    "name": "KSP-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA06B9a38a7b4B91CB5d9B24538296bfB3B97fBf3"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KSP-kETH": {
+    "name": "KSP-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa8F8f1153523eAeDce48CEc2Ddbe1Bcd483d0CD8"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "KSP-kWBTC": {
+    "name": "KSP-kWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x85Fae50259EbB9a86F49BDBfb8dBaEC84a7ED5fe"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kWBTC",
+    "decimals": 18
+  },
+  "ABL-kORC": {
+    "name": "ABL-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa2867C345f9b7250Fe6BE6CCCB6360dff9F6E38c"
+      }
+    },
+    "tokenA": "ABL",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-TEMCO": {
+    "name": "KLAY-TEMCO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2160Db36B43cd6E2b71550D59F23d530f0578386"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TEMCO",
+    "decimals": 18
+  },
+  "KLAY-oBELT": {
+    "name": "KLAY-oBELT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x157c39202fAE6233FEc3f8B3bCb2158200d0A863"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oBELT",
+    "decimals": 18
+  },
+  "KSP-kBNB": {
+    "name": "KSP-kBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7328B85eFF28C3068F69FE662632d37D48ba227f"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kBNB",
+    "decimals": 18
+  },
+  "KLAY-oQBZ": {
+    "name": "KLAY-oQBZ",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x97575d656Ec4122d022014D8dfd1eBE189e1Ec69"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oQBZ",
+    "decimals": 18
+  },
+  "KLAY-oSTPL": {
+    "name": "KLAY-oSTPL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfc61Fbb57Dd00765838A914e7d72A9Eceb23aD80"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oSTPL",
+    "decimals": 18
+  },
+  "KLAY-oAUTO": {
+    "name": "KLAY-oAUTO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x11Dd0Daf4C80402AD61Ea4F6B37ab60544188938"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oAUTO",
+    "decimals": 18
+  },
+  "kBELT-kORC": {
+    "name": "kBELT-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0f14648eD03A4172a0D186dA51b66e7e9Af6af66"
+      }
+    },
+    "tokenA": "kBELT",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-oTON": {
+    "name": "KLAY-oTON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2280d53E1EA1C9a2D255FD62427aAE867D5fA1b9"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oTON",
+    "decimals": 18
+  },
+  "KLAY-SIX": {
+    "name": "KLAY-SIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x64B4ee8a878D785c9C06A18966D51A33345E5610"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SIX",
+    "decimals": 18
+  },
+  "kETH-kBNB": {
+    "name": "kETH-kBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8119f0CeC72a26fE23CA1aB076137Ea5D8a19d54"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kBNB",
+    "decimals": 18
+  },
+  "KLAY-sKAI": {
+    "name": "KLAY-sKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0734f80fbC2051E98e6C7cB37E08E067A9630c06"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "sKAI",
+    "decimals": 18
+  },
+  "KLAY-oRAI": {
+    "name": "KLAY-oRAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc19fE316A03F6bCc48498b67342B29D146FED349"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oRAI",
+    "decimals": 18
+  },
+  "KLAY-TURK": {
+    "name": "KLAY-TURK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x146117810f9Ddd58741cCA86a57006a65032c33f"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TURK",
+    "decimals": 18
+  },
+  "KSP-sKAI": {
+    "name": "KSP-sKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6456Acb56F9eEEdb976D5d72b60fB31720155B75"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "sKAI",
+    "decimals": 18
+  },
+  "KLAY-oRUSH": {
+    "name": "KLAY-oRUSH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xDd79b37B8B90f7ce6C762120D74D5c9B85388629"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oRUSH",
+    "decimals": 18
+  },
+  "KLAY-oISDT": {
+    "name": "KLAY-oISDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd7152a7AbCd6d7ef2b1a5423598073b32b456965"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oISDT",
+    "decimals": 18
+  },
+  "kORC-sKAI": {
+    "name": "kORC-sKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8CA4010C2a3FF730270559C96e0c94D0CAc04491"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "sKAI",
+    "decimals": 18
+  },
+  "KLAY-PER": {
+    "name": "KLAY-PER",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3012cc7a5a137362F97AB1fc69e61f927aC70973"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PER",
+    "decimals": 18
+  },
+  "kETH-kORC": {
+    "name": "kETH-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9E1cD9645EB2753d4D4A94786bB76cC99adb689b"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KSP-PER": {
+    "name": "KSP-PER",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7220BB49206A98AC513A98444f8e337d92c1A630"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "PER",
+    "decimals": 18
+  },
+  "KICX-kETH": {
+    "name": "KICX-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF4048Ce0A0947F138101e4a92C44c79585d826E5"
+      }
+    },
+    "tokenA": "KICX",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "KLAY-TESTTTT": {
+    "name": "KLAY-TESTTTT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcE3f60a78c9f0073c0FC0ee095b1699Df38855dd"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TESTTTT",
+    "decimals": 18
+  },
+  "KLAY-TESTAAA": {
+    "name": "KLAY-TESTAAA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x338ba821329963b2F630DD4a01047B30DB0308E1"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TESTAAA",
+    "decimals": 18
+  },
+  "PER-kORC": {
+    "name": "PER-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1527aC4118a56bD17A5136D73d3999C6B7f8d0D1"
+      }
+    },
+    "tokenA": "PER",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-ORCA": {
+    "name": "KLAY-ORCA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x80C2786eD035e7f133C3C47029c7a089FdAF9aF0"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "ORCA",
+    "decimals": 18
+  },
+  "sKAI-vKAI": {
+    "name": "sKAI-vKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA880CE416Eee50f3d13Bf5Af08b8d31f2a2486c0"
+      }
+    },
+    "tokenA": "sKAI",
+    "tokenB": "vKAI",
+    "decimals": 18
+  },
+  "KLAY-oTALK": {
+    "name": "KLAY-oTALK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2ac834c637ED3750Fda44EFFb370085a24cEd3B4"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oTALK",
+    "decimals": 18
+  },
+  "TESTAAA-TESTTTT": {
+    "name": "TESTAAA-TESTTTT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x38Fd1F0c658084e070360E1292c7F8676aEe51ed"
+      }
+    },
+    "tokenA": "TESTAAA",
+    "tokenB": "TESTTTT",
+    "decimals": 18
+  },
+  "KLAY-vKAI": {
+    "name": "KLAY-vKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xDEd9d5e668EE98Ac1499446012EA42E7306B8190"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "vKAI",
+    "decimals": 18
+  },
+  "AKLAY-HOUSE": {
+    "name": "AKLAY-HOUSE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xafEDb9fd20d0007a13DcD685a89825cd2866f0fc"
+      }
+    },
+    "tokenA": "AKLAY",
+    "tokenB": "HOUSE",
+    "decimals": 18
+  },
+  "HOUSE-WOOD": {
+    "name": "HOUSE-WOOD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF05200168fF2e1b0848Cf4981184017F94710Fa6"
+      }
+    },
+    "tokenA": "HOUSE",
+    "tokenB": "WOOD",
+    "decimals": 18
+  },
+  "KLAY-oAERGO": {
+    "name": "KLAY-oAERGO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3151239FEa9b2719802EF30d76A6f9c3cCfbf8F3"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oAERGO",
+    "decimals": 18
+  },
+  "KLAY-MM": {
+    "name": "KLAY-MM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x55900b20116501FFCCd54F8bAC69B48f3d6aa3Fb"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MM",
+    "decimals": 18
+  },
+  "KAI-ksDUNAMU": {
+    "name": "KAI-ksDUNAMU",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb7AA1890828d867c25725f0c2ef3182a1a1EC71E"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksDUNAMU",
+    "decimals": 18
+  },
+  "KAI-ksYANOLJA": {
+    "name": "KAI-ksYANOLJA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCb8BBcaACBc33D391930E9063D26F6C076CB3C73"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksYANOLJA",
+    "decimals": 18
+  },
+  "KAI-ksCOINBASE": {
+    "name": "KAI-ksCOINBASE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x190d75dD77c6F870Eb4b990f54B72d469e205928"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksCOINBASE",
+    "decimals": 18
+  },
+  "KAI-ksETH": {
+    "name": "KAI-ksETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x776898caD4F8BA58b533a2C20b975c880db57B63"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksETH",
+    "decimals": 18
+  },
+  "KAI-ksSOL": {
+    "name": "KAI-ksSOL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD5dC92f74E8392EF953aB81B3b4cb930dAA956b8"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksSOL",
+    "decimals": 18
+  },
+  "KAI-ksLUNA": {
+    "name": "KAI-ksLUNA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF444E2A6CD5B9A1d207aBa33Ac8026Ae68d2c150"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksLUNA",
+    "decimals": 18
+  },
+  "CLAM-kUSDT": {
+    "name": "CLAM-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x87882C1a76fAd9ae5BF5bA1bEDD7d82Be73430C8"
+      }
+    },
+    "tokenA": "CLAM",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-NWC": {
+    "name": "KLAY-NWC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x032317aA982e951E915C427BA17EC1f866186ede"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NWC",
+    "decimals": 18
+  },
+  "KLAY-XE": {
+    "name": "KLAY-XE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcc03162DbF26E4a4e185102d26d4bC99e09925f6"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "XE",
+    "decimals": 18
+  },
+  "kUSDT-kUSDC": {
+    "name": "kUSDT-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2E9269B718cc816De6A9E3C27E5bdb0F6A01b0ac"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "KLAY-kUSDC": {
+    "name": "KLAY-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3bce8d81AC54010bb7ea6e5960f2Ded6Fc6A7AC5"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "KLAY-TOR": {
+    "name": "KLAY-TOR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xafea6EBE0e3323394662353bDdCE90954E8CFC74"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TOR",
+    "decimals": 18
+  },
+  "KLAY-KOKOA": {
+    "name": "KLAY-KOKOA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4bFCc93fb85c969a590A2e7D7a4Ad72F0668AFF2"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KOKOA",
+    "decimals": 18
+  },
+  "KLAY-KSD": {
+    "name": "KLAY-KSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd52aCC40924C906D3EeAB239D6F6C36B612011af"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KSD",
+    "decimals": 18
+  },
+  "KSD-kUSDT": {
+    "name": "KSD-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC9aD2F9C45C9Cc3128C898fe55c14A146E7D1D88"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-TURNUP": {
+    "name": "KLAY-TURNUP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xDEa2Ac7a977173Fa6DC3198fD3DEfbEE27ae2A5a"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TURNUP",
+    "decimals": 18
+  },
+  "KLAY-MIX": {
+    "name": "KLAY-MIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa50Cec0216c1cEE6F90C7D5359444D46315279Bd"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MIX",
+    "decimals": 18
+  },
+  "KSP-MIX": {
+    "name": "KSP-MIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xaDe6684A81a205e4BFc544B51CcA448C458C0961"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MIX",
+    "decimals": 18
+  },
+  "KLAY-oDON": {
+    "name": "KLAY-oDON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xaA2fE6442DE7fcab6adc293f0A2CA4a61441A83a"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oDON",
+    "decimals": 18
+  },
+  "KAI-ksAPPLE": {
+    "name": "KAI-ksAPPLE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x261901fFCE4253F2416cCca21F00cF0B8559B8Ae"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksAPPLE",
+    "decimals": 18
+  },
+  "KAI-ksTESLA": {
+    "name": "KAI-ksTESLA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xeFC7cAd07b2c30F2fCAD4786aF53268C208ac730"
+      }
+    },
+    "tokenA": "KAI",
+    "tokenB": "ksTESLA",
+    "decimals": 18
+  },
+  "ksFarm-ksFarm": {
+    "name": "ksFarm-ksFarm",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0B61AFFAEe266b76B074b784fAa1D054d815998E"
+      }
+    },
+    "tokenA": "ksFarm",
+    "tokenB": "ksFarm",
+    "decimals": 18
+  },
+  "AKLAY-KOKOA": {
+    "name": "AKLAY-KOKOA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8AA58c2eD508F0450a34C45d1C18105B1A27ee79"
+      }
+    },
+    "tokenA": "AKLAY",
+    "tokenB": "KOKOA",
+    "decimals": 18
+  },
+  "AKLAY-KSD": {
+    "name": "AKLAY-KSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0d05d0c2eB373E70f879a8D4389033eF6E816c41"
+      }
+    },
+    "tokenA": "AKLAY",
+    "tokenB": "KSD",
+    "decimals": 18
+  },
+  "KSD-kUSDC": {
+    "name": "KSD-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3CC0099d7D8f18Df8B521e15ef46022fCaf6A48C"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "KSD-kWBTC": {
+    "name": "KSD-kWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6DA444C57fFC8a58E52c5caf3975e7CBE91221Fe"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "kWBTC",
+    "decimals": 18
+  },
+  "KSD-kETH": {
+    "name": "KSD-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcD546688CB62b60deBe3860ED31B69f4d8EBCE3e"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "KSD-kXRP": {
+    "name": "KSD-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x603DC02F640e7C234Bb700D5d4320Bb78b3CfE46"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KSD-KSP": {
+    "name": "KSD-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x29068890CC2aFEfbB5A5725681CA71C81e380b46"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "Q2-kUSDT": {
+    "name": "Q2-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa96d39bE14b842A62f8DBa5B3107946053356634"
+      }
+    },
+    "tokenA": "Q2",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-bus": {
+    "name": "KLAY-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7a880F58ed946DcF8ABE05cD59F4a2fa2Bd03B1C"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "bus-kUSDT": {
+    "name": "bus-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x05B02F52d55EC4fbE28C662671Ee7C00F04a9A5e"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KFI-bus": {
+    "name": "KFI-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfD597B17354A52ee97746a5943Eec5031cD6A0fd"
+      }
+    },
+    "tokenA": "KFI",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "KLAY-oQBT": {
+    "name": "KLAY-oQBT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD70d4624547d9ec011aD1bc6Eafa6C0399ED6235"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oQBT",
+    "decimals": 18
+  },
+  "KSP-bus": {
+    "name": "KSP-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8C84ED5f18bC56e225f8399e42E8ecE64232d380"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "JUNS-bus": {
+    "name": "JUNS-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCb7531E816c171E778FF3C4f87d2Bb78050076CF"
+      }
+    },
+    "tokenA": "JUNS",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "bus-kETH": {
+    "name": "bus-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xece2A442AdC30FC9B6aDC1a6274ACeA7210126d8"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "bus-kORC": {
+    "name": "bus-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9115ED3f815Dc1fFc2BC35D27460bdDea17DF846"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KLAY-oCBANK": {
+    "name": "KLAY-oCBANK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0202014aD5a0B09348CAd8b51F880Ec88b38f2Ac"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oCBANK",
+    "decimals": 18
+  },
+  "KLAY-oDFA": {
+    "name": "KLAY-oDFA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x124C5d6b4F4ab77c90d53657C09BD168E003797b"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oDFA",
+    "decimals": 18
+  },
+  "KLAY-PICS": {
+    "name": "KLAY-PICS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xBde3B738f07a73eDE3D9e4393816C76f80DefE54"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PICS",
+    "decimals": 18
+  },
+  "KSP-PICS": {
+    "name": "KSP-PICS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0bEdcCbA1ca95a116f4a83898998A2638966B988"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "PICS",
+    "decimals": 18
+  },
+  "KLAY-STC": {
+    "name": "KLAY-STC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x76054A84784087685a6A4f52D5a4f2B8bbE7ba77"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "STC",
+    "decimals": 18
+  },
+  "JUN-JUNB": {
+    "name": "JUN-JUNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x62a53653C37138E59b8B9E7A5bC963FF213b31B8"
+      }
+    },
+    "tokenA": "JUN",
+    "tokenB": "JUNB",
+    "decimals": 18
+  },
+  "KLAY-oBIOT": {
+    "name": "KLAY-oBIOT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB0aeE3F0f0048CCc1531c01AFD6ebcc9A237EC09"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oBIOT",
+    "decimals": 18
+  },
+  "KDAI-KRNO": {
+    "name": "KDAI-KRNO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdf5caF79899407Da1c1B31389448861a9846956D"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "KRNO",
+    "decimals": 18
+  },
+  "KLAY-oTOM": {
+    "name": "KLAY-oTOM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA8F4aDBB02776f4F35d6109A9002c83C90a11513"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oTOM",
+    "decimals": 18
+  },
+  "KLAY-aKAI": {
+    "name": "KLAY-aKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbe184e92d8ea7FA291CE9a98A3478Bb699Cd87FE"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "aKAI",
+    "decimals": 18
+  },
+  "KLAY-KRNO": {
+    "name": "KLAY-KRNO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x193CE4066AEBe1911FEb03425d4312A7B6514081"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KRNO",
+    "decimals": 18
+  },
+  "KLAY-OYAT": {
+    "name": "KLAY-OYAT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA45D4D3b01265284a25Dd508b4E48a294Aa72866"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "OYAT",
+    "decimals": 18
+  },
+  "KDAI-kUSDC": {
+    "name": "KDAI-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x79bEB3254Da6EC9B683E25C739314945DcC21620"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "KLAY-META": {
+    "name": "KLAY-META",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb62C54b1Cf3EC237511A56a7b55FFfCC40f8eAC9"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "META",
+    "decimals": 18
+  },
+  "KSP-META": {
+    "name": "KSP-META",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xEC1e523bFC3912Ca740f551A8a3272B59a07591C"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "META",
+    "decimals": 18
+  },
+  "META-MUDOL": {
+    "name": "META-MUDOL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC6b2C01D15cd532Cea6e861C3d6333D7F291dCC7"
+      }
+    },
+    "tokenA": "META",
+    "tokenB": "MUDOL",
+    "decimals": 18
+  },
+  "kBIOT-oDOTR": {
+    "name": "kBIOT-oDOTR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF5EB3bD032e6B0912C231f42361e343Efeba5Dc0"
+      }
+    },
+    "tokenA": "kBIOT",
+    "tokenB": "oDOTR",
+    "decimals": 9
+  },
+  "KLAY-oDOTR": {
+    "name": "KLAY-oDOTR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCf88f747F0319e52b95D604fBa2806E8D0D9A6Aa"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oDOTR",
+    "decimals": 18
+  },
+  "KLAY-MPWR": {
+    "name": "KLAY-MPWR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xaC1193633b1fFb341B59aF0CA8499BeFe37034A3"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MPWR",
+    "decimals": 18
+  },
+  "kBNB-oXVS": {
+    "name": "kBNB-oXVS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe1D3B8D4a8975F51aaFd5e828FFF9C65c8a41ec8"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "oXVS",
+    "decimals": 18
+  },
+  "kBNB-kBUSD": {
+    "name": "kBNB-kBUSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5DA044864a2cbe03546810f6bb2f274a45edB8C6"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "kBUSD",
+    "decimals": 18
+  },
+  "kBNB-oCAKE": {
+    "name": "kBNB-oCAKE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4773EFf107CBb4A1B43D30AAf87e70F03b6b2097"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "oCAKE",
+    "decimals": 18
+  },
+  "kUSDT-kBUSD": {
+    "name": "kUSDT-kBUSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2C4581ea232527be6B1DbD140e1786BC76ccAd61"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "kBUSD",
+    "decimals": 6
+  },
+  "DANTA-META": {
+    "name": "DANTA-META",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x393a4294701782734872dbb126fCc0E2a3884cE3"
+      }
+    },
+    "tokenA": "DANTA",
+    "tokenB": "META",
+    "decimals": 18
+  },
+  "DANTA-MUDOL": {
+    "name": "DANTA-MUDOL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8099F917515D18817483c332f88BC57EaD07c35b"
+      }
+    },
+    "tokenA": "DANTA",
+    "tokenB": "MUDOL",
+    "decimals": 18
+  },
+  "KLAY-oCYCLUB": {
+    "name": "KLAY-oCYCLUB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x61F62B613ea0359F2d708d6FFD73ACc2f8551c70"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oCYCLUB",
+    "decimals": 18
+  },
+  "kETH-oGALA": {
+    "name": "kETH-oGALA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4dB4cE91F0269b33b1D77Fe8c773D3316eBE15D1"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oGALA",
+    "decimals": 18
+  },
+  "MIX-OYAT": {
+    "name": "MIX-OYAT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcAd1B452b84346bCBE133fB79Aa4c3d273f9c186"
+      }
+    },
+    "tokenA": "MIX",
+    "tokenB": "OYAT",
+    "decimals": 18
+  },
+  "bus-oGALA": {
+    "name": "bus-oGALA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD13c941580f48B104fE66732295874Ea6C7B0128"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "oGALA",
+    "decimals": 18
+  },
+  "KLAY-aMON": {
+    "name": "KLAY-aMON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xEEDb8802d8Fb7eE2324c5e1F09936DD62aCE51b0"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "aMON",
+    "decimals": 18
+  },
+  "KLAY-oTRV": {
+    "name": "KLAY-oTRV",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2c9Ba355709E5950b69854Cc527Fa02b1143C352"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oTRV",
+    "decimals": 18
+  },
+  "KSP-STAR": {
+    "name": "KSP-STAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x826535e2423ec300da426B47d31860E2CD23BF2a"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "STAR",
+    "decimals": 18
+  },
+  "KSP-PUNK": {
+    "name": "KSP-PUNK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB5CadDf2513ADaE4B324C074B1FE39160C6f2206"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "PUNK",
+    "decimals": 18
+  },
+  "KLAY-PUNK": {
+    "name": "KLAY-PUNK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x831e40D2d75ac8469ad15E11adBfc3601a4B5043"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PUNK",
+    "decimals": 18
+  },
+  "KLAY-oMTS": {
+    "name": "KLAY-oMTS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6Bd3fc4c5dC618662E29Cc1CDCe3be85C4e991e5"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oMTS",
+    "decimals": 18
+  },
+  "KLAY-KPAX": {
+    "name": "KLAY-KPAX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x21e254EDD252c753F92c763235B4F98D2A78DD3D"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KPAX",
+    "decimals": 18
+  },
+  "DANTA-GCT": {
+    "name": "DANTA-GCT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb901bf142661fACD8977E6997C742B1EBd88B673"
+      }
+    },
+    "tokenA": "DANTA",
+    "tokenB": "GCT",
+    "decimals": 18
+  },
+  "KLAY-NOAH": {
+    "name": "KLAY-NOAH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x36a31bD4be70090624bd1268690ADDfa7962b641"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NOAH",
+    "decimals": 18
+  },
+  "KLAY-oPACE": {
+    "name": "KLAY-oPACE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1E4596A0CABA26563cFc0B6abB7FF8cf73EE8E98"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oPACE",
+    "decimals": 18
+  },
+  "KSP-oPACE": {
+    "name": "KSP-oPACE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xBad54E0a7E992cF7516c70028474298d9801EF6C"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oPACE",
+    "decimals": 18
+  },
+  "KLAY-KLEVA": {
+    "name": "KLAY-KLEVA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd5eB5732Ef45b82edAEe421CbfB3E412b54d1D2f"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KLEVA",
+    "decimals": 18
+  },
+  "KLAY-TnT": {
+    "name": "KLAY-TnT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x32FeBda7ddE5A7ea6CaD931Ec5571004a98d23c5"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TnT",
+    "decimals": 18
+  },
+  "JUN-JUNC": {
+    "name": "JUN-JUNC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x81D11D5057DfF8552F91e67c05624801011ae6e0"
+      }
+    },
+    "tokenA": "JUN",
+    "tokenB": "JUNC",
+    "decimals": 18
+  },
+  "META-kGALA": {
+    "name": "META-kGALA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc853C66Aa4F9AA85abb84F3Ba0439DCCc30803aB"
+      }
+    },
+    "tokenA": "META",
+    "tokenB": "kGALA",
+    "decimals": 8
+  },
+  "KSP-Ksh": {
+    "name": "KSP-Ksh",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa084343E9cd51732ef888F78D9D69D8368BB1e79"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "Ksh",
+    "decimals": 18
+  },
+  "KPAX-MIX": {
+    "name": "KPAX-MIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x79612E8EB0602883ba0cceb0B0BB58015869eBB2"
+      }
+    },
+    "tokenA": "KPAX",
+    "tokenB": "MIX",
+    "decimals": 18
+  },
+  "KSP-RaGa": {
+    "name": "KSP-RaGa",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xaA32F23BdF065DdA3716DB53bA8F05155A10abfa"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "RaGa",
+    "decimals": 18
+  },
+  "KLAY-LAMP": {
+    "name": "KLAY-LAMP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x71C8b3C5128D688aE727bE2e2786240435598626"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "LAMP",
+    "decimals": 18
+  },
+  "KLAY-MEPS": {
+    "name": "KLAY-MEPS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xAF6781CAf53F3be2A07937bA9a7a6B353b93fd6d"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MEPS",
+    "decimals": 18
+  },
+  "KLAY-oSOBA": {
+    "name": "KLAY-oSOBA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5e82dFC793920837E96698fCaDC845a5611c2F26"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oSOBA",
+    "decimals": 18
+  },
+  "KLAY-Ksh": {
+    "name": "KLAY-Ksh",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5e054Ec0686ef1ca86B6B804c453e2E431C214bc"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "Ksh",
+    "decimals": 18
+  },
+  "KLAY-KONGZ": {
+    "name": "KLAY-KONGZ",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x93DB48007D96a5Df9e2F4bb0e7E5Bf477DB5A842"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KONGZ",
+    "decimals": 18
+  },
+  "KLAY-TBK": {
+    "name": "KLAY-TBK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x292fC8dBbBAEF2860195DFFdf6E7088851A9b120"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TBK",
+    "decimals": 18
+  },
+  "kXRP-kUSDT": {
+    "name": "kXRP-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA2be534e5DD028288625bB376c81A9Eea3D9f0D5"
+      }
+    },
+    "tokenA": "kXRP",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kXRP-kUSDC": {
+    "name": "kXRP-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x767bd4DD8BA6aC59EBd1172f91590E1C3C265cf6"
+      }
+    },
+    "tokenA": "kXRP",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "kCBANK-oTOM": {
+    "name": "kCBANK-oTOM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x415d6dE1B0d6ed1Da72d8884F8183708CdfF0dAe"
+      }
+    },
+    "tokenA": "kCBANK",
+    "tokenB": "oTOM",
+    "decimals": 18
+  },
+  "KLAY-oDRC": {
+    "name": "KLAY-oDRC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xADf14eEcA02687D2884DD12dD273D5C386141d8c"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oDRC",
+    "decimals": 18
+  },
+  "KLAY-KREDIT": {
+    "name": "KLAY-KREDIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6e30DED74a6286C28760E7FbB0Fa4F6a90c745b2"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KREDIT",
+    "decimals": 18
+  },
+  "KLAY-KPs": {
+    "name": "KLAY-KPs",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc7F701406cE6481742a802097Cc7dFC136C1e2Cd"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KPs",
+    "decimals": 18
+  },
+  "RaGa-RaPP": {
+    "name": "RaGa-RaPP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd01Cf3E2Cc38dDbE0dF65BF6518BB556BDfa3C4F"
+      }
+    },
+    "tokenA": "RaGa",
+    "tokenB": "RaPP",
+    "decimals": 18
+  },
+  "KLAY-UKIKI": {
+    "name": "KLAY-UKIKI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6e4a81b0a471821D21a38B07fB2927A98E16E877"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "UKIKI",
+    "decimals": 18
+  },
+  "INS-KSP": {
+    "name": "INS-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf12f6a1Fd13d9ED6371ADf84f3dBc19F1e6e1dF0"
+      }
+    },
+    "tokenA": "INS",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "HOOK-kUSDT": {
+    "name": "HOOK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF352c3523Ce697EF03b1e891DA67CeC6f020a047"
+      }
+    },
+    "tokenA": "HOOK",
+    "tokenB": "kUSDT",
+    "decimals": 9
+  },
+  "WEMIX-kUSDT": {
+    "name": "WEMIX-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-MKC": {
+    "name": "KLAY-MKC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb8C6b5736ab3D4846a3447aaabBADEa258e4a63a"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MKC",
+    "decimals": 18
+  },
+  "KSP-MKC": {
+    "name": "KSP-MKC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9b71B6c2a8BAF25Ab9f750dB9f658AbD7084C236"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MKC",
+    "decimals": 18
+  },
+  "KSP-aMON": {
+    "name": "KSP-aMON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7bd5249b563390cc51f84bd4A90174622cFf4c0c"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "aMON",
+    "decimals": 18
+  },
+  "EKL-kUSDT": {
+    "name": "EKL-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x219ee5d76593F5bD639125B6411a17D309E3AD31"
+      }
+    },
+    "tokenA": "EKL",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-ducato ": {
+    "name": "KLAY-ducato ",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe9bb380D714CA9d8C92BE75796f3dDa7ce9a21eD"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "ducato ",
+    "decimals": 18
+  },
+  "COM-KSP": {
+    "name": "COM-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA5494e6f699f094732A3807902F5Dd33B56C0019"
+      }
+    },
+    "tokenA": "COM",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KLAY-SALT": {
+    "name": "KLAY-SALT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF879F1a1C7C935a1b8EdfC131AF5C3B7F7836f69"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SALT",
+    "decimals": 18
+  },
+  "KLAY-NIK": {
+    "name": "KLAY-NIK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x48d58D1dF63Ddd2021135c5B690767Cc8F68dBcD"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NIK",
+    "decimals": 18
+  },
+  "bus-busB": {
+    "name": "bus-busB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4f856617EbF0E456B61dBf65DF6EA2970b8F6b3c"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "busB",
+    "decimals": 18
+  },
+  "KLAY-busB": {
+    "name": "KLAY-busB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4f76d307500542CA64F842c0784abdfbDCD26C03"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "busB",
+    "decimals": 18
+  },
+  "RaGa-RaM": {
+    "name": "RaGa-RaM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5a22c91ee24870B8FdA1220e47f84D5860E9A20f"
+      }
+    },
+    "tokenA": "RaGa",
+    "tokenB": "RaM",
+    "decimals": 18
+  },
+  "KSP-busB": {
+    "name": "KSP-busB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7061a1CBf04686B8a4321ed846bF3EBca5f2828a"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "busB",
+    "decimals": 18
+  },
+  "KLAY-NGIT": {
+    "name": "KLAY-NGIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1FCBB7017c0a439AE36f2D24CA100F00Da436D5c"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NGIT",
+    "decimals": 18
+  },
+  "KSP-NGIT": {
+    "name": "KSP-NGIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9c1cD8b6643baCDD90689dB0F94b52879bF9D098"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "NGIT",
+    "decimals": 18
+  },
+  "KLAY-SYL_TEST": {
+    "name": "KLAY-SYL_TEST",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0879915F1585d525F6D2426882DC7233deDbdBE8"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SYL_TEST",
+    "decimals": 18
+  },
+  "KLAY-SYL": {
+    "name": "KLAY-SYL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE7e386afCe09F3Ae3FC6BaC5dFaF214F04397edA"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SYL",
+    "decimals": 18
+  },
+  "KLAY-NolzeBoost": {
+    "name": "KLAY-NolzeBoost",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb6c36A26c3970A89EeF07A957A59831151de9E9f"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NolzeBoost",
+    "decimals": 18
+  },
+  "KLAY-MetaBusBoost": {
+    "name": "KLAY-MetaBusBoost",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe1C80473360DC506eE0ed7b52C24538384f1547e"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MetaBusBoost",
+    "decimals": 18
+  },
+  "NIK-kETH": {
+    "name": "NIK-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8DF8ef24466846d3c1B2881d32841F906FcdD307"
+      }
+    },
+    "tokenA": "NIK",
+    "tokenB": "kETH",
+    "decimals": 16
+  },
+  "KLAY-KTX": {
+    "name": "KLAY-KTX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1aCA36FAf7607A866283F7a8F4589169912375AC"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KTX",
+    "decimals": 18
+  },
+  "KBI-KDAI": {
+    "name": "KBI-KDAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0E21C4e097e0D78063dDEb78c23855eBbDBEc3db"
+      }
+    },
+    "tokenA": "KBI",
+    "tokenB": "KDAI",
+    "decimals": 18
+  },
+  "KLAY-STF": {
+    "name": "KLAY-STF",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC68C3fe9842EF2964bbd9A3c54F0619A12eE030E"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "STF",
+    "decimals": 18
+  },
+  "KLAY-LBK": {
+    "name": "KLAY-LBK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE1b7Ed3fdCb6Ce3160d33CB16Ed47264142129b8"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "LBK",
+    "decimals": 18
+  },
+  "KDAI-RHEA": {
+    "name": "KDAI-RHEA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0B8ac02bF51E1c3a809F8F773dd44025C31c4467"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "RHEA",
+    "decimals": 18
+  },
+  "KLAY-TRT": {
+    "name": "KLAY-TRT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2582e36A2A9205Ce4167CcD321a8Fd4366f8460C"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TRT",
+    "decimals": 18
+  },
+  "KLAY-KSTAR": {
+    "name": "KLAY-KSTAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3E34f8a94498F864d6fe675375DF298ADf59c2A3"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KSTAR",
+    "decimals": 18
+  },
+  "KSP-MTF": {
+    "name": "KSP-MTF",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x135e1F73867bF2c65BFd84B957121cF738ceDe0E"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MTF",
+    "decimals": 18
+  },
+  "ABC-KSP": {
+    "name": "ABC-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x35D069eBc3e9244e03F2018A9ECCe59ffe22B20a"
+      }
+    },
+    "tokenA": "ABC",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KLAY-MBX": {
+    "name": "KLAY-MBX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xBFb4528B7096d983f1c3C693274C4C14887aeE41"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MBX",
+    "decimals": 18
+  },
+  "KSP-SPRX": {
+    "name": "KSP-SPRX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3F18720bd585a5C8c0ae9F8c62e2dC779c735473"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "SPRX",
+    "decimals": 18
+  },
+  "CX2-KSP": {
+    "name": "CX2-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x562aDA187c43Eb49aED6aB6A4b892dfa76984032"
+      }
+    },
+    "tokenA": "CX2",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "HALF-KSP": {
+    "name": "HALF-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3e47b5B0735B0AB40512488a3d4199484bBd375e"
+      }
+    },
+    "tokenA": "HALF",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "KSP-MBX": {
+    "name": "KSP-MBX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x97b4e13114ce2C9BF289Be1FFd1268bE5b2eD7c2"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MBX",
+    "decimals": 18
+  },
+  "KSP-KSTAR": {
+    "name": "KSP-KSTAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7c1079220d1bE2c87Ac1FF1Fe153549De9d2067E"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "KSTAR",
+    "decimals": 18
+  },
+  "GAIA-KLAY": {
+    "name": "GAIA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1E736dfE31e455973C7A7d117A619F5301D85a71"
+      }
+    },
+    "tokenA": "GAIA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KSP-NolzeBoost": {
+    "name": "KSP-NolzeBoost",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x71c5108aD7DD6889466b94800Ea1f885a225cf6F"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "NolzeBoost",
+    "decimals": 18
+  },
+  "GATO-KLAY": {
+    "name": "GATO-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4151B086AE77964E9aBbEe80616E54b6157E2019"
+      }
+    },
+    "tokenA": "GATO",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-MITX": {
+    "name": "KLAY-MITX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5f823b7767a10AD0Ed574FB03606db7CB6487EcE"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MITX",
+    "decimals": 18
+  },
+  "ORB-kUSDT": {
+    "name": "ORB-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0fac98e6D2BD0f1C06C640FEd6B9817eF850cF31"
+      }
+    },
+    "tokenA": "ORB",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-LAY": {
+    "name": "KLAY-LAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD3f9E8dAbd63B384f32c7F0Cd4C573c190Cc7837"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "LAY",
+    "decimals": 18
+  },
+  "KSP-MNR": {
+    "name": "KSP-MNR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcde284862C89C391Ad759FbC207c8B8d8F49fBDa"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MNR",
+    "decimals": 18
+  },
+  "KSP-WEMIX": {
+    "name": "KSP-WEMIX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6caeA4e982538EBD50E10e8eCF51DC2CD6241044"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "WEMIX",
+    "decimals": 18
+  },
+  "KLAY-WRS": {
+    "name": "KLAY-WRS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB02684d88a8958a91Ace71C3258Db6d0639E04c0"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "WRS",
+    "decimals": 18
+  },
+  "DAI-TINDER": {
+    "name": "DAI-TINDER",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x31f587cd790dd0F29c604Fec00bfBf1Da9306E9E"
+      }
+    },
+    "tokenA": "DAI",
+    "tokenB": "TINDER",
+    "decimals": 18
+  },
+  "KLAY-MONETA": {
+    "name": "KLAY-MONETA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x23dc82B85Ebfa1Ef517Cb7fc9D5E8C85e9740A3D"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MONETA",
+    "decimals": 18
+  },
+  "GHUB-KSP": {
+    "name": "GHUB-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB94E1ECEF337cDed9BE2DDD0F843664CEef4a49A"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "GHUB-KLAY": {
+    "name": "GHUB-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x17cEf71D58ec3c9753d646901C868B739199c1Fd"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KDAI-TINDER": {
+    "name": "KDAI-TINDER",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x14E180985BC510628F36a4A129FB57A5Fcb2eE33"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "TINDER",
+    "decimals": 18
+  },
+  "KSTAR-kUSDT": {
+    "name": "KSTAR-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x624138861D91c7e32B92f073D68bfE9fEE90A0Dd"
+      }
+    },
+    "tokenA": "KSTAR",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "HSC-TURNUP": {
+    "name": "HSC-TURNUP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9c09821eb46bAdAaf99eDa5132425ff3f44C8D16"
+      }
+    },
+    "tokenA": "HSC",
+    "tokenB": "TURNUP",
+    "decimals": 8
+  },
+  "MBX-kUSDT": {
+    "name": "MBX-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE847e533C75b1832240c8142672CA295ac6de0cf"
+      }
+    },
+    "tokenA": "MBX",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KDAI-MBX": {
+    "name": "KDAI-MBX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB657A3FdC4A02B3e99431C0b415A3CD38246D7d1"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "MBX",
+    "decimals": 18
+  },
+  "KLAY-MSHARE": {
+    "name": "KLAY-MSHARE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2Ced712cbCaD5C4D042dDb66Ed38697F3744ffE1"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MSHARE",
+    "decimals": 18
+  },
+  "KSP-oMATIC": {
+    "name": "KSP-oMATIC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb80777424Dc2d8bDa03E123Da4301FBb4d2aA3DD"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oMATIC",
+    "decimals": 18
+  },
+  "KLAY-Pome": {
+    "name": "KLAY-Pome",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3BADEaefA3881ACaC51d7B644F42045707Ad6a9b"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "Pome",
+    "decimals": 18
+  },
+  "DANTA-IJM": {
+    "name": "DANTA-IJM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x82A8114f244e5d2F5B849DE3eB62E2495dDb0220"
+      }
+    },
+    "tokenA": "DANTA",
+    "tokenB": "IJM",
+    "decimals": 18
+  },
+  "AOA-KLAY": {
+    "name": "AOA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd36375a3966F86AaD8dc2aFcE8f3F294da1a4981"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-oDKA": {
+    "name": "KLAY-oDKA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xFBda9e1E12e8F9a6Fc07967daDBF0a6B20982142"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oDKA",
+    "decimals": 18
+  },
+  "AOA-kUSDT": {
+    "name": "AOA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD5f453B6eF918afE4c301e4f00B5237a4334F172"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "AOA-KSP": {
+    "name": "AOA-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6715ee948Cc4d4bF20Cd592729A9Ea5f11B552f2"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "USDF-kUSDT": {
+    "name": "USDF-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA33921F37ACCcd9a22B1E3C2dde4437E76ba8a92"
+      }
+    },
+    "tokenA": "USDF",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "FLEX-USDF": {
+    "name": "FLEX-USDF",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9658B2b99fBEb1210a21D733e3D74840D1A0c0Fd"
+      }
+    },
+    "tokenA": "FLEX",
+    "tokenB": "USDF",
+    "decimals": 18
+  },
+  "KLAY-oPOLA": {
+    "name": "KLAY-oPOLA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8b918d3bC4cF572D6a9aB8c314d0Cd8621D9795B"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oPOLA",
+    "decimals": 18
+  },
+  "KLAY-MD": {
+    "name": "KLAY-MD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF650880A50a485F4F65dc66640223212C7A39b28"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MD",
+    "decimals": 18
+  },
+  "KLAY-ORB": {
+    "name": "KLAY-ORB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB7EA390f9FEE420ef1EfddF413a467E5771b86Cf"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "ORB",
+    "decimals": 18
+  },
+  "GHUB-ZTC": {
+    "name": "GHUB-ZTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x80777970B6b11D48800A28b2A528542493250FF8"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "ZTC",
+    "decimals": 18
+  },
+  "HSC-HZF": {
+    "name": "HSC-HZF",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x548A7FA98f30e3E6d973BEA115EDabF4d4d8331f"
+      }
+    },
+    "tokenA": "HSC",
+    "tokenB": "HZF",
+    "decimals": 18
+  },
+  "KLAY-ZTC": {
+    "name": "KLAY-ZTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5416D7fd108b448546137D6DacBA5f923908D980"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "ZTC",
+    "decimals": 18
+  },
+  "GCT-ZTC": {
+    "name": "GCT-ZTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x858BBe7DB70783A682A18D0D66b431B3Fb10Dfe9"
+      }
+    },
+    "tokenA": "GCT",
+    "tokenB": "ZTC",
+    "decimals": 18
+  },
+  "KONE-kUSDT": {
+    "name": "KONE-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbc3eDafE6792Ee95Fb8fb17401AE7B8Cc6610C6f"
+      }
+    },
+    "tokenA": "KONE",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KSP-kMESH": {
+    "name": "KSP-kMESH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5b4c3D00A0819dD96FA9aC13ddA2bdCA332F31d4"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kMESH",
+    "decimals": 18
+  },
+  "IJM-kUSDT": {
+    "name": "IJM-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7B9ba67e601Dd6AF4f6000421c394c25403f417c"
+      }
+    },
+    "tokenA": "IJM",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "EKL-kpEKL": {
+    "name": "EKL-kpEKL",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5E9BB1fAD0a26AC60E19c1b9370FdF7037AC7d95"
+      }
+    },
+    "tokenA": "EKL",
+    "tokenB": "kpEKL",
+    "decimals": 18
+  },
+  "KPG-kUSDT": {
+    "name": "KPG-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8A187220Fd9Dfc4FAfe1E206385EA55659147602"
+      }
+    },
+    "tokenA": "KPG",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "MIX-kMESH": {
+    "name": "MIX-kMESH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb244e64Da463844D9962d291179A3fF32DEFE043"
+      }
+    },
+    "tokenA": "MIX",
+    "tokenB": "kMESH",
+    "decimals": 18
+  },
+  "KCLNK-kETH": {
+    "name": "KCLNK-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe1e6820ef5bfa25AD7dDC9Bb81bd54609474A37A"
+      }
+    },
+    "tokenA": "KCLNK",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "TOX-kETH": {
+    "name": "TOX-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xeb5b09b57bC9B13513d2f0cc3D1BeBDfA9F9f113"
+      }
+    },
+    "tokenA": "TOX",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "TOX-kUSDT": {
+    "name": "TOX-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x072B080B61E11c6521cC857d7076E50f920AF0dd"
+      }
+    },
+    "tokenA": "TOX",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "IJM-kUSDC": {
+    "name": "IJM-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x98FF329FB44A55670eDc5E981E4Bf0ED9f724C21"
+      }
+    },
+    "tokenA": "IJM",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "ACA-kUSDT": {
+    "name": "ACA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd87Ea302b03dE6fF8438a57E6d5D3600E119a204"
+      }
+    },
+    "tokenA": "ACA",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "kUSDT-nice": {
+    "name": "kUSDT-nice",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x98E3c2248E23a9F7d59790f1eAbC36bD1c71e731"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "nice",
+    "decimals": 6
+  },
+  "AOA-nice": {
+    "name": "AOA-nice",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5D7B00d62801502ce964E4988aD1616614B639c4"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "nice",
+    "decimals": 18
+  },
+  "KIRI-KLAY": {
+    "name": "KIRI-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x240b02025c34205fB372241E6AE50c3E6950F56E"
+      }
+    },
+    "tokenA": "KIRI",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "ABC-KLAY": {
+    "name": "ABC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb53f4a6C2D6766Cf2bc11ff668F1aA67433a8545"
+      }
+    },
+    "tokenA": "ABC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KSP-kXDT": {
+    "name": "KSP-kXDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE4cfCeE489915BbE618692E9dF4D06D793584642"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kXDT",
+    "decimals": 18
+  },
+  "ENRG-KLAY": {
+    "name": "ENRG-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8458A54438a2FBA5529cc1a91D5707141607E5E3"
+      }
+    },
+    "tokenA": "ENRG",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "RSTAR-kUSDT": {
+    "name": "RSTAR-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x66f53C1c83a7e9453224AA031B81C408B3d9238B"
+      }
+    },
+    "tokenA": "RSTAR",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "JAMBA-KLAY": {
+    "name": "JAMBA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3F8b236C57f1155414b8e1DeC2b535F08974a6C1"
+      }
+    },
+    "tokenA": "JAMBA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KSP-kUSDC": {
+    "name": "KSP-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0661F3b95a1Ac449d659816D4adF8103f28D72cc"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "DRB-KLAY": {
+    "name": "DRB-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfE23a82dd20dc494B31A51D6E585eFAFB7CdD6a6"
+      }
+    },
+    "tokenA": "DRB",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "OYAT-kETH": {
+    "name": "OYAT-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4ABd03c54A546711B2Bb1cC6015E8C861416Dd52"
+      }
+    },
+    "tokenA": "OYAT",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "KLAY-MINT": {
+    "name": "KLAY-MINT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x317e28f54bAd938FC856E20F2A3F6BF082de5542"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MINT",
+    "decimals": 18
+  },
+  "KLAY-MSP": {
+    "name": "KLAY-MSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfD2cDBDFFbac694980A88624740B1C2E10018ce0"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MSP",
+    "decimals": 18
+  },
+  "KLAY-MEAT": {
+    "name": "KLAY-MEAT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x349DbA3A2687005915B5F97512D64fd97b873cFa"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MEAT",
+    "decimals": 18
+  },
+  "KLAY-TEST2848": {
+    "name": "KLAY-TEST2848",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc538fc6f478A2853cCB0c8641CFDBCFB7Dd79D7c"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TEST2848",
+    "decimals": 18
+  },
+  "CITY-KLAY": {
+    "name": "CITY-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe54c2380F83df5261f9AADB7DFf76632F368A305"
+      }
+    },
+    "tokenA": "CITY",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-RST": {
+    "name": "KLAY-RST",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf7BB9FB2b026a9B6CeF3B83727923d44c2E0C656"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "RST",
+    "decimals": 18
+  },
+  "DRB-KSP": {
+    "name": "DRB-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf9f2EC44bf68F6f70DB6CD478816DBB24A05A28a"
+      }
+    },
+    "tokenA": "DRB",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "CNT-GHUB": {
+    "name": "CNT-GHUB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC92275A5f8D7a4Ee4653d68b44436e562Ddc3aB5"
+      }
+    },
+    "tokenA": "CNT",
+    "tokenB": "GHUB",
+    "decimals": 18
+  },
+  "SIG-kUSDT": {
+    "name": "SIG-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB821E4cC5B913f307db7d11d3360A6eB5b38bf9f"
+      }
+    },
+    "tokenA": "SIG",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "NoA-kUSDT": {
+    "name": "NoA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbB587e87db9CD1a68F3d9C2804D2609B25A9769d"
+      }
+    },
+    "tokenA": "NoA",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "ICT-KLAY": {
+    "name": "ICT-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3Ed2F35071CeB9f048eD27A552E8A599c1B055C9"
+      }
+    },
+    "tokenA": "ICT",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "NGIT-kUSDT": {
+    "name": "NGIT-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x93fA0B273973915481F9b9DC7EB275F5f21CBDBA"
+      }
+    },
+    "tokenA": "NGIT",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-TEST": {
+    "name": "KLAY-TEST",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x80B6fACc04C30636a1c0a00F25b42bEc172772d6"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TEST",
+    "decimals": 18
+  },
+  "KLAY-PLWI": {
+    "name": "KLAY-PLWI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC4acCCD45c890C6B9ad1A80AbAB3C42d8EE3461E"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PLWI",
+    "decimals": 18
+  },
+  "GHUB-PLWI": {
+    "name": "GHUB-PLWI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF6877AA517e448725D7405dFC44cA5984ef581EF"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "PLWI",
+    "decimals": 18
+  },
+  "kTOM-oMTS": {
+    "name": "kTOM-oMTS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1013918065517999D99A1104EbAC1004AB872EEB"
+      }
+    },
+    "tokenA": "kTOM",
+    "tokenB": "oMTS",
+    "decimals": 18
+  },
+  "KSP-sigKSP": {
+    "name": "KSP-sigKSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xaC064AD02976c5EbF4F86266cD1C08F4eb3a9f0F"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "sigKSP",
+    "decimals": 18
+  },
+  "KLAY-SIDO": {
+    "name": "KLAY-SIDO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x141f8C1A5C62C19DE1351Ca07Cca86Ae5dCa1A8c"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SIDO",
+    "decimals": 18
+  },
+  "MON-kUSDT": {
+    "name": "MON-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x583b3Df061Aa12bA25Ae5E1665219B7132eA10DA"
+      }
+    },
+    "tokenA": "MON",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-MAG": {
+    "name": "KLAY-MAG",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4C96b33948CBf638a92B1f2f8F5D6a315bEDC60E"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MAG",
+    "decimals": 18
+  },
+  "KLAY-KLE": {
+    "name": "KLAY-KLE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF8D8595c45EbC133E11Fc2cD1A1F631bb54168cD"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KLE",
+    "decimals": 18
+  },
+  "BBT-SBT": {
+    "name": "BBT-SBT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x99e1Ddf5233D6D278E65b85344b1195F1EaD18F7"
+      }
+    },
+    "tokenA": "BBT",
+    "tokenB": "SBT",
+    "decimals": 18
+  },
+  "TAT-TBT": {
+    "name": "TAT-TBT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x33C441DC9c5Aa00dda31e99f82E880deFB5204D9"
+      }
+    },
+    "tokenA": "TAT",
+    "tokenB": "TBT",
+    "decimals": 18
+  },
+  "CEIK-kUSDT": {
+    "name": "CEIK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3e859fcA1A49Ca87024F33810587d4CF685a64d9"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "kUSDT",
+    "decimals": 8
+  },
+  "Hodoo-KLAY": {
+    "name": "Hodoo-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2FF20cEE29559670799D2935F4A2A05BB7715a5E"
+      }
+    },
+    "tokenA": "Hodoo",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "TEST ENTER-kUSDC": {
+    "name": "TEST ENTER-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x85e7Cd6abAa49c277C7431C3Ba86e5E30B4FA49A"
+      }
+    },
+    "tokenA": "TEST ENTER",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "CEIK-kETH": {
+    "name": "CEIK-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6bbcDf8Dd1105Eed613aB7a8e18afBa1B4134728"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "kETH",
+    "decimals": 8
+  },
+  "CEIK-kBNB": {
+    "name": "CEIK-kBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x68248490A782BB9444475F028da811BE869E6133"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "kBNB",
+    "decimals": 8
+  },
+  "WALK-kUSDT": {
+    "name": "WALK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x27E41D647964a77eBcbe03B419c1F2561279e8dA"
+      }
+    },
+    "tokenA": "WALK",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-ZEMIT": {
+    "name": "KLAY-ZEMIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbAa409692A0D3eFea98019e3BdA92b55274b2331"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "ZEMIT",
+    "decimals": 18
+  },
+  "ZEMIT-kUSDT": {
+    "name": "ZEMIT-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa6F631A84657c370C77677bCf052d60C4548187b"
+      }
+    },
+    "tokenA": "ZEMIT",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KSP-ZEMIT": {
+    "name": "KSP-ZEMIT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdC9b457adc0A344c779Fd55B71DeB4A2Fe1Dcca4"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "ZEMIT",
+    "decimals": 18
+  },
+  "kMOOI-kUSDT": {
+    "name": "kMOOI-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x71f3A62c52F5ce71331b3Af00bD63D617264B040"
+      }
+    },
+    "tokenA": "kMOOI",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-kMOOI": {
+    "name": "KLAY-kMOOI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0bEdd35a5C6f957cb5409f277631A508bF5452e1"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kMOOI",
+    "decimals": 18
+  },
+  "KSP-kMOOI": {
+    "name": "KSP-kMOOI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCf302e2fe70318EF98D0D3D58baF36EB7E6d0EA5"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "kMOOI",
+    "decimals": 18
+  },
+  "MT-kUSDT": {
+    "name": "MT-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc5AFC209b374e68EdDC19516da05f64A35E73c43"
+      }
+    },
+    "tokenA": "MT",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KSP-amKSP": {
+    "name": "KSP-amKSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7C4d21404Cf688FB66cFa8b953E73D3756988eAF"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "amKSP",
+    "decimals": 18
+  },
+  "KLAY-Satto": {
+    "name": "KLAY-Satto",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3B512981B7ca4B8302992CC9a74F3593f3ada45b"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "Satto",
+    "decimals": 18
+  },
+  "KLAY-jjapgu": {
+    "name": "KLAY-jjapgu",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5A827f7d0C5209949Fc67255E01615D442410D46"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "jjapgu",
+    "decimals": 18
+  },
+  "TBT-TCT": {
+    "name": "TBT-TCT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x628109438dc8d19D69AfB79f1FF730bDA0426Cc9"
+      }
+    },
+    "tokenA": "TBT",
+    "tokenB": "TCT",
+    "decimals": 18
+  },
+  "TAT-TUS2": {
+    "name": "TAT-TUS2",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4f235e90D9C10425322B25Fe5eFf9c4d620E3C16"
+      }
+    },
+    "tokenA": "TAT",
+    "tokenB": "TUS2",
+    "decimals": 18
+  },
+  "TBT-TUS2": {
+    "name": "TBT-TUS2",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x266cB07684ed47207Dbf4CA789cca1B52d2DFB07"
+      }
+    },
+    "tokenA": "TBT",
+    "tokenB": "TUS2",
+    "decimals": 18
+  },
+  "TCT-TUS2": {
+    "name": "TCT-TUS2",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x65546a63DCdaDA156964F2fc6eFFfEAF2EE53C5F"
+      }
+    },
+    "tokenA": "TCT",
+    "tokenB": "TUS2",
+    "decimals": 18
+  },
+  "TUS1-TUS2": {
+    "name": "TUS1-TUS2",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xab1aB805197cb32D33F91a4B51de6D284DC2340c"
+      }
+    },
+    "tokenA": "TUS1",
+    "tokenB": "TUS2",
+    "decimals": 6
+  },
+  "TUS2-TUS3": {
+    "name": "TUS2-TUS3",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2574434a8961030F539c1235E44fcf7c7D695d8B"
+      }
+    },
+    "tokenA": "TUS2",
+    "tokenB": "TUS3",
+    "decimals": 6
+  },
+  "TCT-TUS3": {
+    "name": "TCT-TUS3",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf64dD10EE70eDc8eBaCc9093CAB0f1E30B6Cf25C"
+      }
+    },
+    "tokenA": "TCT",
+    "tokenB": "TUS3",
+    "decimals": 18
+  },
+  "KLD-kUSDT": {
+    "name": "KLD-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC533af28B29cea0c91eAE6355ca1A5FdAFD8366B"
+      }
+    },
+    "tokenA": "KLD",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "AAA-BBB": {
+    "name": "AAA-BBB",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x7a5Ba817562780663E948D83c743D075Ab12A640"
+      },
+      "MATIC": {
+        "meshswap": "0x7a5Ba817562780663E948D83c743D075Ab12A640"
+      }
+    },
+    "tokenA": "AAA",
+    "tokenB": "BBB",
+    "decimals": 18
+  },
+  "Dec18-Dec6": {
+    "name": "Dec18-Dec6",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x363db975051927705066Ce578Fb56CB7566E5207"
+      },
+      "MATIC": {
+        "meshswap": "0x363db975051927705066Ce578Fb56CB7566E5207"
+      }
+    },
+    "tokenA": "Dec18",
+    "tokenB": "Dec6",
+    "decimals": 18
+  },
+  "SKZ-kUSDT": {
+    "name": "SKZ-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdcb50097A9F49c9A1D7D5A228eA8981A3Ab89045"
+      }
+    },
+    "tokenA": "SKZ",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "GRND-kUSDT": {
+    "name": "GRND-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcCd8E77512a20cBFb97ca6A3A0799dDcA2D37512"
+      }
+    },
+    "tokenA": "GRND",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "GRND-WALK": {
+    "name": "GRND-WALK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf92C8e723E209D51770013F9f82EDad6DCa2aCa2"
+      }
+    },
+    "tokenA": "GRND",
+    "tokenB": "WALK",
+    "decimals": 18
+  },
+  "ARA-KLAY": {
+    "name": "ARA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc2B2485F47f328748b7216931A35EFe74d64AC0c"
+      }
+    },
+    "tokenA": "ARA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-LCG": {
+    "name": "KLAY-LCG",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x844E010ce31E0e37c6a59CD57917e2B609159c9A"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "LCG",
+    "decimals": 18
+  },
+  "BTS-KPOP": {
+    "name": "BTS-KPOP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5f2FF40bb54b2677855492A6e170c853c5C272c0"
+      }
+    },
+    "tokenA": "BTS",
+    "tokenB": "KPOP",
+    "decimals": 18
+  },
+  "KPOP-kUSDT": {
+    "name": "KPOP-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xfd8cC88CDaaCE24600C00Abea5A7dA880DF62969"
+      }
+    },
+    "tokenA": "KPOP",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "APM-kUSDT": {
+    "name": "APM-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x172181f407B1377Cef32Fd083271B3ED1FC8CEe9"
+      }
+    },
+    "tokenA": "APM",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "APM-KLAY": {
+    "name": "APM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x37A7E6Da7599948B7BE4a743De1170FE515dE41F"
+      }
+    },
+    "tokenA": "APM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "VICE-kUSDT": {
+    "name": "VICE-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1C5A8962CeFe42Be6C32d903DA093098f81E25Ef"
+      }
+    },
+    "tokenA": "VICE",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "MOON-kUSDT": {
+    "name": "MOON-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x959Ba5FB5aD107b96578B5Be37ca83AAbed413b8"
+      }
+    },
+    "tokenA": "MOON",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-MOON": {
+    "name": "KLAY-MOON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x238eFb9B2360Cd4A11BBAdb3adc6B7346dBEd60e"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MOON",
+    "decimals": 18
+  },
+  "KSP-aMOON": {
+    "name": "KSP-aMOON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x09a1C4Ac04D7A3FAb3f359b35393B33430b4E1Eb"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "aMOON",
+    "decimals": 18
+  },
+  "ASAN-KLAY": {
+    "name": "ASAN-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x41a2e2d8217f192441114360a4C9EC72F8b90b03"
+      }
+    },
+    "tokenA": "ASAN",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KTX-kUSDC": {
+    "name": "KTX-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4c031977003E57ec2b440061FF2c14BDf39E945c"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "MNR-STAR": {
+    "name": "MNR-STAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb9997573B71a217f1DA00723C34Ed400DF419395"
+      }
+    },
+    "tokenA": "MNR",
+    "tokenB": "STAR",
+    "decimals": 6
+  },
+  "kUSDT-oETHW": {
+    "name": "kUSDT-oETHW",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1Ca3480fBC668BC28D3162EFf1C89A1085ce9f57"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "oETHW",
+    "decimals": 6
+  },
+  "kUSDT-oETF": {
+    "name": "kUSDT-oETF",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc155866D5dc8E83Bf9Cc94A07624fFABB28Df484"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "oETF",
+    "decimals": 6
+  },
+  "ISK-kUSDT": {
+    "name": "ISK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbFAeAFc252F1F187906102A0F1848071175b69D6"
+      }
+    },
+    "tokenA": "ISK",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "K4U-kUSDT": {
+    "name": "K4U-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6A97530a8cE9617E27f8f97cA4ff8bb5d7f198f6"
+      }
+    },
+    "tokenA": "K4U",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "AME-KLAY": {
+    "name": "AME-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb0a9BCB2086c5D886a009286A9979b7f5AE65DBb"
+      }
+    },
+    "tokenA": "AME",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "MK-kUSDT": {
+    "name": "MK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x61B20Aed02181fE90444df62428000eD1F5761Bb"
+      }
+    },
+    "tokenA": "MK",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "AOA-ARA": {
+    "name": "AOA-ARA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF21d4F500a5fa63673ccF29AB75baEE75Acb241b"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "ARA",
+    "decimals": 18
+  },
+  "PTEN-kUSDT": {
+    "name": "PTEN-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x72767721723eb90fafc5Cd5e2963c0B5C44bA706"
+      }
+    },
+    "tokenA": "PTEN",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "ALBA-KLAY": {
+    "name": "ALBA-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8397C2A6DE070037a86038C7537Ee0eF012Cf017"
+      }
+    },
+    "tokenA": "ALBA",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-RRT": {
+    "name": "KLAY-RRT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x67bbe0a04682b53e27A7f29A3F06c3A2f063363d"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "RRT",
+    "decimals": 18
+  },
+  "KLAY-KPOP": {
+    "name": "KLAY-KPOP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x15BB6f2055929c64Df01DA8a77310B462d523EAF"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "KPOP",
+    "decimals": 18
+  },
+  "RISU-kUSDT": {
+    "name": "RISU-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD277D485B023689C69Ed22E92Adc3a14aF65cf9c"
+      }
+    },
+    "tokenA": "RISU",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "MCFA-kUSDT": {
+    "name": "MCFA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB31fDB30cB1f2333CE9f1E4B7362387910fc1064"
+      }
+    },
+    "tokenA": "MCFA",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-Sword": {
+    "name": "KLAY-Sword",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x78d5Ad5e70297e497330094F91919E26519EF090"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "Sword",
+    "decimals": 18
+  },
+  "MFA-kUSDT": {
+    "name": "MFA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x74C0E8FaCf61b965D5B43CEA240eC84af9621547"
+      }
+    },
+    "tokenA": "MFA",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "SKYL-kUSDT": {
+    "name": "SKYL-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdEd107eb3A102fC364c0d51698DE411fEd2345D3"
+      }
+    },
+    "tokenA": "SKYL",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KTX-kXRP": {
+    "name": "KTX-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x89c40fe585698Ad02E3D481C75318FbeebEdbDD1"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "GXA-kUSDT": {
+    "name": "GXA-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB31b5Cf1f886c76Fb34c183dDE8D3E58Ccf67b03"
+      }
+    },
+    "tokenA": "GXA",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KLAY-NecroSword": {
+    "name": "KLAY-NecroSword",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB97eA4F487eCCD8e6847E8a1c5F27c16B83186D4"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NecroSword",
+    "decimals": 18
+  },
+  "KTX-kORC": {
+    "name": "KTX-kORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x30D37c6FD9311Bee211BB584E0377bf9aBA6C3f4"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "KSP-PD": {
+    "name": "KSP-PD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x10Bdd3E96C7630b7c6F2893A7d4D7b9892d810e3"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "PD",
+    "decimals": 18
+  },
+  "DropTheBit-KTX": {
+    "name": "DropTheBit-KTX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xEC54085d0f1735a531A6342Ae8827f13aBE24375"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "KTX",
+    "decimals": 18
+  },
+  "DropTheBit-bus": {
+    "name": "DropTheBit-bus",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x288a95f89310A5C8f5fefE7038232E42C756fbdF"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "bus",
+    "decimals": 18
+  },
+  "AFMC-KLAY": {
+    "name": "AFMC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcfBB90cfBC4AC4D76ffCb60ef1B4c321A9a94b21"
+      }
+    },
+    "tokenA": "AFMC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "DropTheBit-kXRP": {
+    "name": "DropTheBit-kXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3D64D93772c08F847Cd35ce1c7D21201Be1ae9c3"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "KLAY-XMAS": {
+    "name": "KLAY-XMAS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xDE60be341f4b0BB2DFEaA228F58091BFB4544823"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "XMAS",
+    "decimals": 18
+  },
+  "DropTheBit-kUSDC": {
+    "name": "DropTheBit-kUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8dAD3E33EE3adF1f629E2144a00546f42ed7f27c"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "KTX-sKAI": {
+    "name": "KTX-sKAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA2B7a96E88e9BF3Eb94b8E2FDF5D99b17Ce68251"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "sKAI",
+    "decimals": 18
+  },
+  "KLAY-PRIME": {
+    "name": "KLAY-PRIME",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2B23CC7AeCd3960e6b91D5cE0Af02E37f1aFffBE"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PRIME",
+    "decimals": 18
+  },
+  "XMAS-kUSDT": {
+    "name": "XMAS-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x418dCC5d581e9b8D4D4D0196303eA58f5356Ab82"
+      }
+    },
+    "tokenA": "XMAS",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "HNY-KLAY": {
+    "name": "HNY-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x907c0c2CF6408ef9A108397Afc8365a226DD51c7"
+      }
+    },
+    "tokenA": "HNY",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "GHUB-ZBZ": {
+    "name": "GHUB-ZBZ",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5e604098f124ca46cE32E9b3D178C612AA39ea7B"
+      }
+    },
+    "tokenA": "GHUB",
+    "tokenB": "ZBZ",
+    "decimals": 18
+  },
+  "BTS-KLAY": {
+    "name": "BTS-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8A8d90F665AA92FabF7324146BC73f3A37fe0c42"
+      }
+    },
+    "tokenA": "BTS",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "MFAs-kUSDT": {
+    "name": "MFAs-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xFF5510D1840fCF0fc2a7A22275C2FaBaD08B74d1"
+      }
+    },
+    "tokenA": "MFAs",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "SAK-kUSDT": {
+    "name": "SAK-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x81213b02D7CD0Ce407Ba14579Fa3b8B28BB1b4AC"
+      }
+    },
+    "tokenA": "SAK",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "KMC-kUSDT": {
+    "name": "KMC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9Ffe6EbB667E14a3e3dC39E487FE5Df7dFe1c2C3"
+      }
+    },
+    "tokenA": "KMC",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KICK-KLAY": {
+    "name": "KICK-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCf5dA6644e2379e2ED8Eb043E9F9B7F6CE225A49"
+      }
+    },
+    "tokenA": "KICK",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-PD": {
+    "name": "KLAY-PD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2dECB61591909e98C3f838F711f44C1F94baE775"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PD",
+    "decimals": 18
+  },
+  "PXL-kUSDT": {
+    "name": "PXL-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x661aA56c373C01B55F61Ec0A2FD74222a90F0AB0"
+      }
+    },
+    "tokenA": "PXL",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "DBY-KLAY": {
+    "name": "DBY-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8A68e1Bfc2c872A692F41C897db86cAF52A83940"
+      }
+    },
+    "tokenA": "DBY",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-SAWON": {
+    "name": "KLAY-SAWON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x96d64366035ce5C40CC4A4543DcD7DdC4E69202f"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "SAWON",
+    "decimals": 18
+  },
+  "tGLT-tUSDG": {
+    "name": "tGLT-tUSDG",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x69eD4A92d319d9899F86049D99dbdCbC41C2F91E"
+      }
+    },
+    "tokenA": "tGLT",
+    "tokenB": "tUSDG",
+    "decimals": 6
+  },
+  "HOOF-KLAY": {
+    "name": "HOOF-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA168e59528EfeA689332e4E8D1Bc85e02bFaaA6a"
+      }
+    },
+    "tokenA": "HOOF",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "HOLD-kUSDT": {
+    "name": "HOLD-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf84A4355d6DC93d069E644B368a49Ec3da319a2F"
+      }
+    },
+    "tokenA": "HOLD",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-WALK": {
+    "name": "KLAY-WALK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x833a573E6809451DF3a009b335252c516f009e53"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "WALK",
+    "decimals": 18
+  },
+  "kUSDC-oMRST": {
+    "name": "kUSDC-oMRST",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x12fd4467F8b9c32C21436210f835AF5c24d393b9"
+      }
+    },
+    "tokenA": "kUSDC",
+    "tokenB": "oMRST",
+    "decimals": 6
+  },
+  "KSP-oMRST": {
+    "name": "KSP-oMRST",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x898AA38A6976037a2EF50832d975080B155107Bb"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oMRST",
+    "decimals": 18
+  },
+  "kUSDC-oPBOS": {
+    "name": "kUSDC-oPBOS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9EaAd85a263855176FcB42d4D2f97B5D9563bf0d"
+      }
+    },
+    "tokenA": "kUSDC",
+    "tokenB": "oPBOS",
+    "decimals": 6
+  },
+  "KLAY-NECTAR": {
+    "name": "KLAY-NECTAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x38d6c2160Ac4E5dB7b154B2c3e89D5927110883B"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NECTAR",
+    "decimals": 18
+  },
+  "MIX-NECTAR": {
+    "name": "MIX-NECTAR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3bd0911E1C71F817F402B904B2FCcc4E33b6dB44"
+      }
+    },
+    "tokenA": "MIX",
+    "tokenB": "NECTAR",
+    "decimals": 18
+  },
+  "KADC-kUSDT": {
+    "name": "KADC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE36918e1C36b179D78446994cCDf6487531344f8"
+      }
+    },
+    "tokenA": "KADC",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-illuminate": {
+    "name": "KLAY-illuminate",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xbd9e71Ac00D61479644E898558C17818953942F4"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "illuminate",
+    "decimals": 18
+  },
+  "PEARL-kUSDT": {
+    "name": "PEARL-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5834164F85B5C5728e557CCC587C6994fFb6841F"
+      }
+    },
+    "tokenA": "PEARL",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "HNY-XMAS": {
+    "name": "HNY-XMAS",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd91cdF2f59e528dF7b88B9Ae6B841002356C0Cd0"
+      }
+    },
+    "tokenA": "HNY",
+    "tokenB": "XMAS",
+    "decimals": 18
+  },
+  "WEMIX-WMXPRO": {
+    "name": "WEMIX-WMXPRO",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x243d990321824F1E8e1d40076E19f3eF633579a9"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "WMXPRO",
+    "decimals": 18
+  },
+  "WEMIX-WEP": {
+    "name": "WEMIX-WEP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x017Ade2BA9B234189F6F2cb7aDe4cb6d064138d5"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "WEP",
+    "decimals": 18
+  },
+  "KLAY-MADEN": {
+    "name": "KLAY-MADEN",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9CE6ec7fbb7Ad039d705107Fd78fc744B952CCC5"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MADEN",
+    "decimals": 18
+  },
+  "WEMIX-fund": {
+    "name": "WEMIX-fund",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xb8BdD11845a966d7d50d4145f4721Fe9bc83C5D0"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "fund",
+    "decimals": 18
+  },
+  "KLAY-TREE": {
+    "name": "KLAY-TREE",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE0805B1e5dA374B6f17dF2f5047D3dD11B157EfD"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "TREE",
+    "decimals": 18
+  },
+  "CHAOS-kUSDT": {
+    "name": "CHAOS-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7CF7BE5bcC1A20bCA27e56fE7B579Eef44D0ee71"
+      }
+    },
+    "tokenA": "CHAOS",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "DIAMOND-kUSDT": {
+    "name": "DIAMOND-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x506193394e3A06cb2953eb2a90aE07AddD944dA4"
+      }
+    },
+    "tokenA": "DIAMOND",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "ADSC-kUSDT": {
+    "name": "ADSC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3FEf896005140cf625454220ac89c9E612ad48EB"
+      }
+    },
+    "tokenA": "ADSC",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kUSDT-oTON": {
+    "name": "kUSDT-oTON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7901750CBc313b2568ba93cD24239040Ed02EfCC"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "oTON",
+    "decimals": 6
+  },
+  "investfund-kUSDT": {
+    "name": "investfund-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x96e9FCbf31023ae6db467e653EC7CDAf9A14936B"
+      }
+    },
+    "tokenA": "investfund",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kUSDT-stone": {
+    "name": "kUSDT-stone",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x861645349c3FC439E87Fe45C16a9d79355916c48"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "stone",
+    "decimals": 6
+  },
+  "CTC-kUSDT": {
+    "name": "CTC-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5e02437779439efBbA1CB286015E4F21BCBB28e3"
+      }
+    },
+    "tokenA": "CTC",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "AZIT-kUSDT": {
+    "name": "AZIT-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x510c6554602110863639dDeE87deBA47773FdcBE"
+      }
+    },
+    "tokenA": "AZIT",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "HIBS-kUSDT": {
+    "name": "HIBS-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0aC545D84afCc216f8146ACA3864F9785f4e6b2D"
+      }
+    },
+    "tokenA": "HIBS",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "DCB-GHUB": {
+    "name": "DCB-GHUB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc24F49b7a0C7d36972C55D6c04346cE1F6321E69"
+      }
+    },
+    "tokenA": "DCB",
+    "tokenB": "GHUB",
+    "decimals": 18
+  },
+  "KLTT-kUSDT": {
+    "name": "KLTT-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2521E3469e5cB543bE529ed76652aB4733e857C1"
+      }
+    },
+    "tokenA": "KLTT",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "DAI-WETH": {
+    "name": "DAI-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9Bd6bC39fA38E11C9c083c59E629b2f4658c9138"
+      },
+      "MATIC": {
+        "meshswap": "0x9Bd6bC39fA38E11C9c083c59E629b2f4658c9138"
+      }
+    },
+    "tokenA": "DAI",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "DAI-mUSDC": {
+    "name": "DAI-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x051304433837F0655e2a24c38548E85D602C3dC9"
+      },
+      "MATIC": {
+        "meshswap": "0x051304433837F0655e2a24c38548E85D602C3dC9"
+      }
+    },
+    "tokenA": "DAI",
+    "tokenB": "mUSDC",
+    "decimals": 6
+  },
+  "mUSDC-USDT": {
+    "name": "mUSDC-USDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x274EBd0A589445d2759E379277984c19dbF83cFD"
+      },
+      "MATIC": {
+        "meshswap": "0x274EBd0A589445d2759E379277984c19dbF83cFD"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "USDT",
+    "decimals": 6
+  },
+  "DAI-USDT": {
+    "name": "DAI-USDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x67fA408a4CD3F23D1F14414e6292A01bb451c117"
+      },
+      "MATIC": {
+        "meshswap": "0x67fA408a4CD3F23D1F14414e6292A01bb451c117"
+      }
+    },
+    "tokenA": "DAI",
+    "tokenB": "USDT",
+    "decimals": 6
+  },
+  "USDT-WETH": {
+    "name": "USDT-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x4111ddbeDAB99C356ccE66f4dC68888310E0FD5F"
+      },
+      "MATIC": {
+        "meshswap": "0x4111ddbeDAB99C356ccE66f4dC68888310E0FD5F"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "USDT-WMATIC": {
+    "name": "USDT-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x24af68fF6e3501EAf8b52a9F7935225E524FE617"
+      },
+      "MATIC": {
+        "meshswap": "0x24af68fF6e3501EAf8b52a9F7935225E524FE617"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "WBTC-WETH": {
+    "name": "WBTC-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x98A76814a4Ae4Eb81571591503A4D1687e30b080"
+      },
+      "MATIC": {
+        "meshswap": "0x98A76814a4Ae4Eb81571591503A4D1687e30b080"
+      }
+    },
+    "tokenA": "WBTC",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "ORC-WETH": {
+    "name": "ORC-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x41A3ef3b43727061A87C32cE7AC5887437127bCa"
+      },
+      "MATIC": {
+        "meshswap": "0x41A3ef3b43727061A87C32cE7AC5887437127bCa"
+      }
+    },
+    "tokenA": "ORC",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "ORC-USDT": {
+    "name": "ORC-USDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9591923330e1d65264501da3dD4C4059E641c560"
+      },
+      "MATIC": {
+        "meshswap": "0x9591923330e1d65264501da3dD4C4059E641c560"
+      }
+    },
+    "tokenA": "ORC",
+    "tokenB": "USDT",
+    "decimals": 18
+  },
+  "ORC-WMATIC": {
+    "name": "ORC-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x8A43AB8B53e032ec1A202ceaBbCcD804270b9025"
+      },
+      "MATIC": {
+        "meshswap": "0x8A43AB8B53e032ec1A202ceaBbCcD804270b9025"
+      }
+    },
+    "tokenA": "ORC",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "oMATIC-kUSDC": {
+    "name": "oMATIC-kUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x35456FD93f9e95fB059Da27A18d6Cc1266a1b3FB"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "kUSDC",
+    "decimals": 18
+  },
+  "kETH-oMATIC": {
+    "name": "kETH-oMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x3Ee2A6DB97F493f0221Bb285F15e3021CdcaEcCd"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oMATIC",
+    "decimals": 18
+  },
+  "WETH-kETH": {
+    "name": "WETH-kETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x1d085893853C9a0351BD3e4A83d9D688c07C7D8b"
+      }
+    },
+    "tokenA": "WETH",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "WMATIC-oMATIC": {
+    "name": "WMATIC-oMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xAefC7cD8c69578BD9CAb6bE7fa854d3A8B658a7b"
+      },
+      "MATIC": {
+        "meshswap": "0xAefC7cD8c69578BD9CAb6bE7fa854d3A8B658a7b"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oMATIC",
+    "decimals": 18
+  },
+  "DAI-oDAI": {
+    "name": "DAI-oDAI",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xc08aA0d9a9e0DDED47a41Fbf84de5D7F9bC92cc6"
+      },
+      "MATIC": {
+        "meshswap": "0xc08aA0d9a9e0DDED47a41Fbf84de5D7F9bC92cc6"
+      }
+    },
+    "tokenA": "DAI",
+    "tokenB": "oDAI",
+    "decimals": 18
+  },
+  "USDT-kUSDT": {
+    "name": "USDT-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x58A7AaC84560F994d191e78aEB690855eB2D5B88"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "kETH-kXRP": {
+    "name": "kETH-kXRP",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x0F060031a8F54b06749E295C31cCd7C1B987c450"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "kXRP",
+    "decimals": 18
+  },
+  "oDAI-kETH": {
+    "name": "oDAI-kETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x69e0b4C6D30597Fa92ad92721340fb5Ba4e80a72"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "WMATIC-oKSP": {
+    "name": "WMATIC-oKSP",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
+      },
+      "MATIC": {
+        "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oKSP",
+    "decimals": 18
+  },
+  "oDAI-kUSDC": {
+    "name": "oDAI-kUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x76bB20ab94BAe0Df3C5f49218FEE68297aFE76EC"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "kUSDC",
+    "decimals": 6
+  },
+  "mUSDC-mUSDT": {
+    "name": "mUSDC-mUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xd05487f812B785fAB2C3B6b8E60A190F29ed966b"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "mUSDT",
+    "decimals": 6
+  },
+  "oDAI-kUSDT": {
+    "name": "oDAI-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x113262C345C99543f746a8F591A1E99D37574552"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "oMATIC-kUSDT": {
+    "name": "oMATIC-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xb9a2A03E1F1Eb2424ea3C88B5f7C8742e941d752"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "WMATIC-oGHUB": {
+    "name": "WMATIC-oGHUB",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
+      },
+      "MATIC": {
+        "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oGHUB",
+    "decimals": 18
+  },
+  "oKLAY-kUSDT": {
+    "name": "oKLAY-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x92521a0eB5d1f6B7c558f8cECba7655c6E5c1308"
+      }
+    },
+    "tokenA": "oKLAY",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "kETH-oKLAY": {
+    "name": "kETH-oKLAY",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x10A28A913f226BDdC49a5336a73920aB8ab8db3e"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oKLAY",
+    "decimals": 18
+  },
+  "WMATIC-oKLAY": {
+    "name": "WMATIC-oKLAY",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xBdEEeDdbcdc7D2Fb62B7d9CAdc809e9Bd6093e57"
+      },
+      "MATIC": {
+        "meshswap": "0xBdEEeDdbcdc7D2Fb62B7d9CAdc809e9Bd6093e57"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oKLAY",
+    "decimals": 18
+  },
+  "oKSP-oMATIC": {
+    "name": "oKSP-oMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x06883C9Ddcf620a3f80c13ad582c2D5630a7Db97"
+      },
+      "MATIC": {
+        "meshswap": "0x06883C9Ddcf620a3f80c13ad582c2D5630a7Db97"
+      }
+    },
+    "tokenA": "oKSP",
+    "tokenB": "oMATIC",
+    "decimals": 18
+  },
+  "oMATIC-kORC": {
+    "name": "oMATIC-kORC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x1C3F2B2E6980339CB4f7f0f2c0c55906c81De4f5"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "kORC",
+    "decimals": 18
+  },
+  "USDT-kXRP": {
+    "name": "USDT-kXRP",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xBEba04852cDB1579A38b6116DE36aE927f7A2D28"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "kXRP",
+    "decimals": 6
+  },
+  "oMATIC-kXRP": {
+    "name": "oMATIC-kXRP",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xC330f2706870942F508F600E3C6f59fc7242C14F"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "kXRP",
+    "decimals": 6
+  },
+  "MESH-WETH": {
+    "name": "MESH-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9868b2dD31FC732A952FAAA5157Bcb91bF3c9736"
+      },
+      "MATIC": {
+        "meshswap": "0x9868b2dD31FC732A952FAAA5157Bcb91bF3c9736"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "MESH-WMATIC": {
+    "name": "MESH-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x07A7Ab21b582058B71d2AEe1b1719926E3451ADF"
+      },
+      "MATIC": {
+        "meshswap": "0x07A7Ab21b582058B71d2AEe1b1719926E3451ADF"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "MESH-ORC": {
+    "name": "MESH-ORC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xbA4025604bf076da2a00f82Ea759076Da99245Ac"
+      },
+      "MATIC": {
+        "meshswap": "0xbA4025604bf076da2a00f82Ea759076Da99245Ac"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "ORC",
+    "decimals": 18
+  },
+  "mUSDC-oKASH": {
+    "name": "mUSDC-oKASH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x768798004b219127c2e33945871d4bb12012C74A"
+      },
+      "MATIC": {
+        "meshswap": "0x768798004b219127c2e33945871d4bb12012C74A"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oKASH",
+    "decimals": 6
+  },
+  "oKASH-owsKRNO": {
+    "name": "oKASH-owsKRNO",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x773070592111524ec6aefF7312FD72A2222c9599"
+      },
+      "MATIC": {
+        "meshswap": "0x773070592111524ec6aefF7312FD72A2222c9599"
+      }
+    },
+    "tokenA": "oKASH",
+    "tokenB": "owsKRNO",
+    "decimals": 18
+  },
+  "oMKC-kUSDT": {
+    "name": "oMKC-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9EDDC0BEF69AC8D9D517b2d87145D13F6a7EB137"
+      }
+    },
+    "tokenA": "oMKC",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
+  "kETH-oMKC": {
+    "name": "kETH-oMKC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x728e70Cbe35E187C8B5a5797e5f7610a20ad8Ffc"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oMKC",
+    "decimals": 18
+  },
+  "PMIX-WMATIC": {
+    "name": "PMIX-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xB22b9bA6e86a02A529DF30D2E2E06fDaF72Ae7f8"
+      },
+      "MATIC": {
+        "meshswap": "0xB22b9bA6e86a02A529DF30D2E2E06fDaF72Ae7f8"
+      }
+    },
+    "tokenA": "PMIX",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "AdMESH-MESH": {
+    "name": "AdMESH-MESH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xCD65DC16bC99FaE3fD3028911815E2757F5eBd62"
+      },
+      "MATIC": {
+        "meshswap": "0xCD65DC16bC99FaE3fD3028911815E2757F5eBd62"
+      }
+    },
+    "tokenA": "AdMESH",
+    "tokenB": "MESH",
+    "decimals": 18
+  },
+  "MESH-oMKC": {
+    "name": "MESH-oMKC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xAAe33B53deD687f62B0eDeC50b5D9C8a6E1Cf91F"
+      },
+      "MATIC": {
+        "meshswap": "0xAAe33B53deD687f62B0eDeC50b5D9C8a6E1Cf91F"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oMKC",
+    "decimals": 18
+  },
+  "USD+-mUSDC": {
+    "name": "USD+-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x68b7cEd0dBA382a0eC705d6d97608B7bA3CD8C55"
+      },
+      "MATIC": {
+        "meshswap": "0x68b7cEd0dBA382a0eC705d6d97608B7bA3CD8C55"
+      }
+    },
+    "tokenA": "USD+",
+    "tokenB": "mUSDC",
+    "decimals": 6
+  },
+  "mUSDC-miMATIC": {
+    "name": "mUSDC-miMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x493a4b908674c0638291bdaE82b6147dF52431cC"
+      },
+      "MATIC": {
+        "meshswap": "0x493a4b908674c0638291bdaE82b6147dF52431cC"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "miMATIC",
+    "decimals": 18
+  },
+  "WMATIC-miMATIC": {
+    "name": "WMATIC-miMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x6E28cFb8829683Ee8E51d07b82E792E1Fa936c90"
+      },
+      "MATIC": {
+        "meshswap": "0x6E28cFb8829683Ee8E51d07b82E792E1Fa936c90"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "miMATIC",
+    "decimals": 18
+  },
+  "MESH-miMATIC": {
+    "name": "MESH-miMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x229D08FeF49f5cb9CA2D6B5199F8868E8B2b5db1"
+      },
+      "MATIC": {
+        "meshswap": "0x229D08FeF49f5cb9CA2D6B5199F8868E8B2b5db1"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "miMATIC",
+    "decimals": 18
+  },
+  "MaticX-WMATIC": {
+    "name": "MaticX-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9458e0D6FE48E411d84073AB7F58cC2631C3FEFD"
+      },
+      "MATIC": {
+        "meshswap": "0x9458e0D6FE48E411d84073AB7F58cC2631C3FEFD"
+      }
+    },
+    "tokenA": "MaticX",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "MESH-tetuMESH": {
+    "name": "MESH-tetuMESH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xcf40352253de7a0155d700a937Dc797D681c9867"
+      },
+      "MATIC": {
+        "meshswap": "0xcf40352253de7a0155d700a937Dc797D681c9867"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "tetuMESH",
+    "decimals": 18
+  },
+  "WMATIC-kXDT": {
+    "name": "WMATIC-kXDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x0E1A5c06DD1e6D4f3Dcf9c553D2D5a5EF42147da"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "kXDT",
+    "decimals": 18
+  },
+  "MaticX-mUSDC": {
+    "name": "MaticX-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9895319f0Ade21f09E2b1af42B0DeCb7992FDa33"
+      },
+      "MATIC": {
+        "meshswap": "0x9895319f0Ade21f09E2b1af42B0DeCb7992FDa33"
+      }
+    },
+    "tokenA": "MaticX",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "SD-mUSDC": {
+    "name": "SD-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xD00e592a59Fcc5bc06572f3fA9dFCfEb8794B22D"
+      },
+      "MATIC": {
+        "meshswap": "0xD00e592a59Fcc5bc06572f3fA9dFCfEb8794B22D"
+      }
+    },
+    "tokenA": "SD",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "TRMT-WMATIC": {
+    "name": "TRMT-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x2C7Fe422749E5b72D9006AC162bAaa7d71fcb3d7"
+      },
+      "MATIC": {
+        "meshswap": "0x2C7Fe422749E5b72D9006AC162bAaa7d71fcb3d7"
+      }
+    },
+    "tokenA": "TRMT",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "WMATIC-oZEMIT": {
+    "name": "WMATIC-oZEMIT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x0fBE132a5eB95f287740a7b0AfFBFc8d14354548"
+      },
+      "MATIC": {
+        "meshswap": "0x0fBE132a5eB95f287740a7b0AfFBFc8d14354548"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oZEMIT",
+    "decimals": 18
+  },
+  "MESH-oZEMIT": {
+    "name": "MESH-oZEMIT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x6fC01D72960Af0De3dD97D544FE785b751D752E2"
+      },
+      "MATIC": {
+        "meshswap": "0x6fC01D72960Af0De3dD97D544FE785b751D752E2"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oZEMIT",
+    "decimals": 18
+  },
+  "WMATIC-oMOOI": {
+    "name": "WMATIC-oMOOI",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x967a4Ab79809206aE7bB9b0e245d8B775B3AFCA5"
+      },
+      "MATIC": {
+        "meshswap": "0x967a4Ab79809206aE7bB9b0e245d8B775B3AFCA5"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oMOOI",
+    "decimals": 18
+  },
+  "MESH-oMOOI": {
+    "name": "MESH-oMOOI",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x5b1E475933C802117212ce2A4240A4e7999a52A2"
+      },
+      "MATIC": {
+        "meshswap": "0x5b1E475933C802117212ce2A4240A4e7999a52A2"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oMOOI",
+    "decimals": 18
+  },
+  "TT1-mUSDC": {
+    "name": "TT1-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xB1b6F383035E5459b10c2887C41AecC1a6a6D32B"
+      },
+      "MATIC": {
+        "meshswap": "0xB1b6F383035E5459b10c2887C41AecC1a6a6D32B"
+      }
+    },
+    "tokenA": "TT1",
+    "tokenB": "mUSDC",
+    "decimals": 6
+  },
+  "TUSD-WMATIC": {
+    "name": "TUSD-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x2e167A6B73df150BF721A06cB53492f136C86e80"
+      },
+      "MATIC": {
+        "meshswap": "0x2e167A6B73df150BF721A06cB53492f136C86e80"
+      }
+    },
+    "tokenA": "TUSD",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "JMK-WMATIC": {
+    "name": "JMK-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x7f63B17A2C40854565EeE6156C3cB2DF10E5850d"
+      },
+      "MATIC": {
+        "meshswap": "0x7f63B17A2C40854565EeE6156C3cB2DF10E5850d"
+      }
+    },
+    "tokenA": "JMK",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "SKZ-USDT": {
+    "name": "SKZ-USDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x782BcE2390E6A58c3e4E5f2e7D128CD165F77887"
+      },
+      "MATIC": {
+        "meshswap": "0x782BcE2390E6A58c3e4E5f2e7D128CD165F77887"
+      }
+    },
+    "tokenA": "SKZ",
+    "tokenB": "USDT",
+    "decimals": 18
+  },
+  "ITSB-WMATIC": {
+    "name": "ITSB-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x2C99c7e116368FE0eFC5bfAE809F100640a6b135"
+      },
+      "MATIC": {
+        "meshswap": "0x2C99c7e116368FE0eFC5bfAE809F100640a6b135"
+      }
+    },
+    "tokenA": "ITSB",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "oETF-kUSDT": {
+    "name": "oETF-kUSDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x18f0381a4Ee6ad535A0eDF687C8BAD2632d2B2eA"
+      }
+    },
+    "tokenA": "oETF",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "WMATIC-oEPL": {
+    "name": "WMATIC-oEPL",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xd4ed2DeBEAe205a7989FF85eC4c47d2cC3512931"
+      },
+      "MATIC": {
+        "meshswap": "0xd4ed2DeBEAe205a7989FF85eC4c47d2cC3512931"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oEPL",
+    "decimals": 18
+  },
+  "mUSDC-oEPL": {
+    "name": "mUSDC-oEPL",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xCB79039D3990087D15982Ef15c88056852CFA38a"
+      },
+      "MATIC": {
+        "meshswap": "0xCB79039D3990087D15982Ef15c88056852CFA38a"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oEPL",
+    "decimals": 6
+  },
+  "MESH-oEPL": {
+    "name": "MESH-oEPL",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xB50EEF83Fcc05b4a98d0965e30291E4178BE06c6"
+      },
+      "MATIC": {
+        "meshswap": "0xB50EEF83Fcc05b4a98d0965e30291E4178BE06c6"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oEPL",
+    "decimals": 18
+  },
+  "HIDIX-WMATIC": {
+    "name": "HIDIX-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x7a453cEA8a84e7421AE515c2609610306076e514"
+      },
+      "MATIC": {
+        "meshswap": "0x7a453cEA8a84e7421AE515c2609610306076e514"
+      }
+    },
+    "tokenA": "HIDIX",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "DRC-WMATIC": {
+    "name": "DRC-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x592D09AFd8e05bec1977607D2e9df35fd21EBA42"
+      },
+      "MATIC": {
+        "meshswap": "0x592D09AFd8e05bec1977607D2e9df35fd21EBA42"
+      }
+    },
+    "tokenA": "DRC",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "SAWON-WMATIC": {
+    "name": "SAWON-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x78d63fA24eB1298C9DBe5fC65EF73c25d233Cbb8"
+      },
+      "MATIC": {
+        "meshswap": "0x78d63fA24eB1298C9DBe5fC65EF73c25d233Cbb8"
+      }
+    },
+    "tokenA": "SAWON",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "FFC-USDT": {
+    "name": "FFC-USDT",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x382056d74aCE12839a031410A8EB07E5A95d4Cd2"
+      },
+      "MATIC": {
+        "meshswap": "0x382056d74aCE12839a031410A8EB07E5A95d4Cd2"
+      }
+    },
+    "tokenA": "FFC",
+    "tokenB": "USDT",
+    "decimals": 2
+  },
+  "FFC-mUSDC": {
+    "name": "FFC-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x4d5357Ae936A68C873963F5268eF74C155ba817e"
+      },
+      "MATIC": {
+        "meshswap": "0x4d5357Ae936A68C873963F5268eF74C155ba817e"
+      }
+    },
+    "tokenA": "FFC",
+    "tokenB": "mUSDC",
+    "decimals": 2
+  },
+  "MRST-mUSDC": {
+    "name": "MRST-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x06F475B66e834a9c37634Ae6B0c0E2DaF059EC5F"
+      },
+      "MATIC": {
+        "meshswap": "0x06F475B66e834a9c37634Ae6B0c0E2DaF059EC5F"
+      }
+    },
+    "tokenA": "MRST",
+    "tokenB": "mUSDC",
+    "decimals": 6
+  },
+  "MRST-WMATIC": {
+    "name": "MRST-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xA5c7CC743B6D0BC986Fc8Cd4642F593dd3C69a5c"
+      },
+      "MATIC": {
+        "meshswap": "0xA5c7CC743B6D0BC986Fc8Cd4642F593dd3C69a5c"
+      }
+    },
+    "tokenA": "MRST",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "PBOS-mUSDC": {
+    "name": "PBOS-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x3fA3E0d6E5505B2cF421373a4f6CCBB45B765c72"
+      },
+      "MATIC": {
+        "meshswap": "0x3fA3E0d6E5505B2cF421373a4f6CCBB45B765c72"
+      }
+    },
+    "tokenA": "PBOS",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "FFC-MESH": {
+    "name": "FFC-MESH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xeB23DEA1de31d35fb9bC5194186898ebAEB96B6B"
+      },
+      "MATIC": {
+        "meshswap": "0xeB23DEA1de31d35fb9bC5194186898ebAEB96B6B"
+      }
+    },
+    "tokenA": "FFC",
+    "tokenB": "MESH",
+    "decimals": 2
+  },
+  "FFC-WMATIC": {
+    "name": "FFC-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xDCc4C630694Fc14201bDA1fBde2B15E0997460B0"
+      },
+      "MATIC": {
+        "meshswap": "0xDCc4C630694Fc14201bDA1fBde2B15E0997460B0"
+      }
+    },
+    "tokenA": "FFC",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "GXR-WMATIC": {
+    "name": "GXR-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x9DA16D92220510FB7638AE84f8a600F447414718"
+      },
+      "MATIC": {
+        "meshswap": "0x9DA16D92220510FB7638AE84f8a600F447414718"
+      }
+    },
+    "tokenA": "GXR",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "AOA-GXR": {
+    "name": "AOA-GXR",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xa72159Dc376a267053890cB20A3E1dfBD611AEb6"
+      },
+      "MATIC": {
+        "meshswap": "0xa72159Dc376a267053890cB20A3E1dfBD611AEb6"
+      }
+    },
+    "tokenA": "AOA",
+    "tokenB": "GXR",
+    "decimals": 18
+  },
+  "BUSD-WMATIC": {
+    "name": "BUSD-WMATIC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xA4EAf6316424F4D7c66909D35fCd342c7F273456"
+      },
+      "MATIC": {
+        "meshswap": "0xA4EAf6316424F4D7c66909D35fCd342c7F273456"
+      }
+    },
+    "tokenA": "BUSD",
+    "tokenB": "WMATIC",
+    "decimals": 18
+  },
+  "BUSD-mUSDC": {
+    "name": "BUSD-mUSDC",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x72Fa5C518cB83a4D83e656eD551436A12463A124"
+      },
+      "MATIC": {
+        "meshswap": "0x72Fa5C518cB83a4D83e656eD551436A12463A124"
+      }
+    },
+    "tokenA": "BUSD",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "BUSD-WETH": {
+    "name": "BUSD-WETH",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x618455d4d9E7cf10F29705537aC672A709ed4bb7"
+      },
+      "MATIC": {
+        "meshswap": "0x618455d4d9E7cf10F29705537aC672A709ed4bb7"
+      }
+    },
+    "tokenA": "BUSD",
+    "tokenB": "WETH",
+    "decimals": 18
+  },
+  "WMATIC-oTON": {
+    "name": "WMATIC-oTON",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0x2eBf511aa9C5FC6D5A5674A86760B88E9eaF9160"
+      },
+      "MATIC": {
+        "meshswap": "0x2eBf511aa9C5FC6D5A5674A86760B88E9eaF9160"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oTON",
+    "decimals": 18
+  },
+  "mUSDC-oTON": {
+    "name": "mUSDC-oTON",
+    "baseChain": {
+      "polygon": {
+        "meshswap": "0xAF6C7e219e8d03e9C7eb3DEb1924c283d87720De"
+      },
+      "MATIC": {
+        "meshswap": "0xAF6C7e219e8d03e9C7eb3DEb1924c283d87720De"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oTON",
+    "decimals": 6
+  },
+  "KS-wMOOI": {
+    "name": "KS-wMOOI",
+    "baseChain": {
+      "MOOI": {
+        "mooiswap": "0x3633ac3116BE924621Bc1155B5ae12F63b03d6a5"
+      }
+    },
+    "tokenA": "KS",
+    "tokenB": "wMOOI",
+    "decimals": 18
+  },
+  "kETH-oWBTC": {
+    "name": "kETH-oWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2A6A4b0c96cA98eB691a5ddceE3c7b7788c1a8E3"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oWBTC",
+    "decimals": 18
+  },
+  "KLAY-oETH": {
+    "name": "KLAY-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x27F80731dDdb90C51cD934E9BD54bfF2D4E99e8a"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "kETH-oUSDT": {
+    "name": "kETH-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x029e2A1B2bb91B66bd25027E1C211E5628dbcb93"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KLAY-oORC": {
+    "name": "KLAY-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe9ddb7A6994bD9cDF97CF11774A72894597D878B"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "kWBTC-oUSDT": {
+    "name": "kWBTC-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9103Beb39283dA9C49B020D6546FD7C39f9bbc5b"
+      }
+    },
+    "tokenA": "kWBTC",
+    "tokenB": "oUSDT",
+    "decimals": 8
+  },
+  "KSP-oORC": {
+    "name": "KSP-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6dc6bd65638B18057F7E6a2e8f136F3E77CC2038"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "AGOV-KLAY": {
+    "name": "AGOV-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5C6795E72c47D7FA2B0C7A6446D671Aa2e381D1e"
+      }
+    },
+    "tokenA": "AGOV",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "AGOV-HINT": {
+    "name": "AGOV-HINT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x194896a1FBd33A13d71E0A2053d4f8129f435e31"
+      }
+    },
+    "tokenA": "AGOV",
+    "tokenB": "HINT",
+    "decimals": 18
+  },
+  "BEE-KLAY": {
+    "name": "BEE-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1453b3cBe0167Dfac91204Eb26822fC12208F516"
+      }
+    },
+    "tokenA": "BEE",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "BBC-KLAY": {
+    "name": "BBC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9d9De38C473D769D76034200F122995d8b6550Ea"
+      }
+    },
+    "tokenA": "BBC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-oUSDT": {
+    "name": "KLAY-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD83f1B074D81869EFf2C46C530D7308FFEC18036"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "CLBK-KLAY": {
+    "name": "CLBK-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x55A5dCC23A7A697052AB5D881530849CA0EfAD34"
+      }
+    },
+    "tokenA": "CLBK",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "kORC-oUSDT": {
+    "name": "kORC-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x94F390a8438b5De00B868d3aE47863Db90fB92c3"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KLAY-oXRP": {
+    "name": "KLAY-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x86E614ef51B305C36a0608bAa57fcaaa45844D87"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "kETH-oXRP": {
+    "name": "kETH-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x85eF87815bD7BE28BEe038Ff201dB78c7E0eD2B9"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "KSP-oXRP": {
+    "name": "KSP-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA06B9a38a7b4B91CB5d9B24538296bfB3B97fBf3"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "KSP-oETH": {
+    "name": "KSP-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa8F8f1153523eAeDce48CEc2Ddbe1Bcd483d0CD8"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "KSP-oWBTC": {
+    "name": "KSP-oWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x85Fae50259EbB9a86F49BDBfb8dBaEC84a7ED5fe"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oWBTC",
+    "decimals": 18
+  },
+  "kORC-oXRP": {
+    "name": "kORC-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x805CB5eB7063f132cEAf56b2c7182c897a024a83"
+      }
+    },
+    "tokenA": "kORC",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "ABL-oORC": {
+    "name": "ABL-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa2867C345f9b7250Fe6BE6CCCB6360dff9F6E38c"
+      }
+    },
+    "tokenA": "ABL",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "KSP-oUSDT": {
+    "name": "KSP-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE75a6A3a800A2C5123e67e3bde911Ba761FE0705"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KLAY-oBNB": {
+    "name": "KLAY-oBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE20B9aeAcAC615Da0fdBEB05d4F75E16FA1F6B95"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oBNB",
+    "decimals": 18
+  },
+  "KSP-oBNB": {
+    "name": "KSP-oBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7328B85eFF28C3068F69FE662632d37D48ba227f"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oBNB",
+    "decimals": 18
+  },
+  "kBELT-oORC": {
+    "name": "kBELT-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0f14648eD03A4172a0D186dA51b66e7e9Af6af66"
+      }
+    },
+    "tokenA": "kBELT",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "kETH-oBNB": {
+    "name": "kETH-oBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8119f0CeC72a26fE23CA1aB076137Ea5D8a19d54"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oBNB",
+    "decimals": 18
+  },
+  "oUSDT-sBWPM": {
+    "name": "oUSDT-sBWPM",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB6eaA073881C9cac7141EF20b25A588914a367b2"
+      }
+    },
+    "tokenA": "oUSDT",
+    "tokenB": "sBWPM",
+    "decimals": 18
+  },
+  "kETH-oORC": {
+    "name": "kETH-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9E1cD9645EB2753d4D4A94786bB76cC99adb689b"
+      }
+    },
+    "tokenA": "kETH",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "KICX-oETH": {
+    "name": "KICX-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF4048Ce0A0947F138101e4a92C44c79585d826E5"
+      }
+    },
+    "tokenA": "KICX",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "PER-oUSDT": {
+    "name": "PER-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xe55f6452C5B04108dcC2E75aE31D6Ca141a4F9B7"
+      }
+    },
+    "tokenA": "PER",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "CLBK-KSP": {
+    "name": "CLBK-KSP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x480A0b9d002f3325dbBE3a617d997148D466b6b6"
+      }
+    },
+    "tokenA": "CLBK",
+    "tokenB": "KSP",
+    "decimals": 18
+  },
+  "!!@#-KLAY": {
+    "name": "!!@#-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0703f577FAFcc5115260Eee60177927eC8E5354D"
+      }
+    },
+    "tokenA": "!!@#",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "!!@#-KDAI": {
+    "name": "!!@#-KDAI",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x310621847daD8b89687573FA12df61686bA0B74F"
+      }
+    },
+    "tokenA": "!!@#",
+    "tokenB": "KDAI",
+    "decimals": 18
+  },
+  "!!@#-oUSDT": {
+    "name": "!!@#-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4b1853FcE9a290457679269B097c6Bc57610302f"
+      }
+    },
+    "tokenA": "!!@#",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "CLAM-oUSDT": {
+    "name": "CLAM-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x87882C1a76fAd9ae5BF5bA1bEDD7d82Be73430C8"
+      }
+    },
+    "tokenA": "CLAM",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "kUSDT-oUSDC": {
+    "name": "kUSDT-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2E9269B718cc816De6A9E3C27E5bdb0F6A01b0ac"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "oUSDC",
+    "decimals": 6
+  },
+  "KLAY-oUSDC": {
+    "name": "KLAY-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3bce8d81AC54010bb7ea6e5960f2Ded6Fc6A7AC5"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "KSD-oUSDT": {
+    "name": "KSD-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC9aD2F9C45C9Cc3128C898fe55c14A146E7D1D88"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KSD-oUSDC": {
+    "name": "KSD-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3CC0099d7D8f18Df8B521e15ef46022fCaf6A48C"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "KSD-oWBTC": {
+    "name": "KSD-oWBTC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6DA444C57fFC8a58E52c5caf3975e7CBE91221Fe"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "oWBTC",
+    "decimals": 18
+  },
+  "KSD-oETH": {
+    "name": "KSD-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcD546688CB62b60deBe3860ED31B69f4d8EBCE3e"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "KSD-oXRP": {
+    "name": "KSD-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x603DC02F640e7C234Bb700D5d4320Bb78b3CfE46"
+      }
+    },
+    "tokenA": "KSD",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "bus-oXRP": {
+    "name": "bus-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x06F60e2f1D64b776aD5b063cBb508520C9b80c0b"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "bus-oORC": {
+    "name": "bus-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9115ED3f815Dc1fFc2BC35D27460bdDea17DF846"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "bus-oUSDC": {
+    "name": "bus-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8c946ba75D7C5Ed9A5118d1bF8E689c6b151Bd2C"
+      }
+    },
+    "tokenA": "bus",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "oUSDT-tAVELK": {
+    "name": "oUSDT-tAVELK",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0b5dBD999eEda642B1B2F93B5034A9155456f5Fc"
+      }
+    },
+    "tokenA": "oUSDT",
+    "tokenB": "tAVELK",
+    "decimals": 18
+  },
+  "KDAI-oUSDC": {
+    "name": "KDAI-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x79bEB3254Da6EC9B683E25C739314945DcC21620"
+      }
+    },
+    "tokenA": "KDAI",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "kBNB-oBUSD": {
+    "name": "kBNB-oBUSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5DA044864a2cbe03546810f6bb2f274a45edB8C6"
+      }
+    },
+    "tokenA": "kBNB",
+    "tokenB": "oBUSD",
+    "decimals": 18
+  },
+  "kUSDT-oBUSD": {
+    "name": "kUSDT-oBUSD",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2C4581ea232527be6B1DbD140e1786BC76ccAd61"
+      }
+    },
+    "tokenA": "kUSDT",
+    "tokenB": "oBUSD",
+    "decimals": 6
+  },
+  "KLAY-MON": {
+    "name": "KLAY-MON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xEEDb8802d8Fb7eE2324c5e1F09936DD62aCE51b0"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "MON",
+    "decimals": 18
+  },
+  "kXRP-oUSDT": {
+    "name": "kXRP-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xA2be534e5DD028288625bB376c81A9Eea3D9f0D5"
+      }
+    },
+    "tokenA": "kXRP",
+    "tokenB": "oUSDT",
+    "decimals": 6
+  },
+  "kXRP-oUSDC": {
+    "name": "kXRP-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x767bd4DD8BA6aC59EBd1172f91590E1C3C265cf6"
+      }
+    },
+    "tokenA": "kXRP",
+    "tokenB": "oUSDC",
+    "decimals": 6
+  },
+  "oUSDT-test_h": {
+    "name": "oUSDT-test_h",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x932EB7CF50D283cb29815a057b0134e3aC84A499"
+      }
+    },
+    "tokenA": "oUSDT",
+    "tokenB": "test_h",
+    "decimals": 9
+  },
+  "TOP-oXRP": {
+    "name": "TOP-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4051B8613fEeF0c5ed8E63EF9cC1dDE7e318Df0f"
+      }
+    },
+    "tokenA": "TOP",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "TOP2-oXRP": {
+    "name": "TOP2-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x456bc7B87b129932A499724B1fB0A0fc60E2bdD3"
+      }
+    },
+    "tokenA": "TOP2",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "HOOK-oUSDT": {
+    "name": "HOOK-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xF352c3523Ce697EF03b1e891DA67CeC6f020a047"
+      }
+    },
+    "tokenA": "HOOK",
+    "tokenB": "oUSDT",
+    "decimals": 9
+  },
+  "WEMIX-oUSDT": {
+    "name": "WEMIX-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
+      }
+    },
+    "tokenA": "WEMIX",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KSP-MON": {
+    "name": "KSP-MON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7bd5249b563390cc51f84bd4A90174622cFf4c0c"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MON",
+    "decimals": 18
+  },
+  "EKL-oUSDT": {
+    "name": "EKL-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x219ee5d76593F5bD639125B6411a17D309E3AD31"
+      }
+    },
+    "tokenA": "EKL",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "NIK-oETH": {
+    "name": "NIK-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8DF8ef24466846d3c1B2881d32841F906FcdD307"
+      }
+    },
+    "tokenA": "NIK",
+    "tokenB": "oETH",
+    "decimals": 16
+  },
+  "NIK-oXRP": {
+    "name": "NIK-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa1975bD8BDb133e0260106950E4Cb50f20b6FF2c"
+      }
+    },
+    "tokenA": "NIK",
+    "tokenB": "oXRP",
+    "decimals": 16
+  },
+  "KPG-oUSDT": {
+    "name": "KPG-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8A187220Fd9Dfc4FAfe1E206385EA55659147602"
+      }
+    },
+    "tokenA": "KPG",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "TOX-oETH": {
+    "name": "TOX-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xeb5b09b57bC9B13513d2f0cc3D1BeBDfA9F9f113"
+      }
+    },
+    "tokenA": "TOX",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "TOX-oUSDT": {
+    "name": "TOX-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x072B080B61E11c6521cC857d7076E50f920AF0dd"
+      }
+    },
+    "tokenA": "TOX",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "ACA-oUSDT": {
+    "name": "ACA-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xd87Ea302b03dE6fF8438a57E6d5D3600E119a204"
+      }
+    },
+    "tokenA": "ACA",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KLAY-oXDT": {
+    "name": "KLAY-oXDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xCb9e54C3364907721186D507623006dC66B430C7"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "oXDT",
+    "decimals": 18
+  },
+  "KSP-oXDT": {
+    "name": "KSP-oXDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xE4cfCeE489915BbE618692E9dF4D06D793584642"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oXDT",
+    "decimals": 18
+  },
+  "KSP-oUSDC": {
+    "name": "KSP-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x0661F3b95a1Ac449d659816D4adF8103f28D72cc"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "SIG-oUSDT": {
+    "name": "SIG-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB821E4cC5B913f307db7d11d3360A6eB5b38bf9f"
+      }
+    },
+    "tokenA": "SIG",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "MON-oUSDT": {
+    "name": "MON-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x583b3Df061Aa12bA25Ae5E1665219B7132eA10DA"
+      }
+    },
+    "tokenA": "MON",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "CEIK-oUSDT": {
+    "name": "CEIK-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3e859fcA1A49Ca87024F33810587d4CF685a64d9"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "oUSDT",
+    "decimals": 8
+  },
+  "CEIK-oETH": {
+    "name": "CEIK-oETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x6bbcDf8Dd1105Eed613aB7a8e18afBa1B4134728"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "oETH",
+    "decimals": 8
+  },
+  "CEIK-oBNB": {
+    "name": "CEIK-oBNB",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x68248490A782BB9444475F028da811BE869E6133"
+      }
+    },
+    "tokenA": "CEIK",
+    "tokenB": "oBNB",
+    "decimals": 8
+  },
+  "WALK-oUSDT": {
+    "name": "WALK-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x27E41D647964a77eBcbe03B419c1F2561279e8dA"
+      }
+    },
+    "tokenA": "WALK",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "ZEMIT-oUSDT": {
+    "name": "ZEMIT-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xa6F631A84657c370C77677bCf052d60C4548187b"
+      }
+    },
+    "tokenA": "ZEMIT",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "BBC-Princess": {
+    "name": "BBC-Princess",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD93eD46675D3C827fa9F37c804F2B9c7D44b4D97"
+      }
+    },
+    "tokenA": "BBC",
+    "tokenB": "Princess",
+    "decimals": 18
+  },
+  "KLD-oUSDT": {
+    "name": "KLD-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xC533af28B29cea0c91eAE6355ca1A5FdAFD8366B"
+      }
+    },
+    "tokenA": "KLD",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "SKZ-oUSDT": {
+    "name": "SKZ-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdcb50097A9F49c9A1D7D5A228eA8981A3Ab89045"
+      }
+    },
+    "tokenA": "SKZ",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "GRND-oUSDT": {
+    "name": "GRND-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xcCd8E77512a20cBFb97ca6A3A0799dDcA2D37512"
+      }
+    },
+    "tokenA": "GRND",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KSP-MOON": {
+    "name": "KSP-MOON",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x09a1C4Ac04D7A3FAb3f359b35393B33430b4E1Eb"
+      }
+    },
+    "tokenA": "KSP",
+    "tokenB": "MOON",
+    "decimals": 18
+  },
+  "KTX-oUSDC": {
+    "name": "KTX-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4c031977003E57ec2b440061FF2c14BDf39E945c"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "KTX-oXRP": {
+    "name": "KTX-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x89c40fe585698Ad02E3D481C75318FbeebEdbDD1"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "GXA-oUSDT": {
+    "name": "GXA-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xB31b5Cf1f886c76Fb34c183dDE8D3E58Ccf67b03"
+      }
+    },
+    "tokenA": "GXA",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "KTX-oORC": {
+    "name": "KTX-oORC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x30D37c6FD9311Bee211BB584E0377bf9aBA6C3f4"
+      }
+    },
+    "tokenA": "KTX",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "DropTheBit-oXRP": {
+    "name": "DropTheBit-oXRP",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x3D64D93772c08F847Cd35ce1c7D21201Be1ae9c3"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "DropTheBit-oUSDC": {
+    "name": "DropTheBit-oUSDC",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x8dAD3E33EE3adF1f629E2144a00546f42ed7f27c"
+      }
+    },
+    "tokenA": "DropTheBit",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "SAK-oUSDT": {
+    "name": "SAK-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x81213b02D7CD0Ce407Ba14579Fa3b8B28BB1b4AC"
+      }
+    },
+    "tokenA": "SAK",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "PXL-oUSDT": {
+    "name": "PXL-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x661aA56c373C01B55F61Ec0A2FD74222a90F0AB0"
+      }
+    },
+    "tokenA": "PXL",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "AZIT-oUSDT": {
+    "name": "AZIT-oUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x510c6554602110863639dDeE87deBA47773FdcBE"
+      }
+    },
+    "tokenA": "AZIT",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "AGOV-MPWR": {
+    "name": "AGOV-MPWR",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x978eE48Cc36839435D5501E0ee50ffd8e2fD33FA"
+      }
+    },
+    "tokenA": "AGOV",
+    "tokenB": "MPWR",
+    "decimals": 18
+  },
+  "CBANK-kETH": {
+    "name": "CBANK-kETH",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x17471C56A25274e40e0E12b4871D58de37765BCd"
+      }
+    },
+    "tokenA": "CBANK",
+    "tokenB": "kETH",
+    "decimals": 18
+  },
+  "FOCUS-kUSDT": {
+    "name": "FOCUS-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x73194d250AE24264597a5c3b28A90fC82CF46180"
+      }
+    },
+    "tokenA": "FOCUS",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KZON-kUSDT": {
+    "name": "KZON-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xac555AB260ed16313A42afA6e35c9D24423d9A3c"
+      }
+    },
+    "tokenA": "KZON",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "CDM-KLAY": {
+    "name": "CDM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc587c02A6205168874175E78EDc0B951833ed932"
+      }
+    },
+    "tokenA": "CDM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "CDM-kUSDT": {
+    "name": "CDM-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x7C48e798F1C9550c6Ce25143d98D274331D61d5D"
+      }
+    },
+    "tokenA": "CDM",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "NOX-kUSDT": {
+    "name": "NOX-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xFcc8018793d27A29060fC00c46e0cB933b40B249"
+      }
+    },
+    "tokenA": "NOX",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-NOX": {
+    "name": "KLAY-NOX",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x4c4707d2D42C526F6BD6B4d6EB5Cdc3587820216"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "NOX",
+    "decimals": 18
+  },
+  "KACE-kUSDT": {
+    "name": "KACE-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xD2965a37e0879b5Dd3c7235057594C4Cc024e5fc"
+      }
+    },
+    "tokenA": "KACE",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "3KM-KLAY": {
+    "name": "3KM-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xdF0f12A430E5eD5aF2d565f92e0d304D687ec9f9"
+      }
+    },
+    "tokenA": "3KM",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "DTC-KLAY": {
+    "name": "DTC-KLAY",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x1A3e345271F95172970993249A552A1EF35B7636"
+      }
+    },
+    "tokenA": "DTC",
+    "tokenB": "KLAY",
+    "decimals": 18
+  },
+  "KLAY-PPT": {
+    "name": "KLAY-PPT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x9446a56948f5e18e1ff3CE6eAa52aF5E2Bb13b85"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "PPT",
+    "decimals": 18
+  },
+  "oETH-oUSDC": {
+    "name": "oETH-oUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x2bAb2b10E423491c12C449d99ad8AaeD5C46Fe4a"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "oMATIC-oUSDC": {
+    "name": "oMATIC-oUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x35456FD93f9e95fB059Da27A18d6Cc1266a1b3FB"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "oUSDC",
+    "decimals": 18
+  },
+  "oETH-oMATIC": {
+    "name": "oETH-oMATIC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x3Ee2A6DB97F493f0221Bb285F15e3021CdcaEcCd"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oMATIC",
+    "decimals": 18
+  },
+  "WETH-oETH": {
+    "name": "WETH-oETH",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x1d085893853C9a0351BD3e4A83d9D688c07C7D8b"
+      }
+    },
+    "tokenA": "WETH",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "mUSDC-oUSDC": {
+    "name": "mUSDC-oUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
+      }
+    },
+    "tokenA": "mUSDC",
+    "tokenB": "oUSDC",
+    "decimals": 6
+  },
+  "USDT-oUSDT": {
+    "name": "USDT-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x58A7AaC84560F994d191e78aEB690855eB2D5B88"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "oUSDT",
+    "decimals": 6
+  },
+  "oETH-oXRP": {
+    "name": "oETH-oXRP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x0F060031a8F54b06749E295C31cCd7C1B987c450"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oXRP",
+    "decimals": 18
+  },
+  "oDAI-oETH": {
+    "name": "oDAI-oETH",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x69e0b4C6D30597Fa92ad92721340fb5Ba4e80a72"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "oETH",
+    "decimals": 18
+  },
+  "oDAI-oUSDC": {
+    "name": "oDAI-oUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x76bB20ab94BAe0Df3C5f49218FEE68297aFE76EC"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "oUSDC",
+    "decimals": 6
+  },
+  "oDAI-oUSDT": {
+    "name": "oDAI-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x113262C345C99543f746a8F591A1E99D37574552"
+      }
+    },
+    "tokenA": "oDAI",
+    "tokenB": "oUSDT",
+    "decimals": 6
+  },
+  "oETH-oUSDT": {
+    "name": "oETH-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xff85431402B84d60a9B21cbDCe45B0Dcb83a56fD"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "oMATIC-oUSDT": {
+    "name": "oMATIC-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xb9a2A03E1F1Eb2424ea3C88B5f7C8742e941d752"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "oETH-oWBTC": {
+    "name": "oETH-oWBTC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x82916890DD5A6Ca892acA21700532dCF3745fb01"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oWBTC",
+    "decimals": 18
+  },
+  "oKLAY-oUSDT": {
+    "name": "oKLAY-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x92521a0eB5d1f6B7c558f8cECba7655c6E5c1308"
+      }
+    },
+    "tokenA": "oKLAY",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "oETH-oKLAY": {
+    "name": "oETH-oKLAY",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x10A28A913f226BDdC49a5336a73920aB8ab8db3e"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oKLAY",
+    "decimals": 18
+  },
+  "oMATIC-oORC": {
+    "name": "oMATIC-oORC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x1C3F2B2E6980339CB4f7f0f2c0c55906c81De4f5"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "oUSDT-oXRP": {
+    "name": "oUSDT-oXRP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x3D343a5DC783063a784298828fA686B1e661c165"
+      }
+    },
+    "tokenA": "oUSDT",
+    "tokenB": "oXRP",
+    "decimals": 6
+  },
+  "WETH-oXRP": {
+    "name": "WETH-oXRP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xb6349ED6f9B4FCC04Eda18850e2A1c57dcdB5d24"
+      }
+    },
+    "tokenA": "WETH",
+    "tokenB": "oXRP",
+    "decimals": 6
+  },
+  "USDT-oXRP": {
+    "name": "USDT-oXRP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xBEba04852cDB1579A38b6116DE36aE927f7A2D28"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "oXRP",
+    "decimals": 6
+  },
+  "oMATIC-oXRP": {
+    "name": "oMATIC-oXRP",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xC330f2706870942F508F600E3C6f59fc7242C14F"
+      }
+    },
+    "tokenA": "oMATIC",
+    "tokenB": "oXRP",
+    "decimals": 6
+  },
+  "MESH-oORC": {
+    "name": "MESH-oORC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xe21270209976244664a87ACAAAC2CadcA5beE5D4"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oORC",
+    "decimals": 18
+  },
+  "oMKC-oUSDT": {
+    "name": "oMKC-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x9EDDC0BEF69AC8D9D517b2d87145D13F6a7EB137"
+      }
+    },
+    "tokenA": "oMKC",
+    "tokenB": "oUSDT",
+    "decimals": 18
+  },
+  "oETH-oMKC": {
+    "name": "oETH-oMKC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x728e70Cbe35E187C8B5a5797e5f7610a20ad8Ffc"
+      }
+    },
+    "tokenA": "oETH",
+    "tokenB": "oMKC",
+    "decimals": 18
+  },
+  "WMATIC-oXDT": {
+    "name": "WMATIC-oXDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x0E1A5c06DD1e6D4f3Dcf9c553D2D5a5EF42147da"
+      }
+    },
+    "tokenA": "WMATIC",
+    "tokenB": "oXDT",
+    "decimals": 18
+  },
+  "MESH-oXDT": {
+    "name": "MESH-oXDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xe90CD966B735d06472E2eEDF4D8E9a65d81Ec575"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "oXDT",
+    "decimals": 18
+  },
+  "oETHW-oUSDT": {
+    "name": "oETHW-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
+      }
+    },
+    "tokenA": "oETHW",
+    "tokenB": "oUSDT",
+    "decimals": 6
+  },
+  "oETF-oUSDT": {
+    "name": "oETF-oUSDT",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x18f0381a4Ee6ad535A0eDF687C8BAD2632d2B2eA"
+      }
+    },
+    "tokenA": "oETF",
+    "tokenB": "oUSDT",
+    "decimals": 6
+  },
+  "SHO-mUSDC": {
+    "name": "SHO-mUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xa718AE6d3962271B8095251B8BC4153bA84d0B37"
+      }
+    },
+    "tokenA": "SHO",
+    "tokenB": "mUSDC",
+    "decimals": 18
+  },
+  "MESH-shoMESH": {
+    "name": "MESH-shoMESH",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x179E9CE02CFCDd437ee97F3AD58d53731CE71682"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "shoMESH",
+    "decimals": 18
+  },
+  "MATIC-USDC.p": {
+    "name": "MATIC-USDC.p",
+    "baseChain": {
+      "MATIC": {
+        "quickswap": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827",
+        "meshswap": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827"
+      }
+    },
+    "tokenA": "MATIC",
+    "tokenB": "USDC.p",
+    "decimals": "6"
+  },
+  "XRP.m-wMOOI": {
+    "name": "XRP.m-wMOOI",
+    "baseChain": {
+      "MOOI": {
+        "mooiswap": "0xD35b42B0170cFe6ac986e938FA6ECd60bB528F79"
+      }
+    },
+    "tokenA": "XRP.m",
+    "tokenB": "wMOOI",
+    "decimals": 18
+  },
+  "USDT-USDC": {
+    "name": "USDT-USDC",
+    "baseChain": {
+      "ETH": {
+        "uniswap": "0xD35b42B0170cFe6ac986e938FA6ECd60bB528F79"
+      }
+    },
+    "tokenA": "USDT",
+    "tokenB": "USDC",
+    "decimals": 9
+  },
+  "fFXS-fFRAX": {
+    "name": "fFXS-fFRAX",
+    "baseChain": {
+      "FTM": {
+        "Fraxswap": "0x4ac3de029f4c11ab40a51336f7229d67cd1e92a5"
+      }
+    },
+    "tokenA": "fFXS",
+    "tokenB": "fFRAX",
+    "decimals": 9
+  },
+  "aFRAX-aFXS": {
+    "name": "aFRAX-aFXS",
+    "baseChain": {
+      "AVAX": {
+        "Fraxswap": "0x27cc2be95d1492bba726e10eba57968a065f05ec"
+      }
+    },
+    "tokenA": "aFRAX",
+    "tokenB": "aFXS",
+    "decimals": 9
+  },
+  "mFRAX-mFXS": {
+    "name": "mFRAX-mFXS",
+    "baseChain": {
+      "MATIC": {
+        "Fraxswap": "0x27cc2be95d1492bba726e10eba57968a065f05ec"
+      }
+    },
+    "tokenA": "mFRAX",
+    "tokenB": "mFXS",
+    "decimals": 9
+  },
+  "FTM-fUSDC": {
+    "name": "FTM-fUSDC",
+    "baseChain": {
+      "FTM": {
+        "Spookyswap": "0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c"
+      }
+    },
+    "tokenA": "FTM",
+    "tokenB": "fUSDC",
+    "decimals": 18
+  },
+  "FTM-fUSDT": {
+    "name": "FTM-fUSDT",
+    "baseChain": {
+      "FTM": {
+        "Spookyswap": "0x3a1659ddcf2339be3aea159ca010979fb49155ff"
+      }
+    },
+    "tokenA": "FTM",
+    "tokenB": "fUSDT",
+    "decimals": 18
+  },
+  "aUSDC-AVAX": {
+    "name": "aUSDC-AVAX",
+    "baseChain": {
+      "AVAX": {
+        "traderjoe": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
+        "pangolin": "0x0e0100Ab771E9288e0Aa97e11557E6654C3a9665"
+      }
+    },
+    "tokenA": "aUSDC",
+    "tokenB": "AVAX",
+    "decimals": "6"
+  },
+  "BTC.b-aUSDC": {
+    "name": "BTC.b-aUSDC",
+    "baseChain": {
+      "AVAX": {
+        "traderjoe": "0x4224f6f4c9280509724db2dbac314621e4465c29"
+      }
+    },
+    "tokenA": "BTC.b",
+    "tokenB": "aUSDC",
+    "decimals": "18",
+    "isV21": true
+  }
+}

@@ -1,32 +1,18 @@
 {
-
-    "name" : "ccdxt",
-    "version" : "0.1",
-    "description": "Python DEX trading API",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/MunSunouk/ccdxt.git"
-    },
-    "readme": "README.md",
-    "author": {
-        "name": "Mun Sunouk",
-        "email": "mun_sunouk@gmail.com",
-        "url": "https://github.com/MunSunouk"
-    },
-    "homepage" : "https://github.com/MunSunouk",
-    "license": "MIT",
-    "keywords": [
-      "python",
-      "api",
-      "library",
-      "crypto",
-      "decentralized",
-      "blockchain",
-      "cryptocurrency",
-      "swap",
-      "trade",
-      "arbitrage",
-      "dex",
-      "web3py"
-    ]
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "dependencies": {
+    "@1inch/fusion-sdk": "^0.1.9",
+    "@1inch/limit-order-protocol": "^2.0.4",
+    "@ethersproject/contracts": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@traderjoe-xyz/sdk": "^4.1.0",
+    "@traderjoe-xyz/sdk-core": "^1.1.0",
+    "@traderjoe-xyz/sdk-v2": "^2.1.4",
+    "@uniswap/sdk": "^3.0.3",
+    "ethers": "^6.7.0",
+    "typescript": "^5.1.6"
+  }
 }

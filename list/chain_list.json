@@ -1,0 +1,197 @@
+{
+  "ETH": {
+    "name": "ETH",
+    "baseChain": "ethereum",
+    "baseCurrency": "ETH",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": true,
+    "POS": false,
+    "chainAbi": "IERC20.json",
+    "coingecko_id": "ethereum",
+    "mainnet": {
+      "chain_id": 1,
+      "name": "ETH Mainnet",
+      "public_node": "https://mainnet.infura.io/v3/ec38ddffd09846b79da2e8ec3ec03ed1",
+      "webscoket": "wss://public-node-api.klaytnapi.com/v1/cypress/ws",
+      "block_scope": "https://etherscan.io"
+    },
+    "testnet": {
+      "chain_id": 1001,
+      "name": "Baobab",
+      "public_node": "https://api.baobab.klaytn.net:8651/",
+      "webscoket": false,
+      "block_scope": "https://baobab.scope.klaytn.com/"
+    }
+  },
+  "KLAYTN": {
+    "name": "KLAYTN",
+    "baseChain": "klaytn",
+    "baseCurrency": "KLAY",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": true,
+    "POS": false,
+    "chainAbi": "IKIP7.json",
+    "coingecko_id": "klay-token",
+    "mainnet": {
+      "chain_id": 8217,
+      "name": "Cypress",
+      "public_node": "https://cypress-en-global.mooichain.io:443",
+      "webscoket": false,
+      "block_scope": "https://scope.klaytn.com"
+    },
+    "testnet": {
+      "chain_id": 1001,
+      "name": "Baobab",
+      "public_node": "https://api.baobab.klaytn.net:8651",
+      "webscoket": false,
+      "block_scope": "https://baobab.scope.klaytn.com"
+    }
+  },
+
+  "ORBIT": {
+    "name": "ORBIT",
+    "baseChain": "orbit",
+    "baseCurrency": "ORC",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": false,
+    "POS": false,
+    "chainAbi": "orbit_hub_abi.json",
+    "mainnet": {
+      "chain_id": "0x7e1",
+      "name": "Orbit chain",
+      "public_node": "https://rpc.orbitchain.io",
+      "webscoket": false,
+      "block_scope": "https://explorer.orbitchain.io"
+    },
+    "testnet": {
+      "chain_id": null,
+      "name": null,
+      "public_node": null,
+      "webscoket": false,
+      "block_scope": null
+    }
+  },
+
+  "MATIC": {
+    "name": "MATIC",
+    "baseChain": "polygon",
+    "baseCurrency": "MATIC",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": false,
+    "POS": true,
+    "chainAbi": "IERC20.json",
+    "coingecko_id": "matic-network",
+    "mainnet": {
+      "chain_id": 137,
+      "name": "Polygon Mainnet",
+      "public_node": "https://polygon-rpc.com",
+      "webscoket": "wss://rpc-mainnet.matic.network",
+      "block_scope": "https://polygonscan.com"
+    },
+    "testnet": {
+      "chain_id": 80001,
+      "name": "Mumbai Testnet",
+      "public_node": "https://rpc-mumbai.maticvigil.com/",
+      "webscoket": false,
+      "block_scope": "https://polygonscan.com"
+    }
+  },
+
+  "FTM": {
+    "name": "FTM",
+    "baseChain": "fantom",
+    "baseCurrency": "FTM",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": false,
+    "POS": true,
+    "chainAbi": "IERC20.json",
+    "coingecko_id": "fantom",
+    "mainnet": {
+      "chain_id": 250,
+      "name": "FANTOM Mainnet",
+      "public_node": "https://rpc.ftm.tools",
+      "webscoket": false,
+      "block_scope": "https://ftmscan.com"
+    },
+    "testnet": {
+      "chain_id": 80001,
+      "name": "Mumbai Testnet",
+      "public_node": "https://rpc-mumbai.maticvigil.com/",
+      "webscoket": false,
+      "block_scope": "https://ftmscan.com"
+    }
+  },
+
+  "AVAX": {
+    "name": "AVAX",
+    "baseChain": "avax",
+    "baseCurrency": "AVAX",
+    "baseContract": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "limit": true,
+    "POS": true,
+    "chainAbi": "IERC20.json",
+    "coingecko_id": "avalanche-2",
+    "mainnet": {
+      "chain_id": 43114,
+      "name": "Avalanche Mainnet C-Chain",
+      "public_node": "https://api.avax.network/ext/bc/C/rpc",
+      "webscoket": false,
+      "block_scope": "https://snowtrace.io"
+    },
+    "testnet": {
+      "chain_id": 43113,
+      "name": "Avalanche FUJI C-Chain",
+      "public_node": "https://api.avax-test.network/ext/bc/C/rpc",
+      "webscoket": false,
+      "block_scope": "https://testnet.snowtrace.io"
+    }
+  },
+
+  "MOOI": {
+    "name": "MOOI",
+    "baseChain": "mooi",
+    "baseCurrency": "MOOI",
+    "baseContract": "0x0000000000000000000000000000000000000000",
+    "limit": false,
+    "POS": false,
+    "chainAbi": "IERC20.json",
+    "coingecko_id": "mooi-network",
+    "mainnet": {
+      "chain_id": 1201,
+      "name": "MOOI Mainnet",
+      "public_node": "https://sen-global.mooichain.io:443",
+      "webscoket": "false",
+      "block_scope": "https://scope.mooichain.io"
+    },
+    "testnet": {
+      "chain_id": null,
+      "name": "null",
+      "public_node": "https://alpha-sen-global.mooichain.io",
+      "webscoket": false,
+      "block_scope": "null"
+    }
+  },
+  "XRP": {
+    "name": "XRP",
+    "baseChain": "xrp",
+    "baseCurrency": "XRP",
+    "baseContract": "0xCF653100Df5CA1182f02c8C8FCf37F52abfb8963",
+    "limit": false,
+    "POS": false,
+    "chainAbi": "IERC20.json",
+    "mainnet": {
+      "chain_id": 1201,
+      "name": "MOOI Mainnet",
+      "public_node": "https://sen-global.mooichain.io:443",
+      "webscoket": "false",
+      "block_scope": "https://scope.mooichain.io"
+    },
+    "testnet": {
+      "chain_id": null,
+      "name": "null",
+      "public_node": "null",
+      "webscoket": false,
+      "block_scope": "null"
+    }
+  }
+}

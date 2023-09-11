@@ -1,2 +1,0 @@
-web3,
-eth-tester==0.7.0b1

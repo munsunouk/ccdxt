@@ -1,0 +1,653 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "xrpContract", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "adminHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      }
+    ],
+    "name": "AddBeneficiaryXrpAdmin",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "adminHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      }
+    ],
+    "name": "AddBlockedBeneficiaryXrpAdmin",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      }
+    ],
+    "name": "AdminAddition",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      }
+    ],
+    "name": "AdminRemoval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateTag",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "depositAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amountXrp6Decimals",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpDepositHash",
+        "type": "string"
+      }
+    ],
+    "name": "DepositXrp",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      }
+    ],
+    "name": "MinterAddition",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      }
+    ],
+    "name": "MinterRemoval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      }
+    ],
+    "name": "PrepareTag",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "adminHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      }
+    ],
+    "name": "RemoveBlockedBeneficiaryXrpAdmin",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "status",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      }
+    ],
+    "name": "UpdateDepositStatus",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "status",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      }
+    ],
+    "name": "UpdateWithdrawStatus",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "xrpAddress",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "nonce",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      }
+    ],
+    "name": "WithdrawXrpm",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "name": "addAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "xrpAddr", "type": "string" }
+    ],
+    "name": "addBeneficiaryXrpAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "xrpAddr", "type": "string" }
+    ],
+    "name": "addBlockedBeneficiaryXrpAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "name": "addMinter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "a", "type": "string" },
+      { "internalType": "string", "name": "b", "type": "string" }
+    ],
+    "name": "compareStrings",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "destTag", "type": "uint256" }
+    ],
+    "name": "createDestinationTag",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "depositAddress",
+        "type": "address"
+      },
+      { "internalType": "string", "name": "xrpAddress", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountXrp6Decimals",
+        "type": "uint256"
+      },
+      { "internalType": "string", "name": "xrpDepositHash", "type": "string" },
+      { "internalType": "uint256", "name": "nonce", "type": "uint256" }
+    ],
+    "name": "depositXrp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "key", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "xrpFee18Decimals",
+        "type": "uint256"
+      }
+    ],
+    "name": "finDeposit_mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "key", "type": "string" }],
+    "name": "finWithdraw_burn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes4", "name": "code", "type": "bytes4" }],
+    "name": "fromCode",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "user", "type": "address" }
+    ],
+    "name": "getAddressTagInfoByAddress",
+    "outputs": [
+      { "internalType": "address", "name": "user_", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag_",
+        "type": "uint256"
+      },
+      { "internalType": "bool", "name": "activated_", "type": "bool" },
+      { "internalType": "uint256", "name": "activatedTime_", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "destTag", "type": "uint256" }
+    ],
+    "name": "getAddressTagInfoByTag",
+    "outputs": [
+      { "internalType": "address", "name": "user_", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag_",
+        "type": "uint256"
+      },
+      { "internalType": "bool", "name": "activated_", "type": "bool" },
+      { "internalType": "uint256", "name": "activatedTime_", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAdmins",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBeneficiaryXrpAddrs",
+    "outputs": [{ "internalType": "string[]", "name": "", "type": "string[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBlockedBeneficiaryXrpAddrs",
+    "outputs": [{ "internalType": "string[]", "name": "", "type": "string[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "key", "type": "string" }],
+    "name": "getDepositTxInfo",
+    "outputs": [
+      { "internalType": "address", "name": "user_", "type": "address" },
+      { "internalType": "string", "name": "xrpAddress_", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountXrp6Decimals_",
+        "type": "uint256"
+      },
+      { "internalType": "string", "name": "xrpDepositHash_", "type": "string" },
+      { "internalType": "string", "name": "xrpVaultHash_", "type": "string" },
+      { "internalType": "string", "name": "mintHash_", "type": "string" },
+      { "internalType": "uint256", "name": "status_", "type": "uint256" },
+      { "internalType": "uint256", "name": "eventTime_", "type": "uint256" },
+      { "internalType": "uint256", "name": "loadTime_", "type": "uint256" },
+      { "internalType": "uint256", "name": "vaultTime_", "type": "uint256" },
+      { "internalType": "uint256", "name": "mintTime_", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMinters",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "key", "type": "string" }],
+    "name": "getWithdrawTxInfo",
+    "outputs": [
+      { "internalType": "address", "name": "user_", "type": "address" },
+      { "internalType": "string", "name": "xrpAddress_", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountToken18Decimals_",
+        "type": "uint256"
+      },
+      { "internalType": "string", "name": "xrpHash_", "type": "string" },
+      { "internalType": "string", "name": "burnHash_", "type": "string" },
+      { "internalType": "uint256", "name": "status_", "type": "uint256" },
+      { "internalType": "uint256", "name": "escrowTime_", "type": "uint256" },
+      { "internalType": "uint256", "name": "transferTime_", "type": "uint256" },
+      { "internalType": "uint256", "name": "burnTime_", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "xrpAddr", "type": "string" }
+    ],
+    "name": "isValidBeneficiaryXrpAddress",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "operator", "type": "address" },
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+      { "internalType": "bytes", "name": "data", "type": "bytes" }
+    ],
+    "name": "onERC721Received",
+    "outputs": [{ "internalType": "bytes4", "name": "", "type": "bytes4" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "operator", "type": "address" },
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+      { "internalType": "bytes", "name": "data", "type": "bytes" }
+    ],
+    "name": "onKIP17Received",
+    "outputs": [{ "internalType": "bytes4", "name": "", "type": "bytes4" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "user", "type": "address" },
+      { "internalType": "uint256", "name": "destTag", "type": "uint256" }
+    ],
+    "name": "prepareDestinationTag",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "name": "removeAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "xrpAddr", "type": "string" }
+    ],
+    "name": "removeBlockedBeneficiaryXrpAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "admin", "type": "address" }
+    ],
+    "name": "removeMinter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "key", "type": "string" },
+      { "internalType": "address", "name": "user", "type": "address" },
+      { "internalType": "uint256", "name": "status", "type": "uint256" },
+      { "internalType": "string", "name": "txhash", "type": "string" }
+    ],
+    "name": "updateDepositStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "key", "type": "string" },
+      { "internalType": "address", "name": "user", "type": "address" },
+      { "internalType": "uint256", "name": "status", "type": "uint256" },
+      { "internalType": "string", "name": "txhash", "type": "string" }
+    ],
+    "name": "updateWithdrawStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "xrpAddress", "type": "string" },
+      {
+        "internalType": "uint256",
+        "name": "destinationTag",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount18Decimals",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "nonce", "type": "uint256" }
+    ],
+    "name": "withdrawXrp_m",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "xrpmContract",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

@@ -1,0 +1,3386 @@
+{
+  "KDAI": {
+    "name": "Klaytn Dai",
+    "symbol": "KDAI",
+    "contract": "0x5c74070FDeA071359b86082bd9f9b3dEaafbe32b",
+    "decimals": 18
+  },
+  "KLAY": {
+    "name": "KLAY",
+    "symbol": "KLAY",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": 18
+  },
+  "MOOI": {
+    "name": "MOOI",
+    "symbol": "MOOI",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": 18
+  },
+  "ETH": {
+    "name": "ETH",
+    "symbol": "ETH",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": 18
+  },
+  "JGT": {
+    "name": "Janken Game Token",
+    "symbol": "JGT",
+    "contract": "0xF85e6fA48eD1B4bc834632C824da2fB46cA5caA1",
+    "decimals": 18
+  },
+  "CLAW": {
+    "name": "CLAW",
+    "symbol": "CLAW",
+    "contract": "0xCA0aa20709D7e082F6141895eB1A4e2Ac7a8b38a",
+    "decimals": 18
+  },
+  "SD": {
+    "name": "Starry Dust",
+    "symbol": "SD",
+    "contract": "0xd91259c65d93Fc052673439c58eA26540E6fb9E1",
+    "decimals": 18
+  },
+  "KS": {
+    "name": "KissStone",
+    "symbol": "KS",
+    "contract": "0xe77E0Cc18BD6A563588fd80892824a618037BE5a",
+    "decimals": 18
+  },
+  "kETH": {
+    "name": "Orbit Bridge Klaytn Ethereum",
+    "symbol": "kETH",
+    "contract": "0x34d21b1e550D73cee41151c77F3c73359527a396",
+    "decimals": 18
+  },
+  "ISR": {
+    "name": "Insureum Token",
+    "symbol": "ISR",
+    "contract": "0x9657fb399847D85A9C1A234ECe9ca09D5c00f466",
+    "decimals": 18
+  },
+  "ABL": {
+    "name": "Airbloc",
+    "symbol": "ABL",
+    "contract": "0x46f307B58bf05Ff089BA23799FAE0e518557f87C",
+    "decimals": 18
+  },
+  "kUSDT": {
+    "name": "Orbit Bridge Klaytn USD Tether",
+    "symbol": "kUSDT",
+    "contract": "0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH",
+    "additionalGasFee": 20,
+    "MinimumBridge": 0
+  },
+  "KWBTC": {
+    "name": "KWBTC",
+    "symbol": "KWBTC",
+    "contract": "0x16D0e1fBD024c600Ca0380A4C5D57Ee7a2eCBf9c",
+    "decimals": "18"
+  },
+  "KSP": {
+    "name": "KlaySwap Protocol",
+    "symbol": "KSP",
+    "contract": "0xC6a2Ad8cC6e4A7E08FC37cC5954be07d499E7654",
+    "decimals": 18
+  },
+  "AGOV": {
+    "name": "Answer Governance",
+    "symbol": "AGOV",
+    "contract": "0x588C62eD9aa7367d7cd9C2A9aaAc77e44fe8221B",
+    "decimals": 18
+  },
+  "BEE": {
+    "name": "KLAYFarm Token",
+    "symbol": "BEE",
+    "contract": "0xa128e62cfb454AB5B580A7385dE2F228ad7b69D1",
+    "decimals": 18
+  },
+  "BBC": {
+    "name": "BLUEBAIKAL",
+    "symbol": "BBC",
+    "contract": "0x321Bc0B63EFb1e4af08Ec6D20c85D5E94dDaAa18",
+    "decimals": 18
+  },
+  "CLBK": {
+    "name": "Cloudbric",
+    "symbol": "CLBK",
+    "contract": "0xC4407f7DC4B37275c9ce0F839652b393e13fF3D1",
+    "decimals": 18
+  },
+  "KHANDY": {
+    "name": "KHANDY",
+    "symbol": "KHANDY",
+    "contract": "0x3F34671FbA493aB39FBf4Ecac2943ee62b654A88",
+    "decimals": "18"
+  },
+  "kXRP": {
+    "name": "Orbit Bridge Klaytn Ripple",
+    "symbol": "kXRP",
+    "contract": "0x9eaeFb09fe4aABFbE6b1ca316a3c36aFC83A393F",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "XRP",
+    "MinimumBridge": 22,
+    "additionalGasFee": 10
+  },
+  "kORC": {
+    "name": "Orbit Bridge Klaytn Orbit Chain",
+    "symbol": "kORC",
+    "contract": "0xFe41102f325dEaa9F303fDd9484Eb5911a7BA557",
+    "decimals": 18
+  },
+  "KDUCATO": {
+    "name": "Orbit Bridge Klaytn DUCATO Protocol Token",
+    "symbol": "KDUCATO",
+    "contract": "0x91e0d7b228A33072D9b3209cf507F78A4bD835F2",
+    "decimals": 18
+  },
+  "HIBS": {
+    "name": "HiblocksToken",
+    "symbol": "HIBS",
+    "contract": "0xE06b40df899b9717b4E6B50711E1dc72d08184cF",
+    "decimals": 18
+  },
+  "KBELT": {
+    "name": "KBELT",
+    "symbol": "KBELT",
+    "contract": "0xDFe180E288158231ffA5faF183ECA3301344a51F",
+    "decimals": "18"
+  },
+  "KAUTO": {
+    "name": "KAUTO",
+    "symbol": "KAUTO",
+    "contract": "0x8583063110b5d29036eceD4db1CC147e78a86a77",
+    "decimals": "18"
+  },
+  "oAUTO": {
+    "name": "Orbit Bridge Klaytn AUTOv2",
+    "symbol": "oAUTO",
+    "contract": "0x8583063110b5d29036eceD4db1CC147e78a86a77",
+    "decimals": 18
+  },
+  "BUZ": {
+    "name": "Beeblock",
+    "symbol": "BUZ",
+    "contract": "0x75aD14d0360408Dc6F8163e5DFB51AAd516f4AfD",
+    "decimals": 18
+  },
+  "KAI": {
+    "name": "Kai Token",
+    "symbol": "KAI",
+    "contract": "0xe950bdcFa4d1e45472E76cf967Db93dBfc51Ba3E",
+    "decimals": 18
+  },
+  "INFR": {
+    "name": "Influencer",
+    "symbol": "INFR",
+    "contract": "0x12d8A34e68f8c0333F10265A6930381657a9CC18",
+    "decimals": 18
+  },
+  "KISDT": {
+    "name": "KISDT",
+    "symbol": "KISDT",
+    "contract": "0x1c1187ff22Bb50A2cDCB1e1D683fCB5E8A42915f",
+    "decimals": "18"
+  },
+  "sBWPM": {
+    "name": "BWPM Vault",
+    "symbol": "sBWPM",
+    "contract": "0xF4546E1D3aD590a3c6d178d671b3bc0e8a81e27d",
+    "decimals": 18
+  },
+  "KFI": {
+    "name": "KlayFi",
+    "symbol": "KFI",
+    "contract": "0xDB116E2Dc96B4e69e3544f41b50550436579979a",
+    "decimals": 18
+  },
+  "KICX": {
+    "name": "Orbit Bridge Klaytn ICON",
+    "symbol": "KICX",
+    "contract": "0x8eF60f0a5A2db984431934f8659058E87CD5C70a",
+    "decimals": 18
+  },
+  "bKAI": {
+    "name": "Kai Bond Token",
+    "symbol": "bKAI",
+    "contract": "0x968D93a44B3eF61168CA621a59DDc0e56583e592",
+    "decimals": 18
+  },
+  "HOUSE": {
+    "name": "Klaymore Stakehouse",
+    "symbol": "HOUSE",
+    "contract": "0x158BeFF8C8cDEbD64654ADD5F6A1d9937e73536c",
+    "decimals": 18
+  },
+  "AKLAY": {
+    "name": "Auto-Staking-Klay",
+    "symbol": "AKLAY",
+    "contract": "0x74BA03198FEd2b15a51AF242b9c63Faf3C8f4D34",
+    "decimals": 18
+  },
+  "PER": {
+    "name": "PER Project",
+    "symbol": "PER",
+    "contract": "0x7eeE60a000986E9efE7F5C90340738558c24317B",
+    "decimals": 18
+  },
+  "FINIX": {
+    "name": "Definix Token",
+    "symbol": "FINIX",
+    "contract": "0xD51C337147c8033a43F3B5ce0023382320C113Aa",
+    "decimals": 18
+  },
+  "DONT1BUY": {
+    "name": "DONT1BUY",
+    "symbol": "DONT1BUY",
+    "contract": "0x6499b23434D61A31C9DA5aF808fc0b9ee0c76B55",
+    "decimals": 18
+  },
+  "TESTTTT": {
+    "name": "TESTTTT",
+    "symbol": "TESTTTT",
+    "contract": "0xCAb47614B96B85538f2423BDA52342BDca7742b6",
+    "decimals": 18
+  },
+  "JUN": {
+    "name": "Jun Token",
+    "symbol": "JUN",
+    "contract": "0x5a55A1cd5Cc5E89019300213F9fAf20F57361D43",
+    "decimals": 18
+  },
+  "JUNS": {
+    "name": "Jun Share",
+    "symbol": "JUNS",
+    "contract": "0x69DF45D36341F6BAD3c4bEfFb9e77f2b74709C40",
+    "decimals": 18
+  },
+  "IMI": {
+    "name": "Influencer",
+    "symbol": "IMI",
+    "contract": "0xDDE2154f47E80C8721c2efbE02834ae056284368",
+    "decimals": 18
+  },
+  "KAERGO": {
+    "name": "KAERGO",
+    "symbol": "KAERGO",
+    "contract": "0x292725810AB3Dde0a01e19ACd4e8e9D6c073773b",
+    "decimals": "18"
+  },
+  "TESTSTABLE": {
+    "name": "Test Stable",
+    "symbol": "TESTSTABLE",
+    "contract": "0xCdC259f7cE752b3cADCE3B4FEa3016E7CDC23ebF",
+    "decimals": 18
+  },
+  "TESTTOKEN": {
+    "name": "Test Token",
+    "symbol": "TESTTOKEN",
+    "contract": "0x63d8693539533B86d92C9099997B3Bd8BF451B14",
+    "decimals": 18
+  },
+  "ICEAMERICANO": {
+    "name": "ICEAMERICANO",
+    "symbol": "ICEAMERICANO",
+    "contract": "0xFed6892d9BcbFE37fA021F6a019a224598C7F2ab",
+    "decimals": 18
+  },
+  "JSD": {
+    "name": "JSD",
+    "symbol": "JSD",
+    "contract": "0x76264Ad1B50852C4d8EFB55BFAF154dd5a80d0c2",
+    "decimals": 18
+  },
+  "kUSDC": {
+    "name": "Orbit Bridge Klaytn USD Coin",
+    "symbol": "kUSDC",
+    "contract": "0x754288077D0fF82AF7a5317C7CB8c444D421d103",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH"
+  },
+  "oUSDC": {
+    "name": "Orbit Bridge Klaytn USD Coin",
+    "symbol": "oUSDC",
+    "contract": "0x754288077D0fF82AF7a5317C7CB8c444D421d103",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH"
+  },
+  "BYPE": {
+    "name": "BYPE",
+    "symbol": "BYPE",
+    "contract": "0x2ef5F2642674F768b4Efe9a7dE470A6a68BcB8f3",
+    "decimals": 18
+  },
+  "KSD": {
+    "name": "Kokoa Stable Dollar",
+    "symbol": "KSD",
+    "contract": "0x4Fa62F1f404188CE860c8f0041d6Ac3765a72E67",
+    "decimals": 18
+  },
+  "CT": {
+    "name": "Cojam",
+    "symbol": "CT",
+    "contract": "0x7F223b1607171B81eBd68D22f1Ca79157Fd4A44b",
+    "decimals": 18
+  },
+  "CEIK": {
+    "name": "c4ei.net 4 klay",
+    "symbol": "CEIK",
+    "contract": "0x18814b01b5CC76F7043E10fd268cc4364dF47dA0",
+    "decimals": 8
+  },
+  "KSTA": {
+    "name": "KlayStarter",
+    "symbol": "KSTA",
+    "contract": "0xe7d3b78f032e70faBfDb8C0741Ea74f775DeB32d",
+    "decimals": 18
+  },
+  "bus": {
+    "name": "gobus",
+    "symbol": "bus",
+    "contract": "0xf445E3d0f88c4c2C8a2751180aE4a525789CFe32",
+    "decimals": 18
+  },
+  "sKAI": {
+    "name": "Kai Share Token",
+    "symbol": "sKAI",
+    "contract": "0x37d46C6813B121d6A27eD263AeF782081ae95434",
+    "decimals": 18
+  },
+  "SKLAY": {
+    "name": "sKlay",
+    "symbol": "SKLAY",
+    "contract": "0xA323d7386b671E8799dcA3582D6658FdcDcD940A",
+    "decimals": 18
+  },
+  "WEMIX": {
+    "name": "WEMIX TOKEN",
+    "symbol": "WEMIX",
+    "contract": "0x5096dB80B21Ef45230C9E423C373f1FC9C0198dd",
+    "decimals": 18
+  },
+  "KCBANK": {
+    "name": "KCBANK",
+    "symbol": "KCBANK",
+    "contract": "0x52f4C436C9aab5B5D0dd31fB3fb8F253FD6Cb285",
+    "decimals": "18"
+  },
+  "KDFA": {
+    "name": "KDFA",
+    "symbol": "KDFA",
+    "contract": "0x11DC950eF29594cc19Eb573811339DF20c86c800",
+    "decimals": "18"
+  },
+  "KAPT": {
+    "name": "APT Coin",
+    "symbol": "KAPT",
+    "contract": "0xDDc42416f16176d835311F710EE78Aff63705b37",
+    "decimals": 9
+  },
+  "BORA": {
+    "name": "BORA",
+    "symbol": "BORA",
+    "contract": "0x02cbE46fB8A1F579254a9B485788f2D86Cad51aa",
+    "decimals": 18
+  },
+  "KDG": {
+    "name": "kkakdugi",
+    "symbol": "KDG",
+    "contract": "0x02e7D9AD54A19a9A0721D9515CF9f80F9547D771",
+    "decimals": 18
+  },
+  "KBIOT": {
+    "name": "KBIOT",
+    "symbol": "KBIOT",
+    "contract": "0x8Ff0586b6EEa63a35E73d09237B4A58B3056F274",
+    "decimals": "9"
+  },
+  "KRNO": {
+    "name": "Kronos",
+    "symbol": "KRNO",
+    "contract": "0xD676e57Ca65b827fEb112AD81Ff738E7B6c1048d",
+    "decimals": 9
+  },
+  "tAVELK": {
+    "name": "Avelk Test Token",
+    "symbol": "tAVELK",
+    "contract": "0x0B430aD7bf84eB307E221F0e66216205502F835D",
+    "decimals": 18
+  },
+  "KDOTR": {
+    "name": "KDOTR",
+    "symbol": "KDOTR",
+    "contract": "0x8BC28c926A0FE54b5C56A329Cd3b129CC52Ae099",
+    "decimals": "9"
+  },
+  "KBUSD": {
+    "name": "KBUSD",
+    "symbol": "KBUSD",
+    "contract": "0x210bC03f49052169D5588A52C317f71cF2078b85",
+    "decimals": "18"
+  },
+  "META": {
+    "name": "Klaymeta Token",
+    "symbol": "META",
+    "contract": "0xE815A060b9279ebA642F8C889FaB7afc0d0acA63",
+    "decimals": 18
+  },
+  "DANTA": {
+    "name": "DANTA TOKEN",
+    "symbol": "DANTA",
+    "contract": "0x30763e9a3898b9a76d0A541380D927a50b9bbe81",
+    "decimals": 18
+  },
+  "KCYCLUB": {
+    "name": "KCYCLUB",
+    "symbol": "KCYCLUB",
+    "contract": "0xf1Ec6Fc5B9f280ED43B45d2ba60874A77f343C60",
+    "decimals": "9"
+  },
+  "GRD": {
+    "name": "Ground Coin",
+    "symbol": "GRD",
+    "contract": "0x0fAcF2288dd04707c8c9Ae2353A5D92A220a0812",
+    "decimals": 18
+  },
+  "KGALA": {
+    "name": "KGALA",
+    "symbol": "KGALA",
+    "contract": "0x2842a6D0C182E3F1cF4556311C48A7706D7BA6AD",
+    "decimals": "18"
+  },
+  "CLA": {
+    "name": "ClaimSwap",
+    "symbol": "CLA",
+    "contract": "0xCF87f94fD8F6B6f0b479771F10dF672f99eADa63",
+    "decimals": 18
+  },
+  "GCT": {
+    "name": "Golden Crow Token",
+    "symbol": "GCT",
+    "contract": "0x0a7356f5Df9179c977d4AE5d285809A60F4797E4",
+    "decimals": 18
+  },
+  "KPACE": {
+    "name": "KPACE",
+    "symbol": "KPACE",
+    "contract": "0xBc5d3fb02514f975060d35000e99c54253002bd4",
+    "decimals": "18"
+  },
+  "GOLF": {
+    "name": "GOLFROCHAIN",
+    "symbol": "GOLF",
+    "contract": "0x83C3b5A9A9d1F1438F2505bA972366EeCfC4488E",
+    "decimals": 18
+  },
+  "BANANA": {
+    "name": "Banana Coin",
+    "symbol": "BANANA",
+    "contract": "0xF6a6Fc906B38eab8C9EB3a0ba9606262704aF091",
+    "decimals": 18
+  },
+  "CATC": {
+    "name": "CatCoin",
+    "symbol": "CATC",
+    "contract": "0xEddbbc44fe7CeDaf0a2A7b40971A23dae82C1C8c",
+    "decimals": 18
+  },
+  "IBP": {
+    "name": "IBP Token",
+    "symbol": "IBP",
+    "contract": "0x43De991A0D9B666a215F3eb5801AccD260092c2c",
+    "decimals": 18
+  },
+  "IJM": {
+    "name": "Injeolmi",
+    "symbol": "IJM",
+    "contract": "0x0268dbed3832b87582B1FA508aCF5958cbb1cd74",
+    "decimals": 18
+  },
+  "MIX": {
+    "name": "DSC Mix",
+    "symbol": "MIX",
+    "contract": "0xDd483a970a7A7FeF2B223C3510fAc852799a88BF",
+    "decimals": 18
+  },
+  "KDRC": {
+    "name": "KDRC",
+    "symbol": "KDRC",
+    "contract": "0x923Ff99C3ca96C77e4c111d80b71D2504C364F7A",
+    "decimals": "18"
+  },
+  "KP": {
+    "name": "KlayPay Token",
+    "symbol": "KP",
+    "contract": "0x2B5D75DB09AF26e53d051155F5eAe811db7aEf67",
+    "decimals": 18
+  },
+  "test_h": {
+    "name": "test_h",
+    "symbol": "test_h",
+    "contract": "0x03aBBD3D662FF73e7a53d6D71B16436756aCAD9D",
+    "decimals": 9
+  },
+  "INS": {
+    "name": "Insert Coin",
+    "symbol": "INS",
+    "contract": "0xdF9E1B5a30D6175caBAaF39964DD979E84753Eb1",
+    "decimals": 18
+  },
+  "TOP": {
+    "name": "Binance Token",
+    "symbol": "TOP",
+    "contract": "0x27cf1333E3E6ec8B518fB84A5fF7aeA8CF790f3d",
+    "decimals": 18
+  },
+  "TOP2": {
+    "name": "Zinance Token",
+    "symbol": "TOP2",
+    "contract": "0x6d2b550F3D86C378627478a8882aE9842471c266",
+    "decimals": 18
+  },
+  "HOOK": {
+    "name": "HOOK",
+    "symbol": "HOOK",
+    "contract": "0x8eF50FA375Fc64b9815E51f28F4b83c05D57ac43",
+    "decimals": 9
+  },
+  "KLEVA": {
+    "name": "Kleva Token",
+    "symbol": "KLEVA",
+    "contract": "0x5fFF3a6C16C2208103F318F4713D4D90601A7313",
+    "decimals": 18
+  },
+  "BT": {
+    "name": "BlackTiger",
+    "symbol": "BT",
+    "contract": "0x406ec348311FC463e677Ddd77C42cE28877dD303",
+    "decimals": 18
+  },
+  "BS": {
+    "name": "Brush",
+    "symbol": "BS",
+    "contract": "0x35F9E17f1A1D0AB6C3e43bE8680952f7bDa5305F",
+    "decimals": 18
+  },
+  "AZIT": {
+    "name": "AziT",
+    "symbol": "AZIT",
+    "contract": "0x6CEF6Dd9a3C4ad226b8B66EffEEa2c125dF194F1",
+    "decimals": 18
+  },
+  "CRE": {
+    "name": "Company Reward for Employees",
+    "symbol": "CRE",
+    "contract": "0xDe3B13C45d4c2C3F4965932314E23279F426239f",
+    "decimals": 18
+  },
+  "EKL": {
+    "name": "eklipse token",
+    "symbol": "EKL",
+    "contract": "0x807C4E063eb0aC21E8EeF7623A6ed50A8EDe58cA",
+    "decimals": 18
+  },
+  "KIDS": {
+    "name": "Super Kids",
+    "symbol": "KIDS",
+    "contract": "0xe0F2a679390EFb0507aE8F99Db4B7832202ac808",
+    "decimals": 18
+  },
+  "COM": {
+    "name": "COMPASS PROTOCOL",
+    "symbol": "COM",
+    "contract": "0x29435457053D167a2b1f6f2d54D4176866FFb5F9",
+    "decimals": 18
+  },
+  "BTIS": {
+    "name": "Bti Swap",
+    "symbol": "BTIS",
+    "contract": "0xA31B5c5027e4B3f4E7b63E5Bec2e598d8Bf870c2",
+    "decimals": 8
+  },
+  "HC": {
+    "name": "HeartCookie",
+    "symbol": "HC",
+    "contract": "0xE43686E3A798741eA761Cd8da6785e27b92ca623",
+    "decimals": 18
+  },
+  "RaB": {
+    "name": "Rabbit Blood",
+    "symbol": "RaB",
+    "contract": "0xeEC98f041A7325e65B9140107dfA68db263a2Ac4",
+    "decimals": 18
+  },
+  "RaGa": {
+    "name": "Rabbit Game",
+    "symbol": "RaGa",
+    "contract": "0xCa03afda20444E4131Cf3DE5fB9cD7991B9874bD",
+    "decimals": 18
+  },
+  "FDM": {
+    "name": "Fandom",
+    "symbol": "FDM",
+    "contract": "0xB1834e4E773a180168f2292E036Ca8e17F86196F",
+    "decimals": 16
+  },
+  "BOMUL": {
+    "name": "BOMUL",
+    "symbol": "BOMUL",
+    "contract": "0x5655Ee0628aD3348CB7B60E8102680bb0D7f0de1",
+    "decimals": 18
+  },
+  "PIB": {
+    "name": "Pibble Token",
+    "symbol": "PIB",
+    "contract": "0xAfdE910130C335fA5bD5fe991053E3E0a49dcE7b",
+    "decimals": 18
+  },
+  "NIK": {
+    "name": "NIKPLACE",
+    "symbol": "NIK",
+    "contract": "0xdAbeE145A1395E09280C23EA9Aa71CaCa35a1EC0",
+    "decimals": 16
+  },
+  "Nolze": {
+    "name": "Nolze",
+    "symbol": "Nolze",
+    "contract": "0x3788871fD2c57a34335E5D7d1273E85f66E2fD5E",
+    "decimals": 18
+  },
+  "DLP": {
+    "name": "Decentralized Liquidity Program",
+    "symbol": "DLP",
+    "contract": "0x4D87BAA66061A3BB391456576cc49b77540b9Aa9",
+    "decimals": 18
+  },
+  "MARD": {
+    "name": "Marmalade Token",
+    "symbol": "MARD",
+    "contract": "0x79bB4D71f6c168531a259DD6D40a8d5DE5a34427",
+    "decimals": 18
+  },
+  "NGIT": {
+    "name": "Nightingale Token",
+    "symbol": "NGIT",
+    "contract": "0x46dB825593cA7c3fdfc9cCB5850Ea96c39B79330",
+    "decimals": 18
+  },
+  "KTX": {
+    "name": "klayKeTeX",
+    "symbol": "KTX",
+    "contract": "0x19FEe5357d737db1DB88C407ef1Fe5207cd77dF6",
+    "decimals": 18
+  },
+  "KBI": {
+    "name": "Klaybi Protocol",
+    "symbol": "KBI",
+    "contract": "0xFE16c99551FB4125cB6162E81048C0650db44266",
+    "decimals": 18
+  },
+  "WKLAY": {
+    "name": "WKLAY",
+    "symbol": "WKLAY",
+    "contract": "0xF01f433268C277535743231C95c8e46783746D30",
+    "decimals": "18"
+  },
+  "SIX": {
+    "name": "SIX",
+    "symbol": "SIX",
+    "contract": "0xEf82b1C6A550e730D8283E1eDD4977cd01FAF435",
+    "decimals": 18
+  },
+  "DOT": {
+    "name": "DOT",
+    "symbol": "DOT",
+    "contract": "0xEaF2e40a11Cd3D933B3C0F5BD86Eb469eC8FDdf7",
+    "decimals": "18"
+  },
+  "LINK": {
+    "name": "LINK",
+    "symbol": "LINK",
+    "contract": "0x713AfB5173A6ad9162c7F7C7E8E4F8C557d5738D",
+    "decimals": "18"
+  },
+  "SOL": {
+    "name": "SOL",
+    "symbol": "SOL",
+    "contract": "0x4F46A0Ae4818AD578a8E1Dd619B9da6C7b717b1F",
+    "decimals": "6"
+  },
+  "LUNA": {
+    "name": "LUNA",
+    "symbol": "LUNA",
+    "contract": "0x97f93eED7b182fB4318Cb4BEc43251B19876F18f",
+    "decimals": "18"
+  },
+  "CFXT": {
+    "name": "CFXT",
+    "symbol": "CFXT",
+    "contract": "0xdc229B451798774b2F2DE279Cbf13370BB802Fb5",
+    "decimals": "18"
+  },
+  "XE": {
+    "name": "XPIKE Token",
+    "symbol": "XE",
+    "contract": "0x3513B2BC58F1f260107fD1Ee0dabb5b0637b9eD5",
+    "decimals": 6
+  },
+  "blue": {
+    "name": "blue",
+    "symbol": "blue",
+    "contract": "0xb09853f8983a3c73f42bF43C75bB00D13E705906",
+    "decimals": "13"
+  },
+  "red": {
+    "name": "red",
+    "symbol": "red",
+    "contract": "0x484F18E6d22df84d464C5866fF0Fbf7DAbC3E8c7",
+    "decimals": "13"
+  },
+  "d": {
+    "name": "d",
+    "symbol": "d",
+    "contract": "0x541941EDEde943B44E69a8F4708168f6dC3ae233",
+    "decimals": "18"
+  },
+  "clam": {
+    "name": "clam",
+    "symbol": "clam",
+    "contract": "0xc64e258d84541a747253908b1E73Ec6241C85410",
+    "decimals": "6"
+  },
+  "ORCA": {
+    "name": "ORCA Finance Token",
+    "symbol": "ORCA",
+    "contract": "0xa4547080f3310b9ec4ED4b08fBC3762C6D294CC9",
+    "decimals": 18
+  },
+  "MULE": {
+    "name": "MULE",
+    "symbol": "MULE",
+    "contract": "0x03cD31710e0C2351872786f4536de1fA0b48a1f3",
+    "decimals": "18"
+  },
+  "NOAH": {
+    "name": "NOAH",
+    "symbol": "NOAH",
+    "contract": "0x8AA6B6b3D6cf0B20C922B626D55E60c7EA706648",
+    "decimals": 18
+  },
+  "AV": {
+    "name": "AV",
+    "symbol": "AV",
+    "contract": "0x6428c3353Ee61312f2ab59C75d847a1DCdF8274f",
+    "decimals": "8"
+  },
+  "WGC": {
+    "name": "WGC",
+    "symbol": "WGC",
+    "contract": "0x70fc0B86bca8770F79DB0f262E058403cFc947cb",
+    "decimals": "8"
+  },
+  "HAM": {
+    "name": "HAM",
+    "symbol": "HAM",
+    "contract": "0xE01A9E6D4630459536ed1e7ae1A490ECcAf0dB64",
+    "decimals": "10"
+  },
+  "TESTCATC": {
+    "name": "TESTCATC",
+    "symbol": "TESTCATC",
+    "contract": "0x8Df088C8954B977e5F6Da8627F6AE27f931E2808",
+    "decimals": "18"
+  },
+  "db": {
+    "name": "db",
+    "symbol": "db",
+    "contract": "0x1D4E3085F323137270853E93aB5F686ceb8333cF",
+    "decimals": "18"
+  },
+  "HT": {
+    "name": "HT",
+    "symbol": "HT",
+    "contract": "0xa784B3669285955E79d87015cE881991dCEd8Bd3",
+    "decimals": "18"
+  },
+  "TGTN2": {
+    "name": "TGTN2",
+    "symbol": "TGTN2",
+    "contract": "0xF1fBAd2FcB956fD51e893BB1945db62aA74142Be",
+    "decimals": "18"
+  },
+  "SF": {
+    "name": "SF",
+    "symbol": "SF",
+    "contract": "0x80305af41da105eAdd2e5bd95c8423d40Be254Ee",
+    "decimals": "18"
+  },
+  "Palm": {
+    "name": "Palm",
+    "symbol": "Palm",
+    "contract": "0x911deF58fFADB8708cdBEF0834132E9b0E9f7f86",
+    "decimals": "18"
+  },
+  "KBT": {
+    "name": "KBT",
+    "symbol": "KBT",
+    "contract": "0x946BC715501413B9454BB6A31412A21998763F2D",
+    "decimals": "18"
+  },
+  "KONGZ": {
+    "name": "Kongz Coin",
+    "symbol": "KONGZ",
+    "contract": "0x2CAcF8Eb48f609D7Dce06A4e4F9FF4C22563eb62",
+    "decimals": 18
+  },
+  "AAA": {
+    "name": "AAA",
+    "symbol": "AAA",
+    "contract": "0xA11F0dcdE39EeBa2fF03B9C5A64d0c12bF4C8119",
+    "decimals": 18
+  },
+  "GTPS": {
+    "name": "GTPS",
+    "symbol": "GTPS",
+    "contract": "0xD5CabDFE34C4959f4072DA2fb4cc465285183eA7",
+    "decimals": "18"
+  },
+  "BGL": {
+    "name": "BGL",
+    "symbol": "BGL",
+    "contract": "0x93F6AA53Fe9c050caEEcD2c617789F9cCc9498e8",
+    "decimals": "5"
+  },
+  "PALA": {
+    "name": "PALA",
+    "symbol": "PALA",
+    "contract": "0x7A1CdCA99FE5995ab8E317eDE8495c07Cbf488aD",
+    "decimals": "18"
+  },
+  "SQUID": {
+    "name": "SQUID",
+    "symbol": "SQUID",
+    "contract": "0x75237e2d8Cd282734BAF9AC9D68363c6bD5837ef",
+    "decimals": "18"
+  },
+  "REAL": {
+    "name": "REAL",
+    "symbol": "REAL",
+    "contract": "0x70f61d718614Bc6D6A056587b8076ED0D0BC5bB6",
+    "decimals": "8"
+  },
+  "UFO": {
+    "name": "UFO",
+    "symbol": "UFO",
+    "contract": "0x7f1712f846a69bf2a9dbc4D48F45F1D52CA32E28",
+    "decimals": "18"
+  },
+  "ATTEN": {
+    "name": "ATTEN",
+    "symbol": "ATTEN",
+    "contract": "0x9160421eA3D1a24101D985B026a60cB0442322cc",
+    "decimals": "18"
+  },
+  "CQT": {
+    "name": "CQT",
+    "symbol": "CQT",
+    "contract": "0xCD222318d788C6389A8C1B4df937B7E568D1581A",
+    "decimals": "18"
+  },
+  "GTK": {
+    "name": "GTK",
+    "symbol": "GTK",
+    "contract": "0x58aa72Cf1e7a69068f8b69e9A96e671110B92F8a",
+    "decimals": "18"
+  },
+  "NV2": {
+    "name": "NV2",
+    "symbol": "NV2",
+    "contract": "0x31190ee77CE1F854011c15B179b64b2d78923453",
+    "decimals": "18"
+  },
+  "BRW0": {
+    "name": "BRW0",
+    "symbol": "BRW0",
+    "contract": "0xb2088572e2Bf9835acf20556eE9812F320BeedD3",
+    "decimals": "18"
+  },
+  "BRW1": {
+    "name": "BRW1",
+    "symbol": "BRW1",
+    "contract": "0xeB7Aa009aCF4Ae407Aa3f0D7ceebB886C86cfbA2",
+    "decimals": "18"
+  },
+  "BRW2": {
+    "name": "BRW2",
+    "symbol": "BRW2",
+    "contract": "0x9DF5bb2d3b35594BbAfF3Aa22e65eFC20b0f4BaE",
+    "decimals": "18"
+  },
+  "BRW4": {
+    "name": "BRW4",
+    "symbol": "BRW4",
+    "contract": "0x8ffa32392d76AF7beb6F44b514F96542D7E5a970",
+    "decimals": "18"
+  },
+  "testRSymbol": {
+    "name": "testRSymbol",
+    "symbol": "testRSymbol",
+    "contract": "0x001f7186a24DF56CFaacb55443562F27eF721384",
+    "decimals": "18"
+  },
+  "SDS": {
+    "name": "SDS",
+    "symbol": "SDS",
+    "contract": "0x414B686D2D531f4E0AF4A6957e2FD83E2ab5dC42",
+    "decimals": "18"
+  },
+  "SDS1": {
+    "name": "SDS1",
+    "symbol": "SDS1",
+    "contract": "0x1d6d39e5E7b4F6Adb3338cfF078a89a1f236e68c",
+    "decimals": "18"
+  },
+  "SDSU3": {
+    "name": "SDSU3",
+    "symbol": "SDSU3",
+    "contract": "0x173A9D4F7f0c6DbB93b707799190ea9639af2077",
+    "decimals": "18"
+  },
+  "ABC": {
+    "name": "Angry Bulls Club",
+    "symbol": "ABC",
+    "contract": "0xCe899f5fcF55B0c1d7478910f812Cfe68C5bcf0f",
+    "decimals": 18
+  },
+  "DAL": {
+    "name": "DAL",
+    "symbol": "DAL",
+    "contract": "0xd5Ad7a76A710b3a1880E464991ba464C4d722E8A",
+    "decimals": "8"
+  },
+  "M2": {
+    "name": "M2",
+    "symbol": "M2",
+    "contract": "0x42cDEeC04495802634756930213bD1c5FBE5341f",
+    "decimals": "8"
+  },
+  "KOKOA": {
+    "name": "Kokoa",
+    "symbol": "KOKOA",
+    "contract": "0xb15183D0d4D5E86ba702cE9bb7b633376e7db29f",
+    "decimals": 18
+  },
+  "STAT NFT": {
+    "name": "STAT NFT",
+    "symbol": "STAT NFT",
+    "contract": "0xF250d4Ff260927056Fee35Fd9F87b86d4B7909D0",
+    "decimals": "18"
+  },
+  "preEKL": {
+    "name": "preEKL",
+    "symbol": "preEKL",
+    "contract": "0x36e5C9871B2FA122A5A4FaB791D8e25940dab772",
+    "decimals": "18"
+  },
+  "xKLIM": {
+    "name": "xKLIM",
+    "symbol": "xKLIM",
+    "contract": "0x2669C1Cc63562A609ba654C6c38aFF0d193612C6",
+    "decimals": "18"
+  },
+  "KBiFi": {
+    "name": "KBiFi",
+    "symbol": "KBiFi",
+    "contract": "0xF6c2Ecd4B14DaB46246608e8E1c2b697fAeBEA11",
+    "decimals": "18"
+  },
+  "HUB": {
+    "name": "HUB",
+    "symbol": "HUB",
+    "contract": "0xfa39E5F6654A696562aeA1692a882d0b32950ce3",
+    "decimals": "18"
+  },
+  "t1004": {
+    "name": "t1004",
+    "symbol": "t1004",
+    "contract": "0xC0Cc5E7D8eA91DaF20857915aD6A9823cC0B7575",
+    "decimals": "18"
+  },
+  "GLD": {
+    "name": "GLD",
+    "symbol": "GLD",
+    "contract": "0x6B21FEB535547F59BEB73cF7734D35C713CA78fF",
+    "decimals": "18"
+  },
+  "tttx": {
+    "name": "tttx",
+    "symbol": "tttx",
+    "contract": "0x441601CD430e7dDA3847bD1b8756D4f147FDdE85",
+    "decimals": "18"
+  },
+  "ttxx": {
+    "name": "ttxx",
+    "symbol": "ttxx",
+    "contract": "0x6e73FA9521Ae9e12438BAd8660906ecF86e31411",
+    "decimals": "18"
+  },
+  "txt": {
+    "name": "txt",
+    "symbol": "txt",
+    "contract": "0x281f197F518dFf76a84370504a73c0F9e61Eb20b",
+    "decimals": "18"
+  },
+  "E": {
+    "name": "E",
+    "symbol": "E",
+    "contract": "0xDDA71965D2C13D20ab711a5b9d51EfC1aD41E6e8",
+    "decimals": "18"
+  },
+  "SSD": {
+    "name": "SSD",
+    "symbol": "SSD",
+    "contract": "0x262C09D90EC3cfDB47F6aB30f849C9f0b7CD85E8",
+    "decimals": "18"
+  },
+  "EYE": {
+    "name": "EYE",
+    "symbol": "EYE",
+    "contract": "0xCd670d77f3dCAB82d43DFf9BD2C4b87339FB3560",
+    "decimals": "18"
+  },
+  "BJC": {
+    "name": "BJC",
+    "symbol": "BJC",
+    "contract": "0xF3103262cB5940B619E7bB59A0e0cfc1A6f675F9",
+    "decimals": "4"
+  },
+  "postEKL": {
+    "name": "postEKL",
+    "symbol": "postEKL",
+    "contract": "0x0e23BeE35717987E71Fa8445E4Dd750aD718BA8a",
+    "decimals": "6"
+  },
+  "SCNR": {
+    "name": "SCNR",
+    "symbol": "SCNR",
+    "contract": "0x8888888888885B073f3C81258C27E83DB228d5f3",
+    "decimals": "6"
+  },
+  "SALT": {
+    "name": "HYPESALT",
+    "symbol": "SALT",
+    "contract": "0x3247Abb921c83F81B406E1a87fB7Bfa6f79262d0",
+    "decimals": 18
+  },
+  "cKFC": {
+    "name": "cKFC",
+    "symbol": "cKFC",
+    "contract": "0x323BAA9D36460A664d4A18bFd7cdC9594b0C4fb8",
+    "decimals": "18"
+  },
+  "cMATE": {
+    "name": "cMATE",
+    "symbol": "cMATE",
+    "contract": "0x2450dcEA8E40A700378a6bac701a703A4Ac0F0E7",
+    "decimals": "18"
+  },
+  "cCLAN": {
+    "name": "cCLAN",
+    "symbol": "cCLAN",
+    "contract": "0x0CCBF68bfc34C12272649a9b21aB8b1724B79E69",
+    "decimals": "18"
+  },
+  "PLR": {
+    "name": "PLR",
+    "symbol": "PLR",
+    "contract": "0x43e850C91817aC594eb38a632216132695d9740B",
+    "decimals": "6"
+  },
+  "SRCO": {
+    "name": "SRCO",
+    "symbol": "SRCO",
+    "contract": "0xB365aaf827C04e0478fA7F082bAfac67af9a9293",
+    "decimals": "6"
+  },
+  "OYAT": {
+    "name": "FEWK Far East White Kindoms OYAT",
+    "symbol": "OYAT",
+    "contract": "0x143d71be70Dc518A9e9C25B6008d9353b3698d26",
+    "decimals": 18
+  },
+  "cMONGZ": {
+    "name": "cMONGZ",
+    "symbol": "cMONGZ",
+    "contract": "0x33D42B774fFD6Cf88a9dCcd5839d1607f00E1b77",
+    "decimals": "18"
+  },
+  "B": {
+    "name": "B",
+    "symbol": "B",
+    "contract": "0xE6206D47123bE5f28A7fD75bD65Be5a49ea9C9ff",
+    "decimals": "18"
+  },
+  "C": {
+    "name": "C",
+    "symbol": "C",
+    "contract": "0xE38B789643BC965573eC727ea01EB52194dAA607",
+    "decimals": "18"
+  },
+  "KKK2": {
+    "name": "KKK2",
+    "symbol": "KKK2",
+    "contract": "0xF20227d7DC77f7d508037F6da5b7D61505E3D087",
+    "decimals": "18"
+  },
+  "sBOMUL": {
+    "name": "sBOMUL",
+    "symbol": "sBOMUL",
+    "contract": "0xffeed51B6b7AD4B7E354F4872053E0D3C4Bb4437",
+    "decimals": "18"
+  },
+  "vBOMUL": {
+    "name": "vBOMUL",
+    "symbol": "vBOMUL",
+    "contract": "0x667662377B0e23a0cDCb8d519c7F82c35301bD8F",
+    "decimals": "18"
+  },
+  "GGD": {
+    "name": "GGD",
+    "symbol": "GGD",
+    "contract": "0xd3C4242a175a9f6516D773E98F50576970E7e682",
+    "decimals": "8"
+  },
+  "YURA": {
+    "name": "YURA",
+    "symbol": "YURA",
+    "contract": "0xc7bc69884B7130354b7cbdE828567d3555cCed44",
+    "decimals": "18"
+  },
+  "EKLP": {
+    "name": "EKLP",
+    "symbol": "EKLP",
+    "contract": "0xd83b9dFa49D6C6d2A69554576e712E45A8A13E49",
+    "decimals": "18"
+  },
+  "RRT": {
+    "name": "RoundRobin Protocol Token",
+    "symbol": "RRT",
+    "contract": "0xe5bbe3aeB87e37A08fd4dE05654095D25828f1ea",
+    "decimals": 18
+  },
+  "ducato ": {
+    "name": "DUCATO FINANCE TOKEN",
+    "symbol": "ducato ",
+    "contract": "0xB7aB8c205dC282F83D0511B1DCd22a3Ed4739597",
+    "decimals": 18
+  },
+  "NR": {
+    "name": "NR",
+    "symbol": "NR",
+    "contract": "0x340073962a8561CB9E0c271AAb7E182d5F5aF5C8",
+    "decimals": "6"
+  },
+  "kMOOI": {
+    "name": "kMOOI",
+    "symbol": "kMOOI",
+    "contract": "0x4b734a4d5bf19d89456ab975dfb75f02762dda1d",
+    "decimals": "18",
+    "bridge": "Vault",
+    "chain": "KLAYTN"
+  },
+  "KASH": {
+    "name": "KASH",
+    "symbol": "KASH",
+    "contract": "0xce40569d65106c32550626822b91565643c07823",
+    "decimals": "18"
+  },
+  "ZEMIT": {
+    "name": "ZEMIT",
+    "symbol": "ZEMIT",
+    "contract": "0x9D52704cD67d586ED2870D810b0cEF2Cc168ae42",
+    "decimals": 18
+  },
+  "oMOOI": {
+    "name": "Orbit Bridge Polygon MOOI",
+    "symbol": "oMOOI",
+    "contract": "0x746351AB4B9d4f802B7b770f33184d0A6B17363D",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "KLAYTN"
+  },
+  "oZEMIT": {
+    "name": "Orbit Bridge Polygon ZEMIT",
+    "symbol": "oZEMIT",
+    "contract": "0xA34E0eaCB7fbB0b0d45da89b083E0f87fcdf6157",
+    "decimals": 18
+  },
+  "USDC.p": {
+    "name": "USD Coin Polygon(PoS)",
+    "symbol": "USDC",
+    "contract": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH"
+  },
+  "USDC": {
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH"
+  },
+  "KETHW": {
+    "name": "KETHW",
+    "symbol": "KETHW",
+    "contract": "0x5a36597fb14c8f28ea3c3163754f8149ef1d45a8",
+    "decimals": "18"
+  },
+  "oUSDT": {
+    "name": "Orbit Bridge Tether USD",
+    "symbol": "oUSDT",
+    "contract": "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F",
+    "decimals": 6
+  },
+  "oXRP": {
+    "name": "Orbit Bridge Polygon XRP Token",
+    "symbol": "oXRP",
+    "contract": "0xCc2a9051E904916047c26C90f41c000D4f273456",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "XRP"
+  },
+  "oETHW": {
+    "name": "Orbit Bridge Polygon EthereumPoW",
+    "symbol": "oETHW",
+    "contract": "0x5a36597Fb14c8F28Ea3C3163754F8149ef1D45A8",
+    "decimals": 18
+  },
+  "oETH": {
+    "name": "Orbit Bridge Polygon Ethereum",
+    "symbol": "oETH",
+    "contract": "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624",
+    "decimals": 18
+  },
+  "oKLAY": {
+    "name": "Orbit Bridge Polygon Klay",
+    "symbol": "oKLAY",
+    "contract": "0x0A02D33031917d836Bd7Af02F9f7F6c74d67805F",
+    "decimals": 18
+  },
+  "kMATIC": {
+    "name": "kMATIC",
+    "symbol": "kMATIC",
+    "contract": "0xa006ba407cfc6584c90bac24ed971261885a0fd6",
+    "decimals": "18"
+  },
+  "MATIC": {
+    "name": "MATIC",
+    "symbol": "MATIC",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": "18"
+  },
+  "KMESH": {
+    "name": "KMESH",
+    "symbol": "KMESH",
+    "contract": "0x127a75b751ba810e459121af6207d83841c586b7",
+    "decimals": "18"
+  },
+  "MESH": {
+    "name": "Meshswap Protocol",
+    "symbol": "MESH",
+    "contract": "0x82362Ec182Db3Cf7829014Bc61E9BE8a2E82868a",
+    "decimals": 18
+  },
+  "oKSP": {
+    "name": "Orbit Bridge Polygon KlaySwap Protocol",
+    "symbol": "oKSP",
+    "contract": "0x3D3B92Fe0B4c26b74F8fF13A32dD764F4DFD8b51",
+    "decimals": 18
+  },
+  "kXDT": {
+    "name": "kXDT",
+    "symbol": "kXDT",
+    "contract": "0xaeeca95c899660dc74886168d0ffdebf3669179d",
+    "decimals": "18"
+  },
+  "GHUB": {
+    "name": "GemHUB",
+    "symbol": "GHUB",
+    "contract": "0x4836cC1f355bB2A61c210EAA0CD3f729160CD95E",
+    "decimals": 18
+  },
+  "oGHUB": {
+    "name": "Orbit Bridge Polygon GemHUB",
+    "symbol": "oGHUB",
+    "contract": "0xBDcCF75601e8B11E1b11a99f9F846a036532B898",
+    "decimals": 18
+  },
+  "oORC": {
+    "name": "Orbit Bridge Polygon Orbit Chain",
+    "symbol": "oORC",
+    "contract": "0x12c9FFE6538f20A982FD4D17912f0ca00fA82D30",
+    "decimals": 18
+  },
+  "mUSDC": {
+    "name": "Orbit Bridge Polygon USD Coin",
+    "symbol": "oUSDC",
+    "contract": "0x5bEF2617eCCA9a39924c09017c5F1E25Efbb3bA8",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH"
+  },
+  "WETH": {
+    "name": "Wrapped Ether",
+    "symbol": "WETH",
+    "contract": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    "decimals": 18
+  },
+  "oWBTC": {
+    "name": "Orbit Bridge Polygon Wrapped BTC",
+    "symbol": "oWBTC",
+    "contract": "0xE631FfAA2cF4d91aac3E9589a5d5B390C82A032E",
+    "decimals": 8
+  },
+  "WMATIC": {
+    "name": "Wrapped Matic",
+    "symbol": "WMATIC",
+    "contract": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "decimals": 18
+  },
+  "wMOOI": {
+    "name": "Wrapped MOOI",
+    "symbol": "wMOOI",
+    "contract": "0x6D03b9fe0C22aD8FD7F5bA8fF1dd6D574EC1028d",
+    "decimals": 18
+  },
+  "WIKEN": {
+    "name": "ProjectWITH",
+    "symbol": "WIKEN",
+    "contract": "0x275F942985503d8CE9558f8377cC526A3aBa3566",
+    "decimals": 18
+  },
+  "SSX": {
+    "name": "Somesing Exchange",
+    "symbol": "SSX",
+    "contract": "0xdCd62c57182E780E23d2313C4782709Da85b9D6C",
+    "decimals": 18
+  },
+  "REDi": {
+    "name": "REDiToken",
+    "symbol": "REDi",
+    "contract": "0x1cD3828A2B62648dbE98d6F5748a6B1df08AC7bb",
+    "decimals": 18
+  },
+  "kWBTC": {
+    "name": "Orbit Bridge Klaytn Wrapped BTC",
+    "symbol": "kWBTC",
+    "contract": "0x16D0e1fBD024c600Ca0380A4C5D57Ee7a2eCBf9c",
+    "decimals": 8
+  },
+  "HINT": {
+    "name": "HINT Token",
+    "symbol": "HINT",
+    "contract": "0x4dd402A7d54eaa8147Cb6fF252AFe5BE742bDF40",
+    "decimals": 18
+  },
+  "oTRIX": {
+    "name": "Orbit Bridge Klaytn TriumphX",
+    "symbol": "oTRIX",
+    "contract": "0x0c1D7CE4982FD63b1BC77044Be1da05C995E4463",
+    "decimals": 18
+  },
+  "KSLO": {
+    "name": "KSPHOLD",
+    "symbol": "KSLO",
+    "contract": "0xf7689072554d1e85fa9d96151F528764277d7DB2",
+    "decimals": 8
+  },
+  "KSVE": {
+    "name": "KSPLOVE",
+    "symbol": "KSVE",
+    "contract": "0x065a9ddbbDd48c4189984e2F7aEDa3834bD1eAC7",
+    "decimals": 8
+  },
+  "oHANDY": {
+    "name": "Orbit Bridge Klaytn Handy Token",
+    "symbol": "oHANDY",
+    "contract": "0x3F34671FbA493aB39FBf4Ecac2943ee62b654A88",
+    "decimals": 18
+  },
+  "MNR": {
+    "name": "Mineral",
+    "symbol": "MNR",
+    "contract": "0x27dCd181459bcdDC63c37baB1E404A313C0dfD79",
+    "decimals": 6
+  },
+  "TRCL": {
+    "name": "Treecle",
+    "symbol": "TRCL",
+    "contract": "0x4B91c67A89D4c4b2A4eD9fcdE6130D7495330972",
+    "decimals": 18
+  },
+  "TEMCO": {
+    "name": "TEMCO",
+    "symbol": "TEMCO",
+    "contract": "0x3B3b30A76d169F72A0A38AE01b0D6e0FbeE3cc2e",
+    "decimals": 18
+  },
+  "oBELT": {
+    "name": "Orbit Bridge Klaytn BELT Token",
+    "symbol": "oBELT",
+    "contract": "0xDFe180E288158231ffA5faF183ECA3301344a51F",
+    "decimals": 18
+  },
+  "oQBZ": {
+    "name": "Orbit Bridge Klaytn QBEE",
+    "symbol": "oQBZ",
+    "contract": "0x507EfA4e365FD5Def42Cb05Ae3ECB51a30321588",
+    "decimals": 18
+  },
+  "oSTPL": {
+    "name": "Orbit Bridge Klaytn Stream Protocol",
+    "symbol": "oSTPL",
+    "contract": "0x49A767B188B9D782D7B0EFCD485CA3796390198e",
+    "decimals": 18
+  },
+  "kBELT": {
+    "name": "Orbit Bridge Klaytn BELT Token",
+    "symbol": "kBELT",
+    "contract": "0xDFe180E288158231ffA5faF183ECA3301344a51F",
+    "decimals": 18
+  },
+  "oTON": {
+    "name": "Orbit Bridge Polygon Toncoin",
+    "symbol": "oTON",
+    "contract": "0x4B96dBf8f42C8c296573933a6616dcAfb80Ca461",
+    "decimals": 9
+  },
+  "oRAI": {
+    "name": "Orbit Bridge Klaytn Rai.Finance",
+    "symbol": "oRAI",
+    "contract": "0xb40178be0Fcf89d0051682E5512A8Bab56b9eC3E",
+    "decimals": 18
+  },
+  "TURK": {
+    "name": "Turtle King",
+    "symbol": "TURK",
+    "contract": "0x8C783809332be7734Fa782eB5139861721F77b33",
+    "decimals": 18
+  },
+  "oRUSH": {
+    "name": "Orbit Bridge Klaytn Rush coin",
+    "symbol": "oRUSH",
+    "contract": "0x2Fade69ba4DCb112C530c48Fdf41fC071685CeDe",
+    "decimals": 18
+  },
+  "oISDT": {
+    "name": "Orbit Bridge Klaytn ISTARDUST",
+    "symbol": "oISDT",
+    "contract": "0x1c1187ff22Bb50A2cDCB1e1D683fCB5E8A42915f",
+    "decimals": 18
+  },
+  "TESTAAA": {
+    "name": "TESTAAA",
+    "symbol": "TESTAAA",
+    "contract": "0x6Dd78DC9FcB235284E7a02CAb57Ea4DD06f568e4",
+    "decimals": 18
+  },
+  "vKAI": {
+    "name": "Kai Vote Token",
+    "symbol": "vKAI",
+    "contract": "0x44efe1EC288470276E29ac3AdB632BFF990E2E1F",
+    "decimals": 18
+  },
+  "oTALK": {
+    "name": "Orbit Bridge Klaytn Talken",
+    "symbol": "oTALK",
+    "contract": "0xa6E559f2954c7e2c017bBBEa85d8513F34D03d75",
+    "decimals": 18
+  },
+  "WOOD": {
+    "name": "Firewood",
+    "symbol": "WOOD",
+    "contract": "0x7b7363cf78662b638a87f63871c302Be363DdC7a",
+    "decimals": 18
+  },
+  "oAERGO": {
+    "name": "Orbit Bridge Klaytn Aergo",
+    "symbol": "oAERGO",
+    "contract": "0x292725810AB3Dde0a01e19ACd4e8e9D6c073773b",
+    "decimals": 18
+  },
+  "MM": {
+    "name": "MilliMeter",
+    "symbol": "MM",
+    "contract": "0x96035fbdD4Cb888862ee28C9D8FDaDEF78311CC9",
+    "decimals": 18
+  },
+  "ksDUNAMU": {
+    "name": "Kai Synthetics Dunamu",
+    "symbol": "ksDUNAMU",
+    "contract": "0x1AdD8bA5A695063962abe9B7dA70eD2440006dEF",
+    "decimals": 18
+  },
+  "ksYANOLJA": {
+    "name": "Kai Synthetics Yanolja",
+    "symbol": "ksYANOLJA",
+    "contract": "0xa5c1Cd7B9A015243A0ff8F99C5DBe17647175aF0",
+    "decimals": 18
+  },
+  "ksCOINBASE": {
+    "name": "Kai Synthetics Coinbase",
+    "symbol": "ksCOINBASE",
+    "contract": "0x88bfD174f9076519a45979cE3122bC15883C0691",
+    "decimals": 18
+  },
+  "ksETH": {
+    "name": "Kai Synthetics Ethereum",
+    "symbol": "ksETH",
+    "contract": "0xDFC05e7A28eD3A1C22Bc7c22383764A4732eAD23",
+    "decimals": 18
+  },
+  "ksSOL": {
+    "name": "Kai Synthetics Solana",
+    "symbol": "ksSOL",
+    "contract": "0x7A85836f66Dbbd53f457855De243f5AA28051E33",
+    "decimals": 18
+  },
+  "ksLUNA": {
+    "name": "Kai Synthetics Terra",
+    "symbol": "ksLUNA",
+    "contract": "0x4AFe41cAE3Bd5133991384D642B82F2D0539e3aa",
+    "decimals": 18
+  },
+  "CLAM": {
+    "name": "Clam Token",
+    "symbol": "CLAM",
+    "contract": "0xbA9725eaCCF07044625F1D232eF682216F5371c2",
+    "decimals": 18
+  },
+  "NWC": {
+    "name": "NewWestCoin",
+    "symbol": "NWC",
+    "contract": "0x36e936d5F4B6ab59F232da22Ce53650DD80a4386",
+    "decimals": 18
+  },
+  "TOKEN-20210927": {
+    "name": "TOKEN-20210927",
+    "symbol": "TOKEN-20210927",
+    "contract": "0x2327aEC15Eb69Fbf5050630E011E95408260cdC5",
+    "decimals": 18
+  },
+  "TOR": {
+    "name": "TAILOR",
+    "symbol": "TOR",
+    "contract": "0x1D8246a6E73473ce4e21BC7e40Bd5c3CEf7930D5",
+    "decimals": 18
+  },
+  "TURNUP": {
+    "name": "TURNUP",
+    "symbol": "TURNUP",
+    "contract": "0xD742B1a5Af898bcb4b6aff5027e6aB9ADee97412",
+    "decimals": 8
+  },
+  "oDON": {
+    "name": "DON token for KLAYTN",
+    "symbol": "oDON",
+    "contract": "0x5388Ce775De8F7A69d17Fd5CAA9f7dbFeE65Dfce",
+    "decimals": 18
+  },
+  "ksAPPLE": {
+    "name": "Kai Synthetics Apple",
+    "symbol": "ksAPPLE",
+    "contract": "0x5844B02cC0ab5d5A18Be7DdE4E245F5EdEC449Ce",
+    "decimals": 18
+  },
+  "ksTESLA": {
+    "name": "Kai Synthetics Tesla",
+    "symbol": "ksTESLA",
+    "contract": "0x1e3a300601aa95AB7ea39bb72C3272716eF1426b",
+    "decimals": 18
+  },
+  "ksFarm": {
+    "name": "Kai Farm",
+    "symbol": "ksFarm",
+    "contract": "0x1e249cB961814c6D31062f6B705d18341Da43802",
+    "decimals": 18
+  },
+  "Q2": {
+    "name": "Q2",
+    "symbol": "Q2",
+    "contract": "0x7355C521E2785a2c33DCff81A1801bf864CFefa1",
+    "decimals": 18
+  },
+  "oQBT": {
+    "name": "Orbit Bridge Klaytn Qubit Token",
+    "symbol": "oQBT",
+    "contract": "0xfe4cD053F1E9200e784b7d60b54E6aA16e09406A",
+    "decimals": 18
+  },
+  "oCBANK": {
+    "name": "Orbit Bridge Klaytn CRYPTO BANK",
+    "symbol": "oCBANK",
+    "contract": "0x52f4C436C9aab5B5D0dd31fB3fb8F253FD6Cb285",
+    "decimals": 18
+  },
+  "oDFA": {
+    "name": "Orbit Bridge Klaytn DeFine Art",
+    "symbol": "oDFA",
+    "contract": "0x11DC950eF29594cc19Eb573811339DF20c86c800",
+    "decimals": 18
+  },
+  "PICS": {
+    "name": "MYPICS",
+    "symbol": "PICS",
+    "contract": "0xf87a3CF2f1Dc059019455323EDaFB2667ea5cbE9",
+    "decimals": 18
+  },
+  "STC": {
+    "name": "Store Coin",
+    "symbol": "STC",
+    "contract": "0x113E52528e5848E6ceCeB3D8A8C4bD689f793469",
+    "decimals": 18
+  },
+  "JUNB": {
+    "name": "Jun Bond Token",
+    "symbol": "JUNB",
+    "contract": "0x01Cb8563e9C4703F4e6b9fa09eDeaED0E5948F28",
+    "decimals": 18
+  },
+  "oBIOT": {
+    "name": "Orbit Bridge Klaytn BioPassport Coin",
+    "symbol": "oBIOT",
+    "contract": "0x8Ff0586b6EEa63a35E73d09237B4A58B3056F274",
+    "decimals": 9
+  },
+  "oTOM": {
+    "name": "Orbit Bridge Klaytn TOM",
+    "symbol": "oTOM",
+    "contract": "0x3886dF0cB94f4bF7e0aC3Dfe2D1DB40D2Ee2293b",
+    "decimals": 18
+  },
+  "aKAI": {
+    "name": "Kai Auto Token",
+    "symbol": "aKAI",
+    "contract": "0xB57E0038e8027C3dE8126a07cAc371f31c9c229E",
+    "decimals": 18
+  },
+  "MUDOL": {
+    "name": "Mudol Token",
+    "symbol": "MUDOL",
+    "contract": "0x45DBbBCDFf605AF5Fe27fD5E93b9F3f1BB25d429",
+    "decimals": 18
+  },
+  "kBIOT": {
+    "name": "Orbit Bridge Klaytn BioPassport Coin",
+    "symbol": "kBIOT",
+    "contract": "0x8Ff0586b6EEa63a35E73d09237B4A58B3056F274",
+    "decimals": 9
+  },
+  "oDOTR": {
+    "name": "Orbit Bridge Klaytn Dotr Coin",
+    "symbol": "oDOTR",
+    "contract": "0x8BC28c926A0FE54b5C56A329Cd3b129CC52Ae099",
+    "decimals": 9
+  },
+  "MPWR": {
+    "name": "Empower Token",
+    "symbol": "MPWR",
+    "contract": "0xAd27AcE6f0F6Cef2C192A3c8F0F3fa2611154eb3",
+    "decimals": 18
+  },
+  "kBNB": {
+    "name": "Orbit Bridge Klaytn Binance Coin",
+    "symbol": "kBNB",
+    "contract": "0x574e9c26bDA8b95D7329505b4657103710EB32eA",
+    "decimals": 18
+  },
+  "oXVS": {
+    "name": "Orbit Bridge Klaytn Venus",
+    "symbol": "oXVS",
+    "contract": "0x735106530578FB0227422De25bB32C9AdfB5Ea2e",
+    "decimals": 18
+  },
+  "kBUSD": {
+    "name": "Orbit Bridge Klaytn BUSD Token",
+    "symbol": "kBUSD",
+    "contract": "0x210bC03f49052169D5588A52C317f71cF2078b85",
+    "decimals": 18
+  },
+  "oCAKE": {
+    "name": "Orbit Bridge Klaytn PancakeSwap Token",
+    "symbol": "oCAKE",
+    "contract": "0x36E5Ea82a099E8188BD5af5709B23628076DE822",
+    "decimals": 18
+  },
+  "oCYCLUB": {
+    "name": "Orbit Bridge Klaytn Cyclub Coin",
+    "symbol": "oCYCLUB",
+    "contract": "0xf1Ec6Fc5B9f280ED43B45d2ba60874A77f343C60",
+    "decimals": 9
+  },
+  "oGALA": {
+    "name": "Orbit Bridge Klaytn Gala",
+    "symbol": "oGALA",
+    "contract": "0x2842a6D0C182E3F1cF4556311C48A7706D7BA6AD",
+    "decimals": 8
+  },
+  "MON": {
+    "name": "MON",
+    "symbol": "MON",
+    "contract": "0xA8598D1D1e6e5EcF03fc236Df3561D276038c174",
+    "decimals": 18
+  },
+  "aMON": {
+    "name": "aMON",
+    "symbol": "aMON",
+    "contract": "0x648fd38efefb4f97cf2df3ff93eff70e94da0691",
+    "decimals": 18
+  },
+  "oTRV": {
+    "name": "Orbit Bridge Klaytn TrustVerse",
+    "symbol": "oTRV",
+    "contract": "0xa23E07f7a61CE663B9CA6d6683aCAAa28Ec3070f",
+    "decimals": 18
+  },
+  "STAR": {
+    "name": "Star",
+    "symbol": "STAR",
+    "contract": "0x99E5Ec3775bbb0BC92C08CA423c54B0478B2f6d8",
+    "decimals": 6
+  },
+  "PUNK": {
+    "name": "NewKlayPunks",
+    "symbol": "PUNK",
+    "contract": "0x37C38B19a6bA325486Da87f946e72dC93E0AB39a",
+    "decimals": 18
+  },
+  "oMTS": {
+    "name": "Orbit Bridge Klaytn Metis",
+    "symbol": "oMTS",
+    "contract": "0x4E8975380F04ec53ADFDef8F5F8246c4e04291F7",
+    "decimals": 18
+  },
+  "KPAX": {
+    "name": "CND Klaytn Pax",
+    "symbol": "KPAX",
+    "contract": "0x95f04d09A8DC87EDCF1Ba6FeD443993FA2466465",
+    "decimals": 18
+  },
+  "oPACE": {
+    "name": "Orbit Bridge Klaytn 3SPACE ART",
+    "symbol": "oPACE",
+    "contract": "0xBc5d3fb02514f975060d35000e99c54253002bd4",
+    "decimals": 18
+  },
+  "TnT": {
+    "name": "Talent",
+    "symbol": "TnT",
+    "contract": "0x17d30E878Ba5a546c76fAda32d7A30c876FadB49",
+    "decimals": 18
+  },
+  "JUNC": {
+    "name": "Jun Casino Token",
+    "symbol": "JUNC",
+    "contract": "0xd675DAE87d8740b2163b4E232Ee51A880495E6C7",
+    "decimals": 18
+  },
+  "kGALA": {
+    "name": "Orbit Bridge Klaytn Gala",
+    "symbol": "kGALA",
+    "contract": "0x2842a6D0C182E3F1cF4556311C48A7706D7BA6AD",
+    "decimals": 8
+  },
+  "Ksh": {
+    "name": "Korsh",
+    "symbol": "Ksh",
+    "contract": "0xBFd4542524A426B26cAA9Ad11C1755B1087a5737",
+    "decimals": 18
+  },
+  "LAMP": {
+    "name": "Gene On Biotech",
+    "symbol": "LAMP",
+    "contract": "0x325aa5489d446D2C8CC3832a57d95d207107a4D1",
+    "decimals": 18
+  },
+  "MEPS": {
+    "name": "Mepius",
+    "symbol": "MEPS",
+    "contract": "0x1E7AF33c36C5F942687b8126AF2012Ea90EEA041",
+    "decimals": 10
+  },
+  "oSOBA": {
+    "name": "Orbit Bridge Klaytn sobacoin",
+    "symbol": "oSOBA",
+    "contract": "0xc5523901990c8977E34802347e8E2d7Fac0437eB",
+    "decimals": 18
+  },
+  "TBK": {
+    "name": "Tteokbokki",
+    "symbol": "TBK",
+    "contract": "0x995F6CdE1753799bDb37c838ccfBDca2Bc160Df5",
+    "decimals": 1
+  },
+  "kCBANK": {
+    "name": "Orbit Bridge Klaytn CRYPTO BANK",
+    "symbol": "kCBANK",
+    "contract": "0x52f4C436C9aab5B5D0dd31fB3fb8F253FD6Cb285",
+    "decimals": 18
+  },
+  "oDRC": {
+    "name": "Orbit Bridge Klaytn Dream Car",
+    "symbol": "oDRC",
+    "contract": "0x923Ff99C3ca96C77e4c111d80b71D2504C364F7A",
+    "decimals": 18
+  },
+  "KREDIT": {
+    "name": "Kredit Token",
+    "symbol": "KREDIT",
+    "contract": "0x24703F8497412912106761210BDc30c44eE61B2f",
+    "decimals": 18
+  },
+  "KPs": {
+    "name": "KP Share Token",
+    "symbol": "KPs",
+    "contract": "0xe1376aB327b6dEB7bEbaEe1329eB94574d51a8d9",
+    "decimals": 18
+  },
+  "RaPP": {
+    "name": "Rabbit Poop",
+    "symbol": "RaPP",
+    "contract": "0xCb1B1309BB70E21A3838987D1CFDb3dB885efAaa",
+    "decimals": 18
+  },
+  "UKIKI": {
+    "name": "Ukiki Coin",
+    "symbol": "UKIKI",
+    "contract": "0x6903c62861C687e2E41C06a68193ADFBa5B97254",
+    "decimals": 18
+  },
+  "MKC": {
+    "name": "MEKONG COIN",
+    "symbol": "MKC",
+    "contract": "0x119883eE408AA5B9625C5D09A79fA8Be9F9f6017",
+    "decimals": 18
+  },
+  "busB": {
+    "name": "busB",
+    "symbol": "busB",
+    "contract": "0x730c261202AdC5f30Cf9B892F665F35c095b81A6",
+    "decimals": 18
+  },
+  "RaM": {
+    "name": "Rabbit Meat",
+    "symbol": "RaM",
+    "contract": "0x138630e76C0184674536D3503482EA4A785bAF7b",
+    "decimals": 18
+  },
+  "SYL_TEST": {
+    "name": "SYLTokenTest",
+    "symbol": "SYL_TEST",
+    "contract": "0x050d0e98AeB9A133552409ED01cC1AfFA7Cb3B99",
+    "decimals": 18
+  },
+  "SYL": {
+    "name": "SYLToken",
+    "symbol": "SYL",
+    "contract": "0xdb8cb9905D81Eebc77BaC749dB9A0B8Ce6Ab9bef",
+    "decimals": 18
+  },
+  "NolzeBoost": {
+    "name": "NolzeBoost",
+    "symbol": "NolzeBoost",
+    "contract": "0xB83d3643837f343139575AbE0BEd708b1050eEc8",
+    "decimals": 18
+  },
+  "MetaBusBoost": {
+    "name": "MetaBusBoost",
+    "symbol": "MetaBusBoost",
+    "contract": "0x19e8364fd51895Eb9e0A9f3cfeCc676326705588",
+    "decimals": 18
+  },
+  "STF": {
+    "name": "STF Coin",
+    "symbol": "STF",
+    "contract": "0xB236F3BAFFC8C9253aE7e5Fb58ae5e0689f05e06",
+    "decimals": 18
+  },
+  "LBK": {
+    "name": "Legal Block",
+    "symbol": "LBK",
+    "contract": "0xdCD9c56Af7C05194D3a8c4187262130759E91320",
+    "decimals": 18
+  },
+  "RHEA": {
+    "name": "Rhea",
+    "symbol": "RHEA",
+    "contract": "0x0758fB651282581F86316514E8F5021493E9eD83",
+    "decimals": 9
+  },
+  "TRT": {
+    "name": "Tale of Raynor Token",
+    "symbol": "TRT",
+    "contract": "0x19Cc7AE09D41273c0D6568395454D9B27da21D15",
+    "decimals": 18
+  },
+  "KSTAR": {
+    "name": "KlayStar",
+    "symbol": "KSTAR",
+    "contract": "0x07FFBdbA745F3a98ec462385aEDcdcD973021671",
+    "decimals": 18
+  },
+  "MTF": {
+    "name": "MetaFire",
+    "symbol": "MTF",
+    "contract": "0x8755b9b884fD369dCf1639239C2b44ca4e9A2d78",
+    "decimals": 18
+  },
+  "MBX": {
+    "name": "MARBLEX",
+    "symbol": "MBX",
+    "contract": "0xD068c52d81f4409B9502dA926aCE3301cc41f623",
+    "decimals": 18
+  },
+  "SPRX": {
+    "name": "SuperX",
+    "symbol": "SPRX",
+    "contract": "0xA749a5fc259A95E81d8579ed37AB5fE14AA39c35",
+    "decimals": 18
+  },
+  "CX2": {
+    "name": "CX2",
+    "symbol": "CX2",
+    "contract": "0x4440E2AA546e9faeb564ff7f45a845AAd06dE651",
+    "decimals": 18
+  },
+  "HALF": {
+    "name": "Half NFT",
+    "symbol": "HALF",
+    "contract": "0xd6aA0B0f8eBba0C14661Fea0a5E12A50cF349251",
+    "decimals": 18
+  },
+  "GAIA": {
+    "name": "GAIA",
+    "symbol": "GAIA",
+    "contract": "0xe2541F0c54202fcdAD60523fab8bFaa2d2540115",
+    "decimals": 18
+  },
+  "GATO": {
+    "name": "GATO",
+    "symbol": "GATO",
+    "contract": "0xc4edCFED08a169342b479578B01c77efe32630eC",
+    "decimals": 18
+  },
+  "MITX": {
+    "name": "MOBIST",
+    "symbol": "MITX",
+    "contract": "0x448829E85C430477a715400d4A61aA808d3C900f",
+    "decimals": 18
+  },
+  "ORB": {
+    "name": "KlayCity",
+    "symbol": "ORB",
+    "contract": "0x01aD62E0Ff6dcaA72889fcA155C7036c78Ca1783",
+    "decimals": 18
+  },
+  "LAY": {
+    "name": "LAY007",
+    "symbol": "LAY",
+    "contract": "0x1223BaF4F5fb9c9002a2154262440B9eD09d01A7",
+    "decimals": 18
+  },
+  "WRS": {
+    "name": "WAR Relief Supplies",
+    "symbol": "WRS",
+    "contract": "0xFA86AFA48e9306826010Bc11977CfDb827C727DD",
+    "decimals": 18
+  },
+  "DAI": {
+    "name": "(PoS) Dai Stablecoin",
+    "symbol": "DAI",
+    "contract": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    "decimals": 18
+  },
+  "TINDER": {
+    "name": "Ignite TINDER Token",
+    "symbol": "TINDER",
+    "contract": "0x7cd4a64946e91989A21548362c18052704Fe5Ed6",
+    "decimals": 9
+  },
+  "MONETA": {
+    "name": "MONETA",
+    "symbol": "MONETA",
+    "contract": "0x5AfdA70Db64dE4D5D24E4E87a40BC5f429736Bc5",
+    "decimals": 18
+  },
+  "HSC": {
+    "name": "How Social Commerce",
+    "symbol": "HSC",
+    "contract": "0xCc8088361c6F6ea58ce2D121f84aFB2115d12cC5",
+    "decimals": 18
+  },
+  "MSHARE": {
+    "name": "MSHARE",
+    "symbol": "MSHARE",
+    "contract": "0xFD7E99ab9822Edc9b92e1F89a8a0B96A76e5740e",
+    "decimals": 18
+  },
+  "oMATIC": {
+    "name": "Orbit Bridge Polygon Matic Token",
+    "symbol": "oMATIC",
+    "contract": "0x3f364853F01D32d581fc9734110B21C77AeEA024",
+    "decimals": 18
+  },
+  "Pome": {
+    "name": "Pomeranian",
+    "symbol": "Pome",
+    "contract": "0x9A943f3F84aFA673D2a7CF053B8192e372600f57",
+    "decimals": 18
+  },
+  "AOA": {
+    "name": "Astel of Atra Coin",
+    "symbol": "AOA",
+    "contract": "0x59b7c04C8476ED57a5F53C777Dc3ee7De760e6a9",
+    "decimals": 18
+  },
+  "oDKA": {
+    "name": "Orbit Bridge Klaytn dKargo",
+    "symbol": "oDKA",
+    "contract": "0xd01D650a5920fC714b2f8ed9d53E3ffC663302e9",
+    "decimals": 18
+  },
+  "USDF": {
+    "name": "USD Flex",
+    "symbol": "USDF",
+    "contract": "0x92FDECA1A5f6A6A88Ea3fd732cFC24b4c14beFB5",
+    "decimals": 18
+  },
+  "FLEX": {
+    "name": "Flex Token",
+    "symbol": "FLEX",
+    "contract": "0x06a3172FEA7edF5CFE2Da1bCefE1FfE4A917c059",
+    "decimals": 18
+  },
+  "oPOLA": {
+    "name": "Orbit Bridge Klaytn POLARIS SHARE",
+    "symbol": "oPOLA",
+    "contract": "0x2bf4D89453DeB5781fCcC656A4cAc60710aF766d",
+    "decimals": 18
+  },
+  "MD": {
+    "name": "MetaDrive",
+    "symbol": "MD",
+    "contract": "0x9D3aE9A8449E2474Df6a38D4c9F1A15c733702a0",
+    "decimals": 18
+  },
+  "ZTC": {
+    "name": "Zattera Coin",
+    "symbol": "ZTC",
+    "contract": "0xd6243f133EbF7Ea191fb0eb47017B809B46B15F1",
+    "decimals": 18
+  },
+  "HZF": {
+    "name": "ZEROFARM",
+    "symbol": "HZF",
+    "contract": "0x8beB4953D25838E44aBaFDC7f7634f930588198D",
+    "decimals": 18
+  },
+  "KONE": {
+    "name": "Klayone",
+    "symbol": "KONE",
+    "contract": "0xCd65Df1A138f0a4e989336cA64b0498f5d26777C",
+    "decimals": 18
+  },
+  "kMESH": {
+    "name": "Orbit Bridge Klaytn Meshswap Protocol",
+    "symbol": "kMESH",
+    "contract": "0x127A75B751Ba810E459121AF6207D83841C586B7",
+    "decimals": 18
+  },
+  "kpEKL": {
+    "name": "kprotocolEKL",
+    "symbol": "kpEKL",
+    "contract": "0x08644836b786B69a5082fD4644a3F2D1534B11A8",
+    "decimals": 18
+  },
+  "KPG": {
+    "name": "Kprotocol Governance token",
+    "symbol": "KPG",
+    "contract": "0xF05d180a169418959a017865866F0aBaF7DB7EAd",
+    "decimals": 18
+  },
+  "KCLNK": {
+    "name": "Orbit Bridge Klaytn Clank",
+    "symbol": "KCLNK",
+    "contract": "0xfBE0862F1591B2197bbB40970D99B8d20a57f8D5",
+    "decimals": 18
+  },
+  "TOX": {
+    "name": "Toxic Ape Token",
+    "symbol": "TOX",
+    "contract": "0x604d6A7c492B4953Bd20e007C7220D6c3d867FC5",
+    "decimals": 18
+  },
+  "ACA": {
+    "name": "Acacia Token",
+    "symbol": "ACA",
+    "contract": "0xC925F8da1b430334d15FBEba8896c98a098bAfc3",
+    "decimals": 18
+  },
+  "nice": {
+    "name": "nice",
+    "symbol": "nice",
+    "contract": "0x23B40267e0C526Fe4279e507E78d4aa7760d53e6",
+    "decimals": 18
+  },
+  "KIRI": {
+    "name": "kiri",
+    "symbol": "KIRI",
+    "contract": "0xeacA2A817632c0Ab2Ac608711e12aC5209d56dA8",
+    "decimals": 18
+  },
+  "ENRG": {
+    "name": "ENERGY",
+    "symbol": "ENRG",
+    "contract": "0xE91ffE2e15ccD56b1b8DDF7cdF848dFEe6B5A858",
+    "decimals": 18
+  },
+  "RSTAR": {
+    "name": "KlayStar Reward",
+    "symbol": "RSTAR",
+    "contract": "0xe5f59eA8b7C9806dc84e8f0862E0F6176f2F9CF2",
+    "decimals": 18
+  },
+  "JAMBA": {
+    "name": "JAMBA JAMBA",
+    "symbol": "JAMBA",
+    "contract": "0xaF89cA6f4eE85Ff31DbE4DF6Bc50a2779F6ba820",
+    "decimals": 18
+  },
+  "DRB": {
+    "name": "DoctorB",
+    "symbol": "DRB",
+    "contract": "0x945f68b51cC51709F771E7104990B3f8a3C3ec79",
+    "decimals": 18
+  },
+  "MINT": {
+    "name": "MusicN Token",
+    "symbol": "MINT",
+    "contract": "0xf092ACc2412742f4d5A457799dea57155ED42F9C",
+    "decimals": 18
+  },
+  "MSP": {
+    "name": "MEATSWAPPER",
+    "symbol": "MSP",
+    "contract": "0x922584E0f30883C467D6AED91DC65697664a7878",
+    "decimals": 18
+  },
+  "MEAT": {
+    "name": "MEATSWAPPER",
+    "symbol": "MEAT",
+    "contract": "0x9f60e3B785B698758542f9A137141fdCb52eB6B2",
+    "decimals": 18
+  },
+  "TEST2848": {
+    "name": "TEST2848",
+    "symbol": "TEST2848",
+    "contract": "0x2FB10a633f7DCD1970C4f88EAF8d8FdDd4b20885",
+    "decimals": 18
+  },
+  "CITY": {
+    "name": "SecondCity",
+    "symbol": "CITY",
+    "contract": "0x52f9ad2033c6375bB3365494b9Be5561E8161963",
+    "decimals": 18
+  },
+  "RST": {
+    "name": "Royal Society Token",
+    "symbol": "RST",
+    "contract": "0x906DF72b0f2F342e645479B7cb6693C6d78Ef868",
+    "decimals": 18
+  },
+  "CNT": {
+    "name": "Continue Token",
+    "symbol": "CNT",
+    "contract": "0x5ab03CdB98eC84846A418D4c7cb1d481A1eF5818",
+    "decimals": 18
+  },
+  "SIG": {
+    "name": "Sigma",
+    "symbol": "SIG",
+    "contract": "0x94a2A6308c0a3782D83aD590d82FF0fFcC515312",
+    "decimals": 18
+  },
+  "NoA": {
+    "name": "NoA",
+    "symbol": "NoA",
+    "contract": "0x5D344cb62452Fb1C01587fF85af9fFe7179397DC",
+    "decimals": 18
+  },
+  "ICT": {
+    "name": "ICT Token",
+    "symbol": "ICT",
+    "contract": "0x2B5065D6049099295C68f5fcb97B8b0d3c354df7",
+    "decimals": 18
+  },
+  "TEST": {
+    "name": "Test Token",
+    "symbol": "TEST",
+    "contract": "0x09e7bE7AcE149207F4c7E4494347cA7e45F22F14",
+    "decimals": 18
+  },
+  "PLWI": {
+    "name": "PLWI",
+    "symbol": "PLWI",
+    "contract": "0x6bAe4B6AfC2856B4ac0fb1165Cf85c4923302bA2",
+    "decimals": 18
+  },
+  "kTOM": {
+    "name": "Orbit Bridge Klaytn TOM",
+    "symbol": "kTOM",
+    "contract": "0x3886dF0cB94f4bF7e0aC3Dfe2D1DB40D2Ee2293b",
+    "decimals": 18
+  },
+  "sigKSP": {
+    "name": "sigKSP: Tokenized vKSP",
+    "symbol": "sigKSP",
+    "contract": "0x6026c432c420dce0E7Bc5f84b9Df1637B9CE953b",
+    "decimals": 18
+  },
+  "SIDO": {
+    "name": "SIDO GAMES",
+    "symbol": "SIDO",
+    "contract": "0xc3130105c6E1Df04116f4aFec754e3891C69b30f",
+    "decimals": 18
+  },
+  "MAG": {
+    "name": "MAGUNI COIN",
+    "symbol": "MAG",
+    "contract": "0x3A4019BbbCa9E4dD4E5A2c522e77619F79497a05",
+    "decimals": 18
+  },
+  "KLE": {
+    "name": "Moonkle",
+    "symbol": "KLE",
+    "contract": "0x4021F0A5762eF5A1bE8e57f0d4C684a9637744D2",
+    "decimals": 18
+  },
+  "BBT": {
+    "name": "BLUE BOTTLE TOKEN",
+    "symbol": "BBT",
+    "contract": "0x450aFb14016C338145ecE2D6080CF1Ae563D8ceE",
+    "decimals": 18
+  },
+  "SBT": {
+    "name": "STARBUCKS TOKEN",
+    "symbol": "SBT",
+    "contract": "0x54736bf96B0d8e87cC1893B07A06b8aE96380223",
+    "decimals": 18
+  },
+  "TAT": {
+    "name": "TEST ALICE TOKEN",
+    "symbol": "TAT",
+    "contract": "0x3a9AaA06e25d56610F3E4685D413BeDC3bB77731",
+    "decimals": 18
+  },
+  "TBT": {
+    "name": "TEST BOB TOKEN",
+    "symbol": "TBT",
+    "contract": "0xed0aeC25f955F2Ab1fbAA684D8C77D71Ab456B0F",
+    "decimals": 18
+  },
+  "Hodoo": {
+    "name": "Hodoo",
+    "symbol": "Hodoo",
+    "contract": "0x868dB0c72FD98D1E069008a9D84aC4df671588C3",
+    "decimals": 18
+  },
+  "TEST ENTER": {
+    "name": "TEST CENTER",
+    "symbol": "TEST ENTER",
+    "contract": "0x8eD5e65BA1E48eE1362432E2C161F59CC75284E2",
+    "decimals": 18
+  },
+  "WALK": {
+    "name": "Walk Token",
+    "symbol": "WALK",
+    "contract": "0x976232eB7Eb92287fF06c5D145bD0d1C033eCA58",
+    "decimals": 18
+  },
+  "MT": {
+    "name": "MyToken",
+    "symbol": "MT",
+    "contract": "0x593E493421AC12685B2dfCcFF27B62a2718bfeC8",
+    "decimals": 18
+  },
+  "amKSP": {
+    "name": "amKSP: Tokenized vKSP",
+    "symbol": "amKSP",
+    "contract": "0x533C42DC2F9339320dAe82A44Facf00eFC60A68C",
+    "decimals": 18
+  },
+  "Satto": {
+    "name": "Satto",
+    "symbol": "Satto",
+    "contract": "0xCB9Ae19efC475047f57444Bf0fA36fa6c09BABC9",
+    "decimals": 18
+  },
+  "jjapgu": {
+    "name": "JJAPGU",
+    "symbol": "jjapgu",
+    "contract": "0xD02B0DAe067FcA36A31c15c799e30b65A84b2F75",
+    "decimals": 18
+  },
+  "TCT": {
+    "name": "TEST CAROL TOKEN",
+    "symbol": "TCT",
+    "contract": "0xAa77961A7f4277Ea173B07B5DD8148dEb5998c84",
+    "decimals": 18
+  },
+  "Princess": {
+    "name": "Princess",
+    "symbol": "Princess",
+    "contract": "0x9393B50fcF78d2de394729545A1dee27F772c753",
+    "decimals": 18
+  },
+  "TUS2": {
+    "name": "TEST USD 2",
+    "symbol": "TUS2",
+    "contract": "0xe9A05840e4a3151d87fFB411047300fEA5275063",
+    "decimals": 6
+  },
+  "TUS1": {
+    "name": "TEST USD 1",
+    "symbol": "TUS1",
+    "contract": "0x830dA923252EA03574eA95d65d4E077A207594da",
+    "decimals": 6
+  },
+  "TUS3": {
+    "name": "TEST USD 3",
+    "symbol": "TUS3",
+    "contract": "0x164e95F74DDE8BB7cb0172f06a6296Df5694DC59",
+    "decimals": 6
+  },
+  "KLD": {
+    "name": "Klaylend Finance",
+    "symbol": "KLD",
+    "contract": "0xb8c460aD6aC97797A57BDb08D7187b4710B4Fdf8",
+    "decimals": 18
+  },
+  "BBB": {
+    "name": "BBB",
+    "symbol": "BBB",
+    "contract": "0x65e9624f5065fDeC8c6D3aAA1B4Cd9AF1d4efdbe",
+    "decimals": 18
+  },
+  "Dec18": {
+    "name": "Dec18",
+    "symbol": "Dec18",
+    "contract": "0xF5d3619d584fFA8ce15337ac98ce14A10A1541D7",
+    "decimals": 18
+  },
+  "Dec6": {
+    "name": "Dec6",
+    "symbol": "Dec6",
+    "contract": "0x79481D193f7dB98823D48271B0789BAE6eED68C3",
+    "decimals": 6
+  },
+  "SKZ": {
+    "name": "SKZ",
+    "symbol": "SKZ",
+    "contract": "0x9a6469aaC7cd70385bdCa6fA9E9356ACec9c5B16",
+    "decimals": 18
+  },
+  "GRND": {
+    "name": "SuperWalk",
+    "symbol": "GRND",
+    "contract": "0x84F8C3C8d6eE30a559D73Ec570d574f671E82647",
+    "decimals": 18
+  },
+  "ARA": {
+    "name": "Aurora klay ",
+    "symbol": "ARA",
+    "contract": "0x15Fb4a7408F63DeFC599Ac364D824A5044FF2ECd",
+    "decimals": 18
+  },
+  "LCG": {
+    "name": "LCG Token",
+    "symbol": "LCG",
+    "contract": "0xEf632E070Df56371Ad33A85148De398104EC55aB",
+    "decimals": 18
+  },
+  "BTS": {
+    "name": "BATTLE SINGER",
+    "symbol": "BTS",
+    "contract": "0x8116E335Dd735D38bc64dCf2676582785BF8DeAC",
+    "decimals": 18
+  },
+  "KPOP": {
+    "name": "Korean POP",
+    "symbol": "KPOP",
+    "contract": "0xB6A5805a0A0cc072f6c2c5EF72317a8Ba172bbd3",
+    "decimals": 18
+  },
+  "APM": {
+    "name": "apM Coin",
+    "symbol": "APM",
+    "contract": "0x4Ec5E1c092f9C40d1e9bE5744FEdDb23935232e9",
+    "decimals": 18
+  },
+  "VICE": {
+    "name": "vic_education",
+    "symbol": "VICE",
+    "contract": "0x170a6b46fD7DB6E42208ae222475E8CC9a83DD9D",
+    "decimals": 18
+  },
+  "aMOON": {
+    "name": "NameDinosaur Moon",
+    "symbol": "aMOON",
+    "contract": "0x3c244f452a3c178e8b117926acd127aadcf231ed",
+    "decimals": 18
+  },
+  "MOON": {
+    "name": "To The Moon",
+    "symbol": "MOON",
+    "contract": "0x116397597f42034A237e1e04496916E681A4A81D",
+    "decimals": 18
+  },
+  "ASAN": {
+    "name": "ASAN Token",
+    "symbol": "ASAN",
+    "contract": "0x27b33131A0b02879d63830292931281B1b83000F",
+    "decimals": 18
+  },
+  "oETF": {
+    "name": "Orbit Bridge Polygon EthereumFair",
+    "symbol": "oETF",
+    "contract": "0xCD8FfBB3725A1b3234DBeb024F7172a75435E638",
+    "decimals": 18
+  },
+  "ISK": {
+    "name": "ISKRA TOKEN",
+    "symbol": "ISK",
+    "contract": "0x17d2628D30F8e9E966c9Ba831c9B9b01ea8Ea75C",
+    "decimals": 18
+  },
+  "K4U": {
+    "name": "Klaytn_For_You",
+    "symbol": "K4U",
+    "contract": "0x31a26Ea6DF12940A2623907d032de87Cd090450F",
+    "decimals": 18
+  },
+  "AME": {
+    "name": "Ice Americano",
+    "symbol": "AME",
+    "contract": "0x124C6f438a05074CB4A1d22B70F95D3B1d709A34",
+    "decimals": 18
+  },
+  "MK": {
+    "name": "MILK",
+    "symbol": "MK",
+    "contract": "0xF774D79322bDC919bF58871BcDBCC65912B17BAB",
+    "decimals": 18
+  },
+  "PTEN": {
+    "name": "Protection Of The Environment",
+    "symbol": "PTEN",
+    "contract": "0xcC0A311d19B1c6ea6F5a6D6A20CA0F954bdC9463",
+    "decimals": 18
+  },
+  "ALBA": {
+    "name": "AlbaDeFi",
+    "symbol": "ALBA",
+    "contract": "0xbE1a79Ac31DE3f69C9643fBeC19ee54EFAA944a5",
+    "decimals": 18
+  },
+  "RISU": {
+    "name": "Harisu",
+    "symbol": "RISU",
+    "contract": "0x176BAE048973767381c532274E8ef2b3e0E8FA3A",
+    "decimals": 18
+  },
+  "MCFA": {
+    "name": "Meme coin For AirDrop",
+    "symbol": "MCFA",
+    "contract": "0x9797e96348Ef4763AD2929F385084a1B1E492D15",
+    "decimals": 18
+  },
+  "Sword": {
+    "name": "Ego Sword",
+    "symbol": "Sword",
+    "contract": "0x37ceF61129d9784173507aC1e43B81e3732317f9",
+    "decimals": 18
+  },
+  "MFA": {
+    "name": "MemeCoin For AirDrop",
+    "symbol": "MFA",
+    "contract": "0xf74CA3dA2bEefefF204795Bb23Cac0eBcd988498",
+    "decimals": 18
+  },
+  "SKYL": {
+    "name": "SKY LOVE",
+    "symbol": "SKYL",
+    "contract": "0x1E3C962d8A9fF97497Aef1c429c6F3efd1844F2F",
+    "decimals": 18
+  },
+  "GXA": {
+    "name": "GALAXIA",
+    "symbol": "GXA",
+    "contract": "0xA80e96cCeB1419f9BD9F1c67F7978F51b534A11b",
+    "decimals": 18
+  },
+  "NecroSword": {
+    "name": "Necro sword",
+    "symbol": "NecroSword",
+    "contract": "0xd054B605178D9929C9947FCAEaeb38ACBB95c818",
+    "decimals": 18
+  },
+  "PD": {
+    "name": "Pudding",
+    "symbol": "PD",
+    "contract": "0x3D7B9801FF79f9Ea599663E7b43077c9486bD1F1",
+    "decimals": 18
+  },
+  "DropTheBit": {
+    "name": "AirDrop the bit",
+    "symbol": "DropTheBit",
+    "contract": "0x07D7D3aAB1D0C3Cd9C38217B6429B9983A135587",
+    "decimals": 18
+  },
+  "AFMC": {
+    "name": "AirDrop for MemeCoin",
+    "symbol": "AFMC",
+    "contract": "0x57aB0CAF9D4aaAf6fB3BD64F8DB29027dB37926a",
+    "decimals": 18
+  },
+  "XMAS": {
+    "name": "AirDrop for XMAS",
+    "symbol": "XMAS",
+    "contract": "0xB7eeF4b136d5c1Ff7Be14EfdE49493aEe3788074",
+    "decimals": 18
+  },
+  "PRIME": {
+    "name": "Prime",
+    "symbol": "PRIME",
+    "contract": "0x16886052065Ce8317DC6afCC5C4D953abc28B185",
+    "decimals": 18
+  },
+  "HNY": {
+    "name": "HappyNewYear With Meme Coin",
+    "symbol": "HNY",
+    "contract": "0xb2913216F9eC04a8791B1e9a8A3111135b071030",
+    "decimals": 18
+  },
+  "ZBZ": {
+    "name": "ZOMBIZ",
+    "symbol": "ZBZ",
+    "contract": "0x35805bec6c7E3Cf900ff8D1bb8267e535B1Ddd76",
+    "decimals": 18
+  },
+  "MFAs": {
+    "name": "MemeCoins for Airdrops",
+    "symbol": "MFAs",
+    "contract": "0xBCb2bC26C56DbCACaE99C2aEE782655F877e9EfD",
+    "decimals": 18
+  },
+  "SAK": {
+    "name": "Sakka Finance",
+    "symbol": "SAK",
+    "contract": "0x37CDC46C78Cf403F1Da8a1eeBCffB3ed1DD01868",
+    "decimals": 18
+  },
+  "KMC": {
+    "name": "Klay MemeCoin",
+    "symbol": "KMC",
+    "contract": "0xEc209a39543C5D4d99030eb7D039e8419EA4C8aa",
+    "decimals": 18
+  },
+  "KICK": {
+    "name": "Kick",
+    "symbol": "KICK",
+    "contract": "0x1C8c176332c4b60f3b98C65D08abaA1480cfB96c",
+    "decimals": 18
+  },
+  "PXL": {
+    "name": "Pixel",
+    "symbol": "PXL",
+    "contract": "0x5425B810432Bc7E7DBC74859eD3c37bB39d9dF00",
+    "decimals": 18
+  },
+  "DBY": {
+    "name": "Metaderby token",
+    "symbol": "DBY",
+    "contract": "0x99B5e2571C4d9Fa1ccc5ce19d1a515E3Ddfb5B2e",
+    "decimals": 18
+  },
+  "SAWON": {
+    "name": "SaWonDeFi",
+    "symbol": "SAWON",
+    "contract": "0x52D1eC2ed762D7Fb3bE336Ec678569C730B87d66",
+    "decimals": 18
+  },
+  "tGLT": {
+    "name": "Greylake Test Token",
+    "symbol": "tGLT",
+    "contract": "0xd6C2920dd7Da5484544335162D77FC7058b2A9f2",
+    "decimals": 18
+  },
+  "tUSDG": {
+    "name": "Greylake Test Usd Token",
+    "symbol": "tUSDG",
+    "contract": "0x22BBC9504f6396492D095d248A33AA59D197AF12",
+    "decimals": 6
+  },
+  "HOOF": {
+    "name": "Metaderby game token",
+    "symbol": "HOOF",
+    "contract": "0x7C625F150f3b3c1d0dc750Ce6Bb4CA7352C98c38",
+    "decimals": 18
+  },
+  "HOLD": {
+    "name": "HOLD",
+    "symbol": "HOLD",
+    "contract": "0xE5D085431C0e55FDfC6f354ef4522e6d2B58B90c",
+    "decimals": 18
+  },
+  "oMRST": {
+    "name": "Orbit Bridge Klaytn Mars Token",
+    "symbol": "oMRST",
+    "contract": "0x341BA3a6738Fd107484fBc4f6B8f6c5fCE75d339",
+    "decimals": 18
+  },
+  "oPBOS": {
+    "name": "Orbit Bridge Klaytn Phobos Token",
+    "symbol": "oPBOS",
+    "contract": "0x78f3C81c5f6c8964aEa1a48309DCcb837526af56",
+    "decimals": 18
+  },
+  "NECTAR": {
+    "name": "Nectar",
+    "symbol": "NECTAR",
+    "contract": "0x39076D7a914017E04f6c0f67D88F4162625E8D1D",
+    "decimals": 18
+  },
+  "KADC": {
+    "name": "klaytn AirDrop Coin",
+    "symbol": "KADC",
+    "contract": "0x9bCB5207FB92A7B91714dEFE74d48B242f05f1aD",
+    "decimals": 18
+  },
+  "illuminate": {
+    "name": "illuminate",
+    "symbol": "illuminate",
+    "contract": "0xB42795bD4347a12CdB8843088De5fe211e68d54a",
+    "decimals": 18
+  },
+  "PEARL": {
+    "name": "PEARL In Coin",
+    "symbol": "PEARL",
+    "contract": "0x1bcC34cbAa032B09bC4981Ff4F6b2E511A156aEa",
+    "decimals": 18
+  },
+  "WMXPRO": {
+    "name": "WMXPRO",
+    "symbol": "WMXPRO",
+    "contract": "0xfFD8d7e3f51Ad8a6B42aAa61997E391ac35c1d66",
+    "decimals": 18
+  },
+  "WEP": {
+    "name": "WEPLAY",
+    "symbol": "WEP",
+    "contract": "0xe10642c827e85Ff661dFC1966B91743fdc8f23Ab",
+    "decimals": 18
+  },
+  "MADEN": {
+    "name": "MADEN",
+    "symbol": "MADEN",
+    "contract": "0xFb94B4fb83DE37f0D64923C3B931aeB1ae18b02c",
+    "decimals": 18
+  },
+  "fund": {
+    "name": "fund",
+    "symbol": "fund",
+    "contract": "0xe417fedd26bb5F3cBb2ce7C4760E64D91e77fe59",
+    "decimals": 18
+  },
+  "TREE": {
+    "name": "klayTree",
+    "symbol": "TREE",
+    "contract": "0xC58f81A287df385A406b0f6775221CE72c909345",
+    "decimals": 18
+  },
+  "CHAOS": {
+    "name": "Chaos Coin",
+    "symbol": "CHAOS",
+    "contract": "0x443999129f351680C26791053327E7baA74B7ef8",
+    "decimals": 18
+  },
+  "DIAMOND": {
+    "name": "DIAMOND Coin for AirDrop",
+    "symbol": "DIAMOND",
+    "contract": "0x7f8720628ce7E03D616873cB0078ad0a0F838315",
+    "decimals": 18
+  },
+  "ADSC": {
+    "name": "AirDrop Solution Company",
+    "symbol": "ADSC",
+    "contract": "0xe3eeBd079D212c435a80fFE29c61712F64d8ad50",
+    "decimals": 18
+  },
+  "investfund": {
+    "name": "investfund",
+    "symbol": "investfund",
+    "contract": "0x63e2fF719027E1e58447e0671C1cb04825ecC9E9",
+    "decimals": 18
+  },
+  "stone": {
+    "name": "stone",
+    "symbol": "stone",
+    "contract": "0xC975BB1a4996F25B4215C9083c314f4fa9bE558E",
+    "decimals": 18
+  },
+  "CTC": {
+    "name": "CTC",
+    "symbol": "CTC",
+    "contract": "0x1dD06BC0CD19f4BBA5Dda209528E14E10483Bac0",
+    "decimals": 18
+  },
+  "DCB": {
+    "name": "dCube",
+    "symbol": "DCB",
+    "contract": "0x50cA1CE4aDe3d465BaEB611E934C5c8e752F22c3",
+    "decimals": 18
+  },
+  "KLTT": {
+    "name": "KOREA LOTTO",
+    "symbol": "KLTT",
+    "contract": "0x0e32C7BaB4EaF8D4D1FeeD05902FB9f9569F529b",
+    "decimals": 18
+  },
+  "USDT": {
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH",
+    "MinimumBridge": 0
+  },
+  "mUSDT": {
+    "name": "(PoS) Tether USD",
+    "symbol": "mUSDT",
+    "contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "decimals": 6
+  },
+  "WBTC": {
+    "name": "(PoS) Wrapped BTC",
+    "symbol": "WBTC",
+    "contract": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    "decimals": 8
+  },
+  "ORC": {
+    "name": "Orbit Chain (PoS)",
+    "symbol": "ORC",
+    "contract": "0x1bD5048e0B85c410dd039aa9c05069A9d82488b8",
+    "decimals": 18
+  },
+  "oDAI": {
+    "name": "Orbit Bridge Polygon Dai",
+    "symbol": "oDAI",
+    "contract": "0x8Ece0a50A025A7E13398212a5BEd2ded11959949",
+    "decimals": 18
+  },
+  "oKASH": {
+    "name": "Orbit Bridge Polygon Kairos Cash",
+    "symbol": "oKASH",
+    "contract": "0xE82e41aE8C89a065149177191c86FF67EFCA84AC",
+    "decimals": 18
+  },
+  "owsKRNO": {
+    "name": "Orbit Bridge Polygon Wrapped sKRNO",
+    "symbol": "owsKRNO",
+    "contract": "0xfe563F1663BE1250b05a177819Ed10F59c99ac31",
+    "decimals": 18
+  },
+  "oMKC": {
+    "name": "Orbit Bridge Polygon MEKONG COIN",
+    "symbol": "oMKC",
+    "contract": "0x5fEf679BF33316B3f86DE9D66878766E6969cc0f",
+    "decimals": 18
+  },
+  "PMIX": {
+    "name": "Polygon Mix",
+    "symbol": "PMIX",
+    "contract": "0x5085a6879Af6767732c51CA0fc7422d41d9aAEf6",
+    "decimals": 18
+  },
+  "AdMESH": {
+    "name": "Adamant MESH",
+    "symbol": "AdMESH",
+    "contract": "0x791e974FD87c8d0BCAa9aa253ff4591A5957127c",
+    "decimals": 18
+  },
+  "USD+": {
+    "name": "USD+",
+    "symbol": "USD+",
+    "contract": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
+    "decimals": 6
+  },
+  "miMATIC": {
+    "name": "miMATIC",
+    "symbol": "miMATIC",
+    "contract": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+    "decimals": 18
+  },
+  "MaticX": {
+    "name": "Liquid Staking Matic (PoS)",
+    "symbol": "MaticX",
+    "contract": "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6",
+    "decimals": 18
+  },
+  "tetuMESH": {
+    "name": "TETU_ST_MESH",
+    "symbol": "tetuMESH",
+    "contract": "0xDcB8F34a3ceb48782c9f3F98dF6C12119c8d168a",
+    "decimals": 18
+  },
+  "TRMT": {
+    "name": "TIERRA",
+    "symbol": "TRMT",
+    "contract": "0x2ad20CDC0e722AaC2772CB02d46A01a858899358",
+    "decimals": 18
+  },
+  "TT1": {
+    "name": "test token 1",
+    "symbol": "TT1",
+    "contract": "0x94094a18f148822C4f8Db0512bf0aa576DD0Ea43",
+    "decimals": 18
+  },
+  "TUSD": {
+    "name": "TrueUSD (PoS)",
+    "symbol": "TUSD",
+    "contract": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+    "decimals": 18
+  },
+  "JMK": {
+    "name": "JMK",
+    "symbol": "JMK",
+    "contract": "0x0d54e3891574d54b00dc6304637cc1D68bcF9997",
+    "decimals": 18
+  },
+  "ITSB": {
+    "name": "ITSBLOC",
+    "symbol": "ITSB",
+    "contract": "0x998013798440d44C1dD4c767bdD9580E16E46e28",
+    "decimals": 18
+  },
+  "oEPL": {
+    "name": "Orbit Bridge Polygon EpicLeague",
+    "symbol": "oEPL",
+    "contract": "0x1236ea13c7339287Cd00AB196aAA8217006b04dc",
+    "decimals": 18
+  },
+  "HIDIX": {
+    "name": "HIDDENIX",
+    "symbol": "HIDIX",
+    "contract": "0x804Da281A695d50c83AFF51195f33253aCD3eE9C",
+    "decimals": 18
+  },
+  "DRC": {
+    "name": "Dream Car (PoS)",
+    "symbol": "DRC",
+    "contract": "0x17c0a6D1911B625A9156814a7e1df26923aF4051",
+    "decimals": 18
+  },
+  "FFC": {
+    "name": "Future Fund Coin",
+    "symbol": "FFC",
+    "contract": "0xf9b44F8f78706A6467646742A1d8391Ce44F2d5e",
+    "decimals": 2
+  },
+  "MRST": {
+    "name": "Mars Token",
+    "symbol": "MRST",
+    "contract": "0x411bc96881A62572FF33c9d8CE60dF99E3d96cd8",
+    "decimals": 18
+  },
+  "PBOS": {
+    "name": "Phobos Token",
+    "symbol": "PBOS",
+    "contract": "0x421b9B487D5a9b76E4B81809C0f1b9Bb8cb24cb9",
+    "decimals": 18
+  },
+  "GXR": {
+    "name": "GELIXIR",
+    "symbol": "GXR",
+    "contract": "0x4E60D18d2DBEf487F016dc4F6737C1713F0f8Fd3",
+    "decimals": 18
+  },
+  "BUSD": {
+    "name": "BUSD Token",
+    "symbol": "BUSD",
+    "contract": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
+    "decimals": 18
+  },
+  "oBNB": {
+    "name": "Orbit Bridge Klaytn Binance Coin",
+    "symbol": "oBNB",
+    "contract": "0x574e9c26bDA8b95D7329505b4657103710EB32eA",
+    "decimals": 18
+  },
+  "!!@#": {
+    "name": "!!@#",
+    "symbol": "!!@#",
+    "contract": "0x47cC74d34B6832105c2eb240059f8c16ED29C75f",
+    "decimals": 18
+  },
+  "oBUSD": {
+    "name": "Orbit Bridge Klaytn BUSD Token",
+    "symbol": "oBUSD",
+    "contract": "0x210bC03f49052169D5588A52C317f71cF2078b85",
+    "decimals": 18
+  },
+  "oXDT": {
+    "name": "Orbit Bridge Polygon XDT Token",
+    "symbol": "oXDT",
+    "contract": "0xBC493Cad080A13474A374FC351191BfF12E04E4b",
+    "decimals": 18
+  },
+  "CBANK": {
+    "name": "CRYPTO BANK",
+    "symbol": "CBANK",
+    "contract": "0xf2Eb788Cfc3386A6511b7D1973E3Fe6f87f89117",
+    "decimals": 18
+  },
+  "FOCUS": {
+    "name": "KLAY FOCUS",
+    "symbol": "FOCUS",
+    "contract": "0xa994257EC92d34F70a5d6CA24A4D6a2C77c64AaA",
+    "decimals": 18
+  },
+  "KZON": {
+    "name": "KLAY ZONE",
+    "symbol": "KZON",
+    "contract": "0x6133026Fa43cD67fadf44b6f29aAbA0509d877E4",
+    "decimals": 18
+  },
+  "CDM": {
+    "name": "Coindiamond",
+    "symbol": "CDM",
+    "contract": "0xB38e68a348079E84A1E27Fb142729D418D472eA4",
+    "decimals": 18
+  },
+  "NOX": {
+    "name": "Nox",
+    "symbol": "NOX",
+    "contract": "0x1f6b9EBefd37AD48A2c47596e799e02f404F34e7",
+    "decimals": 18
+  },
+  "KACE": {
+    "name": "KLAY ACE COIN",
+    "symbol": "KACE",
+    "contract": "0x69F6433FE7f9E6cb9A1aef0ee408c181F017D9aD",
+    "decimals": 18
+  },
+  "3KM": {
+    "name": "3KM TOKEN",
+    "symbol": "3KM",
+    "contract": "0x0aB503536019CB4303bDa69467c1ec5DE1589918",
+    "decimals": 18
+  },
+  "DTC": {
+    "name": "DTC TOKEN",
+    "symbol": "DTC",
+    "contract": "0xa479bf71DeD32fcB26b4510787352614c56c5184",
+    "decimals": 18
+  },
+  "PPT": {
+    "name": "Pocket ProjecT",
+    "symbol": "PPT",
+    "contract": "0x60b6CC2b8Cf4687DaFa08c2078F7677EAB23dF7e",
+    "decimals": 18
+  },
+  "SHO": {
+    "name": "Shogun Token",
+    "symbol": "SHO",
+    "contract": "0x924a772a0AFa8D85B21057485168d56F8f817453",
+    "decimals": 18
+  },
+  "shoMESH": {
+    "name": "shoMESH: Tokenized vMESH",
+    "symbol": "shoMESH",
+    "contract": "0x92D1c3dFa8e6c04d25D76fb08fEd2EC03cE7c923",
+    "decimals": 18
+  },
+  "fFRAX": {
+    "name": "FANTOM FRAX",
+    "symbol": "fFRAX",
+    "contract": "0xdc301622e621166bd8e82f2ca0a26c13ad0be355",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mFRAX": {
+    "name": "FANTOM FRAX",
+    "symbol": "mFRAX",
+    "contract": "0x45c32fa6df82ead1e2ef74d17b76547eddfaff89",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mFXS": {
+    "name": "MATIC FXS",
+    "symbol": "mFXS",
+    "contract": "0x1a3acf6d19267e2d3e7f898f42803e90c9219062",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fFXS": {
+    "name": "FANTOM FXS",
+    "symbol": "fFXS",
+    "contract": "0x7d016eec9c25232b01F23EF992D98ca97fc2AF5a",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aFRAX": {
+    "name": "AVAX FRAX",
+    "symbol": "aFRAX",
+    "contract": "0xd24c2ad096400b6fbcd2ad8b24e7acbc21a1da64",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aFXS": {
+    "name": "AVAX FXS",
+    "symbol": "aFXS",
+    "contract": "0x214db107654ff987ad859f34125307783fc8e387",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "AVAX": {
+    "name": "AVAX",
+    "symbol": "AVAX",
+    "contract": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "decimals": "18"
+  },
+  "FTM": {
+    "name": "FANTOM",
+    "symbol": "FTM",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fUSDC": {
+    "name": "FANTOM USDC",
+    "symbol": "USDC",
+    "contract": "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fUSDT": {
+    "name": "FANTOM USDT",
+    "symbol": "fUSDT",
+    "contract": "0x049d68029688eabf473097a2fc38ef61633a3c7a",
+    "decimals": 6,
+    "MinimumBridge": 15
+  },
+  "aUSDC": {
+    "name": "AVAX USDC",
+    "symbol": "aUSDC",
+    "contract": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "decimals": 6,
+    "MinimumBridge": 15
+  },
+  "USDT.e": {
+    "name": "AVAX USDT",
+    "symbol": "USDT.e",
+    "contract": "0xc7198437980c041c805a1edcba50c1ce5db95118",
+    "decimals": 6,
+    "MinimumBridge": 15
+  },
+  "XRP.m": {
+    "name": "XRP",
+    "symbol": "XRP.m",
+    "contract": "0xCF653100Df5CA1182f02c8C8FCf37F52abfb8963",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mSTG": {
+    "name": "MATIC STG",
+    "symbol": "mSTG",
+    "contract": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fSTG": {
+    "name": "FANTOM STG",
+    "symbol": "fSTG",
+    "contract": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aSTG": {
+    "name": "AVAX STG",
+    "symbol": "aSTG",
+    "contract": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mCRV": {
+    "name": "MATIC CRV",
+    "symbol": "mCRV",
+    "contract": "0x172370d5cd63279efa6d502dab29171933a610af",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fCRV": {
+    "name": "FANTOM CRV",
+    "symbol": "fCRV",
+    "contract": "0x1e4f97b9f9f913c46f1632781732927b9019c68b",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mLINK": {
+    "name": "MATIC LINK",
+    "symbol": "mLINK",
+    "contract": "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fLINK": {
+    "name": "FANTOM LINK",
+    "symbol": "fLINK",
+    "contract": "0xb3654dc3d10ea7645f8319668e8f54d2574fbdc8",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aLINK": {
+    "name": "AVAX LINK",
+    "symbol": "aLINK",
+    "contract": "0x5947bb275c521040051d82396192181b413227a3",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mSOL": {
+    "name": "MATIC SOL",
+    "symbol": "mSOL",
+    "contract": "0x7dff46370e9ea5f0bad3c4e29711ad50062ea7a4",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fSOL": {
+    "name": "FANTOM SOL",
+    "symbol": "fSOL",
+    "contract": "0x44f7237df00e386af8e79b817d05ed9f6fe0f296",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aSOL": {
+    "name": "AVAX SOL",
+    "symbol": "aSOL",
+    "contract": "0xfe6b19286885a4f7f55adad09c3cd1f906d2478f",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mANKR": {
+    "name": "MATIC ANKR",
+    "symbol": "mANKR",
+    "contract": "0x101a023270368c0d50bffb62780f4afd4ea79c35",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fANKR": {
+    "name": "FANTOM ANKR",
+    "symbol": "fANKR",
+    "contract": "0x0615dbba33fe61a31c7ed131bda6655ed76748b1",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aANKR": {
+    "name": "AVAX ANKR",
+    "symbol": "aANKR",
+    "contract": "0x20cf1b6e9d856321ed4686877cf4538f2c84b4de",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fMATIC": {
+    "name": "FANTOM MATIC",
+    "symbol": "fMATIC",
+    "contract": "0x40df1ae6074c35047bff66675488aa2f9f6384f3",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aMATIC": {
+    "name": "AVAX MATIC",
+    "symbol": "aMATIC",
+    "contract": "0xf2f13f0b7008ab2fa4a2418f4ccc3684e49d20eb",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mFTM": {
+    "name": "MATIC FTM",
+    "symbol": "mFTM",
+    "contract": "0xb85517b87bf64942adf3a0b9e4c71e4bc5caa4e5",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mAVAX": {
+    "name": "MATIC AVAX",
+    "symbol": "mAVAX",
+    "contract": "0x2c89bbc92bd86f8075d1decc58c7f4e0107f286b",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fAVAX": {
+    "name": "FANTOM AVAX",
+    "symbol": "fAVAX",
+    "contract": "0x511d35c52a3c244e7b8bd92c0c297755fbd89212",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mWOO": {
+    "name": "MATIC WOO",
+    "symbol": "mWOO",
+    "contract": "0x1b815d120b3ef02039ee11dc2d33de7aa4a8c603",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fWOO": {
+    "name": "FANTOM WOO",
+    "symbol": "fWOO",
+    "contract": "0x6626c47c00f1d87902fc13eecfac3ed06d5e8d8a",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aWOO": {
+    "name": "AVAX WOO",
+    "symbol": "aWOO",
+    "contract": "0xaBC9547B534519fF73921b1FBA6E672b5f58D083",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mSNX": {
+    "name": "MATIC SNX",
+    "symbol": "mSNX",
+    "contract": "0x50b728d8d964fd00c2d0aad81718b71311fef68a",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fSNX": {
+    "name": "FANTOM SNX",
+    "symbol": "fSNX",
+    "contract": "0x56ee926bd8c72b2d5fa1af4d9e4cbb515a1e3adc",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mSUSHI": {
+    "name": "MATIC SUSHI",
+    "symbol": "mSUSHI",
+    "contract": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fSUSHI": {
+    "name": "FANTOM SUSHI",
+    "symbol": "fSUSHI",
+    "contract": "0xae75a438b2e0cb8bb01ec1e1e376de11d44477cc",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aSUSHI": {
+    "name": "AVAX SUSHI",
+    "symbol": "aSUSHI",
+    "contract": "0x37b608519f91f70f2eeb0e5ed9af4061722e4f76",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mYFI": {
+    "name": "MATIC YFI",
+    "symbol": "mYFI",
+    "contract": "0xda537104d6a5edd53c6fbba9a898708e465260b6",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fYFI": {
+    "name": "FANTOM YFI",
+    "symbol": "fYFI",
+    "contract": "0x29b0da86e484e1c0029b56e817912d778ac0ec69",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mTUSD": {
+    "name": "MATIC TUSD",
+    "symbol": "mTUSD",
+    "contract": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fTUSD": {
+    "name": "FANTOM TUSD",
+    "symbol": "fTUSD",
+    "contract": "0x9879abdea01a879644185341f7af7d8343556b7a",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aTUSD": {
+    "name": "AVAX TUSD",
+    "symbol": "aTUSD",
+    "contract": "0x1c20e891bab6b1727d14da358fae2984ed9b59eb",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mXEN": {
+    "name": "MATIC XEN",
+    "symbol": "mXEN",
+    "contract": "0x2ab0e9e4ee70fff1fb9d67031e44f6410170d00e",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aXEN": {
+    "name": "AVAX XEN",
+    "symbol": "aXEN",
+    "contract": "0xc0c5aa69dbe4d6dddfbc89c0957686ec60f24389",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "mKNC": {
+    "name": "MATIC KNC",
+    "symbol": "mKNC",
+    "contract": "0x1c954e8fe737f99f68fa1ccda3e51ebdb291948c",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aKNC": {
+    "name": "AVAX KNC",
+    "symbol": "aKNC",
+    "contract": "0x39fc9e94caeacb435842fadedecb783589f50f5f",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "fSPELL": {
+    "name": "FANTOM SPELL",
+    "symbol": "fSPELL",
+    "contract": "0x468003b688943977e6130f4f68f23aad939a1040",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "aSPELL": {
+    "name": "AVAX SPELL",
+    "symbol": "aSPELL",
+    "contract": "0xCE1bFFBD5374Dac86a2893119683F4911a2F7814",
+    "decimals": 18,
+    "MinimumBridge": 15
+  },
+  "BTC.b": {
+    "name": "AVAX BTC bridge",
+    "symbol": "BTC.b",
+    "contract": "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+    "decimals": 8,
+    "MinimumBridge": 15
+  }
+}
