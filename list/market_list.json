@@ -33,46 +33,6 @@
     },
     "info": "https://meshswap.fi/exchange/swap"
   },
-  "mooiswap": {
-    "id": 3,
-    "name": "Mooiswap",
-    "symbol": "MOOI",
-    "fee": 0,
-    "factoryAbi": "uniswapv2_factory_abi.json",
-    "routerAbi": "uniswapv2_router_abi.json",
-    "pool_pass": false,
-    "token_pass": false,
-    "baseChain": {
-      "MOOI": {
-        "factoryAddress": "0x8F597c8B8C285b027138af05abba07844cf3DbfA",
-        "routerAddress": "0x21A4eDd3Ada949450d2e1d9a1189cBaBD57e75B4"
-      }
-    },
-    "info": "https://meshswap.fi/exchange/swap"
-  },
-  "mooibridge": {
-    "id": 3,
-    "name": "Mooibridge",
-    "symbol": "MOOI",
-    "fee": 0.1,
-    "bridgeAddress": "0x3555681956d19aC37fA9B537895e3fE0B3f80AeF",
-    "pool_pass": true,
-    "token_pass": true,
-    "baseChain": {
-      "MOOI": {},
-      "KLAYTN": {}
-    },
-    "type": {
-      "MOOI_bridge": {
-        "bridgeAbi": "mooibridge_router_abi.json",
-        "bridgeAddress": {
-          "KLAYTN": "0xFf4f0785fE6572706bdDF2224055FC4aFb701975",
-          "MOOI": "0x6d03b9fe0c22ad8fd7f5ba8ff1dd6d574ec1028d"
-        }
-      }
-    },
-    "info": "https://meshswap.fi/exchange/swap"
-  },
   "orbitbridge": {
     "id": 4,
     "name": "Orbitbridge",
@@ -102,25 +62,6 @@
       }
     },
     "info": "https://bridge.orbitchain.io/"
-  },
-  "xrpbridge": {
-    "id": 3,
-    "name": "Xrpbridge",
-    "symbol": "XRP.m",
-    "fee": 0.1,
-    "bridgeAddress": "0xCF653100Df5CA1182f02c8C8FCf37F52abfb8963",
-    "pool_pass": true,
-    "token_pass": true,
-    "baseChain": {
-      "MOOI": {}
-    },
-    "type": {
-      "XRP_bridge": {
-        "bridgeAbi": "XRPBridgeManager_abi.json",
-        "bridgeAddress": "0xba79bb249874b200746407f8db31843844c7ef5b"
-      }
-    },
-    "info": "https://meshswap.fi/exchange/swap"
   },
   "oneinchswap": {
     "id": 12,

@@ -147,30 +147,6 @@
     }
   },
 
-  "MOOI": {
-    "name": "MOOI",
-    "baseChain": "mooi",
-    "baseCurrency": "MOOI",
-    "baseContract": "0x0000000000000000000000000000000000000000",
-    "limit": false,
-    "POS": false,
-    "chainAbi": "IERC20.json",
-    "coingecko_id": "mooi-network",
-    "mainnet": {
-      "chain_id": 1201,
-      "name": "MOOI Mainnet",
-      "public_node": "https://sen-global.mooichain.io:443",
-      "webscoket": "false",
-      "block_scope": "https://scope.mooichain.io"
-    },
-    "testnet": {
-      "chain_id": null,
-      "name": "null",
-      "public_node": "https://alpha-sen-global.mooichain.io",
-      "webscoket": false,
-      "block_scope": "null"
-    }
-  },
   "XRP": {
     "name": "XRP",
     "baseChain": "xrp",
