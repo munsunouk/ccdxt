@@ -1,8 +1,7 @@
-from mars.base.chain import Chain
-from mars.base.market import Market
-from mars.base.pool import Pool
-from mars.base.token import Token
-from mars.base.transaction import Transaction
-# from mars.base.multicall import Multicall
-from mars.base.exchange import Exchange
-from mars.base.event import Event
+from .chain import Chain
+from .market import Market
+from .pool import Pool
+from .token import Token
+from .transaction import Transaction
+from .exchange import Exchange
+from .event import Event
