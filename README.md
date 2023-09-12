@@ -1,9 +1,55 @@
+# CCDXT – CryptoCurrency Decentralized eXchange Trading Library
+
+<!-- PROJECT SHIELDS -->
+
+![LanguagesCount][languagesCount-shield]
+![LanguagesTop][languagesTop-shield]
+[![Commit][commit-shield]][commit-url]
+![CommitLast][commitLast-shield]
+[![MIT License][license-shield]][license-url]
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#Exchanges">Supported Cryptocurrency Exchanges</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+Here's why:
+
+- ccxt only has centralized exchange not on Decentralized
+- each swap has there own function
+- It is intended to be used by coders, developers, technically-skilled traders, data-scientists and financial analysts for building trading algorithms.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+
 - ![Python][Python-shield]
 - ![Solidity][Solidity-shield]
 
 <!-- GETTING STARTED -->
-
-"a"
 
 ## Getting Started
 
@@ -29,6 +75,7 @@ if __name__ == "__main__" :
 
     #Orbitbridge Token bridge
     print(orbitbridge.create_bridge(0.1, 'ZEMIT','KLAYTN', 'MATIC', meshswap.account))
+
 
 
 ```
