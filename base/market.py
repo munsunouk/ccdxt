@@ -2,13 +2,11 @@ import json
 from pathlib import Path
 import os
 from typing import Optional, Dict
-from mars.base.utils.type import is_str, is_dict, is_list
+from ccdxt.base.utils.type import is_str, is_dict, is_list
 
 
 class Market:
-    
     def __init__(self):
-    
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         self.symbol: Optional[str] = None
@@ -24,7 +22,6 @@ class Market:
         self.token_pass = True
 
     def set_market(self, chainName: str = None, exchangeName: Optional[str] = None) -> dict:
-
         basePath = Path(__file__).resolve().parent.parent
 
         marketDictPath = os.path.join(basePath, "list", "market_list.json")
@@ -51,7 +48,6 @@ class Market:
         return result
 
     def set_all_markets(self, exchangeName):
-
         basePath = Path(__file__).resolve().parent.parent
 
         marketDictPath = os.path.join(basePath, "list", "market_list.json")
@@ -81,7 +77,6 @@ class Market:
                     )
 
                     if is_str(result[key]):
-
                         key_path = os.path.join(basePath, "contract", "abi", result[key])
 
                         if Path(key_path).exists():
@@ -90,11 +85,9 @@ class Market:
                                 result[key] = keyDict
 
                     elif is_list(result[key]):
-
                         keyLists = []
 
                         for num in result[key]:
-
                             key_path = os.path.join(basePath, "contract", "abi", num)
 
                             if Path(key_path).exists():

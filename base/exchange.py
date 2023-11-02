@@ -9,26 +9,29 @@ from requests.packages.urllib3.poolmanager import PoolManager
 import logging
 from functools import wraps
 from pathlib import Path
+
 # from pytz import timezone
 from urllib.parse import urljoin, quote_plus
 from websockets import connect
 import asyncio
 import ssl
 import certifi
-from mars.base import Transaction
+from ccdxt.base import Transaction
+
 # from pypac import PACSession
 # from scrapy import Selector
 
-from mars.base.utils.retry import retry, retry_normal
-from mars.base.utils.type import is_dict, is_list
-from mars.base import Chain, Market, Pool, Token, Transaction
-from mars.base.utils.errors import (
+from ccdxt.base.utils.retry import retry, retry_normal
+from ccdxt.base.utils.type import is_dict, is_list
+from ccdxt.base import Chain, Market, Pool, Token, Transaction
+from ccdxt.base.utils.errors import (
     ABIFunctionNotFound,
     RevertError,
     NotSupported,
 )
-# from mars.base.utils.validation import *
-from mars.base.utils import SafeMath
+
+# from ccdxt.base.utils.validation import *
+from ccdxt.base.utils import SafeMath
 
 from decimal import Decimal
 from typing import Optional, Union, Tuple, Callable, Any
@@ -64,10 +67,11 @@ from web3.providers.auto import (
     load_provider_from_uri,
 )
 
+
 class SSLAdapter(HTTPAdapter):
     def init_poolmanager(self, *args, **kwargs):
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-        kwargs['ssl_context'] = context
+        kwargs["ssl_context"] = context
         return super().init_poolmanager(*args, **kwargs)
 
 
@@ -75,7 +79,6 @@ class Exchange(Transaction):
     """Base exchange class"""
 
     def __init__(self):
-
         # chain info
         self.chains: Optional[dict] = None
         self.network_path: Optional[str] = None
@@ -100,12 +103,11 @@ class Exchange(Transaction):
         self.endurable_gasFee = 1
         self.gas_price = 0
         self.least_balance = 0.1
-        
 
         # private info
         self.privateKey: Optional[str] = None  # a "0x"-prefixed hexstring private key for a wallet
         self.account: Union[Address, str, None] = None  # the wallet address "0x"-prefixed hexstring
-        
+
         self.set_logger(None)
 
     def partial_balance(self, tokenSymbol: str) -> dict:
@@ -113,12 +115,12 @@ class Exchange(Transaction):
         Info
         ----------
         Returns the balance of a given token for a given account.
-        
+
         Parameters
         ----------
         tokenSymbol: str
             The symbol of the token to get the balance for.
-        
+
         Returns
         -------
         result: dict
@@ -126,21 +128,19 @@ class Exchange(Transaction):
         """
 
         token = self.tokens[tokenSymbol]
-        
+
         accountAddress = self.set_checksum(self.account)
 
         if tokenSymbol == self.chains["baseCurrency"]:
-            
             balance = self.w3.eth.get_balance(accountAddress)
 
             balance = self.to_value(balance, self.baseDecimal)
 
         else:
-
             tokenAaddress = self.set_checksum(token["contract"])
 
             tokenContract = self.get_contract(tokenAaddress, self.chains["chainAbi"])
-            
+
             balance = tokenContract.functions.balanceOf(accountAddress).call()
 
             balance = self.to_value(balance, int(token["decimals"]))
@@ -151,79 +151,68 @@ class Exchange(Transaction):
 
     def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None):
         raise NotSupported("create_swap() is not supported yet")
-    
-    def create_reuqest_detail(self, base_url, site_config_list=[]) :
-        
-        if site_config_list :
 
-            full_params = ''
-            
-            for config in site_config_list :
-            
-                params = config[0]+config[0].join('{}={}'.format(k, config[1][k]) for k in sorted(config[1]))
-                
+    def create_reuqest_detail(self, base_url, site_config_list=[]):
+        if site_config_list:
+            full_params = ""
+
+            for config in site_config_list:
+                params = config[0] + config[0].join(
+                    "{}={}".format(k, config[1][k]) for k in sorted(config[1])
+                )
+
                 full_params += params
-            
-        else :
-            
-            full_params = ''
+
+        else:
+            full_params = ""
 
         full_site = base_url + full_params
-        
+
         return full_site
 
     def create_request(self, base_url, params={}, *args, **kwargs):
-        
-        requst_args = ''
-        requst_kwargs = ''
-        request_method = 'get'
+        requst_args = ""
+        requst_kwargs = ""
+        request_method = "get"
         proxy = False
-        
+
         headers = {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
         }
 
-        if args :
-            
-            requst_args = '/'.join(args)
-            
-        if kwargs :
-            
-            if 'header' in kwargs :
-                
+        if args:
+            requst_args = "/".join(args)
+
+        if kwargs:
+            if "header" in kwargs:
                 headers = {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    kwargs['header'][0] : kwargs['header'][1]
+                    kwargs["header"][0]: kwargs["header"][1],
                 }
-                
+
                 kwargs.pop("header", None)
 
-            if 'request_method' in kwargs :
-                
-                request_method = kwargs['request_method']
+            if "request_method" in kwargs:
+                request_method = kwargs["request_method"]
                 kwargs.pop("request_method", None)
-                
-            if 'proxy' in kwargs :
-                
-                proxy = kwargs['proxy']
+
+            if "proxy" in kwargs:
+                proxy = kwargs["proxy"]
                 kwargs.pop("proxy", None)
-            
-            for kwarg in kwargs :
-            
+
+            for kwarg in kwargs:
                 requst_kwargs += f"{kwarg}={kwargs[kwarg]}"
-        
+
         full_url = base_url + requst_args + requst_kwargs
-        
-        if request_method == 'get' :
-            
-            if proxy :
-                
+
+        if request_method == "get":
+            if proxy:
                 pass
-                
+
                 # proxies = {"http": proxy, 'https': proxy}
-                
+
                 # r = getattr(requests, request_method)(
                 #     full_url,
                 #     headers=headers,
@@ -231,45 +220,37 @@ class Exchange(Transaction):
                 #     proxies=proxies,
                 #     timeout=3
                 # )
-                
+
                 # session = PACSession()
                 # r = getattr(session, request_method)(
                 #     full_url,
                 #     headers=headers,
                 #     params=params,
                 # )
-                
-            else :
 
-                r = getattr(requests, request_method)(
-                    full_url,
-                    headers=headers,
-                    params=params
-                )
-        
-        elif request_method == 'post' :
-            
-            if proxy :
-                
+            else:
+                r = getattr(requests, request_method)(full_url, headers=headers, params=params)
+
+        elif request_method == "post":
+            if proxy:
                 pass
-                
+
                 # proxies = {"http": proxy, 'https': proxy}
-            
+
                 # r = getattr(requests, request_method)(
                 #     full_url,
                 #     headers=headers,
                 #     json=params
                 # )
-                
+
                 # session = PACSession()
                 # r = getattr(session, request_method)(
                 #     full_url,
                 #     headers=headers,
                 #     json=params,
                 # )
-                
-            else :
-                
+
+            else:
                 r = getattr(requests, request_method)(
                     full_url,
                     headers=headers,
@@ -277,61 +258,57 @@ class Exchange(Transaction):
                 )
 
         if r.status_code == 200:
-
             result = r.json()
 
         else:
-            
             logging.warning(f"api failed request, detail -> url : {full_url}, params : {params}")
-            
-            raise BadResponseFormat(f"api failed , status_code : {r.status_code}")
-        
-        return result
-    
-    async def create_transfer(self, amount, tokenSymbol, fromChain, toAddr):
 
+            raise BadResponseFormat(f"api failed , status_code : {r.status_code}")
+
+        return result
+
+    async def create_transfer(self, amount, tokenSymbol, fromChain, toAddr):
         self.load_exchange(fromChain)
-        
+
         token = self.tokens[tokenSymbol]
         self.tokenSymbol = tokenSymbol
-        
+
         self.fromChain = fromChain
         self.toChain = fromChain
         self.amount = amount
-        
+
         amount_transfer = self.from_value(value=amount, exp=int(token["decimals"]))
-        
+
         accountAddress = self.set_checksum(self.account)
         tokenAaddress = self.set_checksum(token["contract"])
         self.toAddrress = self.set_checksum(toAddr)
-        
+
         tokenContract = self.get_contract(tokenAaddress, self.chains["chainAbi"])
-        
+
         self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
-        
-        if (fromChain == 'KLAYTN') and (tokenSymbol == 'KLAY') :
-            
+
+        if (fromChain == "KLAYTN") and (tokenSymbol == "KLAY"):
             tx = {
-                'to': self.toAddrress,
-                'value': amount_transfer,
-                'gas': 400000,
-                'gasPrice': self.w3.toWei('50', 'gwei'),
-                'nonce': self.nonce,
+                "to": self.toAddrress,
+                "value": amount_transfer,
+                "gas": 400000,
+                "gasPrice": self.w3.toWei("50", "gwei"),
+                "nonce": self.nonce,
             }
-            
-        elif (fromChain == 'MOOI') and (tokenSymbol == 'MOOI') :
-            
+
+        elif (fromChain == "MOOI") and (tokenSymbol == "MOOI"):
             tx = {
-                'to': self.toAddrress,
-                'value': amount_transfer,
-                'gas': 400000,
-                'gasPrice': self.w3.toHex(25000000000),
-                'nonce': self.nonce,
+                "to": self.toAddrress,
+                "value": amount_transfer,
+                "gas": 400000,
+                "gasPrice": self.w3.toHex(25000000000),
+                "nonce": self.nonce,
             }
-            
-        else :
-            
-            tx = tokenContract.functions.transfer(self.toAddrress, amount_transfer).build_transaction(
+
+        else:
+            tx = tokenContract.functions.transfer(
+                self.toAddrress, amount_transfer
+            ).build_transaction(
                 {
                     "from": self.account,
                     "nonce": self.nonce,
@@ -339,12 +316,12 @@ class Exchange(Transaction):
                     "value": 0,
                 }
             )
-        
+
         tx_receipt = self.fetch_transaction(tx, round="TRANSFER")
-        
-        tx_receipt['amount_in'] = self.amount
-        tx_receipt['amount_out'] = self.amount
-        
+
+        tx_receipt["amount_in"] = self.amount
+        tx_receipt["amount_out"] = self.amount
+
         return tx_receipt
 
     async def subscribe(self, params, ws_url=None):
@@ -352,12 +329,12 @@ class Exchange(Transaction):
         Info
         ----------
         Subscribes to new pending transactions for a given account.
-        
+
         Parameters
         ----------
         ws_url: str, optional
             The web socket URL to use. If not provided, the mainnet web socket URL from `self.chains` will be used.
-        
+
         Returns
         -------
         None
@@ -365,7 +342,6 @@ class Exchange(Transaction):
         """
 
         if ws_url == None:
-
             ws_url = self.chains["mainnet"]["webscoket"]
 
         ssl_context = ssl.create_default_context()
@@ -382,7 +358,6 @@ class Exchange(Transaction):
         query = json.dumps(queryRaw)
 
         async with connect(ws_url, ssl=ssl_context) as ws:
-
             await ws.send(query)
             subscription_response = await ws.recv()
             logging.info(
@@ -392,23 +367,24 @@ class Exchange(Transaction):
             while True:
                 message = await asyncio.wait_for(ws.recv(), timeout=1800)
                 response = json.loads(message)
-                logging.info(response) # {'jsonrpc': '2.0', 'method': 'eth_subscription', 'params': {'subscription': '0x878ab62df576e724c785b020f3abf971', 'result': '0xdf52eb6b791e697582b0c4758172fb0b52c54c2ffbfed186b801a66bd9a8780d'}}
+                logging.info(
+                    response
+                )  # {'jsonrpc': '2.0', 'method': 'eth_subscription', 'params': {'subscription': '0x878ab62df576e724c785b020f3abf971', 'result': '0xdf52eb6b791e697582b0c4758172fb0b52c54c2ffbfed186b801a66bd9a8780d'}}
                 tx_hash = response["params"]["result"]
 
                 # tx = self.w3.eth.get_transaction(tx_hash)
-                
+
                 tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=1800)
-                
+
                 logging.info(tx_receipt)
 
                 # if tx.to == self.account:
 
                 #     return
-                
+
     def get_proxy_list(self):
-        
         pass
-        
+
     #     proxy_url = "https://www.socks-proxy.net/"
 
     #     resp = requests.get(proxy_url)
@@ -420,11 +396,11 @@ class Exchange(Transaction):
     #         ip = tr.xpath("td[1]/text()").extract_first()
     #         port = tr.xpath("td[2]/text()").extract_first()
     #         https = tr.xpath("td[7]/text()").extract_first()
-            
+
     #         if https == "Yes":
     #             server = f"{ip}:{port}"
     #             proxy_server_list.append(server)
-                
+
     #     return proxy_server_list
 
     # def updateTxParameters(self):
@@ -432,11 +408,11 @@ class Exchange(Transaction):
     #     Info
     #     ----
     #     Updates the transaction parameters by making an HTTP request to a gas station API.
-        
+
     #     Parameters
     #     ----------
     #     None
-        
+
     #     Returns
     #     -------
     #     maxPriorityFee: int
@@ -451,69 +427,69 @@ class Exchange(Transaction):
     #     maxFee = gas["fast"]["maxFee"]
 
     #     return maxPriorityFee, maxFee
-    
+
     def get_gasPrice(self):
-        
-        if self.chains == None :
-            
+        if self.chains == None:
             fast_gas = 25000000000
-            
+
             return int(fast_gas)
-        
-        if self.chains['mainnet']['chain_id'] not in (8217, 1201) :
-        
-            if self.proxy :
-                
-                fast_gas = self.create_request('https://ethapi.openocean.finance/', {}, 'v2', f"{self.chains['mainnet']['chain_id']}", 'gas-price', proxy=self.proxy)['fast']
-                
-            else :
-            
-                fast_gas = self.create_request('https://ethapi.openocean.finance/', {}, 'v2', f"{self.chains['mainnet']['chain_id']}", 'gas-price')['fast']
-                
-        else :
- 
+
+        if self.chains["mainnet"]["chain_id"] not in (8217, 1201):
+            if self.proxy:
+                fast_gas = self.create_request(
+                    "https://ethapi.openocean.finance/",
+                    {},
+                    "v2",
+                    f"{self.chains['mainnet']['chain_id']}",
+                    "gas-price",
+                    proxy=self.proxy,
+                )["fast"]
+
+            else:
+                fast_gas = self.create_request(
+                    "https://ethapi.openocean.finance/",
+                    {},
+                    "v2",
+                    f"{self.chains['mainnet']['chain_id']}",
+                    "gas-price",
+                )["fast"]
+
+        else:
             fast_gas = self.get_maxPriorityFeePerGas()
-            
-            if fast_gas == 0 :
-                
+
+            if fast_gas == 0:
                 fast_gas == self.estimate_gas()
 
         return int(fast_gas)
-    
-    def get_fee_history(self) :
-        
+
+    def get_fee_history(self):
         block_count = 0xA
         newest_block = "latest"
         reward_percentiles = [25, 75]
-        
+
         method = "eth_feeHistory"
         params = [hex(block_count), newest_block] + [reward_percentiles]
         return self.w3.manager.request_blocking(method, params)
-    
-    def get_maxPriorityFeePerGas(self) :
-        
+
+    def get_maxPriorityFeePerGas(self):
         method = "eth_maxPriorityFeePerGas"
         params = []
-        
+
         return self.w3.manager.request_blocking(method, params)
-    
-    def get_base_fee(self) :
-        
+
+    def get_base_fee(self):
         method = "eth_baseFee"
         params = []
-        
-        try :
-        
+
+        try:
             hex_string = self.w3.manager.request_blocking(method, params)
             integer_value = int(hex_string, 16)
-            
-        except :
-            
+
+        except:
             integer_value = 25000000000
             pass
-        
-        return integer_value
 
+        return integer_value
 
     def block_number(self) -> str:
         """
@@ -563,7 +539,6 @@ class Exchange(Transaction):
             tokenContract = self.get_contract(tokenAddress, self.chains["chainAbi"])
 
             if "decimals" not in self.tokens[tokenSymbol]:
-
                 decimals = tokenContract.functions.decimals().call()
                 self.tokens[tokenSymbol]["decimals"] = decimals
 
@@ -577,7 +552,6 @@ class Exchange(Transaction):
             return 18
 
     def __exist(self, tokenAsymbol, tokenBsymbol):
-
         pair_address = self.getPair(tokenAsymbol, tokenBsymbol)
         return int(pair_address, 16) != 0
 
@@ -586,14 +560,14 @@ class Exchange(Transaction):
         Info
         ----
         Gets the pool address for a pair of tokens.
-        
+
         Parameters
         ----------
         tokenAsymbol: str
             The symbol of the first token in the pair.
         tokenBsymbol: str
             The symbol of the second token in the pair.
-        
+
         Returns
         -------
         pair: str
@@ -614,9 +588,8 @@ class Exchange(Transaction):
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
 
             pool_name = token_sort[0] + "-" + token_sort[1]
-            
-            if pool_name not in self.pools:
 
+            if pool_name not in self.pools:
                 pair = factoryContract.functions.tokenToPool(tokenAaddress, tokenBaddress).call()
 
                 self.pools = self.deep_extend(
@@ -640,14 +613,14 @@ class Exchange(Transaction):
         Info
         ----
         Gets the pool address for a pair of tokens.
-        
+
         Parameters
         ----------
         tokenAsymbol: str
             The symbol of the first token in the pair.
         tokenBsymbol: str
             The symbol of the second token in the pair.
-        
+
         Returns
         -------
         pool: str
@@ -668,9 +641,8 @@ class Exchange(Transaction):
             token_sort = sorted([tokenAsymbol, tokenBsymbol])
 
             pool_name = token_sort[0] + "-" + token_sort[1]
-            
-            if pool_name not in self.pools:
 
+            if pool_name not in self.pools:
                 pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
 
                 self.pools = self.deep_extend(
@@ -690,7 +662,6 @@ class Exchange(Transaction):
             return logging.warning("No ABI found")
 
     def reversed(self, tokenAaddress, tokenBaddress):
-
         try:
             factoryContract = self.get_contract(tokenAaddress, self.markets["factoryAbi"])
 
@@ -718,50 +689,41 @@ class Exchange(Transaction):
     def require(self, execute_result: bool, msg):
         if execute_result:
             raise msg
-        
+
     def get_gas_fixingRate(self):
-        
         # r = requests.get("https://token-rates-aggregator.1inch.io/v1.0/native-token-rate?vs=US")
-        
-        try :
-        
-            if self.chains['baseCurrency'] == 'MOOI' :
-                
-                params = {
-                    'ids' : self.chains['coingecko_id'],
-                    'vs_currencies' : 'usd'
-                }  
-            
-                fixingRate = self.create_request('https://api.coingecko.com/', params, 'api', 'v3', 'simple', 'price')[self.chains['coingecko_id']]['usd']
-                
-            else :
-                
-                params = {
-                    'symbol' : self.chains['baseCurrency'] + 'USDT'
-                }
-            
-                fixingRate = self.create_request('https://api.binance.com/', params, 'api', 'v3', 'ticker', 'price')['price']
-                
-        except :
-            
+
+        try:
+            if self.chains["baseCurrency"] == "MOOI":
+                params = {"ids": self.chains["coingecko_id"], "vs_currencies": "usd"}
+
+                fixingRate = self.create_request(
+                    "https://api.coingecko.com/", params, "api", "v3", "simple", "price"
+                )[self.chains["coingecko_id"]]["usd"]
+
+            else:
+                params = {"symbol": self.chains["baseCurrency"] + "USDT"}
+
+                fixingRate = self.create_request(
+                    "https://api.binance.com/", params, "api", "v3", "ticker", "price"
+                )["price"]
+
+        except:
             fixingRate = 0
 
         return float(fixingRate)
 
     def decode(self, tx_hash):
-
         routerAddress = self.set_checksum(self.markets["routerAddress"])
-        
-        if "version" in self.markets :
-            
+
+        if "version" in self.markets:
             routerContract = self.get_contract(
                 routerAddress, self.markets["routerAbi"][int(self.markets["version"])]
             )
-            
-        else :
-        
+
+        else:
             routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
-        
+
         # tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=1800)
 
         transaction = self.w3.eth.get_transaction(tx_hash)
@@ -771,7 +733,6 @@ class Exchange(Transaction):
         return result
 
     def allowance(self, tokenSymbol):
-
         token = self.tokens[tokenSymbol]
         tokenAddress = self.set_checksum(token["contract"])
         account = self.set_checksum(self.account)
@@ -788,76 +749,60 @@ class Exchange(Transaction):
         return 1 - price / ratio
 
     def estimate_gas(self):
-        
-        try :
-        
+        try:
             result = self.w3.eth.gasPrice / 1000000000
-            
-        except :
-            
+
+        except:
             result = self.get_base_fee()
-            
+
         return result
 
     def get_TransactionCount(self, address: str):
-
         nonce = self.w3.eth.get_transaction_count(address)
 
         return nonce
 
     def fetch_tokens(self):
-
         return self.tokens
 
     @retry_normal
     def fetch_balance(self, tokens=None, *args, **kwargs):
-
         balances = {}
 
         if tokens is not None:
-
             if is_list(tokens):
-
                 symbols = tokens
 
             else:
                 symbols = list(tokens)
         else:
-
             symbols = list(self.tokens.keys())
-            
-        for symbol in symbols:
 
+        for symbol in symbols:
             balance = self.partial_balance(symbol)
-            balances[balance['symbol']] = balance['balance']
-            
-        if 'pool' in kwargs :
-            
-            pool_balances = self.pool_balance(kwargs['pool'])
-            
-            for pool_balance in pool_balances :
-                
-                if pool_balance in balances :
-                    
+            balances[balance["symbol"]] = balance["balance"]
+
+        if "pool" in kwargs:
+            pool_balances = self.pool_balance(kwargs["pool"])
+
+            for pool_balance in pool_balances:
+                if pool_balance in balances:
                     balances[pool_balance] += pool_balances[pool_balance]
-                    
-                else :
-                    
+
+                else:
                     balances[pool_balance] = pool_balances[pool_balance]
-            
+
         result = {
-            'result' : balances,
-            'created_at' : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "result": balances,
+            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
 
         return result
-    
-    def check_sync(self) :
-        
+
+    def check_sync(self):
         return self.w3.eth.syncing
 
     def check_approve(self, amount: int, token: str, account: str, router: str, *args, **kwargs):
-        
         """
         Info
         ----
@@ -873,30 +818,27 @@ class Exchange(Transaction):
             The address of the account.
         router: str
             The address of the router.
-        
+
         Returns
         -------
         tx_receipt: dict
             The transaction receipt if the approval was made. Otherwise, returns None.
         """
-        
+
         if token == self.chains["baseContract"]:
             return
 
         contract = self.get_contract(token, self.chains["chainAbi"])
-        
-        approvedTokens = contract.functions.allowance(account, router).call()
-        
-        if "approve_amount" in kwargs :
-            
-            approve_amount = kwargs['approve_amount']
-            
-        else :
-            
-            approve_amount = self.unlimit
-        
-        if approvedTokens < amount:
 
+        approvedTokens = contract.functions.allowance(account, router).call()
+
+        if "approve_amount" in kwargs:
+            approve_amount = kwargs["approve_amount"]
+
+        else:
+            approve_amount = self.unlimit
+
+        if approvedTokens < amount:
             tx = self.get_approve(token, router, account, approve_amount)
 
             tx_receipt = self.fetch_transaction(tx, round="CHECK")
@@ -905,8 +847,7 @@ class Exchange(Transaction):
         else:
             return
 
-    def get_approve(self, token: str, router: str, account:str, approvedTokens:int):
-
+    def get_approve(self, token: str, router: str, account: str, approvedTokens: int):
         contract = self.get_contract(token, self.chains["chainAbi"])
 
         nonce = self.get_TransactionCount(account)
@@ -921,9 +862,8 @@ class Exchange(Transaction):
         return tx
 
     def set_logger(self, filePath):
-        
         # if filePath == None :
-            
+
         #     #default_log
         #     basePath = Path(__file__).resolve().parent.parent
         #     logfile_name = 'logfile.log'
@@ -941,52 +881,49 @@ class Exchange(Transaction):
         # ).timetuple()
 
         self.logger = logging.getLogger(__name__)
-        
+
     def create_session(self):
         session = requests.Session()
-        session.mount('https://', SSLAdapter())
-        return session  
-        
+        session.mount("https://", SSLAdapter())
+        return session
+
     def updateTxParameters(self):
-        
-        gas = self.create_request(f"https://gas-price-api.1inch.io/v1.3/{self.chains['mainnet']['chain_id']}")
-        
-        try :
-        
+        gas = self.create_request(
+            f"https://gas-price-api.1inch.io/v1.3/{self.chains['mainnet']['chain_id']}"
+        )
+
+        try:
             maxPriorityFeePerGas = int(gas["high"]["maxPriorityFeePerGas"])
             maxFeePerGas = int(gas["high"]["maxFeePerGas"])
-            
-        except :
-            
+
+        except:
             maxPriorityFeePerGas = 50000000000
             maxFeePerGas = 75000000000
-        
+
         base_fee = self.get_base_fee()
-        
-        if maxFeePerGas < base_fee :
-            
+
+        if maxFeePerGas < base_fee:
             maxFeePerGas = base_fee
 
         return maxPriorityFeePerGas, maxFeePerGas
-    
-    def base_txDict(self) :
-        
+
+    def base_txDict(self):
         txDict = {
-            "from_network" : self.chains['name'],
-            "to_network" : self.chains['name'],
-            "tx_hash": '',
-            "status": 2, #pending
-            "block": '',
+            "from_network": self.chains["name"],
+            "to_network": self.chains["name"],
+            "tx_hash": "",
+            "status": 2,  # pending
+            "block": "",
             "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "function": '',
-            "from_address": '',
+            "function": "",
+            "from_address": "",
             "amount_in": 0,
             "token_in": self.tokenSymbol,
-            "to_address": '',
+            "to_address": "",
             "amount_out": 0,
             "token_out": self.tokenBsymbol,
             "gas_fee": 0,
-            'tx_scope': ''
+            "tx_scope": "",
         }
 
         return txDict
@@ -996,14 +933,14 @@ class Exchange(Transaction):
         Info
         ----
         Gets the node information for the given host and chain name.
-        
+
         Parameters
         ----------
         host: str
             The hostname of the node.
         chainName: str
             The name of the chain.
-        
+
         Returns
         -------
         node: dict
@@ -1019,61 +956,52 @@ class Exchange(Transaction):
                 nodeDict = json.load(f)
 
             node = nodeDict[chainName][host]
-            
-        else :
-            
+
+        else:
             raise ValueError(f"can not find path : {nodeDictPath}")
 
         return node
 
     def load_exchange(self, chainName, exchangeName=None):
-
         self.load_chains(chainName)
         self.baseCurrency = self.chains["baseCurrency"]
         self.load_markets(chainName, exchangeName)
-        
+
         self.load_pools(chainName, exchangeName, self.markets["pool_pass"])
         self.load_tokens(chainName, exchangeName, self.baseCurrency, self.markets["token_pass"])
 
         # self.w3 = self.set_async_network(self.chains['mainnet']['public_node'])
 
         if self.host == None:
-
             self.exchange_node = self.chains["mainnet"]["public_node"]
 
             self.w3 = self.set_network(self.exchange_node)
 
         else:
-
             self.exchange_node = self.get_node(self.host, chainName)
 
             self.w3 = self.set_network(self.exchange_node)
 
         if self.chains["POS"]:
-
             self.set_pos()
 
     def load_chains(self, chainName):
-
         self.chains = self.set_chains(chainName)
 
         # self.chains = {}
 
         if not self.chains:
             self.chains = self.safe_chain()
-            
-            
-    def load_markets(self, chainName, exchangeName):
 
+    def load_markets(self, chainName, exchangeName):
         self.markets = self.set_markets(chainName, exchangeName)
-        
+
         # self.markets = {}
 
         if not self.markets:
             self.markets = self.safe_market()
 
     def load_bridge(self, bridgeName):
-
         markets = self.set_all_markets(bridgeName)
 
         self.bridge = {}
@@ -1082,7 +1010,6 @@ class Exchange(Transaction):
             self.bridge = self.deep_extend(self.set_all_markets(bridgeName), markets)
 
     def load_pools(self, chainName, exchangeName, passing=False):
-
         self.pools = self.set_pools(chainName, exchangeName, passing)
 
         # self.pools = {}
@@ -1091,14 +1018,12 @@ class Exchange(Transaction):
             self.pools = self.safe_pool()
 
     def load_tokens(self, chainName, exchangeName, baseCurrency, passing=False):
-
         self.tokens = self.set_tokens(chainName, exchangeName, baseCurrency, passing)
 
         if not self.tokens:
             self.tokens = self.safe_token()
 
     def load_all(self):
-
         # self.all_chains = self.set_all_chains()
         self.all_markets = self.set_all_markets()
         self.all_pools = self.set_all_pools()

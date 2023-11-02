@@ -1,16 +1,17 @@
-from mars.base.exchange import Exchange
-from mars.base.utils.errors import (
+from ..base.exchange import Exchange
+from ..base.utils.errors import (
     InsufficientBalance,
 )
 
-from mars.base.utils.retry import retry
+from ..base.utils.retry import retry
 from typing import Optional
 import datetime
+
 # from pytz import timezone
 import time
 
-class Klayswap(Exchange):
 
+class Klayswap(Exchange):
     has = {
         "createSwap": True,
         "fetchTicker": True,
@@ -18,7 +19,6 @@ class Klayswap(Exchange):
     }
 
     def __init__(self, config_change: Optional[dict] = {}):
-
         super().__init__()
 
         config = {
@@ -30,7 +30,7 @@ class Klayswap(Exchange):
             "account": None,
             "privateKey": None,
             "log": None,
-            "proxy" : False
+            "proxy": False,
         }
 
         config.update(config_change)
@@ -54,14 +54,13 @@ class Klayswap(Exchange):
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
-
         amountIn = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
 
         pool = self.get_pool(tokenAsymbol, tokenBsymbol)
-        
+
         pool = self.set_checksum(pool)
-        
-        amountBout = self.get_amount_out(pool,tokenAsymbol,amountIn)
+
+        amountBout = self.get_amount_out(pool, tokenAsymbol, amountIn)
         amountout = self.to_value(value=amountBout, exp=self.decimals(tokenBsymbol))
 
         result = {
@@ -72,10 +71,11 @@ class Klayswap(Exchange):
         }
 
         return result
-        
+
     @retry
-    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs):
-        
+    async def create_swap(
+        self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
+    ):
         """
         Parameters
         ----------
@@ -102,13 +102,10 @@ class Klayswap(Exchange):
         """
 
         if (path != None) and (len(path) > 2):
-
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
 
         else:
-
             self.path = []
-
 
         self.tokenSymbol = tokenAsymbol
         self.tokenBsymbol = tokenBsymbol
@@ -134,7 +131,7 @@ class Klayswap(Exchange):
         self.routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
 
         self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
-        
+
         if tokenAsymbol == self.baseCurrency:
             tx = self.eth_to_token(amountA, tokenBaddress, amountBMin)
         # elif tokenBsymbol == self.baseCurrency:
@@ -147,7 +144,6 @@ class Klayswap(Exchange):
         return tx_receipt
 
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
-
         tx = self.routerContract.functions.exchangeKctPos(
             tokenAaddress, amountA, tokenBaddress, amountBMin, self.path
         ).build_transaction(
@@ -161,12 +157,11 @@ class Klayswap(Exchange):
         return tx
 
     def eth_to_token(self, amountA, tokenBaddress, amountBMin):
-        
         tx = self.routerContract.functions.exchangeKlayPos(
             tokenBaddress, amountBMin, self.path
         ).build_transaction(
             {
-                "value" : amountA,
+                "value": amountA,
                 "from": self.account,
                 "gas": 4000000,
                 "nonce": self.nonce,
@@ -176,7 +171,7 @@ class Klayswap(Exchange):
         return tx
 
     # def token_to_eth(self, tokenAaddress, amountA):
-        
+
     #     tx = self.routerContract.functions.exchangeKlayNeg(
     #         tokenAaddress, amountA, self.path
     #     ).build_transaction(
@@ -190,7 +185,6 @@ class Klayswap(Exchange):
     #     return tx
 
     def get_amount_out(self, pool, tokenAsymbol, amountIn):
-
         tokenA = self.tokens[tokenAsymbol]
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
@@ -204,7 +198,6 @@ class Klayswap(Exchange):
         return amountOut
 
     def get_reserves(self, tokenAsymbol, tokenBsymbol):
-        
         pool = self.get_pool(tokenAsymbol, tokenBsymbol)
 
         pool = self.set_checksum(pool)
@@ -231,24 +224,24 @@ class Klayswap(Exchange):
         reserve = reservesB / reservesA
 
         return {
-            "pool" : f"{tokenAsymbol}-{tokenBsymbol}",
-            "tokenAsymbol" : tokenAsymbol,
-            "tokenBsymbol" : tokenBsymbol,
-            "tokenAreserves" : reservesA,
-            "tokenBreserves" : reservesB,
-            "poolPrice" : reserve,
-            'created_at' : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "pool": f"{tokenAsymbol}-{tokenBsymbol}",
+            "tokenAsymbol": tokenAsymbol,
+            "tokenBsymbol": tokenBsymbol,
+            "tokenAreserves": reservesA,
+            "tokenBreserves": reservesB,
+            "poolPrice": reserve,
+            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
 
     # def set_logger(self, logfilePath):
-        
+
     #     if logfilePath == None :
-            
+
     #         #default_log
     #         basePath = Path(__file__).resolve().parent.parent
     #         logfile_name = 'logfile.log'
     #         logfilePath = str(os.path.join(basePath, logfile_name))
-            
+
     #     print(logfilePath)
 
     #     logging.basicConfig(
@@ -257,16 +250,16 @@ class Klayswap(Exchange):
     #         filemode="w",
     #         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     #     )
-        
+
     #     # logging.Formatter.converter = lambda *args: datetime.datetime.now(
     #     #     tz=timezone("Asia/Seoul")
     #     # ).timetuple()
-        
+
     #     # log_formatter = logging.Formatter(
     #     #     fmt ="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            
+
     #     # )
-        
+
     #     # log_formatter.converter = lambda *args: datetime.datetime.now(
     #     #     tz=timezone("Asia/Seoul")
     #     # ).timetuple()
@@ -279,10 +272,10 @@ class Klayswap(Exchange):
     #     #     encoding=None,
     #     #     delay=0,
     #     # )
-        
+
     #     # file_log.setFormatter(log_formatter)
     #     # file_log.setLevel(logging.INFO)
-        
+
     #     self.logger = logging.getLogger(__name__)
-        
+
     #     print("test log")

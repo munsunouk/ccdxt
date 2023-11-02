@@ -1,14 +1,15 @@
 import json
 from pathlib import Path
 import os
-from mars.base.utils.type import is_str
+from ..base.utils.type import is_str
+
 
 class Chain:
     """
     Stores data for a chain.
     """
-    def __init__(self):
 
+    def __init__(self):
         self.id: str = None
         self.name: str = None
         self.baseChain: str = None
@@ -18,15 +19,15 @@ class Chain:
         self.mainnet: str = None
         self.testnet: str = None
         self.privatenet: str = None
-    
-    def set_chain(self, chainName: str = '') -> dict:
+
+    def set_chain(self, chainName: str = "") -> dict:
         """
         Returns data for a chain.
-        
+
         Parameters:
         --------------
         - chainName (str): name of the chain (optional)
-        
+
         Returns:
         --------------
         - (dict): data for the chain
@@ -39,7 +40,7 @@ class Chain:
         else:
             print("chainDictPath doesnt exist")
             return {}
-        
+
         chain = chainDict[chainName]
         for key in chain:
             if is_str(chain[key]):
@@ -67,6 +68,3 @@ class Chain:
             print("chainDictPath doesnt exist")
             return {}
         return chainDict
-
-        
-        

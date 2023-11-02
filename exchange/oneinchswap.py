@@ -1,16 +1,18 @@
-from mars.base.exchange import Exchange
-from mars.base.utils.errors import (
+from ..base.exchange import Exchange
+from ..base.utils.errors import (
     InsufficientBalance,
 )
 
-from mars.base.utils.retry import retry
+from ..base.utils.retry import retry
 from typing import Optional
 from web3.exceptions import BadResponseFormat
 import subprocess
 import requests
+
 # from Naked.toolshed.shell import execute
 from requests.exceptions import HTTPError, ReadTimeout, ProxyError, SSLError, ConnectTimeout
 from random import choice
+
 # from proxy_requests.proxy_requests import ProxyRequests
 import logging
 import time
@@ -19,8 +21,9 @@ from pathlib import Path
 import asyncio
 import datetime
 import json
-class Oneinchswap(Exchange):
 
+
+class Oneinchswap(Exchange):
     has = {
         "createSwap": True,
         "fetchTicker": True,
@@ -28,7 +31,6 @@ class Oneinchswap(Exchange):
     }
 
     def __init__(self, config_change: Optional[dict] = {}):
-
         super().__init__()
 
         config = {
@@ -40,9 +42,9 @@ class Oneinchswap(Exchange):
             "account": None,
             "privateKey": None,
             "log": None,
-            "proxy" : False,
-            "sleep" : 10,
-            "api_url" : "https://api-defillama.1inch.io/"
+            "proxy": False,
+            "sleep": 10,
+            "api_url": "https://api-defillama.1inch.io/"
             # url = f"https://api.1inch.io/"
         }
 
@@ -68,66 +70,74 @@ class Oneinchswap(Exchange):
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, fusion=False):
-        
         time.sleep(self.sleep)
 
         amountIn = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
-        
+
         tokenAaddress = tokenA["contract"]
         tokenBaddress = tokenB["contract"]
-        
-        if tokenAaddress == self.chains['baseContract'] :
-            tokenAaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-            
-        elif tokenBaddress == self.chains['baseContract'] :
-            tokenBaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-            
-        if not fusion :
 
+        if tokenAaddress == self.chains["baseContract"]:
+            tokenAaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+        elif tokenBaddress == self.chains["baseContract"]:
+            tokenBaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+        if not fusion:
             params = {
                 "fromTokenAddress": tokenAaddress,
-                "toTokenAddress":tokenBaddress,
+                "toTokenAddress": tokenBaddress,
                 "amount": amountIn,
             }
-            
-            if self.proxy :
-                
-                quote_result = self.create_request(self.api_url, params, f"v{self.markets['version']}", f"{self.chains['mainnet']['chain_id']}", 'quote', proxy=self.proxy)
-                
-            else :
 
-                quote_result = self.create_request(self.api_url, params, f"v{self.markets['version']}", f"{self.chains['mainnet']['chain_id']}", 'quote')
-            
-            amountout = self.to_value(
-                    value=quote_result['toTokenAmount'], exp=self.decimals(tokenBsymbol)
+            if self.proxy:
+                quote_result = self.create_request(
+                    self.api_url,
+                    params,
+                    f"v{self.markets['version']}",
+                    f"{self.chains['mainnet']['chain_id']}",
+                    "quote",
+                    proxy=self.proxy,
                 )
-            
-        else :
-            
-            #amountBout = auction end amount + 10% 테스트
+
+            else:
+                quote_result = self.create_request(
+                    self.api_url,
+                    params,
+                    f"v{self.markets['version']}",
+                    f"{self.chains['mainnet']['chain_id']}",
+                    "quote",
+                )
+
+            amountout = self.to_value(
+                value=quote_result["toTokenAmount"], exp=self.decimals(tokenBsymbol)
+            )
+
+        else:
+            # amountBout = auction end amount + 10% 테스트
             quote = await self.get_fusion_quote(amountIn, tokenAaddress, tokenBaddress)
-            
-            amountout = int(quote['presets']['fast']['auctionEndAmount']) * 1.1
-            
-            amountout = self.to_value(
-                    amountout, exp=self.decimals(tokenBsymbol)
-                )
-            
+
+            amountout = int(quote["presets"]["fast"]["auctionEndAmount"]) * 1.1
+
+            amountout = self.to_value(amountout, exp=self.decimals(tokenBsymbol))
+
         result = {
             "amountAin": amountAin,
             "amountBout": amountout,
             "tokenAsymbol": tokenAsymbol,
             "tokenBsymbol": tokenBsymbol,
-            "estimateGas": int(quote_result["estimatedGas"])
+            "estimateGas": int(quote_result["estimatedGas"]),
         }
 
         return result
 
     @retry
-    async def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs):
+    async def create_swap(
+        self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
+    ):
         """
         Parameters
         ----------
@@ -151,15 +161,13 @@ class Oneinchswap(Exchange):
         'transaction_fee:': 0.023495964646856035
         }
         """
-        
+
         time.sleep(self.sleep)
 
         if (path != None) and (len(path) > 2):
-
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
 
         else:
-
             self.path = []
 
         self.tokenSymbol = tokenAsymbol
@@ -173,30 +181,26 @@ class Oneinchswap(Exchange):
         tokenB = self.tokens[tokenBsymbol]
         amountA = self.from_value(value=amountA, exp=int(tokenA["decimals"]))
         amountBMin = self.from_value(value=amountBMin, exp=int(tokenB["decimals"]))
-        \
-        if tokenA["contract"] == self.chains['baseContract'] :
-            tokenAaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+        if tokenA["contract"] == self.chains["baseContract"]:
+            tokenAaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
             tokenAaddress = self.set_checksum(tokenAaddress)
             tokenBaddress = self.set_checksum(tokenB["contract"])
-            
-        elif tokenB["contract"] == self.chains['baseContract'] :
-            tokenAaddress = self.set_checksum(tokenA["contract"])
-            tokenBaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-            tokenBaddress = self.set_checksum(tokenBaddress)
-            
-        else :
 
+        elif tokenB["contract"] == self.chains["baseContract"]:
+            tokenAaddress = self.set_checksum(tokenA["contract"])
+            tokenBaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+            tokenBaddress = self.set_checksum(tokenBaddress)
+
+        else:
             tokenAaddress = self.set_checksum(tokenA["contract"])
             tokenBaddress = self.set_checksum(tokenB["contract"])
-            
-        
-            
+
         tokenApprove = self.set_checksum(tokenA["contract"])
-        
+
         self.account = self.set_checksum(self.account)
 
         routerAddress = self.set_checksum(self.markets["routerAddress"])
-        
+
         self.check_approve(
             amount=amountA, token=tokenApprove, account=self.account, router=routerAddress
         )
@@ -205,71 +209,64 @@ class Oneinchswap(Exchange):
             routerAddress, self.markets["routerAbi"][int(self.markets["version"])]
         )
 
-        if 'fusion' not in  kwargs:
-
+        if "fusion" not in kwargs:
             tx = self.token_to_token(
                 tokenAaddress, amountA, tokenBaddress, self.account, routerAddress
             )
 
             tx_receipt = self.fetch_transaction(tx, "SWAP")
-            
-        else :
-            
+
+        else:
             tx = await self.create_fusion_swap(amountA, tokenAaddress, tokenBaddress)
-            
+
             logging.info(tx)
-            
+
             time_spend, amount = self.check_bridge_completed(tokenBsymbol, self.account)
-            
+
             tx_receipt = self.fetch_transaction(tx, "FUSION_SWAP")
-            
+
             tx_receipt["amount_out"] = amount
 
         return tx_receipt
-        
+
     def get_rate(self, tokenAaddress, tokenBaddress):
-        
         tx = self.routerContract.functions.getRate(tokenAaddress, tokenBaddress).call()
-        
+
         return tx
-    
-    async def get_fusion_quote(self,amount, tokenA, tokenB):
-        
+
+    async def get_fusion_quote(self, amount, tokenA, tokenB):
         basePath = Path(__file__).resolve().parent
         oneinchPath = os.path.join(basePath, "oneinchswap.js")
-        
+
         js_code = f"""
         const {{ quote_js }} = require('{oneinchPath}');
         quote_js({amount}, '{tokenA}', '{tokenB}', '{self.account}', '{self.chains['mainnet']['chain_id']}');
         """
 
         loop = asyncio.get_event_loop()
-        quote_data = await loop.run_in_executor(None, subprocess.check_output, ['node', '-e', js_code])
-        
-        result = quote_data.decode('utf-8')
-        
-        # .strip('\n')
-        
-        if result.startswith("Error:"):
-            
-            raise BadResponseFormat("1inch SDK failed")
-        
-        else :
-            
-            result = json.loads(result)
-            
-        return result
-        
-    async def create_fusion_swap(self, amount, tokenA, tokenB):
+        quote_data = await loop.run_in_executor(
+            None, subprocess.check_output, ["node", "-e", js_code]
+        )
 
-        if self.privateKey.startswith("0x") :
-            
+        result = quote_data.decode("utf-8")
+
+        # .strip('\n')
+
+        if result.startswith("Error:"):
+            raise BadResponseFormat("1inch SDK failed")
+
+        else:
+            result = json.loads(result)
+
+        return result
+
+    async def create_fusion_swap(self, amount, tokenA, tokenB):
+        if self.privateKey.startswith("0x"):
             self.privateKey = self.privateKey[2:]
-            
-        else :
-            
+
+        else:
             pass
-        
+
         basePath = Path(__file__).resolve().parent
         oneinchPath = os.path.join(basePath, "oneinchswap.js")
 
@@ -277,29 +274,28 @@ class Oneinchswap(Exchange):
         const {{ swap_js }} = require('{oneinchPath}');
         swap_js({amount}, '{tokenA}', '{tokenB}', '{self.account}', '{self.privateKey}', '{self.exchange_node}', '{self.chains['mainnet']['chain_id']}');
         """
-        
-        loop = asyncio.get_event_loop()
-        quote_data = await loop.run_in_executor(None, subprocess.check_output, ['node', '-e', js_code])
 
-        result = quote_data.decode('utf-8')
-        
+        loop = asyncio.get_event_loop()
+        quote_data = await loop.run_in_executor(
+            None, subprocess.check_output, ["node", "-e", js_code]
+        )
+
+        result = quote_data.decode("utf-8")
+
         if result.startswith("Error:"):
-            
             raise BadResponseFormat("1inch SDK failed")
-            
+
         return result
-        
+
     def get_proxy_list(self):
-        
         pass
 
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress):
-        
-        if (tokenAaddress == self.chains['baseContract']) and (self.chainName == 'KLAYTN') :
-            tokenAaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
-            
-        elif (tokenBaddress == self.chains['baseContract']) and (self.chainName == 'KLAYTN') :
-            tokenBaddress = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+        if (tokenAaddress == self.chains["baseContract"]) and (self.chainName == "KLAYTN"):
+            tokenAaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+        elif (tokenBaddress == self.chains["baseContract"]) and (self.chainName == "KLAYTN"):
+            tokenBaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 
         params = {
             "fromTokenAddress": tokenAaddress,
@@ -309,14 +305,25 @@ class Oneinchswap(Exchange):
             "slippage": 50,
             "disableEstimate": "true",
         }
-        
-        if self.proxy :
-            
-            result_tx = self.create_request(self.api_url, params, f"v{self.markets['version']}", f"{self.chains['mainnet']['chain_id']}", 'swap', proxy=self.proxy)['tx']
-            
-        else :
-        
-            result_tx = self.create_request(self.api_url, params, f"v{self.markets['version']}", f"{self.chains['mainnet']['chain_id']}", 'swap')['tx']
+
+        if self.proxy:
+            result_tx = self.create_request(
+                self.api_url,
+                params,
+                f"v{self.markets['version']}",
+                f"{self.chains['mainnet']['chain_id']}",
+                "swap",
+                proxy=self.proxy,
+            )["tx"]
+
+        else:
+            result_tx = self.create_request(
+                self.api_url,
+                params,
+                f"v{self.markets['version']}",
+                f"{self.chains['mainnet']['chain_id']}",
+                "swap",
+            )["tx"]
 
         self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
 
@@ -336,55 +343,50 @@ class Oneinchswap(Exchange):
         tx["gas"] = self.w3.eth.estimate_gas(tx)
 
         return tx
-    
+
         # arg_in = f"{amountA} {tokenA} {amountBMin} {tokenB} {self.privatekey}"
         # response = muterun_js('klayswap_swap.js', arg_in)
         # tx = response.stdout.decode("utf-8")
-        
+
         # return tx
-        
-    def check_bridge_completed(self, tokenSymbol, toAddr) :
-        
+
+    def check_bridge_completed(self, tokenSymbol, toAddr):
         start_bridge = datetime.datetime.now()
-        
+
         start_time = datetime.datetime.now()
-        
+
         current_account = self.account
-        
+
         self.account = toAddr
-        
+
         start_balance = self.partial_balance(tokenSymbol)
-        
-        while True :
-            
+
+        while True:
             current_time = datetime.datetime.now()
-            
+
             current_balance = self.partial_balance(tokenSymbol)
-            
-            if ((current_balance['balance'] - start_balance['balance']) > (self.amount)) \
-                or (current_balance['balance'] >= self.amount)\
-                or (current_time - start_time).seconds > 1800 :
-                    
-                if current_balance['balance'] - start_balance['balance'] > 0 :
-                    
-                    amount = current_balance['balance'] - start_balance['balance']
-                    
-                else :
-                    
+
+            if (
+                ((current_balance["balance"] - start_balance["balance"]) > (self.amount))
+                or (current_balance["balance"] >= self.amount)
+                or (current_time - start_time).seconds > 1800
+            ):
+                if current_balance["balance"] - start_balance["balance"] > 0:
+                    amount = current_balance["balance"] - start_balance["balance"]
+
+                else:
                     amount = self.amount
 
                 break
-                    
+
         end_bridge = datetime.datetime.now()
-        
+
         bridge_time = (end_bridge - start_bridge).seconds
-        
-        time_spend = {
-            'bridge_time' : bridge_time
-        }
-        
+
+        time_spend = {"bridge_time": bridge_time}
+
         self.account = current_account
-        
+
         balance = self.from_value(amount, self.decimals(tokenSymbol))
-        
+
         return time_spend, balance

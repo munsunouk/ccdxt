@@ -1,29 +1,30 @@
-from mars.base.exchange import Exchange
-from mars.base.utils.errors import (
+from ..base.exchange import Exchange
+from ..base.utils.errors import (
     InsufficientBalance,
 )
-from mars.base.utils.retry import retry
+from ..base.utils.retry import retry
 
 from typing import Optional
 import datetime
+
 # from pytz import timezone
 import time
 
+
 class Meshswap(Exchange):
     def __init__(self, config_change: Optional[dict] = {}):
-
         super().__init__()
-        
+
         config = {
-            "retries" : 3,
-            "retriesTime" : 10,
-            "host" : None,
-            "account" : None,
-            "privateKey" : None,
-            "log" : None,
-            "proxy" : False
+            "retries": 3,
+            "retriesTime": 10,
+            "host": None,
+            "account": None,
+            "privateKey": None,
+            "log": None,
+            "proxy": False,
         }
-        
+
         config.update(config_change)
 
         # market info
@@ -41,9 +42,9 @@ class Meshswap(Exchange):
 
         self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
+
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
-
         amountin = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
 
         pool = self.get_pair(tokenAsymbol, tokenBsymbol)
@@ -63,8 +64,9 @@ class Meshswap(Exchange):
 
         return result
 
-    def create_swap(self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs):
-
+    def create_swap(
+        self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
+    ):
         self.baseCurrency = self.chains["baseCurrency"]
 
         self.pathName = path
@@ -87,11 +89,9 @@ class Meshswap(Exchange):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
         if path != None:
-
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path]
 
         else:
-
             self.path = [tokenAaddress, tokenBaddress]
 
         self.check_approve(
@@ -116,7 +116,6 @@ class Meshswap(Exchange):
         return tx_receipt
 
     def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
-
         # maxPriorityFee, maxFee = self.updateTxParameters()
         # self.w3.eth.set_gas_price_strategy(medium_gas_price_strategy)
 
@@ -136,7 +135,6 @@ class Meshswap(Exchange):
         return tx
 
     def eth_to_token(self, amountA, tokenBaddress, amountBMin):
-
         tx = self.routerContract.functions.swapExactETHForTokens(
             amountBMin, self.path, self.account, self.deadline
         ).build_transaction(
@@ -151,7 +149,6 @@ class Meshswap(Exchange):
         return tx
 
     def token_to_eth(self, tokenAaddress, amountA, amountBMin):
-
         tx = self.routerContract.functions.swapExactTokensForETH(
             amountA, amountBMin, self.path, self.account, self.deadline
         ).build_transaction(
@@ -165,7 +162,6 @@ class Meshswap(Exchange):
         return tx
 
     def get_amount_out(self, tokenAsymbol, amountIn, tokenBsymbol):
-
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
         tokenA = self.tokens[tokenAsymbol]
@@ -183,7 +179,6 @@ class Meshswap(Exchange):
         return amountOut
 
     async def get_reserves(self, tokenAsymbol, tokenBsymbol):
-        
         pool = self.get_pair(tokenAsymbol, tokenBsymbol)
 
         pool = self.set_checksum(pool)
@@ -209,11 +204,11 @@ class Meshswap(Exchange):
         reserve = reserves[0] / reserves[1]
 
         return {
-            "pool" : f"{tokenBsymbol}-{tokenAsymbol}",
-            "tokenAsymbol" : tokenBsymbol,
-            "tokenBsymbol" : tokenAsymbol,
-            "tokenAreserves" : reserves[1],
-            "tokenBreserves" : reserves[0],
-            "poolPrice" : reserve,
-            'created_at' : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "pool": f"{tokenBsymbol}-{tokenAsymbol}",
+            "tokenAsymbol": tokenBsymbol,
+            "tokenBsymbol": tokenAsymbol,
+            "tokenAreserves": reserves[1],
+            "tokenBreserves": reserves[0],
+            "poolPrice": reserve,
+            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
