@@ -21,7 +21,7 @@ import json
 import logging
 import time
 from typing import Optional, Union, Dict, Any
-from ccdxt.base.utils.retry import retry_normal
+from ccdxt.base.utils.retry import retry_normal, retry
 
 # from pytz import timezone
 
@@ -88,7 +88,7 @@ class Transaction(object):
             elif error["message"].startswith("there is another tx"):
                 return ReplacementTransactionUnderpriced
 
-    def fetch_transaction(self, tx, round=None, api=None, *args, **kwargs):
+    async def fetch_transaction(self, tx, round=None, api=None, *args, **kwargs):
         """
         Info
         ----------
@@ -122,7 +122,7 @@ class Transaction(object):
         """
 
         if round == "FUSION_SWAP":
-            return self.fetch_fusion_swap(tx)
+            return await self.fetch_fusion_swap(tx)
 
         elif round == "FAIL":
             return self.fetch_trade_fail()
@@ -132,10 +132,11 @@ class Transaction(object):
 
         tokenBalance = self.partial_balance(self.tokenSymbol)
         baseCurrency = self.partial_balance(self.chains["baseCurrency"])
-        gas = self.w3.eth.estimate_gas(tx)
+        gas = await self.w3.eth.estimate_gas(tx)
 
         self.gas_fee = self.to_value(
-            value=int(int(gas) * self.gas_price), exp=self.decimals(self.chains["baseCurrency"])
+            value=int(int(gas) * self.gas_price),
+            exp=await self.decimals(self.chains["baseCurrency"]),
         )
 
         # self.require(self.check_sync() == True, NetworkError("Network sync fail"))
@@ -161,11 +162,11 @@ class Transaction(object):
             ),
         )
 
-        signed_tx = self.w3.eth.account.signTransaction(tx, self.privateKey)
+        signed_tx = await self.w3.eth.account.signTransaction(tx, self.privateKey)
 
         try:
-            self.tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
-            tx_receipt = self.get_tx_receipt()
+            self.tx_hash = await self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            tx_receipt = await self.get_tx_receipt()
         except ValueError as e:
             action = self.inspect_client_error(e)
             if action == InsufficientBalance:
@@ -188,10 +189,10 @@ class Transaction(object):
 
         # self.tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 
-        tx_receipt = self.get_tx_receipt()
+        tx_receipt = await self.get_tx_receipt()
 
         if tx_receipt["status"] != 1:
-            return self.fetch_trade_fail(self.tx_hash)
+            return await self.fetch_trade_fail(self.tx_hash)
 
         if round == "CHECK":
             return self.logger.info("approved token")
@@ -203,13 +204,13 @@ class Transaction(object):
             return self.logger.info("unwrapped token")
 
         if round == "BRIDGE":
-            return self.fetch_bridge(tx, tx_receipt, api)
+            return await self.fetch_bridge(tx, tx_receipt, api)
 
         if round == "SWAP":
-            return self.fetch_swap(tx, tx_receipt, api)
+            return await self.fetch_swap(tx, tx_receipt, api)
 
         if round == "TRANSFER":
-            return self.fetch_transfer(tx, tx_receipt, api)
+            return await self.fetch_transfer(tx, tx_receipt, api)
 
         if round == "ADD":
             # return self.fetch_add_liquidity(tx, tx_receipt, api, payload=kwargs['payload'])
@@ -331,7 +332,7 @@ class Transaction(object):
 
         return txDict
 
-    def fetch_transfer(self, tx, tx_receipt, api=False):
+    async def fetch_transfer(self, tx, tx_receipt, api=False):
         """
         Info
         ----------
@@ -367,7 +368,7 @@ class Transaction(object):
 
         # amount_in = self.amount
 
-        # amount_in = self.to_value(amount_in, self.decimals(self.tokenSymbol))
+        # amount_in = self.to_value(amount_in, await self.decimals(self.tokenSymbol))
 
         if tx is None and tx_receipt is None:
             raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
@@ -381,7 +382,7 @@ class Transaction(object):
             # function = self.decode(tx_receipt)[0].fn_name
 
         else:
-            transaction = self.w3.eth.get_transaction(self.tx_hash)
+            transaction = await self.w3.eth.get_transaction(self.tx_hash)
 
             # function, input_args = self.routerContract.decode_function_input(
             #     transaction.input
@@ -409,7 +410,7 @@ class Transaction(object):
 
         return txDict
 
-    def fetch_bridge(self, tx, tx_receipt, api=None, *args, **kwargs):
+    async def fetch_bridge(self, tx, tx_receipt, api=None, *args, **kwargs):
         """
         Info
         ----------
@@ -441,13 +442,13 @@ class Transaction(object):
 
         # amount_in = self.amount
 
-        amount_in = self.to_value(amount_in, self.decimals(self.tokenSymbol))
+        amount_in = self.to_value(amount_in, await self.decimals(self.tokenSymbol))
 
         if tx is None and tx_receipt is None:
             raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
         if (tx is not None) and (tx_receipt is None):
-            tx_receipt = self.get_transaction_receipt(tx)
+            tx_receipt = await self.get_transaction_receipt(tx)
 
         if (tx is None) and (tx_receipt is not None):
             pass
@@ -455,7 +456,7 @@ class Transaction(object):
             # function = self.decode(tx_receipt)[0].fn_name
 
         else:
-            transaction = self.w3.eth.get_transaction(self.tx_hash)
+            transaction = await self.w3.eth.get_transaction(self.tx_hash)
 
             function, input_args = self.routerContract.decode_function_input(
                 transaction.input
@@ -483,10 +484,12 @@ class Transaction(object):
 
         return txDict
 
-    def fetch_fusion_swap(self, tx: Optional[AttributeDict] = None):
-        amountIn = self.to_value(int(tx["order"]["makingAmount"]), self.decimals(self.tokenSymbol))
+    async def fetch_fusion_swap(self, tx: Optional[AttributeDict] = None):
+        amountIn = self.to_value(
+            int(tx["order"]["makingAmount"]), await self.decimals(self.tokenSymbol)
+        )
         amountOut = self.to_value(
-            int(tx["order"]["takingAmount"]), self.decimals(self.tokenBsymbol)
+            int(tx["order"]["takingAmount"]), await self.decimals(self.tokenBsymbol)
         )
 
         txDict = {
@@ -508,7 +511,7 @@ class Transaction(object):
 
         return txDict
 
-    def fetch_swap(
+    async def fetch_swap(
         self, tx: Optional[AttributeDict] = None, tx_receipt=None, api=False
     ) -> Dict[str, Any]:
         """
@@ -539,7 +542,7 @@ class Transaction(object):
 
         else:
             try:
-                function, input_args = self.routerContract.decode_function_input(
+                function, input_args = await self.routerContract.decode_function_input(
                     self.get_transaction_data_field(tx)
                 )
                 fn_name = str(function.fn_name)
@@ -569,8 +572,8 @@ class Transaction(object):
             amountIn = int(quote_total_tx["in_amount"])
             amountOut = int(quote_total_tx["out_amount"])
 
-        amountIn = self.to_value(amountIn, self.decimals(self.tokenSymbol))
-        amountOut = self.to_value(amountOut, self.decimals(self.tokenBsymbol))
+        amountIn = self.to_value(amountIn, await self.decimals(self.tokenSymbol))
+        amountOut = self.to_value(amountOut, await self.decimals(self.tokenBsymbol))
 
         txDict = {
             "from_network": self.chains["name"],
@@ -593,11 +596,11 @@ class Transaction(object):
 
         return txDict
 
-    def fetch_trade_fail(self, tx_hash=""):
+    async def fetch_trade_fail(self, tx_hash=""):
         self.logger.info("fail")
 
         if tx_hash:
-            blockNumber = self.w3.eth.get_transaction(tx_hash).blockNumber
+            blockNumber = await self.w3.eth.get_transaction(tx_hash).blockNumber
             tx_hash = tx_hash.hex()
 
         else:
@@ -638,8 +641,10 @@ class Transaction(object):
         else:
             return tx["input"]
 
-    @retry_normal
-    def get_tx_receipt(self):
-        tx_receipt = self.w3.eth.wait_for_transaction_receipt(self.tx_hash, timeout=self.timeOut)
+    @retry
+    async def get_tx_receipt(self):
+        tx_receipt = await self.w3.eth.wait_for_transaction_receipt(
+            self.tx_hash, timeout=self.timeOut
+        )
 
         return tx_receipt

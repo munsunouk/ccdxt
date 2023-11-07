@@ -77,9 +77,11 @@ class Market:
                     )
 
                     if is_str(result[key]):
+
                         key_path = os.path.join(basePath, "contract", "abi", result[key])
 
                         if Path(key_path).exists():
+
                             with open(key_path, "rt", encoding="utf-8") as f:
                                 keyDict = json.load(f)
                                 result[key] = keyDict

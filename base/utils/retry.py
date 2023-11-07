@@ -41,7 +41,7 @@ def retry_normal(func):
                 if i == self.retries - 1:
                     raise TooManyTriesException(func)
                 time.sleep(self.timeOut)
-                self.host += 1
+                self.host = self.host + 1 % self.total_node
                 self.load_exchange(self.chainName, self.exchangeName)
             except (
                 # APIError,
@@ -54,9 +54,12 @@ def retry_normal(func):
                 BadResponseFormat,
             ) as e:
                 self.logger.warning(e)
+                self.host = self.host + 1 % self.total_node
                 self.load_exchange(self.chainName, self.exchangeName)
                 time.sleep(60)
                 pass
+
+        raise TooManyTriesException(func)
 
     return retry_method
 
@@ -95,6 +98,7 @@ def retry(func):
                 Timeout,
             ) as e:
                 self.logger.warning(e)
+                self.host = self.host + 1 % self.total_node
                 self.load_exchange(self.chainName, self.exchangeName)
                 time.sleep(60)
                 pass
@@ -107,6 +111,7 @@ def retry(func):
 
             except Exception as e:
                 self.logger.exception(e)
+                self.host = self.host + 1 % self.total_node
                 self.logger.error(f"params :{args}, {kwargs}")
                 pass
 

@@ -65,14 +65,14 @@ class Oneinchswap(Exchange):
         self.api_url = config["api_url"]
         self.sleep = config["sleep"]
 
-        self.load_exchange(self.chainName, self.exchangeName)
+        # self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, fusion=False):
-        time.sleep(self.sleep)
+        # time.sleep(self.sleep)
 
-        amountIn = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
+        amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
@@ -113,7 +113,7 @@ class Oneinchswap(Exchange):
                 )
 
             amountout = self.to_value(
-                value=quote_result["toTokenAmount"], exp=self.decimals(tokenBsymbol)
+                value=quote_result["toTokenAmount"], exp=await self.decimals(tokenBsymbol)
             )
 
         else:
@@ -122,7 +122,7 @@ class Oneinchswap(Exchange):
 
             amountout = int(quote["presets"]["fast"]["auctionEndAmount"]) * 1.1
 
-            amountout = self.to_value(amountout, exp=self.decimals(tokenBsymbol))
+            amountout = self.to_value(amountout, exp=await self.decimals(tokenBsymbol))
 
         result = {
             "amountAin": amountAin,
@@ -162,7 +162,7 @@ class Oneinchswap(Exchange):
         }
         """
 
-        time.sleep(self.sleep)
+        # time.sleep(self.sleep)
 
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
@@ -214,16 +214,16 @@ class Oneinchswap(Exchange):
                 tokenAaddress, amountA, tokenBaddress, self.account, routerAddress
             )
 
-            tx_receipt = self.fetch_transaction(tx, "SWAP")
+            tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         else:
             tx = await self.create_fusion_swap(amountA, tokenAaddress, tokenBaddress)
 
             logging.info(tx)
 
-            time_spend, amount = self.check_bridge_completed(tokenBsymbol, self.account)
+            time_spend, amount = await self.check_bridge_completed(tokenBsymbol, self.account)
 
-            tx_receipt = self.fetch_transaction(tx, "FUSION_SWAP")
+            tx_receipt = await self.fetch_transaction(tx, "FUSION_SWAP")
 
             tx_receipt["amount_out"] = amount
 
@@ -350,7 +350,7 @@ class Oneinchswap(Exchange):
 
         # return tx
 
-    def check_bridge_completed(self, tokenSymbol, toAddr):
+    async def check_bridge_completed(self, tokenSymbol, toAddr):
         start_bridge = datetime.datetime.now()
 
         start_time = datetime.datetime.now()
@@ -387,6 +387,6 @@ class Oneinchswap(Exchange):
 
         self.account = current_account
 
-        balance = self.from_value(amount, self.decimals(tokenSymbol))
+        balance = self.from_value(amount, await self.decimals(tokenSymbol))
 
         return time_spend, balance

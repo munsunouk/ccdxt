@@ -40,20 +40,21 @@ class Meshswap(Exchange):
         self.log = config["log"]
         self.proxy = config["proxy"]
 
-        self.load_exchange(self.chainName, self.exchangeName)
+        # self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
 
-    @retry
+    # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
-        amountin = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
 
-        pool = self.get_pair(tokenAsymbol, tokenBsymbol)
+        amountin = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
-        pool = self.set_checksum(pool)
+        # pool = self.get_pair(tokenAsymbol, tokenBsymbol)
 
-        amountBout = self.get_amount_out(tokenAsymbol, amountin, tokenBsymbol)
+        # pool = self.set_checksum(pool)
 
-        amountout = self.to_value(value=amountBout, exp=self.decimals(tokenBsymbol))
+        amountBout = await self.get_amount_out(tokenAsymbol, amountin, tokenBsymbol)
+
+        amountout = self.to_value(value=amountBout, exp=await self.decimals(tokenBsymbol))
 
         result = {
             "amountAin": amountAin,
@@ -64,7 +65,8 @@ class Meshswap(Exchange):
 
         return result
 
-    def create_swap(
+    @retry
+    async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
         self.baseCurrency = self.chains["baseCurrency"]
@@ -80,8 +82,8 @@ class Meshswap(Exchange):
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
 
-        amountA = self.from_value(value=amountA, exp=self.decimals(tokenAsymbol))
-        amountBMin = self.from_value(value=amountBMin, exp=self.decimals(tokenBsymbol))
+        amountA = self.from_value(value=amountA, exp=await self.decimals(tokenAsymbol))
+        amountBMin = self.from_value(value=amountBMin, exp=await self.decimals(tokenBsymbol))
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
@@ -111,7 +113,7 @@ class Meshswap(Exchange):
         else:
             tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
-        tx_receipt = self.fetch_transaction(tx, "SWAP")
+        tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
@@ -161,7 +163,7 @@ class Meshswap(Exchange):
 
         return tx
 
-    def get_amount_out(self, tokenAsymbol, amountIn, tokenBsymbol):
+    async def get_amount_out(self, tokenAsymbol, amountIn, tokenBsymbol):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
         tokenA = self.tokens[tokenAsymbol]
@@ -170,11 +172,13 @@ class Meshswap(Exchange):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
 
-        self.routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
+        self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"])
 
-        amountOut = self.routerContract.functions.getAmountsOut(
+        amountOut = await self.routerContract.functions.getAmountsOut(
             amountIn, [tokenAaddress, tokenBaddress]
-        ).call()[-1]
+        ).call()
+
+        amountOut = amountOut[-1]
 
         return amountOut
 
@@ -194,12 +198,12 @@ class Meshswap(Exchange):
         reserves = routerContract.functions.getReserves().call()
 
         if tokenA != tokenAaddress:
-            reserves[1] = self.to_value(reserves[0], self.decimals(tokenBsymbol))
-            reserves[0] = self.to_value(reserves[1], self.decimals(tokenAsymbol))
+            reserves[1] = self.to_value(reserves[0], await self.decimals(tokenBsymbol))
+            reserves[0] = self.to_value(reserves[1], await self.decimals(tokenAsymbol))
 
         else:
-            reserves[0] = self.to_value(reserves[0], self.decimals(tokenAsymbol))
-            reserves[1] = self.to_value(reserves[1], self.decimals(tokenBsymbol))
+            reserves[0] = self.to_value(reserves[0], await self.decimals(tokenAsymbol))
+            reserves[1] = self.to_value(reserves[1], await self.decimals(tokenBsymbol))
 
         reserve = reserves[0] / reserves[1]
 

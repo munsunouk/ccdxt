@@ -131,7 +131,9 @@
     "name": "Orbit Bridge Klaytn Orbit Chain",
     "symbol": "kORC",
     "contract": "0xFe41102f325dEaa9F303fDd9484Eb5911a7BA557",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH"
   },
   "KDUCATO": {
     "name": "Orbit Bridge Klaytn DUCATO Protocol Token",
@@ -298,14 +300,6 @@
   "kUSDC": {
     "name": "Orbit Bridge Klaytn USD Coin",
     "symbol": "kUSDC",
-    "contract": "0x754288077D0fF82AF7a5317C7CB8c444D421d103",
-    "decimals": 6,
-    "bridge": "Minter",
-    "chain": "ETH"
-  },
-  "oUSDC": {
-    "name": "Orbit Bridge Klaytn USD Coin",
-    "symbol": "oUSDC",
     "contract": "0x754288077D0fF82AF7a5317C7CB8c444D421d103",
     "decimals": 6,
     "bridge": "Minter",
@@ -1205,21 +1199,25 @@
     "name": "ZEMIT",
     "symbol": "ZEMIT",
     "contract": "0x9D52704cD67d586ED2870D810b0cEF2Cc168ae42",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
-  "oMOOI": {
+  "mMOOI": {
     "name": "Orbit Bridge Polygon MOOI",
-    "symbol": "oMOOI",
+    "symbol": "mMOOI",
     "contract": "0x746351AB4B9d4f802B7b770f33184d0A6B17363D",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "KLAYTN"
+    "chain": "MATIC"
   },
-  "oZEMIT": {
+  "mZEMIT": {
     "name": "Orbit Bridge Polygon ZEMIT",
-    "symbol": "oZEMIT",
+    "symbol": "mZEMIT",
     "contract": "0xA34E0eaCB7fbB0b0d45da89b083E0f87fcdf6157",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
   },
   "USDC.p": {
     "name": "USD Coin Polygon(PoS)",
@@ -1243,15 +1241,15 @@
     "contract": "0x5a36597fb14c8f28ea3c3163754f8149ef1d45a8",
     "decimals": "18"
   },
-  "oUSDT": {
+  "mUSDT": {
     "name": "Orbit Bridge Tether USD",
-    "symbol": "oUSDT",
+    "symbol": "mUSDT",
     "contract": "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F",
     "decimals": 6
   },
-  "oXRP": {
+  "mXRP": {
     "name": "Orbit Bridge Polygon XRP Token",
-    "symbol": "oXRP",
+    "symbol": "mXRP",
     "contract": "0xCc2a9051E904916047c26C90f41c000D4f273456",
     "decimals": 6,
     "bridge": "Minter",
@@ -1263,15 +1261,15 @@
     "contract": "0x5a36597Fb14c8F28Ea3C3163754F8149ef1D45A8",
     "decimals": 18
   },
-  "oETH": {
+  "mETH": {
     "name": "Orbit Bridge Polygon Ethereum",
-    "symbol": "oETH",
+    "symbol": "mETH",
     "contract": "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624",
     "decimals": 18
   },
-  "oKLAY": {
+  "mKLAY": {
     "name": "Orbit Bridge Polygon Klay",
-    "symbol": "oKLAY",
+    "symbol": "mKLAY",
     "contract": "0x0A02D33031917d836Bd7Af02F9f7F6c74d67805F",
     "decimals": 18
   },
@@ -1291,13 +1289,17 @@
     "name": "KMESH",
     "symbol": "KMESH",
     "contract": "0x127a75b751ba810e459121af6207d83841c586b7",
-    "decimals": "18"
+    "decimals": "18",
+    "bridge": "Minter",
+    "chain": "KLAYTN"
   },
   "MESH": {
     "name": "Meshswap Protocol",
     "symbol": "MESH",
     "contract": "0x82362Ec182Db3Cf7829014Bc61E9BE8a2E82868a",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "MATIC"
   },
   "oKSP": {
     "name": "Orbit Bridge Polygon KlaySwap Protocol",
@@ -1305,33 +1307,57 @@
     "contract": "0x3D3B92Fe0B4c26b74F8fF13A32dD764F4DFD8b51",
     "decimals": 18
   },
+  "kMGOLD": {
+    "name": "Orbit Bridge Polygon Protocol",
+    "symbol": "kMGOLD",
+    "contract": "0x307ac5598abdf419456ce623c0977499777e5b67",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
+  },
+  "MGOLD": {
+    "name": "Orbit Bridge Polygon KlaySwap Protocol",
+    "symbol": "MGOLD",
+    "contract": "0xfe596D8f73Ae03e3720DB419c6320E944838A073",
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "MATIC"
+  },
   "kXDT": {
     "name": "kXDT",
     "symbol": "kXDT",
     "contract": "0xaeeca95c899660dc74886168d0ffdebf3669179d",
-    "decimals": "18"
+    "decimals": "18",
+    "bridge": "Minter",
+    "chain": "ETH"
   },
   "GHUB": {
     "name": "GemHUB",
     "symbol": "GHUB",
     "contract": "0x4836cC1f355bB2A61c210EAA0CD3f729160CD95E",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
-  "oGHUB": {
+  "mGHUB": {
     "name": "Orbit Bridge Polygon GemHUB",
-    "symbol": "oGHUB",
+    "symbol": "mGHUB",
     "contract": "0xBDcCF75601e8B11E1b11a99f9F846a036532B898",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
   },
-  "oORC": {
+  "mORC": {
     "name": "Orbit Bridge Polygon Orbit Chain",
-    "symbol": "oORC",
+    "symbol": "mORC",
     "contract": "0x12c9FFE6538f20A982FD4D17912f0ca00fA82D30",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "ETH"
   },
   "mUSDC": {
     "name": "Orbit Bridge Polygon USD Coin",
-    "symbol": "oUSDC",
+    "symbol": "mUSDC",
     "contract": "0x5bEF2617eCCA9a39924c09017c5F1E25Efbb3bA8",
     "decimals": 6,
     "bridge": "Minter",
@@ -1343,15 +1369,15 @@
     "contract": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
     "decimals": 18
   },
-  "oWBTC": {
+  "mWBTC": {
     "name": "Orbit Bridge Polygon Wrapped BTC",
-    "symbol": "oWBTC",
+    "symbol": "mWBTC",
     "contract": "0xE631FfAA2cF4d91aac3E9589a5d5B390C82A032E",
     "decimals": 8
   },
-  "WMATIC": {
+  "wMATIC": {
     "name": "Wrapped Matic",
-    "symbol": "WMATIC",
+    "symbol": "wMATIC",
     "contract": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "decimals": 18
   },
@@ -1457,11 +1483,37 @@
     "contract": "0xDFe180E288158231ffA5faF183ECA3301344a51F",
     "decimals": 18
   },
-  "oTON": {
+  "mTON": {
     "name": "Orbit Bridge Polygon Toncoin",
-    "symbol": "oTON",
+    "symbol": "mTON",
     "contract": "0x4B96dBf8f42C8c296573933a6616dcAfb80Ca461",
-    "decimals": 9
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "TON"
+  },
+  "kTON": {
+    "name": "Orbit Bridge Klaytn Toncoin",
+    "symbol": "kTON",
+    "contract": "0x4B96dBf8f42C8c296573933a6616dcAfb80Ca461",
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "TON"
+  },
+  "kMEGA": {
+    "name": "Orbit Bridge Klaytn MEGA",
+    "symbol": "kMEGA",
+    "contract": "0x800800500fd721a2e8092bd2d0401841b33b0fe7",
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "TON"
+  },
+  "mMEGA": {
+    "name": "Orbit Bridge MATIC MEGA",
+    "symbol": "mMEGA",
+    "contract": "0x800800500fd721a2e8092bd2d0401841b33b0fe7",
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "TON"
   },
   "oRAI": {
     "name": "Orbit Bridge Klaytn Rai.Finance",
@@ -1691,10 +1743,16 @@
     "contract": "0x8BC28c926A0FE54b5C56A329Cd3b129CC52Ae099",
     "decimals": 9
   },
-  "MPWR": {
+  "kMPWR": {
     "name": "Empower Token",
-    "symbol": "MPWR",
-    "contract": "0xAd27AcE6f0F6Cef2C192A3c8F0F3fa2611154eb3",
+    "symbol": "kMPWR",
+    "contract": "0xad27ace6f0f6cef2c192a3c8f0f3fa2611154eb3",
+    "decimals": 18
+  },
+  "mMPWR": {
+    "name": "Empower Token",
+    "symbol": "mMPWR",
+    "contract": "0x47C52F93A359dB9F4509005CF982DFc440790561",
     "decimals": 18
   },
   "kBNB": {
@@ -2033,9 +2091,9 @@
     "contract": "0xFD7E99ab9822Edc9b92e1F89a8a0B96A76e5740e",
     "decimals": 18
   },
-  "oMATIC": {
+  "mMATIC": {
     "name": "Orbit Bridge Polygon Matic Token",
-    "symbol": "oMATIC",
+    "symbol": "mMATIC",
     "contract": "0x3f364853F01D32d581fc9734110B21C77AeEA024",
     "decimals": 18
   },
@@ -2651,17 +2709,21 @@
     "contract": "0xE5D085431C0e55FDfC6f354ef4522e6d2B58B90c",
     "decimals": 18
   },
-  "oMRST": {
+  "kMRST": {
     "name": "Orbit Bridge Klaytn Mars Token",
-    "symbol": "oMRST",
+    "symbol": "kMRST",
     "contract": "0x341BA3a6738Fd107484fBc4f6B8f6c5fCE75d339",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "KLAYTN"
   },
-  "oPBOS": {
+  "kPBOS": {
     "name": "Orbit Bridge Klaytn Phobos Token",
-    "symbol": "oPBOS",
+    "symbol": "kPBOS",
     "contract": "0x78f3C81c5f6c8964aEa1a48309DCcb837526af56",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "KLAYTN"
   },
   "NECTAR": {
     "name": "Nectar",
@@ -2774,9 +2836,9 @@
     "chain": "ETH",
     "MinimumBridge": 0
   },
-  "mUSDT": {
+  "USDT.p": {
     "name": "(PoS) Tether USD",
-    "symbol": "mUSDT",
+    "symbol": "USDT",
     "contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
     "decimals": 6
   },
@@ -2910,13 +2972,17 @@
     "name": "Mars Token",
     "symbol": "MRST",
     "contract": "0x411bc96881A62572FF33c9d8CE60dF99E3d96cd8",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "MATIC"
   },
   "PBOS": {
     "name": "Phobos Token",
     "symbol": "PBOS",
     "contract": "0x421b9B487D5a9b76E4B81809C0f1b9Bb8cb24cb9",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "MATIC"
   },
   "GXR": {
     "name": "GELIXIR",
@@ -2930,9 +2996,9 @@
     "contract": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
     "decimals": 18
   },
-  "oBNB": {
+  "mBNB": {
     "name": "Orbit Bridge Klaytn Binance Coin",
-    "symbol": "oBNB",
+    "symbol": "mBNB",
     "contract": "0x574e9c26bDA8b95D7329505b4657103710EB32eA",
     "decimals": 18
   },
@@ -2948,11 +3014,13 @@
     "contract": "0x210bC03f49052169D5588A52C317f71cF2078b85",
     "decimals": 18
   },
-  "oXDT": {
+  "mXDT": {
     "name": "Orbit Bridge Polygon XDT Token",
-    "symbol": "oXDT",
+    "symbol": "mXDT",
     "contract": "0xBC493Cad080A13474A374FC351191BfF12E04E4b",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "ETH"
   },
   "CBANK": {
     "name": "CRYPTO BANK",

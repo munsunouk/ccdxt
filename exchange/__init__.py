@@ -13,5 +13,6 @@ from .paraswap import Paraswap
 from .kyberswap import Kyberswap
 from .matcha import Matcha
 from .lifi import Lifi
-from .traderjoe import Traderjoe
-from .uniswap import Uniswap
+
+# from .traderjoe import Traderjoe
+# from .uniswap import Uniswap

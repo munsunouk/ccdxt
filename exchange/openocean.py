@@ -63,12 +63,12 @@ class Openocean(Exchange):
         self.sleep = config["sleep"]
         self.gasPrice = None
 
-        self.load_exchange(self.chainName, self.exchangeName)
+        # self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, **kwargs):
-        time.sleep(self.sleep)
+        # time.sleep(self.sleep)
 
         if not self.gasPrice:
             self.gasPrice = self.get_gasPrice()
@@ -123,7 +123,9 @@ class Openocean(Exchange):
                 self.api_url, params, "v2", f"{self.chains['mainnet']['chain_id']}", "quote"
             )
 
-        amountout = self.to_value(value=quote_result["outAmount"], exp=self.decimals(tokenBsymbol))
+        amountout = self.to_value(
+            value=quote_result["outAmount"], exp=await self.decimals(tokenBsymbol)
+        )
 
         result = {
             "amountAin": amountAin,
@@ -163,7 +165,7 @@ class Openocean(Exchange):
         }
         """
 
-        time.sleep(self.sleep)
+        # time.sleep(self.sleep)
 
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
@@ -230,7 +232,7 @@ class Openocean(Exchange):
             tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress, slippage
         )
 
-        tx_receipt = self.fetch_transaction(tx, "SWAP")
+        tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
@@ -304,7 +306,7 @@ class Openocean(Exchange):
 
         return tx
 
-    def check_bridge_completed(self, tokenSymbol, toAddr):
+    async def check_bridge_completed(self, tokenSymbol, toAddr):
         start_bridge = datetime.datetime.now()
 
         start_time = datetime.datetime.now()
@@ -341,7 +343,7 @@ class Openocean(Exchange):
 
         self.account = current_account
 
-        balance = self.from_value(amount, self.decimals(tokenSymbol))
+        balance = self.from_value(amount, await self.decimals(tokenSymbol))
 
         return time_spend, balance
 

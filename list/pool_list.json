@@ -1388,11 +1388,8 @@
   "kETH-kUSDT": {
     "name": "kETH-kUSDT",
     "baseChain": {
-      "MATIC": {
-        "meshswap": "0xff85431402b84d60a9b21cbdce45b0dcb83a56fd"
-      },
-      "polygon": {
-        "meshswap": "0xff85431402B84d60a9B21cbDCe45B0Dcb83a56fD"
+      "KLAYTN": {
+        "klayswap": "0x029e2a1b2bb91b66bd25027e1c211e5628dbcb93"
       }
     },
     "tokenA": "kETH",
@@ -1410,8 +1407,8 @@
     "tokenB": "kXRP",
     "decimals": "18"
   },
-  "mUSDC-oZEMIT": {
-    "name": "mUSDC-oZEMIT",
+  "mUSDC-mZEMIT": {
+    "name": "mUSDC-mZEMIT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x0cA328146511617e85742773858fF113C7738b15"
@@ -1421,11 +1418,11 @@
       }
     },
     "tokenA": "mUSDC",
-    "tokenB": "oZEMIT",
+    "tokenB": "mZEMIT",
     "decimals": 6
   },
-  "mUSDC-oMOOI": {
-    "name": "mUSDC-oMOOI",
+  "mUSDC-mMOOI": {
+    "name": "mUSDC-mMOOI",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xa91a3bd6A175F870fA76662b1ED2577D361FE711"
@@ -1435,36 +1432,11 @@
       }
     },
     "tokenA": "mUSDC",
-    "tokenB": "oMOOI",
+    "tokenB": "mMOOI",
     "decimals": 6
   },
-  "KETHW-kUSDT": {
-    "name": "KETHW-kUSDT",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x1ca3480fbc668bc28d3162eff1c89a1085ce9f57"
-      }
-    },
-    "tokenA": "KETHW",
-    "tokenB": "kUSDT",
-    "decimals": "6"
-  },
-  "oETHW-kUSDT": {
-    "name": "oETHW-kUSDT",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
-      },
-      "polygon": {
-        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
-      }
-    },
-    "tokenA": "oETHW",
-    "tokenB": "kUSDT",
-    "decimals": 6
-  },
-  "mUSDC-oKLAY": {
-    "name": "mUSDC-oKLAY",
+  "mUSDC-mKLAY": {
+    "name": "mUSDC-mKLAY",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x77e5cA3896Bf700BC4465fA871eAf987e87dE49B"
@@ -1474,7 +1446,7 @@
       }
     },
     "tokenA": "mUSDC",
-    "tokenB": "oKLAY",
+    "tokenB": "mKLAY",
     "decimals": 18
   },
   "KLAY-kUSDT": {
@@ -1488,15 +1460,15 @@
     "tokenB": "kUSDT",
     "decimals": "6"
   },
-  "kMATIC-KSP": {
-    "name": "kMATIC-KSP",
+  "KSP-kMATIC": {
+    "name": "KSP-kMATIC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xb80777424dc2d8bda03e123da4301fbb4d2aa3dd"
       }
     },
-    "tokenA": "kMATIC",
-    "tokenB": "KSP",
+    "tokenA": "KSP",
+    "tokenB": "kMATIC",
     "decimals": "18"
   },
   "MATIC-mUSDC": {
@@ -1535,8 +1507,8 @@
     "tokenB": "mUSDC",
     "decimals": 18
   },
-  "oKLAY-oKSP": {
-    "name": "oKLAY-oKSP",
+  "mKLAY-oKSP": {
+    "name": "mKLAY-oKSP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
@@ -1545,7 +1517,7 @@
         "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
       }
     },
-    "tokenA": "oKLAY",
+    "tokenA": "mKLAY",
     "tokenB": "oKSP",
     "decimals": 18
   },
@@ -1595,17 +1567,6 @@
     "tokenA": "GHUB",
     "tokenB": "kUSDT",
     "decimals": 6
-  },
-  "MATIC-oGHUB": {
-    "name": "MATIC-oGHUB",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
-      }
-    },
-    "tokenA": "MATIC",
-    "tokenB": "oGHUB",
-    "decimals": "18"
   },
   "kUSDT-kORC": {
     "name": "kUSDT-kORC",
@@ -1718,33 +1679,19 @@
     "tokenB": "SKLAY",
     "decimals": 18
   },
-  "kETH-kWBTC": {
-    "name": "kETH-kWBTC",
+  "USDC.p-wMATIC": {
+    "name": "USDC.p-wMATIC",
     "baseChain": {
-      "polygon": {
-        "meshswap": "0x82916890DD5A6Ca892acA21700532dCF3745fb01"
-      }
-    },
-    "tokenA": "kETH",
-    "tokenB": "kWBTC",
-    "decimals": 18
-  },
-  "mUSDC-WMATIC": {
-    "name": "mUSDC-WMATIC",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
-      },
       "MATIC": {
         "meshswap": "0x6Ffe747579eD4E807Dec9B40dBA18D15226c32dC"
       }
     },
-    "tokenA": "mUSDC",
-    "tokenB": "WMATIC",
+    "tokenA": "USDC.p",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "WETH-WMATIC": {
-    "name": "WETH-WMATIC",
+  "WETH-wMATIC": {
+    "name": "WETH-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x54e911F419e78d3E286c70D28a52933705069A31"
@@ -1754,7 +1701,18 @@
       }
     },
     "tokenA": "WETH",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
+    "decimals": 18
+  },
+  "mETH-mMATIC": {
+    "name": "mETH-mMATIC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x3Ee2A6DB97F493f0221Bb285F15e3021CdcaEcCd"
+      }
+    },
+    "tokenA": "mETH",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
   "SD-wMOOI": {
@@ -1855,17 +1813,6 @@
     "tokenA": "kWBTC",
     "tokenB": "kUSDT",
     "decimals": 8
-  },
-  "KSP-kORC": {
-    "name": "KSP-kORC",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x6dc6bd65638B18057F7E6a2e8f136F3E77CC2038"
-      }
-    },
-    "tokenA": "KSP",
-    "tokenB": "kORC",
-    "decimals": 18
   },
   "KLAY-KSP": {
     "name": "KLAY-KSP",
@@ -2087,15 +2034,15 @@
     "tokenB": "kORC",
     "decimals": 18
   },
-  "KLAY-oTON": {
-    "name": "KLAY-oTON",
+  "KLAY-kTON": {
+    "name": "KLAY-kTON",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2280d53E1EA1C9a2D255FD62427aAE867D5fA1b9"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oTON",
+    "tokenB": "kTON",
     "decimals": 18
   },
   "KLAY-SIX": {
@@ -2989,15 +2936,15 @@
     "tokenB": "oDOTR",
     "decimals": 18
   },
-  "KLAY-MPWR": {
-    "name": "KLAY-MPWR",
+  "KLAY-kMPWR": {
+    "name": "KLAY-kMPWR",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xaC1193633b1fFb341B59aF0CA8499BeFe37034A3"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "MPWR",
+    "tokenB": "kMPWR",
     "decimals": 18
   },
   "kBNB-oXVS": {
@@ -4078,15 +4025,15 @@
     "tokenB": "MSHARE",
     "decimals": 18
   },
-  "KSP-oMATIC": {
-    "name": "KSP-oMATIC",
+  "KSP-mMATIC": {
+    "name": "KSP-mMATIC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xb80777424Dc2d8bDa03E123Da4301FBb4d2aA3DD"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oMATIC",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
   "KLAY-Pome": {
@@ -5217,17 +5164,6 @@
     "tokenB": "STAR",
     "decimals": 6
   },
-  "kUSDT-oETHW": {
-    "name": "kUSDT-oETHW",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x1Ca3480fBC668BC28D3162EFf1C89A1085ce9f57"
-      }
-    },
-    "tokenA": "kUSDT",
-    "tokenB": "oETHW",
-    "decimals": 6
-  },
   "kUSDT-oETF": {
     "name": "kUSDT-oETF",
     "baseChain": {
@@ -5712,37 +5648,37 @@
     "tokenB": "WALK",
     "decimals": 18
   },
-  "kUSDC-oMRST": {
-    "name": "kUSDC-oMRST",
+  "kUSDC-kMRST": {
+    "name": "kUSDC-kMRST",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x12fd4467F8b9c32C21436210f835AF5c24d393b9"
       }
     },
     "tokenA": "kUSDC",
-    "tokenB": "oMRST",
+    "tokenB": "kMRST",
     "decimals": 6
   },
-  "KSP-oMRST": {
-    "name": "KSP-oMRST",
+  "KSP-kMRST": {
+    "name": "KSP-kMRST",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x898AA38A6976037a2EF50832d975080B155107Bb"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oMRST",
+    "tokenB": "kMRST",
     "decimals": 18
   },
-  "kUSDC-oPBOS": {
-    "name": "kUSDC-oPBOS",
+  "kPBOS-kUSDC": {
+    "name": "kPBOS-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x9EaAd85a263855176FcB42d4D2f97B5D9563bf0d"
       }
     },
-    "tokenA": "kUSDC",
-    "tokenB": "oPBOS",
+    "tokenA": "kPBOS",
+    "tokenB": "kUSDC",
     "decimals": 6
   },
   "KLAY-NECTAR": {
@@ -5899,15 +5835,15 @@
     "tokenB": "kUSDT",
     "decimals": 6
   },
-  "kUSDT-oTON": {
-    "name": "kUSDT-oTON",
+  "kTON-kUSDT": {
+    "name": "kTON-kUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x7901750CBc313b2568ba93cD24239040Ed02EfCC"
       }
     },
-    "tokenA": "kUSDT",
-    "tokenB": "oTON",
+    "tokenA": "kTON",
+    "tokenB": "kUSDT",
     "decimals": 6
   },
   "investfund-kUSDT": {
@@ -6029,6 +5965,17 @@
     "tokenB": "USDT",
     "decimals": 6
   },
+  "USDC.p-mUSDC": {
+    "name": "USDC.p-mUSDC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
+      }
+    },
+    "tokenA": "USDC.p",
+    "tokenB": "mUSDC",
+    "decimals": 6
+  },
   "DAI-USDT": {
     "name": "DAI-USDT",
     "baseChain": {
@@ -6057,8 +6004,8 @@
     "tokenB": "WETH",
     "decimals": 18
   },
-  "USDT-WMATIC": {
-    "name": "USDT-WMATIC",
+  "USDT-wMATIC": {
+    "name": "USDT-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x24af68fF6e3501EAf8b52a9F7935225E524FE617"
@@ -6068,21 +6015,18 @@
       }
     },
     "tokenA": "USDT",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "WBTC-WETH": {
-    "name": "WBTC-WETH",
+  "mWBTC-mETH": {
+    "name": "mWBTC-mETH",
     "baseChain": {
-      "polygon": {
-        "meshswap": "0x98A76814a4Ae4Eb81571591503A4D1687e30b080"
-      },
       "MATIC": {
-        "meshswap": "0x98A76814a4Ae4Eb81571591503A4D1687e30b080"
+        "meshswap": "0x82916890DD5A6Ca892acA21700532dCF3745fb01"
       }
     },
-    "tokenA": "WBTC",
-    "tokenB": "WETH",
+    "tokenA": "mWBTC",
+    "tokenB": "mETH",
     "decimals": 18
   },
   "ORC-WETH": {
@@ -6113,8 +6057,8 @@
     "tokenB": "USDT",
     "decimals": 18
   },
-  "ORC-WMATIC": {
-    "name": "ORC-WMATIC",
+  "ORC-wMATIC": {
+    "name": "ORC-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x8A43AB8B53e032ec1A202ceaBbCcD804270b9025"
@@ -6124,29 +6068,29 @@
       }
     },
     "tokenA": "ORC",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "oMATIC-kUSDC": {
-    "name": "oMATIC-kUSDC",
+  "mMATIC-kUSDC": {
+    "name": "mMATIC-kUSDC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x35456FD93f9e95fB059Da27A18d6Cc1266a1b3FB"
       }
     },
-    "tokenA": "oMATIC",
+    "tokenA": "mMATIC",
     "tokenB": "kUSDC",
     "decimals": 18
   },
-  "kETH-oMATIC": {
-    "name": "kETH-oMATIC",
+  "kETH-mMATIC": {
+    "name": "kETH-mMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x3Ee2A6DB97F493f0221Bb285F15e3021CdcaEcCd"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oMATIC",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
   "WETH-kETH": {
@@ -6160,8 +6104,8 @@
     "tokenB": "kETH",
     "decimals": 18
   },
-  "WMATIC-oMATIC": {
-    "name": "WMATIC-oMATIC",
+  "wMATIC-mMATIC": {
+    "name": "wMATIC-mMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0xAefC7cD8c69578BD9CAb6bE7fa854d3A8B658a7b"
@@ -6170,8 +6114,8 @@
         "meshswap": "0xAefC7cD8c69578BD9CAb6bE7fa854d3A8B658a7b"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oMATIC",
+    "tokenA": "wMATIC",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
   "DAI-oDAI": {
@@ -6187,17 +6131,6 @@
     "tokenA": "DAI",
     "tokenB": "oDAI",
     "decimals": 18
-  },
-  "USDT-kUSDT": {
-    "name": "USDT-kUSDT",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0x58A7AaC84560F994d191e78aEB690855eB2D5B88"
-      }
-    },
-    "tokenA": "USDT",
-    "tokenB": "kUSDT",
-    "decimals": 6
   },
   "kETH-kXRP": {
     "name": "kETH-kXRP",
@@ -6221,8 +6154,8 @@
     "tokenB": "kETH",
     "decimals": 18
   },
-  "WMATIC-oKSP": {
-    "name": "WMATIC-oKSP",
+  "wMATIC-oKSP": {
+    "name": "wMATIC-oKSP",
     "baseChain": {
       "polygon": {
         "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
@@ -6231,7 +6164,7 @@
         "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
       }
     },
-    "tokenA": "WMATIC",
+    "tokenA": "wMATIC",
     "tokenB": "oKSP",
     "decimals": 18
   },
@@ -6268,19 +6201,19 @@
     "tokenB": "kUSDT",
     "decimals": 6
   },
-  "oMATIC-kUSDT": {
-    "name": "oMATIC-kUSDT",
+  "mMATIC-kUSDT": {
+    "name": "mMATIC-kUSDT",
     "baseChain": {
       "polygon": {
         "meshswap": "0xb9a2A03E1F1Eb2424ea3C88B5f7C8742e941d752"
       }
     },
-    "tokenA": "oMATIC",
+    "tokenA": "mMATIC",
     "tokenB": "kUSDT",
     "decimals": 18
   },
-  "WMATIC-oGHUB": {
-    "name": "WMATIC-oGHUB",
+  "wMATIC-mGHUB": {
+    "name": "wMATIC-mGHUB",
     "baseChain": {
       "polygon": {
         "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
@@ -6289,34 +6222,34 @@
         "meshswap": "0x949934D04C3ed39cDD7c7C9F179C281cd1fa7911"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oGHUB",
+    "tokenA": "wMATIC",
+    "tokenB": "mGHUB",
     "decimals": 18
   },
-  "oKLAY-kUSDT": {
-    "name": "oKLAY-kUSDT",
+  "mKLAY-kUSDT": {
+    "name": "mKLAY-kUSDT",
     "baseChain": {
       "polygon": {
         "meshswap": "0x92521a0eB5d1f6B7c558f8cECba7655c6E5c1308"
       }
     },
-    "tokenA": "oKLAY",
+    "tokenA": "mKLAY",
     "tokenB": "kUSDT",
     "decimals": 18
   },
-  "kETH-oKLAY": {
-    "name": "kETH-oKLAY",
+  "kETH-mKLAY": {
+    "name": "kETH-mKLAY",
     "baseChain": {
       "polygon": {
         "meshswap": "0x10A28A913f226BDdC49a5336a73920aB8ab8db3e"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oKLAY",
+    "tokenB": "mKLAY",
     "decimals": 18
   },
-  "WMATIC-oKLAY": {
-    "name": "WMATIC-oKLAY",
+  "wMATIC-mKLAY": {
+    "name": "wMATIC-mKLAY",
     "baseChain": {
       "polygon": {
         "meshswap": "0xBdEEeDdbcdc7D2Fb62B7d9CAdc809e9Bd6093e57"
@@ -6325,12 +6258,12 @@
         "meshswap": "0xBdEEeDdbcdc7D2Fb62B7d9CAdc809e9Bd6093e57"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oKLAY",
+    "tokenA": "wMATIC",
+    "tokenB": "mKLAY",
     "decimals": 18
   },
-  "oKSP-oMATIC": {
-    "name": "oKSP-oMATIC",
+  "oKSP-mMATIC": {
+    "name": "oKSP-mMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x06883C9Ddcf620a3f80c13ad582c2D5630a7Db97"
@@ -6340,17 +6273,17 @@
       }
     },
     "tokenA": "oKSP",
-    "tokenB": "oMATIC",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
-  "oMATIC-kORC": {
-    "name": "oMATIC-kORC",
+  "mMATIC-kORC": {
+    "name": "mMATIC-kORC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x1C3F2B2E6980339CB4f7f0f2c0c55906c81De4f5"
       }
     },
-    "tokenA": "oMATIC",
+    "tokenA": "mMATIC",
     "tokenB": "kORC",
     "decimals": 18
   },
@@ -6365,14 +6298,14 @@
     "tokenB": "kXRP",
     "decimals": 6
   },
-  "oMATIC-kXRP": {
-    "name": "oMATIC-kXRP",
+  "mMATIC-kXRP": {
+    "name": "mMATIC-kXRP",
     "baseChain": {
       "polygon": {
         "meshswap": "0xC330f2706870942F508F600E3C6f59fc7242C14F"
       }
     },
-    "tokenA": "oMATIC",
+    "tokenA": "mMATIC",
     "tokenB": "kXRP",
     "decimals": 6
   },
@@ -6390,8 +6323,8 @@
     "tokenB": "WETH",
     "decimals": 18
   },
-  "MESH-WMATIC": {
-    "name": "MESH-WMATIC",
+  "MESH-wMATIC": {
+    "name": "MESH-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x07A7Ab21b582058B71d2AEe1b1719926E3451ADF"
@@ -6401,7 +6334,7 @@
       }
     },
     "tokenA": "MESH",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "MESH-ORC": {
@@ -6468,8 +6401,8 @@
     "tokenB": "oMKC",
     "decimals": 18
   },
-  "PMIX-WMATIC": {
-    "name": "PMIX-WMATIC",
+  "PMIX-wMATIC": {
+    "name": "PMIX-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0xB22b9bA6e86a02A529DF30D2E2E06fDaF72Ae7f8"
@@ -6479,7 +6412,7 @@
       }
     },
     "tokenA": "PMIX",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "AdMESH-MESH": {
@@ -6538,8 +6471,8 @@
     "tokenB": "miMATIC",
     "decimals": 18
   },
-  "WMATIC-miMATIC": {
-    "name": "WMATIC-miMATIC",
+  "wMATIC-miMATIC": {
+    "name": "wMATIC-miMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x6E28cFb8829683Ee8E51d07b82E792E1Fa936c90"
@@ -6548,7 +6481,7 @@
         "meshswap": "0x6E28cFb8829683Ee8E51d07b82E792E1Fa936c90"
       }
     },
-    "tokenA": "WMATIC",
+    "tokenA": "wMATIC",
     "tokenB": "miMATIC",
     "decimals": 18
   },
@@ -6566,8 +6499,8 @@
     "tokenB": "miMATIC",
     "decimals": 18
   },
-  "MaticX-WMATIC": {
-    "name": "MaticX-WMATIC",
+  "MaticX-wMATIC": {
+    "name": "MaticX-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x9458e0D6FE48E411d84073AB7F58cC2631C3FEFD"
@@ -6577,7 +6510,7 @@
       }
     },
     "tokenA": "MaticX",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "MESH-tetuMESH": {
@@ -6594,14 +6527,14 @@
     "tokenB": "tetuMESH",
     "decimals": 18
   },
-  "WMATIC-kXDT": {
-    "name": "WMATIC-kXDT",
+  "wMATIC-kXDT": {
+    "name": "wMATIC-kXDT",
     "baseChain": {
       "polygon": {
         "meshswap": "0x0E1A5c06DD1e6D4f3Dcf9c553D2D5a5EF42147da"
       }
     },
-    "tokenA": "WMATIC",
+    "tokenA": "wMATIC",
     "tokenB": "kXDT",
     "decimals": 18
   },
@@ -6633,8 +6566,8 @@
     "tokenB": "mUSDC",
     "decimals": 18
   },
-  "TRMT-WMATIC": {
-    "name": "TRMT-WMATIC",
+  "TRMT-wMATIC": {
+    "name": "TRMT-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x2C7Fe422749E5b72D9006AC162bAaa7d71fcb3d7"
@@ -6644,11 +6577,11 @@
       }
     },
     "tokenA": "TRMT",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "WMATIC-oZEMIT": {
-    "name": "WMATIC-oZEMIT",
+  "wMATIC-mZEMIT": {
+    "name": "wMATIC-mZEMIT",
     "baseChain": {
       "polygon": {
         "meshswap": "0x0fBE132a5eB95f287740a7b0AfFBFc8d14354548"
@@ -6657,12 +6590,12 @@
         "meshswap": "0x0fBE132a5eB95f287740a7b0AfFBFc8d14354548"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oZEMIT",
+    "tokenA": "wMATIC",
+    "tokenB": "mZEMIT",
     "decimals": 18
   },
-  "MESH-oZEMIT": {
-    "name": "MESH-oZEMIT",
+  "MESH-mZEMIT": {
+    "name": "MESH-mZEMIT",
     "baseChain": {
       "polygon": {
         "meshswap": "0x6fC01D72960Af0De3dD97D544FE785b751D752E2"
@@ -6672,11 +6605,11 @@
       }
     },
     "tokenA": "MESH",
-    "tokenB": "oZEMIT",
+    "tokenB": "mZEMIT",
     "decimals": 18
   },
-  "WMATIC-oMOOI": {
-    "name": "WMATIC-oMOOI",
+  "wMATIC-mMOOI": {
+    "name": "wMATIC-mMOOI",
     "baseChain": {
       "polygon": {
         "meshswap": "0x967a4Ab79809206aE7bB9b0e245d8B775B3AFCA5"
@@ -6685,12 +6618,12 @@
         "meshswap": "0x967a4Ab79809206aE7bB9b0e245d8B775B3AFCA5"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oMOOI",
+    "tokenA": "wMATIC",
+    "tokenB": "mMOOI",
     "decimals": 18
   },
-  "MESH-oMOOI": {
-    "name": "MESH-oMOOI",
+  "MESH-mMOOI": {
+    "name": "MESH-mMOOI",
     "baseChain": {
       "polygon": {
         "meshswap": "0x5b1E475933C802117212ce2A4240A4e7999a52A2"
@@ -6700,7 +6633,7 @@
       }
     },
     "tokenA": "MESH",
-    "tokenB": "oMOOI",
+    "tokenB": "mMOOI",
     "decimals": 18
   },
   "TT1-mUSDC": {
@@ -6717,8 +6650,8 @@
     "tokenB": "mUSDC",
     "decimals": 6
   },
-  "TUSD-WMATIC": {
-    "name": "TUSD-WMATIC",
+  "TUSD-wMATIC": {
+    "name": "TUSD-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x2e167A6B73df150BF721A06cB53492f136C86e80"
@@ -6728,11 +6661,11 @@
       }
     },
     "tokenA": "TUSD",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "JMK-WMATIC": {
-    "name": "JMK-WMATIC",
+  "JMK-wMATIC": {
+    "name": "JMK-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x7f63B17A2C40854565EeE6156C3cB2DF10E5850d"
@@ -6742,7 +6675,7 @@
       }
     },
     "tokenA": "JMK",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "SKZ-USDT": {
@@ -6759,8 +6692,8 @@
     "tokenB": "USDT",
     "decimals": 18
   },
-  "ITSB-WMATIC": {
-    "name": "ITSB-WMATIC",
+  "ITSB-wMATIC": {
+    "name": "ITSB-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x2C99c7e116368FE0eFC5bfAE809F100640a6b135"
@@ -6770,7 +6703,7 @@
       }
     },
     "tokenA": "ITSB",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "oETF-kUSDT": {
@@ -6784,8 +6717,8 @@
     "tokenB": "kUSDT",
     "decimals": 6
   },
-  "WMATIC-oEPL": {
-    "name": "WMATIC-oEPL",
+  "wMATIC-oEPL": {
+    "name": "wMATIC-oEPL",
     "baseChain": {
       "polygon": {
         "meshswap": "0xd4ed2DeBEAe205a7989FF85eC4c47d2cC3512931"
@@ -6794,7 +6727,7 @@
         "meshswap": "0xd4ed2DeBEAe205a7989FF85eC4c47d2cC3512931"
       }
     },
-    "tokenA": "WMATIC",
+    "tokenA": "wMATIC",
     "tokenB": "oEPL",
     "decimals": 18
   },
@@ -6826,8 +6759,8 @@
     "tokenB": "oEPL",
     "decimals": 18
   },
-  "HIDIX-WMATIC": {
-    "name": "HIDIX-WMATIC",
+  "HIDIX-wMATIC": {
+    "name": "HIDIX-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x7a453cEA8a84e7421AE515c2609610306076e514"
@@ -6837,11 +6770,11 @@
       }
     },
     "tokenA": "HIDIX",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "DRC-WMATIC": {
-    "name": "DRC-WMATIC",
+  "DRC-wMATIC": {
+    "name": "DRC-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x592D09AFd8e05bec1977607D2e9df35fd21EBA42"
@@ -6851,11 +6784,11 @@
       }
     },
     "tokenA": "DRC",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "SAWON-WMATIC": {
-    "name": "SAWON-WMATIC",
+  "SAWON-wMATIC": {
+    "name": "SAWON-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x78d63fA24eB1298C9DBe5fC65EF73c25d233Cbb8"
@@ -6865,7 +6798,7 @@
       }
     },
     "tokenA": "SAWON",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "FFC-USDT": {
@@ -6910,8 +6843,8 @@
     "tokenB": "mUSDC",
     "decimals": 6
   },
-  "MRST-WMATIC": {
-    "name": "MRST-WMATIC",
+  "MRST-wMATIC": {
+    "name": "MRST-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0xA5c7CC743B6D0BC986Fc8Cd4642F593dd3C69a5c"
@@ -6921,7 +6854,7 @@
       }
     },
     "tokenA": "MRST",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "PBOS-mUSDC": {
@@ -6952,8 +6885,8 @@
     "tokenB": "MESH",
     "decimals": 2
   },
-  "FFC-WMATIC": {
-    "name": "FFC-WMATIC",
+  "FFC-wMATIC": {
+    "name": "FFC-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0xDCc4C630694Fc14201bDA1fBde2B15E0997460B0"
@@ -6963,11 +6896,11 @@
       }
     },
     "tokenA": "FFC",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
-  "GXR-WMATIC": {
-    "name": "GXR-WMATIC",
+  "GXR-wMATIC": {
+    "name": "GXR-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x9DA16D92220510FB7638AE84f8a600F447414718"
@@ -6977,7 +6910,7 @@
       }
     },
     "tokenA": "GXR",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "AOA-GXR": {
@@ -6994,8 +6927,8 @@
     "tokenB": "GXR",
     "decimals": 18
   },
-  "BUSD-WMATIC": {
-    "name": "BUSD-WMATIC",
+  "BUSD-wMATIC": {
+    "name": "BUSD-wMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0xA4EAf6316424F4D7c66909D35fCd342c7F273456"
@@ -7005,7 +6938,7 @@
       }
     },
     "tokenA": "BUSD",
-    "tokenB": "WMATIC",
+    "tokenB": "wMATIC",
     "decimals": 18
   },
   "BUSD-mUSDC": {
@@ -7036,8 +6969,8 @@
     "tokenB": "WETH",
     "decimals": 18
   },
-  "WMATIC-oTON": {
-    "name": "WMATIC-oTON",
+  "wMATIC-mTON": {
+    "name": "wMATIC-mTON",
     "baseChain": {
       "polygon": {
         "meshswap": "0x2eBf511aa9C5FC6D5A5674A86760B88E9eaF9160"
@@ -7046,12 +6979,12 @@
         "meshswap": "0x2eBf511aa9C5FC6D5A5674A86760B88E9eaF9160"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oTON",
+    "tokenA": "wMATIC",
+    "tokenB": "mTON",
     "decimals": 18
   },
-  "mUSDC-oTON": {
-    "name": "mUSDC-oTON",
+  "mUSDC-mTON": {
+    "name": "mUSDC-mTON",
     "baseChain": {
       "polygon": {
         "meshswap": "0xAF6C7e219e8d03e9C7eb3DEb1924c283d87720De"
@@ -7061,7 +6994,7 @@
       }
     },
     "tokenA": "mUSDC",
-    "tokenB": "oTON",
+    "tokenB": "mTON",
     "decimals": 6
   },
   "KS-wMOOI": {
@@ -7075,70 +7008,92 @@
     "tokenB": "wMOOI",
     "decimals": 18
   },
-  "kETH-oWBTC": {
-    "name": "kETH-oWBTC",
+  "kETH-kWBTC": {
+    "name": "kETH-kWBTC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2A6A4b0c96cA98eB691a5ddceE3c7b7788c1a8E3"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oWBTC",
+    "tokenB": "kWBTC",
     "decimals": 18
   },
-  "KLAY-oETH": {
-    "name": "KLAY-oETH",
+  "KLAY-kETH": {
+    "name": "KLAY-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x27F80731dDdb90C51cD934E9BD54bfF2D4E99e8a"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "kETH-oUSDT": {
-    "name": "kETH-oUSDT",
+  "KLAY-kMEGA": {
+    "name": "KLAY-kMEGA",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0x5471783860098f0366d7d76a4739239966f66aea"
+      }
+    },
+    "tokenA": "KLAY",
+    "tokenB": "kMEGA",
+    "decimals": 18
+  },
+  "wMATIC-mMEGA": {
+    "name": "wMATIC-mMEGA",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x1E1ae60313823C6833079B74Df85c7647c363C80"
+      }
+    },
+    "tokenA": "wMATIC",
+    "tokenB": "mMEGA",
+    "decimals": 18
+  },
+  "kETH-mUSDT": {
+    "name": "kETH-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x029e2A1B2bb91B66bd25027E1C211E5628dbcb93"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KLAY-oORC": {
-    "name": "KLAY-oORC",
+  "KLAY-kORC": {
+    "name": "KLAY-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xe9ddb7A6994bD9cDF97CF11774A72894597D878B"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "kWBTC-oUSDT": {
-    "name": "kWBTC-oUSDT",
+  "kWBTC-mUSDT": {
+    "name": "kWBTC-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x9103Beb39283dA9C49B020D6546FD7C39f9bbc5b"
       }
     },
     "tokenA": "kWBTC",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 8
   },
-  "KSP-oORC": {
-    "name": "KSP-oORC",
+  "KSP-kORC": {
+    "name": "KSP-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x6dc6bd65638B18057F7E6a2e8f136F3E77CC2038"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
   "AGOV-KLAY": {
@@ -7185,15 +7140,15 @@
     "tokenB": "KLAY",
     "decimals": 18
   },
-  "KLAY-oUSDT": {
-    "name": "KLAY-oUSDT",
+  "KLAY-mUSDT": {
+    "name": "KLAY-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xD83f1B074D81869EFf2C46C530D7308FFEC18036"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
   "CLBK-KLAY": {
@@ -7207,191 +7162,224 @@
     "tokenB": "KLAY",
     "decimals": 18
   },
-  "kORC-oUSDT": {
-    "name": "kORC-oUSDT",
+  "kORC-mUSDT": {
+    "name": "kORC-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x94F390a8438b5De00B868d3aE47863Db90fB92c3"
       }
     },
     "tokenA": "kORC",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KLAY-oXRP": {
-    "name": "KLAY-oXRP",
+  "KLAY-kXRP": {
+    "name": "KLAY-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x86E614ef51B305C36a0608bAa57fcaaa45844D87"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "kETH-oXRP": {
-    "name": "kETH-oXRP",
+  "kETH-kXRP": {
+    "name": "kETH-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x85eF87815bD7BE28BEe038Ff201dB78c7E0eD2B9"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "KSP-oXRP": {
-    "name": "KSP-oXRP",
+  "KSP-kXRP": {
+    "name": "KSP-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xA06B9a38a7b4B91CB5d9B24538296bfB3B97fBf3"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "KSP-oETH": {
-    "name": "KSP-oETH",
+  "KSP-kETH": {
+    "name": "KSP-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xa8F8f1153523eAeDce48CEc2Ddbe1Bcd483d0CD8"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "KSP-oWBTC": {
-    "name": "KSP-oWBTC",
+  "KSP-kWBTC": {
+    "name": "KSP-kWBTC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x85Fae50259EbB9a86F49BDBfb8dBaEC84a7ED5fe"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oWBTC",
+    "tokenB": "kWBTC",
     "decimals": 18
   },
-  "kORC-oXRP": {
-    "name": "kORC-oXRP",
+  "kORC-kXRP": {
+    "name": "kORC-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x805CB5eB7063f132cEAf56b2c7182c897a024a83"
       }
     },
     "tokenA": "kORC",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "ABL-oORC": {
-    "name": "ABL-oORC",
+  "ABL-kORC": {
+    "name": "ABL-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xa2867C345f9b7250Fe6BE6CCCB6360dff9F6E38c"
       }
     },
     "tokenA": "ABL",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "KSP-oUSDT": {
-    "name": "KSP-oUSDT",
+  "KSP-mUSDT": {
+    "name": "KSP-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xE75a6A3a800A2C5123e67e3bde911Ba761FE0705"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KLAY-oBNB": {
-    "name": "KLAY-oBNB",
+  "KLAY-kBNB": {
+    "name": "KLAY-kBNB",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xE20B9aeAcAC615Da0fdBEB05d4F75E16FA1F6B95"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oBNB",
+    "tokenB": "kBNB",
     "decimals": 18
   },
-  "KSP-oBNB": {
-    "name": "KSP-oBNB",
+  "KSP-kBNB": {
+    "name": "KSP-kBNB",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x7328B85eFF28C3068F69FE662632d37D48ba227f"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oBNB",
+    "tokenB": "kBNB",
     "decimals": 18
   },
-  "kBELT-oORC": {
-    "name": "kBELT-oORC",
+  "kBELT-kORC": {
+    "name": "kBELT-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x0f14648eD03A4172a0D186dA51b66e7e9Af6af66"
       }
     },
     "tokenA": "kBELT",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "kETH-oBNB": {
-    "name": "kETH-oBNB",
+  "kETH-kBNB": {
+    "name": "kETH-kBNB",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x8119f0CeC72a26fE23CA1aB076137Ea5D8a19d54"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oBNB",
+    "tokenB": "kBNB",
     "decimals": 18
   },
-  "oUSDT-sBWPM": {
-    "name": "oUSDT-sBWPM",
+  "mUSDT-sBWPM": {
+    "name": "mUSDT-sBWPM",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xB6eaA073881C9cac7141EF20b25A588914a367b2"
       }
     },
-    "tokenA": "oUSDT",
+    "tokenA": "mUSDT",
     "tokenB": "sBWPM",
     "decimals": 18
   },
-  "kETH-oORC": {
-    "name": "kETH-oORC",
+  "USDT.p-wMATIC": {
+    "name": "USDT.p-wMATIC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x24af68fF6e3501EAf8b52a9F7935225E524FE617"
+      }
+    },
+    "tokenA": "USDT.p",
+    "tokenB": "wMATIC",
+    "decimals": 18
+  },
+  "USDT.p-MGOLD": {
+    "name": "USDT.p-MGOLD",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x5aCa8b5D3a2d1AB13fd588e6279c7A32EAafa8b1"
+      }
+    },
+    "tokenA": "USDT.p",
+    "tokenB": "MGOLD",
+    "decimals": 18
+  },
+  "mUSDT-USDT.p": {
+    "name": "mUSDT-USDT.p",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x58A7AaC84560F994d191e78aEB690855eB2D5B88"
+      }
+    },
+    "tokenA": "mUSDT",
+    "tokenB": "USDT.p",
+    "decimals": 6
+  },
+  "kETH-kORC": {
+    "name": "kETH-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x9E1cD9645EB2753d4D4A94786bB76cC99adb689b"
       }
     },
     "tokenA": "kETH",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "KICX-oETH": {
-    "name": "KICX-oETH",
+  "KICX-kETH": {
+    "name": "KICX-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xF4048Ce0A0947F138101e4a92C44c79585d826E5"
       }
     },
     "tokenA": "KICX",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "PER-oUSDT": {
-    "name": "PER-oUSDT",
+  "PER-mUSDT": {
+    "name": "PER-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xe55f6452C5B04108dcC2E75aE31D6Ca141a4F9B7"
       }
     },
     "tokenA": "PER",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
   "CLBK-KSP": {
@@ -7427,158 +7415,169 @@
     "tokenB": "KDAI",
     "decimals": 18
   },
-  "!!@#-oUSDT": {
-    "name": "!!@#-oUSDT",
+  "!!@#-mUSDT": {
+    "name": "!!@#-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x4b1853FcE9a290457679269B097c6Bc57610302f"
       }
     },
     "tokenA": "!!@#",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "CLAM-oUSDT": {
-    "name": "CLAM-oUSDT",
+  "CLAM-mUSDT": {
+    "name": "CLAM-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x87882C1a76fAd9ae5BF5bA1bEDD7d82Be73430C8"
       }
     },
     "tokenA": "CLAM",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "kUSDT-oUSDC": {
-    "name": "kUSDT-oUSDC",
+  "kUSDT-kUSDC": {
+    "name": "kUSDT-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2E9269B718cc816De6A9E3C27E5bdb0F6A01b0ac"
       }
     },
     "tokenA": "kUSDT",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 6
   },
-  "KLAY-oUSDC": {
-    "name": "KLAY-oUSDC",
+  "kMGOLD-kUSDT": {
+    "name": "kMGOLD-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xf0ffde1567c2fd2034681021b73cc70d2abb2b19"
+      }
+    },
+    "tokenA": "kMGOLD",
+    "tokenB": "kUSDT",
+    "decimals": 6
+  },
+  "KLAY-kUSDC": {
+    "name": "KLAY-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x3bce8d81AC54010bb7ea6e5960f2Ded6Fc6A7AC5"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "KSD-oUSDT": {
-    "name": "KSD-oUSDT",
+  "KSD-mUSDT": {
+    "name": "KSD-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xC9aD2F9C45C9Cc3128C898fe55c14A146E7D1D88"
       }
     },
     "tokenA": "KSD",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KSD-oUSDC": {
-    "name": "KSD-oUSDC",
+  "KSD-kUSDC": {
+    "name": "KSD-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x3CC0099d7D8f18Df8B521e15ef46022fCaf6A48C"
       }
     },
     "tokenA": "KSD",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "KSD-oWBTC": {
-    "name": "KSD-oWBTC",
+  "KSD-kWBTC": {
+    "name": "KSD-kWBTC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x6DA444C57fFC8a58E52c5caf3975e7CBE91221Fe"
       }
     },
     "tokenA": "KSD",
-    "tokenB": "oWBTC",
+    "tokenB": "kWBTC",
     "decimals": 18
   },
-  "KSD-oETH": {
-    "name": "KSD-oETH",
+  "KSD-kETH": {
+    "name": "KSD-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xcD546688CB62b60deBe3860ED31B69f4d8EBCE3e"
       }
     },
     "tokenA": "KSD",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "KSD-oXRP": {
-    "name": "KSD-oXRP",
+  "KSD-kXRP": {
+    "name": "KSD-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x603DC02F640e7C234Bb700D5d4320Bb78b3CfE46"
       }
     },
     "tokenA": "KSD",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "bus-oXRP": {
-    "name": "bus-oXRP",
+  "bus-kXRP": {
+    "name": "bus-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x06F60e2f1D64b776aD5b063cBb508520C9b80c0b"
       }
     },
     "tokenA": "bus",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "bus-oORC": {
-    "name": "bus-oORC",
+  "bus-kORC": {
+    "name": "bus-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x9115ED3f815Dc1fFc2BC35D27460bdDea17DF846"
       }
     },
     "tokenA": "bus",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "bus-oUSDC": {
-    "name": "bus-oUSDC",
+  "bus-kUSDC": {
+    "name": "bus-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x8c946ba75D7C5Ed9A5118d1bF8E689c6b151Bd2C"
       }
     },
     "tokenA": "bus",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "oUSDT-tAVELK": {
-    "name": "oUSDT-tAVELK",
+  "mUSDT-tAVELK": {
+    "name": "mUSDT-tAVELK",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x0b5dBD999eEda642B1B2F93B5034A9155456f5Fc"
       }
     },
-    "tokenA": "oUSDT",
+    "tokenA": "mUSDT",
     "tokenB": "tAVELK",
     "decimals": 18
   },
-  "KDAI-oUSDC": {
-    "name": "KDAI-oUSDC",
+  "KDAI-kUSDC": {
+    "name": "KDAI-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x79bEB3254Da6EC9B683E25C739314945DcC21620"
       }
     },
     "tokenA": "KDAI",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
   "kBNB-oBUSD": {
@@ -7614,81 +7613,81 @@
     "tokenB": "MON",
     "decimals": 18
   },
-  "kXRP-oUSDT": {
-    "name": "kXRP-oUSDT",
+  "kXRP-mUSDT": {
+    "name": "kXRP-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xA2be534e5DD028288625bB376c81A9Eea3D9f0D5"
       }
     },
     "tokenA": "kXRP",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 6
   },
-  "kXRP-oUSDC": {
-    "name": "kXRP-oUSDC",
+  "kXRP-kUSDC": {
+    "name": "kXRP-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x767bd4DD8BA6aC59EBd1172f91590E1C3C265cf6"
       }
     },
     "tokenA": "kXRP",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 6
   },
-  "oUSDT-test_h": {
-    "name": "oUSDT-test_h",
+  "mUSDT-test_h": {
+    "name": "mUSDT-test_h",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x932EB7CF50D283cb29815a057b0134e3aC84A499"
       }
     },
-    "tokenA": "oUSDT",
+    "tokenA": "mUSDT",
     "tokenB": "test_h",
     "decimals": 9
   },
-  "TOP-oXRP": {
-    "name": "TOP-oXRP",
+  "TOP-kXRP": {
+    "name": "TOP-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x4051B8613fEeF0c5ed8E63EF9cC1dDE7e318Df0f"
       }
     },
     "tokenA": "TOP",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "TOP2-oXRP": {
-    "name": "TOP2-oXRP",
+  "TOP2-kXRP": {
+    "name": "TOP2-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x456bc7B87b129932A499724B1fB0A0fc60E2bdD3"
       }
     },
     "tokenA": "TOP2",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "HOOK-oUSDT": {
-    "name": "HOOK-oUSDT",
+  "HOOK-mUSDT": {
+    "name": "HOOK-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xF352c3523Ce697EF03b1e891DA67CeC6f020a047"
       }
     },
     "tokenA": "HOOK",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 9
   },
-  "WEMIX-oUSDT": {
-    "name": "WEMIX-oUSDT",
+  "WEMIX-mUSDT": {
+    "name": "WEMIX-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
       }
     },
     "tokenA": "WEMIX",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
   "KSP-MON": {
@@ -7702,191 +7701,191 @@
     "tokenB": "MON",
     "decimals": 18
   },
-  "EKL-oUSDT": {
-    "name": "EKL-oUSDT",
+  "EKL-mUSDT": {
+    "name": "EKL-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x219ee5d76593F5bD639125B6411a17D309E3AD31"
       }
     },
     "tokenA": "EKL",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "NIK-oETH": {
-    "name": "NIK-oETH",
+  "NIK-kETH": {
+    "name": "NIK-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x8DF8ef24466846d3c1B2881d32841F906FcdD307"
       }
     },
     "tokenA": "NIK",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 16
   },
-  "NIK-oXRP": {
-    "name": "NIK-oXRP",
+  "NIK-kXRP": {
+    "name": "NIK-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xa1975bD8BDb133e0260106950E4Cb50f20b6FF2c"
       }
     },
     "tokenA": "NIK",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 16
   },
-  "KPG-oUSDT": {
-    "name": "KPG-oUSDT",
+  "KPG-mUSDT": {
+    "name": "KPG-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x8A187220Fd9Dfc4FAfe1E206385EA55659147602"
       }
     },
     "tokenA": "KPG",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "TOX-oETH": {
-    "name": "TOX-oETH",
+  "TOX-kETH": {
+    "name": "TOX-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xeb5b09b57bC9B13513d2f0cc3D1BeBDfA9F9f113"
       }
     },
     "tokenA": "TOX",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "TOX-oUSDT": {
-    "name": "TOX-oUSDT",
+  "TOX-mUSDT": {
+    "name": "TOX-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x072B080B61E11c6521cC857d7076E50f920AF0dd"
       }
     },
     "tokenA": "TOX",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "ACA-oUSDT": {
-    "name": "ACA-oUSDT",
+  "ACA-mUSDT": {
+    "name": "ACA-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xd87Ea302b03dE6fF8438a57E6d5D3600E119a204"
       }
     },
     "tokenA": "ACA",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KLAY-oXDT": {
-    "name": "KLAY-oXDT",
+  "KLAY-mXDT": {
+    "name": "KLAY-mXDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xCb9e54C3364907721186D507623006dC66B430C7"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "oXDT",
+    "tokenB": "mXDT",
     "decimals": 18
   },
-  "KSP-oXDT": {
-    "name": "KSP-oXDT",
+  "KSP-mXDT": {
+    "name": "KSP-mXDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xE4cfCeE489915BbE618692E9dF4D06D793584642"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oXDT",
+    "tokenB": "mXDT",
     "decimals": 18
   },
-  "KSP-oUSDC": {
-    "name": "KSP-oUSDC",
+  "KSP-kUSDC": {
+    "name": "KSP-kUSDC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x0661F3b95a1Ac449d659816D4adF8103f28D72cc"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "SIG-oUSDT": {
-    "name": "SIG-oUSDT",
+  "SIG-mUSDT": {
+    "name": "SIG-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xB821E4cC5B913f307db7d11d3360A6eB5b38bf9f"
       }
     },
     "tokenA": "SIG",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "MON-oUSDT": {
-    "name": "MON-oUSDT",
+  "MON-mUSDT": {
+    "name": "MON-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x583b3Df061Aa12bA25Ae5E1665219B7132eA10DA"
       }
     },
     "tokenA": "MON",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "CEIK-oUSDT": {
-    "name": "CEIK-oUSDT",
+  "CEIK-mUSDT": {
+    "name": "CEIK-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x3e859fcA1A49Ca87024F33810587d4CF685a64d9"
       }
     },
     "tokenA": "CEIK",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 8
   },
-  "CEIK-oETH": {
-    "name": "CEIK-oETH",
+  "CEIK-kETH": {
+    "name": "CEIK-kETH",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x6bbcDf8Dd1105Eed613aB7a8e18afBa1B4134728"
       }
     },
     "tokenA": "CEIK",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 8
   },
-  "CEIK-oBNB": {
-    "name": "CEIK-oBNB",
+  "CEIK-kBNB": {
+    "name": "CEIK-kBNB",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x68248490A782BB9444475F028da811BE869E6133"
       }
     },
     "tokenA": "CEIK",
-    "tokenB": "oBNB",
+    "tokenB": "kBNB",
     "decimals": 8
   },
-  "WALK-oUSDT": {
-    "name": "WALK-oUSDT",
+  "WALK-mUSDT": {
+    "name": "WALK-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x27E41D647964a77eBcbe03B419c1F2561279e8dA"
       }
     },
     "tokenA": "WALK",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "ZEMIT-oUSDT": {
-    "name": "ZEMIT-oUSDT",
+  "ZEMIT-mUSDT": {
+    "name": "ZEMIT-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xa6F631A84657c370C77677bCf052d60C4548187b"
       }
     },
     "tokenA": "ZEMIT",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
   "BBC-Princess": {
@@ -7900,37 +7899,37 @@
     "tokenB": "Princess",
     "decimals": 18
   },
-  "KLD-oUSDT": {
-    "name": "KLD-oUSDT",
+  "KLD-mUSDT": {
+    "name": "KLD-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xC533af28B29cea0c91eAE6355ca1A5FdAFD8366B"
       }
     },
     "tokenA": "KLD",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "SKZ-oUSDT": {
-    "name": "SKZ-oUSDT",
+  "SKZ-mUSDT": {
+    "name": "SKZ-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xdcb50097A9F49c9A1D7D5A228eA8981A3Ab89045"
       }
     },
     "tokenA": "SKZ",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "GRND-oUSDT": {
-    "name": "GRND-oUSDT",
+  "GRND-mUSDT": {
+    "name": "GRND-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xcCd8E77512a20cBFb97ca6A3A0799dDcA2D37512"
       }
     },
     "tokenA": "GRND",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
   "KSP-MOON": {
@@ -7944,114 +7943,92 @@
     "tokenB": "MOON",
     "decimals": 18
   },
-  "KTX-oUSDC": {
-    "name": "KTX-oUSDC",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x4c031977003E57ec2b440061FF2c14BDf39E945c"
-      }
-    },
-    "tokenA": "KTX",
-    "tokenB": "oUSDC",
-    "decimals": 18
-  },
-  "KTX-oXRP": {
-    "name": "KTX-oXRP",
+  "KTX-kXRP": {
+    "name": "KTX-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x89c40fe585698Ad02E3D481C75318FbeebEdbDD1"
       }
     },
     "tokenA": "KTX",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "GXA-oUSDT": {
-    "name": "GXA-oUSDT",
+  "GXA-mUSDT": {
+    "name": "GXA-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xB31b5Cf1f886c76Fb34c183dDE8D3E58Ccf67b03"
       }
     },
     "tokenA": "GXA",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "KTX-oORC": {
-    "name": "KTX-oORC",
+  "KTX-kORC": {
+    "name": "KTX-kORC",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x30D37c6FD9311Bee211BB584E0377bf9aBA6C3f4"
       }
     },
     "tokenA": "KTX",
-    "tokenB": "oORC",
+    "tokenB": "kORC",
     "decimals": 18
   },
-  "DropTheBit-oXRP": {
-    "name": "DropTheBit-oXRP",
+  "DropTheBit-kXRP": {
+    "name": "DropTheBit-kXRP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x3D64D93772c08F847Cd35ce1c7D21201Be1ae9c3"
       }
     },
     "tokenA": "DropTheBit",
-    "tokenB": "oXRP",
+    "tokenB": "kXRP",
     "decimals": 18
   },
-  "DropTheBit-oUSDC": {
-    "name": "DropTheBit-oUSDC",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x8dAD3E33EE3adF1f629E2144a00546f42ed7f27c"
-      }
-    },
-    "tokenA": "DropTheBit",
-    "tokenB": "oUSDC",
-    "decimals": 18
-  },
-  "SAK-oUSDT": {
-    "name": "SAK-oUSDT",
+  "SAK-mUSDT": {
+    "name": "SAK-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x81213b02D7CD0Ce407Ba14579Fa3b8B28BB1b4AC"
       }
     },
     "tokenA": "SAK",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "PXL-oUSDT": {
-    "name": "PXL-oUSDT",
+  "PXL-mUSDT": {
+    "name": "PXL-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x661aA56c373C01B55F61Ec0A2FD74222a90F0AB0"
       }
     },
     "tokenA": "PXL",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "AZIT-oUSDT": {
-    "name": "AZIT-oUSDT",
+  "AZIT-mUSDT": {
+    "name": "AZIT-mUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x510c6554602110863639dDeE87deBA47773FdcBE"
       }
     },
     "tokenA": "AZIT",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "AGOV-MPWR": {
-    "name": "AGOV-MPWR",
+  "AGOV-kMPWR": {
+    "name": "AGOV-kMPWR",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x978eE48Cc36839435D5501E0ee50ffd8e2fD33FA"
       }
     },
     "tokenA": "AGOV",
-    "tokenB": "MPWR",
+    "tokenB": "kMPWR",
     "decimals": 18
   },
   "CBANK-kETH": {
@@ -8175,301 +8152,268 @@
     "tokenB": "PPT",
     "decimals": 18
   },
-  "oETH-oUSDC": {
-    "name": "oETH-oUSDC",
+  "kETH-kUSDC": {
+    "name": "kETH-kUSDC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x2bAb2b10E423491c12C449d99ad8AaeD5C46Fe4a"
       }
     },
-    "tokenA": "oETH",
-    "tokenB": "oUSDC",
+    "tokenA": "kETH",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "oMATIC-oUSDC": {
-    "name": "oMATIC-oUSDC",
+  "mMATIC-kUSDC": {
+    "name": "mMATIC-kUSDC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x35456FD93f9e95fB059Da27A18d6Cc1266a1b3FB"
       }
     },
-    "tokenA": "oMATIC",
-    "tokenB": "oUSDC",
+    "tokenA": "mMATIC",
+    "tokenB": "kUSDC",
     "decimals": 18
   },
-  "oETH-oMATIC": {
-    "name": "oETH-oMATIC",
+  "kETH-mMATIC": {
+    "name": "kETH-mMATIC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x3Ee2A6DB97F493f0221Bb285F15e3021CdcaEcCd"
       }
     },
-    "tokenA": "oETH",
-    "tokenB": "oMATIC",
+    "tokenA": "kETH",
+    "tokenB": "mMATIC",
     "decimals": 18
   },
-  "WETH-oETH": {
-    "name": "WETH-oETH",
+  "WETH-kETH": {
+    "name": "WETH-kETH",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x1d085893853C9a0351BD3e4A83d9D688c07C7D8b"
       }
     },
     "tokenA": "WETH",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "mUSDC-oUSDC": {
-    "name": "mUSDC-oUSDC",
+  "mUSDC-kUSDC": {
+    "name": "mUSDC-kUSDC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x111D7a73b40Aa5EE52BF651e8F07Aa26F8e9EFe8"
       }
     },
     "tokenA": "mUSDC",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 6
   },
-  "USDT-oUSDT": {
-    "name": "USDT-oUSDT",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0x58A7AaC84560F994d191e78aEB690855eB2D5B88"
-      }
-    },
-    "tokenA": "USDT",
-    "tokenB": "oUSDT",
-    "decimals": 6
-  },
-  "oETH-oXRP": {
-    "name": "oETH-oXRP",
+  "kETH-mXRP": {
+    "name": "kETH-mXRP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x0F060031a8F54b06749E295C31cCd7C1B987c450"
       }
     },
-    "tokenA": "oETH",
-    "tokenB": "oXRP",
+    "tokenA": "kETH",
+    "tokenB": "mXRP",
     "decimals": 18
   },
-  "oDAI-oETH": {
-    "name": "oDAI-oETH",
+  "oDAI-kETH": {
+    "name": "oDAI-kETH",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x69e0b4C6D30597Fa92ad92721340fb5Ba4e80a72"
       }
     },
     "tokenA": "oDAI",
-    "tokenB": "oETH",
+    "tokenB": "kETH",
     "decimals": 18
   },
-  "oDAI-oUSDC": {
-    "name": "oDAI-oUSDC",
+  "oDAI-kUSDC": {
+    "name": "oDAI-kUSDC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x76bB20ab94BAe0Df3C5f49218FEE68297aFE76EC"
       }
     },
     "tokenA": "oDAI",
-    "tokenB": "oUSDC",
+    "tokenB": "kUSDC",
     "decimals": 6
   },
-  "oDAI-oUSDT": {
-    "name": "oDAI-oUSDT",
+  "oDAI-mUSDT": {
+    "name": "oDAI-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x113262C345C99543f746a8F591A1E99D37574552"
       }
     },
     "tokenA": "oDAI",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 6
   },
-  "oETH-oUSDT": {
-    "name": "oETH-oUSDT",
+  "kETH-mUSDT": {
+    "name": "kETH-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xff85431402B84d60a9B21cbDCe45B0Dcb83a56fD"
       }
     },
-    "tokenA": "oETH",
-    "tokenB": "oUSDT",
+    "tokenA": "kETH",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "oMATIC-oUSDT": {
-    "name": "oMATIC-oUSDT",
+  "mMATIC-mUSDT": {
+    "name": "mMATIC-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xb9a2A03E1F1Eb2424ea3C88B5f7C8742e941d752"
       }
     },
-    "tokenA": "oMATIC",
-    "tokenB": "oUSDT",
+    "tokenA": "mMATIC",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "oETH-oWBTC": {
-    "name": "oETH-oWBTC",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0x82916890DD5A6Ca892acA21700532dCF3745fb01"
-      }
-    },
-    "tokenA": "oETH",
-    "tokenB": "oWBTC",
-    "decimals": 18
-  },
-  "oKLAY-oUSDT": {
-    "name": "oKLAY-oUSDT",
+  "mKLAY-mUSDT": {
+    "name": "mKLAY-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x92521a0eB5d1f6B7c558f8cECba7655c6E5c1308"
       }
     },
-    "tokenA": "oKLAY",
-    "tokenB": "oUSDT",
+    "tokenA": "mKLAY",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "oETH-oKLAY": {
-    "name": "oETH-oKLAY",
+  "kETH-mKLAY": {
+    "name": "kETH-mKLAY",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x10A28A913f226BDdC49a5336a73920aB8ab8db3e"
       }
     },
-    "tokenA": "oETH",
-    "tokenB": "oKLAY",
+    "tokenA": "kETH",
+    "tokenB": "mKLAY",
     "decimals": 18
   },
-  "oMATIC-oORC": {
-    "name": "oMATIC-oORC",
+  "mMATIC-mORC": {
+    "name": "mMATIC-mORC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x1C3F2B2E6980339CB4f7f0f2c0c55906c81De4f5"
       }
     },
-    "tokenA": "oMATIC",
-    "tokenB": "oORC",
+    "tokenA": "mMATIC",
+    "tokenB": "mORC",
     "decimals": 18
   },
-  "oUSDT-oXRP": {
-    "name": "oUSDT-oXRP",
+  "mUSDT-mXRP": {
+    "name": "mUSDT-mXRP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x3D343a5DC783063a784298828fA686B1e661c165"
       }
     },
-    "tokenA": "oUSDT",
-    "tokenB": "oXRP",
+    "tokenA": "mUSDT",
+    "tokenB": "mXRP",
     "decimals": 6
   },
-  "WETH-oXRP": {
-    "name": "WETH-oXRP",
+  "WETH-mXRP": {
+    "name": "WETH-mXRP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xb6349ED6f9B4FCC04Eda18850e2A1c57dcdB5d24"
       }
     },
     "tokenA": "WETH",
-    "tokenB": "oXRP",
+    "tokenB": "mXRP",
     "decimals": 6
   },
-  "USDT-oXRP": {
-    "name": "USDT-oXRP",
+  "USDT-mXRP": {
+    "name": "USDT-mXRP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xBEba04852cDB1579A38b6116DE36aE927f7A2D28"
       }
     },
     "tokenA": "USDT",
-    "tokenB": "oXRP",
+    "tokenB": "mXRP",
     "decimals": 6
   },
-  "oMATIC-oXRP": {
-    "name": "oMATIC-oXRP",
+  "mMATIC-mXRP": {
+    "name": "mMATIC-mXRP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xC330f2706870942F508F600E3C6f59fc7242C14F"
       }
     },
-    "tokenA": "oMATIC",
-    "tokenB": "oXRP",
+    "tokenA": "mMATIC",
+    "tokenB": "mXRP",
     "decimals": 6
   },
-  "MESH-oORC": {
-    "name": "MESH-oORC",
+  "MESH-mORC": {
+    "name": "MESH-mORC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xe21270209976244664a87ACAAAC2CadcA5beE5D4"
       }
     },
     "tokenA": "MESH",
-    "tokenB": "oORC",
+    "tokenB": "mORC",
     "decimals": 18
   },
-  "oMKC-oUSDT": {
-    "name": "oMKC-oUSDT",
+  "oMKC-mUSDT": {
+    "name": "oMKC-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x9EDDC0BEF69AC8D9D517b2d87145D13F6a7EB137"
       }
     },
     "tokenA": "oMKC",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 18
   },
-  "oETH-oMKC": {
-    "name": "oETH-oMKC",
+  "kETH-oMKC": {
+    "name": "kETH-oMKC",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x728e70Cbe35E187C8B5a5797e5f7610a20ad8Ffc"
       }
     },
-    "tokenA": "oETH",
+    "tokenA": "kETH",
     "tokenB": "oMKC",
     "decimals": 18
   },
-  "WMATIC-oXDT": {
-    "name": "WMATIC-oXDT",
+  "wMATIC-mXDT": {
+    "name": "wMATIC-mXDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x0E1A5c06DD1e6D4f3Dcf9c553D2D5a5EF42147da"
       }
     },
-    "tokenA": "WMATIC",
-    "tokenB": "oXDT",
+    "tokenA": "wMATIC",
+    "tokenB": "mXDT",
     "decimals": 18
   },
-  "MESH-oXDT": {
-    "name": "MESH-oXDT",
+  "MESH-mXDT": {
+    "name": "MESH-mXDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xe90CD966B735d06472E2eEDF4D8E9a65d81Ec575"
       }
     },
     "tokenA": "MESH",
-    "tokenB": "oXDT",
+    "tokenB": "mXDT",
     "decimals": 18
   },
-  "oETHW-oUSDT": {
-    "name": "oETHW-oUSDT",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0x9928D8c9C26Eb54326306991d7965BD012Ade013"
-      }
-    },
-    "tokenA": "oETHW",
-    "tokenB": "oUSDT",
-    "decimals": 6
-  },
-  "oETF-oUSDT": {
-    "name": "oETF-oUSDT",
+  "oETF-mUSDT": {
+    "name": "oETF-mUSDT",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x18f0381a4Ee6ad535A0eDF687C8BAD2632d2B2eA"
       }
     },
     "tokenA": "oETF",
-    "tokenB": "oUSDT",
+    "tokenB": "mUSDT",
     "decimals": 6
   },
   "SHO-mUSDC": {

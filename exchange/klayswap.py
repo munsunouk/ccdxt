@@ -49,19 +49,20 @@ class Klayswap(Exchange):
         self.log = config["log"]
         self.proxy = config["proxy"]
 
-        self.load_exchange(self.chainName, self.exchangeName)
-        self.set_logger(self.log)
+        # self.load_exchange(self.chainName, self.exchangeName)
+        # self.set_logger(self.log)
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
-        amountIn = self.from_value(value=amountAin, exp=self.decimals(tokenAsymbol))
+        amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
-        pool = self.get_pool(tokenAsymbol, tokenBsymbol)
+        pool = await self.get_pool(tokenAsymbol, tokenBsymbol)
 
         pool = self.set_checksum(pool)
 
-        amountBout = self.get_amount_out(pool, tokenAsymbol, amountIn)
-        amountout = self.to_value(value=amountBout, exp=self.decimals(tokenBsymbol))
+        amountBout = await self.get_amount_out(pool, tokenAsymbol, amountIn)
+        decimal = await self.decimals(tokenBsymbol)
+        amountout = self.to_value(value=amountBout, exp=decimal)
 
         result = {
             "amountAin": amountAin,
@@ -139,7 +140,7 @@ class Klayswap(Exchange):
         else:
             tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
-        tx_receipt = self.fetch_transaction(tx, "SWAP")
+        tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
@@ -184,20 +185,22 @@ class Klayswap(Exchange):
 
     #     return tx
 
-    def get_amount_out(self, pool, tokenAsymbol, amountIn):
+    async def get_amount_out(self, pool, tokenAsymbol, amountIn):
         tokenA = self.tokens[tokenAsymbol]
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
 
         poolAddress = self.set_checksum(pool)
 
-        self.factoryContract = self.get_contract(poolAddress, self.markets["factoryAbi"])
+        self.factoryContract = await self.get_contract(poolAddress, self.markets["factoryAbi"])
 
-        amountOut = self.factoryContract.functions.estimatePos(tokenAaddress, amountIn).call()
+        amountOut = await self.factoryContract.functions.estimatePos(tokenAaddress, amountIn).call()
+
+        # amountOut = type(self.factoryContract.functions.estimatePos(tokenAaddress, amountIn).call())
 
         return amountOut
 
-    def get_reserves(self, tokenAsymbol, tokenBsymbol):
+    async def get_reserves(self, tokenAsymbol, tokenBsymbol):
         pool = self.get_pool(tokenAsymbol, tokenBsymbol)
 
         pool = self.set_checksum(pool)
@@ -214,12 +217,12 @@ class Klayswap(Exchange):
         reserves = routerContract.functions.getCurrentPool().call()
 
         if tokenA != tokenAaddress:
-            reservesA = self.to_value(reserves[1], self.decimals(tokenAsymbol))
-            reservesB = self.to_value(reserves[0], self.decimals(tokenBsymbol))
+            reservesA = self.to_value(reserves[1], await self.decimals(tokenAsymbol))
+            reservesB = self.to_value(reserves[0], await self.decimals(tokenBsymbol))
 
         else:
-            reservesA = self.to_value(reserves[0], self.decimals(tokenAsymbol))
-            reservesB = self.to_value(reserves[1], self.decimals(tokenBsymbol))
+            reservesA = self.to_value(reserves[0], await self.decimals(tokenAsymbol))
+            reservesB = self.to_value(reserves[1], await self.decimals(tokenBsymbol))
 
         reserve = reservesB / reservesA
 

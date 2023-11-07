@@ -34,33 +34,33 @@
     "info": "https://meshswap.fi/exchange/swap"
   },
   "orbitbridge": {
-    "id": 4,
+    "id": 9,
     "name": "Orbitbridge",
     "symbol": "ORC",
-    "fee": 0.1,
-    "bridgeAddress": "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d",
     "pool_pass": true,
     "token_pass": true,
-    "baseChain": {
-      "KLAYTN": {},
-      "ETH": {}
+    "bridgeAddress": {
+      "ETH_Vault": "0x6BD8E3beEC87176BA9c705c9507Aa5e6F0E6706f",
+      "ETH_Minter": "0x60070f5d2e1c1001400a04f152e7abd43410f7b9",
+      "TON_Minter": "0x58a42330c0984babd5dec2c943eaa345b7f41e44",
+      "KLAYTN_Vault": "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d",
+      "MATIC_Vault": "0x506dc4c6408813948470a06ef6e4a1daf228dbd5",
+      "KLAYTN_Minter": "0x506dc4c6408813948470a06ef6e4a1daf228dbd5",
+      "MATIC_Minter": "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d"
     },
-    "type": {
-      "Minter": {
-        "baseCurrency": "Minter",
-
-        "bridgeAbi": "KlaytnMinter_abi.json",
-        "bridgeAddress": {
-          "ETH": {
-            "KLAYTN": "0x60070f5d2e1c1001400a04f152e7abd43410f7b9",
-            "ETH": "0x1bf68a9d1eaee7826b3593c20a0ca93293cb489a"
-          },
-          "XRP": {
-            "KLAYTN": "0x917655b6c27a3d831b4193ce18ece6bfcc806bf8"
-          }
-        }
+    "bridgeAbi": {
+      "Vault": "orbitbridge_vault_abi.json",
+      "Minter": "orbitbridge_minter_abi.json"
+    },
+    "baseChain": {
+      "KLAYTN": {
+        "baseCurrency": "KLAY"
+      },
+      "MATIC": {
+        "baseCurrency": "MATIC"
       }
     },
+    "fee": 0.1,
     "info": "https://bridge.orbitchain.io/"
   },
   "oneinchswap": {
