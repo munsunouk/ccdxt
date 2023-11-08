@@ -38,7 +38,7 @@ class Oneinchswap(Exchange):
             "exchangeName": "oneinchswap",
             "retries": 3,
             "retriesTime": 10,
-            "host": None,
+            "host": 0,
             "account": None,
             "privateKey": None,
             "log": None,
@@ -94,7 +94,7 @@ class Oneinchswap(Exchange):
             }
 
             if self.proxy:
-                quote_result = self.create_request(
+                quote_result = await self.create_request(
                     self.api_url,
                     params,
                     f"v{self.markets['version']}",
@@ -104,7 +104,7 @@ class Oneinchswap(Exchange):
                 )
 
             else:
-                quote_result = self.create_request(
+                quote_result = await self.create_request(
                     self.api_url,
                     params,
                     f"v{self.markets['version']}",
@@ -134,7 +134,7 @@ class Oneinchswap(Exchange):
 
         return result
 
-    @retry
+    # @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
@@ -161,8 +161,6 @@ class Oneinchswap(Exchange):
         'transaction_fee:': 0.023495964646856035
         }
         """
-
-        # time.sleep(self.sleep)
 
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
@@ -201,16 +199,19 @@ class Oneinchswap(Exchange):
 
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
-        self.check_approve(
+        await self.check_approve(
             amount=amountA, token=tokenApprove, account=self.account, router=routerAddress
         )
 
-        self.routerContract = self.get_contract(
+        self.routerContract = await self.get_contract(
             routerAddress, self.markets["routerAbi"][int(self.markets["version"])]
         )
 
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
         if "fusion" not in kwargs:
-            tx = self.token_to_token(
+            tx = await self.token_to_token(
                 tokenAaddress, amountA, tokenBaddress, self.account, routerAddress
             )
 
@@ -218,8 +219,6 @@ class Oneinchswap(Exchange):
 
         else:
             tx = await self.create_fusion_swap(amountA, tokenAaddress, tokenBaddress)
-
-            logging.info(tx)
 
             time_spend, amount = await self.check_bridge_completed(tokenBsymbol, self.account)
 
@@ -249,8 +248,6 @@ class Oneinchswap(Exchange):
         )
 
         result = quote_data.decode("utf-8")
-
-        # .strip('\n')
 
         if result.startswith("Error:"):
             raise BadResponseFormat("1inch SDK failed")
@@ -290,7 +287,9 @@ class Oneinchswap(Exchange):
     def get_proxy_list(self):
         pass
 
-    def token_to_token(self, tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress):
+    async def token_to_token(
+        self, tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress
+    ):
         if (tokenAaddress == self.chains["baseContract"]) and (self.chainName == "KLAYTN"):
             tokenAaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 
@@ -307,27 +306,29 @@ class Oneinchswap(Exchange):
         }
 
         if self.proxy:
-            result_tx = self.create_request(
+            result_tx = await self.create_request(
                 self.api_url,
                 params,
                 f"v{self.markets['version']}",
                 f"{self.chains['mainnet']['chain_id']}",
                 "swap",
                 proxy=self.proxy,
-            )["tx"]
+            )
+
+            result_tx = result_tx["tx"]
 
         else:
-            result_tx = self.create_request(
+            result_tx = await self.create_request(
                 self.api_url,
                 params,
                 f"v{self.markets['version']}",
                 f"{self.chains['mainnet']['chain_id']}",
                 "swap",
-            )["tx"]
+            )
 
-        self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
+            result_tx = result_tx["tx"]
 
-        maxPriorityFeePerGas, maxFeePerGas = self.updateTxParameters()
+        maxPriorityFeePerGas, maxFeePerGas = await self.updateTxParameters()
 
         tx = {
             "from": accountAddress,
@@ -340,7 +341,7 @@ class Oneinchswap(Exchange):
             "chainId": self.chains["mainnet"]["chain_id"],
         }
 
-        tx["gas"] = self.w3.eth.estimate_gas(tx)
+        tx["gas"] = await self.w3.eth.estimate_gas(tx)
 
         return tx
 

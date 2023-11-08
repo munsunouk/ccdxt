@@ -3,6 +3,7 @@ import json
 import datetime
 import time
 import requests
+import aiohttp
 import ssl
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager
@@ -86,7 +87,8 @@ class Exchange(Transaction):
         self.baseDecimal = 18
 
         # market info
-        self.host = None
+        self.host = 0
+        self.total_node = 1
         self.proxy = False
         self.chainName: Optional[str] = None
         self.exchangeName: Optional[str] = None
@@ -171,7 +173,7 @@ class Exchange(Transaction):
 
         return full_site
 
-    def create_request(self, base_url, params={}, *args, **kwargs):
+    async def create_request(self, base_url, params={}, *args, **kwargs):
         requst_args = ""
         requst_kwargs = ""
         request_method = "get"
@@ -210,62 +212,73 @@ class Exchange(Transaction):
 
         if request_method == "get":
             if proxy:
-                pass
+                async with aiohttp.ClientSession() as session:
+                    proxies = {"http": proxy, "https": proxy}
+                    async with session.get(
+                        full_url, headers=headers, params=params, proxy=proxies, timeout=3
+                    ) as response:
+                        r = response
 
-                # proxies = {"http": proxy, 'https': proxy}
+                        if r.status == 200:
+                            result = await r.text()
+                            result = json.loads(result)
 
-                # r = getattr(requests, request_method)(
-                #     full_url,
-                #     headers=headers,
-                #     params=params,
-                #     proxies=proxies,
-                #     timeout=3
-                # )
+                        else:
+                            logging.warning(
+                                f"api failed request, detail -> url : {full_url}, params : {params}"
+                            )
 
-                # session = PACSession()
-                # r = getattr(session, request_method)(
-                #     full_url,
-                #     headers=headers,
-                #     params=params,
-                # )
-
+                            raise BadResponseFormat(f"api failed , status_code : {r.status}")
             else:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(full_url, headers=headers, params=params) as response:
+                        r = response
 
-                r = getattr(requests, request_method)(full_url, headers=headers, params=params)
+                        if r.status == 200:
+                            result = await r.text()
+                            result = json.loads(result)
+
+                        else:
+                            logging.warning(
+                                f"api failed request, detail -> url : {full_url}, params : {params}"
+                            )
+
+                            raise BadResponseFormat(f"api failed , status_code : {r.status}")
 
         elif request_method == "post":
             if proxy:
-                pass
+                async with aiohttp.ClientSession() as session:
+                    proxies = {"http": proxy, "https": proxy}
+                    async with session.post(
+                        full_url, headers=headers, json=params, proxy=proxies, timeout=3
+                    ) as response:
+                        r = response
 
-                # proxies = {"http": proxy, 'https': proxy}
+                        if r.status == 200:
+                            result = await r.text()
+                            result = json.loads(result)
 
-                # r = getattr(requests, request_method)(
-                #     full_url,
-                #     headers=headers,
-                #     json=params
-                # )
+                        else:
+                            logging.warning(
+                                f"api failed request, detail -> url : {full_url}, params : {params}"
+                            )
 
-                # session = PACSession()
-                # r = getattr(session, request_method)(
-                #     full_url,
-                #     headers=headers,
-                #     json=params,
-                # )
-
+                            raise BadResponseFormat(f"api failed , status_code : {r.status}")
             else:
-                r = getattr(requests, request_method)(
-                    full_url,
-                    headers=headers,
-                    params=params,
-                )
+                async with aiohttp.ClientSession() as session:
+                    async with session.post(full_url, headers=headers, json=params) as response:
+                        r = response
 
-        if r.status_code == 200:
-            result = r.json()
+                        if r.status == 200:
+                            result = await r.text()
+                            result = json.loads(result)
 
-        else:
-            logging.warning(f"api failed request, detail -> url : {full_url}, params : {params}")
+                        else:
+                            logging.warning(
+                                f"api failed request, detail -> url : {full_url}, params : {params}"
+                            )
 
-            raise BadResponseFormat(f"api failed , status_code : {r.status_code}")
+                            raise BadResponseFormat(f"api failed , status_code : {r.status}")
 
         return result
 
@@ -430,7 +443,7 @@ class Exchange(Transaction):
 
     #     return maxPriorityFee, maxFee
 
-    def get_gasPrice(self):
+    async def get_gasPrice(self):
         if self.chains == None:
             fast_gas = 25000000000
 
@@ -438,29 +451,33 @@ class Exchange(Transaction):
 
         if self.chains["mainnet"]["chain_id"] not in (8217, 1201):
             if self.proxy:
-                fast_gas = self.create_request(
+                fast_gas = await self.create_request(
                     "https://ethapi.openocean.finance/",
                     {},
                     "v2",
                     f"{self.chains['mainnet']['chain_id']}",
                     "gas-price",
                     proxy=self.proxy,
-                )["fast"]
+                )
+
+                fast_gas = fast_gas["fast"]
 
             else:
-                fast_gas = self.create_request(
+                fast_gas = await self.create_request(
                     "https://ethapi.openocean.finance/",
                     {},
                     "v2",
                     f"{self.chains['mainnet']['chain_id']}",
                     "gas-price",
-                )["fast"]
+                )
+
+                fast_gas = fast_gas["fast"]
 
         else:
-            fast_gas = self.get_maxPriorityFeePerGas()
+            fast_gas = await self.get_maxPriorityFeePerGas()
 
             if fast_gas == 0:
-                fast_gas == self.estimate_gas()
+                fast_gas == await self.estimate_gas()
 
         return int(fast_gas)
 
@@ -473,18 +490,18 @@ class Exchange(Transaction):
         params = [hex(block_count), newest_block] + [reward_percentiles]
         return self.w3.manager.request_blocking(method, params)
 
-    def get_maxPriorityFeePerGas(self):
+    async def get_maxPriorityFeePerGas(self):
         method = "eth_maxPriorityFeePerGas"
         params = []
 
-        return self.w3.manager.request_blocking(method, params)
+        return await self.w3.manager.request_blocking(method, params)
 
-    def get_base_fee(self):
+    async def get_base_fee(self):
         method = "eth_baseFee"
         params = []
 
         try:
-            hex_string = self.w3.manager.request_blocking(method, params)
+            hex_string = await self.w3.manager.request_blocking(method, params)
             integer_value = int(hex_string, 16)
 
         except:
@@ -694,23 +711,27 @@ class Exchange(Transaction):
         if execute_result:
             raise msg
 
-    def get_gas_fixingRate(self):
+    async def get_gas_fixingRate(self):
         # r = requests.get("https://token-rates-aggregator.1inch.io/v1.0/native-token-rate?vs=US")
 
         try:
             if self.chains["baseCurrency"] == "MOOI":
                 params = {"ids": self.chains["coingecko_id"], "vs_currencies": "usd"}
 
-                fixingRate = self.create_request(
+                fixingRate = await self.create_request(
                     "https://api.coingecko.com/", params, "api", "v3", "simple", "price"
-                )[self.chains["coingecko_id"]]["usd"]
+                )
+
+                fixingRate = fixingRate[self.chains["coingecko_id"]]["usd"]
 
             else:
                 params = {"symbol": self.chains["baseCurrency"] + "USDT"}
 
-                fixingRate = self.create_request(
+                fixingRate = await self.create_request(
                     "https://api.binance.com/", params, "api", "v3", "ticker", "price"
-                )["price"]
+                )
+
+                fixingRate = fixingRate["price"]
 
         except:
             fixingRate = 0
@@ -757,7 +778,7 @@ class Exchange(Transaction):
             result = await self.w3.eth.gasPrice / 1000000000
 
         except:
-            result = self.get_base_fee()
+            result = await self.get_base_fee()
 
         return result
 
@@ -836,7 +857,7 @@ class Exchange(Transaction):
 
         contract = await self.get_contract(token, self.chains["chainAbi"])
 
-        approvedTokens = contract.functions.allowance(account, router).call()
+        approvedTokens = await contract.functions.allowance(account, router).call()
 
         if "approve_amount" in kwargs:
             approve_amount = kwargs["approve_amount"]
@@ -845,9 +866,9 @@ class Exchange(Transaction):
             approve_amount = self.unlimit
 
         if approvedTokens < amount:
-            tx = self.get_approve(token, router, account, approve_amount)
+            tx = await self.get_approve(token, router, account, approve_amount)
 
-            tx_receipt = self.fetch_transaction(tx, round="CHECK")
+            tx_receipt = await self.fetch_transaction(tx, round="CHECK")
             return tx_receipt
 
         else:
@@ -856,9 +877,9 @@ class Exchange(Transaction):
     async def get_approve(self, token: str, router: str, account: str, approvedTokens: int):
         contract = await self.get_contract(token, self.chains["chainAbi"])
 
-        nonce = self.get_TransactionCount(account)
+        nonce = await self.get_TransactionCount(account)
 
-        tx = contract.functions.approve(router, approvedTokens).build_transaction(
+        tx = await contract.functions.approve(router, approvedTokens).build_transaction(
             {
                 "from": account,
                 "nonce": nonce,
@@ -893,8 +914,8 @@ class Exchange(Transaction):
         session.mount("https://", SSLAdapter())
         return session
 
-    def updateTxParameters(self):
-        gas = self.create_request(
+    async def updateTxParameters(self):
+        gas = await self.create_request(
             f"https://gas-price-api.1inch.io/v1.3/{self.chains['mainnet']['chain_id']}"
         )
 
@@ -906,7 +927,7 @@ class Exchange(Transaction):
             maxPriorityFeePerGas = 50000000000
             maxFeePerGas = 75000000000
 
-        base_fee = self.get_base_fee()
+        base_fee = await self.get_base_fee()
 
         if maxFeePerGas < base_fee:
             maxFeePerGas = base_fee
@@ -1115,6 +1136,7 @@ class Exchange(Transaction):
 
     @staticmethod
     def set_async_network(network_path):
+
         return Web3(
             Web3.AsyncHTTPProvider(network_path, request_kwargs={"timeout": 1800}),
             modules={"eth": (AsyncEth,)},

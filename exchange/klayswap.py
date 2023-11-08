@@ -26,7 +26,7 @@ class Klayswap(Exchange):
             "exchangeName": "klayswap",
             "retries": 3,
             "retriesTime": 10,
-            "host": None,
+            "host": 0,
             "account": None,
             "privateKey": None,
             "log": None,
@@ -52,7 +52,7 @@ class Klayswap(Exchange):
         # self.load_exchange(self.chainName, self.exchangeName)
         # self.set_logger(self.log)
 
-    @retry
+    # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
         amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
@@ -73,7 +73,7 @@ class Klayswap(Exchange):
 
         return result
 
-    @retry
+    # @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
@@ -131,21 +131,22 @@ class Klayswap(Exchange):
 
         self.routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
 
-        self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
 
         if tokenAsymbol == self.baseCurrency:
-            tx = self.eth_to_token(amountA, tokenBaddress, amountBMin)
+            tx = await self.eth_to_token(amountA, tokenBaddress, amountBMin)
         # elif tokenBsymbol == self.baseCurrency:
         #     tx = self.token_to_eth(tokenAaddress, amountA)
         else:
-            tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
         tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
-    def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
-        tx = self.routerContract.functions.exchangeKctPos(
+    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
+        tx = await self.routerContract.functions.exchangeKctPos(
             tokenAaddress, amountA, tokenBaddress, amountBMin, self.path
         ).build_transaction(
             {
@@ -157,8 +158,8 @@ class Klayswap(Exchange):
 
         return tx
 
-    def eth_to_token(self, amountA, tokenBaddress, amountBMin):
-        tx = self.routerContract.functions.exchangeKlayPos(
+    async def eth_to_token(self, amountA, tokenBaddress, amountBMin):
+        tx = await self.routerContract.functions.exchangeKlayPos(
             tokenBaddress, amountBMin, self.path
         ).build_transaction(
             {

@@ -36,7 +36,7 @@ class Openocean(Exchange):
             "exchangeName": "openocean",
             "retries": 3,
             "retriesTime": 10,
-            "host": None,
+            "host": 0,
             "account": None,
             "privateKey": None,
             "log": None,
@@ -71,7 +71,7 @@ class Openocean(Exchange):
         # time.sleep(self.sleep)
 
         if not self.gasPrice:
-            self.gasPrice = self.get_gasPrice()
+            self.gasPrice = await self.get_gasPrice()
 
         amountIn = amountAin
 
@@ -109,7 +109,7 @@ class Openocean(Exchange):
         }
 
         if self.proxy:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.api_url,
                 params,
                 "v2",
@@ -119,7 +119,7 @@ class Openocean(Exchange):
             )
 
         else:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.api_url, params, "v2", f"{self.chains['mainnet']['chain_id']}", "quote"
             )
 
@@ -181,8 +181,8 @@ class Openocean(Exchange):
         self.tokenBsymbol = tokenBsymbol
         self.amount = amountA
 
-        tokenBalance = self.partial_balance(self.tokenSymbol)
-        baseCurrency = self.partial_balance(self.chains["baseCurrency"])
+        tokenBalance = await self.partial_balance(self.tokenSymbol)
+        baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
 
         self.require(
             self.amount > tokenBalance["balance"],
@@ -203,11 +203,14 @@ class Openocean(Exchange):
 
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
-        self.check_approve(
+        await self.check_approve(
             amount=amountA, token=tokenAaddress, account=accountAddress, router=routerAddress
         )
 
-        self.routerContract = self.get_contract(
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
+        self.routerContract = await self.get_contract(
             routerAddress, self.markets["routerAbi"][int(self.markets["version"])]
         )
 
@@ -222,13 +225,13 @@ class Openocean(Exchange):
                 self.gasPrice = kwargs["gasPrice"]
 
             else:
-                self.gasPrice = self.get_gasPrice()
+                self.gasPrice = await self.get_gasPrice()
 
         else:
             slippage = 50
-            self.gasPrice = self.get_gasPrice()
+            self.gasPrice = await self.get_gasPrice()
 
-        tx = self.token_to_token(
+        tx = await self.token_to_token(
             tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress, slippage
         )
 
@@ -239,11 +242,10 @@ class Openocean(Exchange):
     def get_proxy_list(self):
         pass
 
-    def create_tx(self, accountAddress, routerAddress, quote_tx):
-        self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
+    async def create_tx(self, accountAddress, routerAddress, quote_tx):
 
         if self.chainName == "MATIC":
-            maxPriorityFeePerGas, maxFeePerGas = self.updateTxParameters()
+            maxPriorityFeePerGas, maxFeePerGas = await self.updateTxParameters()
 
             tx = {
                 "from": accountAddress,
@@ -256,7 +258,7 @@ class Openocean(Exchange):
                 "chainId": self.chains["mainnet"]["chain_id"],
             }
 
-            gas = self.w3.eth.estimate_gas(tx)
+            gas = await self.w3.eth.estimate_gas(tx)
             tx["gas"] = gas
 
         else:
@@ -275,7 +277,7 @@ class Openocean(Exchange):
 
         return tx
 
-    def token_to_token(
+    async def token_to_token(
         self, tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress, slippage
     ):
         params = {
@@ -288,7 +290,7 @@ class Openocean(Exchange):
         }
 
         if self.proxy:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.api_url,
                 params,
                 "v2",
@@ -298,11 +300,11 @@ class Openocean(Exchange):
             )
 
         else:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.api_url, params, "v2", f"{self.chains['mainnet']['chain_id']}", "swap"
             )
 
-        tx = self.create_tx(accountAddress, routerAddress, quote_result)
+        tx = await self.create_tx(accountAddress, routerAddress, quote_result)
 
         return tx
 
@@ -347,25 +349,29 @@ class Openocean(Exchange):
 
         return time_spend, balance
 
-    def get_gasPrice(self):
+    async def get_gasPrice(self):
         if self.proxy:
-            fast_gas = self.create_request(
+            fast_gas = await self.create_request(
                 "https://ethapi.openocean.finance/",
                 {},
                 "v2",
                 f"{self.chains['mainnet']['chain_id']}",
                 "gas-price",
                 proxy=self.proxy,
-            )["fast"]
+            )
+
+            fast_gas = fast_gas["fast"]
 
         else:
-            fast_gas = self.create_request(
+            fast_gas = await self.create_request(
                 "https://ethapi.openocean.finance/",
                 {},
                 "v2",
                 f"{self.chains['mainnet']['chain_id']}",
                 "gas-price",
-            )["fast"]
+            )
+
+            fast_gas = fast_gas["fast"]
 
         return int(fast_gas)
 

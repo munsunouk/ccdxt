@@ -125,13 +125,13 @@ class Transaction(object):
             return await self.fetch_fusion_swap(tx)
 
         elif round == "FAIL":
-            return self.fetch_trade_fail()
+            return await self.fetch_trade_fail()
 
         else:
             pass
 
-        tokenBalance = self.partial_balance(self.tokenSymbol)
-        baseCurrency = self.partial_balance(self.chains["baseCurrency"])
+        tokenBalance = await self.partial_balance(self.tokenSymbol)
+        baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
         gas = await self.w3.eth.estimate_gas(tx)
 
         self.gas_fee = self.to_value(
@@ -162,7 +162,7 @@ class Transaction(object):
             ),
         )
 
-        signed_tx = await self.w3.eth.account.signTransaction(tx, self.privateKey)
+        signed_tx = self.w3.eth.account.sign_transaction(tx, self.privateKey)
 
         try:
             self.tx_hash = await self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
@@ -195,13 +195,13 @@ class Transaction(object):
             return await self.fetch_trade_fail(self.tx_hash)
 
         if round == "CHECK":
-            return self.logger.info("approved token")
+            return print("approved token")
 
         if round == "DEPOSIT":
-            return self.logger.info("wrapped token")
+            return print("wrapped token")
 
         if round == "WITHDRAW":
-            return self.logger.info("unwrapped token")
+            return print("unwrapped token")
 
         if round == "BRIDGE":
             return await self.fetch_bridge(tx, tx_receipt, api)
@@ -212,125 +212,125 @@ class Transaction(object):
         if round == "TRANSFER":
             return await self.fetch_transfer(tx, tx_receipt, api)
 
-        if round == "ADD":
-            # return self.fetch_add_liquidity(tx, tx_receipt, api, payload=kwargs['payload'])
-            return self.fetch_add_liquidity(tx, tx_receipt, api)
+        # if round == "ADD":
+        #     # return self.fetch_add_liquidity(tx, tx_receipt, api, payload=kwargs['payload'])
+        #     return self.fetch_add_liquidity(tx, tx_receipt, api)
 
-        if round == "REMOVE":
-            # return self.fetch_remove_liquidity(tx, tx_receipt, api, payload=kwargs['payload'])
-            return self.fetch_remove_liquidity(tx, tx_receipt, api)
+        # if round == "REMOVE":
+        #     # return self.fetch_remove_liquidity(tx, tx_receipt, api, payload=kwargs['payload'])
+        #     return self.fetch_remove_liquidity(tx, tx_receipt, api)
 
-    def fetch_add_liquidity(
-        self, tx: Optional[AttributeDict] = None, tx_receipt=None, api=False, *args, **kwargs
-    ) -> Dict[str, Any]:
-        """
-        Info
-        ----------
-        Fetches the details of a swap transaction.
+    # def fetch_add_liquidity(
+    #     self, tx: Optional[AttributeDict] = None, tx_receipt=None, api=False, *args, **kwargs
+    # ) -> Dict[str, Any]:
+    #     """
+    #     Info
+    #     ----------
+    #     Fetches the details of a swap transaction.
 
-        Parameters:
-        ----------
-        - tx (dict): Transaction object.
-        - tx_receipt (dict): Transaction receipt object.
+    #     Parameters:
+    #     ----------
+    #     - tx (dict): Transaction object.
+    #     - tx_receipt (dict): Transaction receipt object.
 
-        Returns:
-        ----------
-        - txDict (dict): Dictionary containing the transaction details.
-        """
+    #     Returns:
+    #     ----------
+    #     - txDict (dict): Dictionary containing the transaction details.
+    #     """
 
-        if tx is None and tx_receipt is None:
-            raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
+    #     if tx is None and tx_receipt is None:
+    #         raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
-        if (tx is not None) and (tx_receipt is None):
-            tx_receipt = self.get_transaction_receipt(tx)
+    #     if (tx is not None) and (tx_receipt is None):
+    #         tx_receipt = self.get_transaction_receipt(tx)
 
-        if (tx is None) and (tx_receipt is not None):
-            raise ValueError("tx should be provided")
+    #     if (tx is None) and (tx_receipt is not None):
+    #         raise ValueError("tx should be provided")
 
-            # tx = self.w3.eth.get_transaction(tx_hash)
+    #         # tx = self.w3.eth.get_transaction(tx_hash)
 
-        else:
-            try:
-                function, input_args = self.routerContract.decode_function_input(
-                    self.get_transaction_data_field(tx)
-                )
-                fn_name = str(function.fn_name)
+    #     else:
+    #         try:
+    #             function, input_args = self.routerContract.decode_function_input(
+    #                 self.get_transaction_data_field(tx)
+    #             )
+    #             fn_name = str(function.fn_name)
 
-            except:
-                fn_name = "addLiquidity"
+    #         except:
+    #             fn_name = "addLiquidity"
 
-        txDict = {
-            "tx_hash": tx_receipt["transactionHash"].hex(),
-            "status": tx_receipt["status"],
-            "block": tx_receipt["blockNumber"],
-            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "function": fn_name,
-            "pool_name": self.pool_name,
-            "pool_address": self.poolAddress,
-            "address": tx_receipt["from"],
-            "input": self.input,
-            "gas_fee": tx_receipt["gasUsed"] * tx_receipt["effectiveGasPrice"] / 10**18
-            + self.additionalGasFee,
-            "tx_scope": f"{self.chains['mainnet']['block_scope']}/tx/{tx_receipt['transactionHash'].hex()}",
-        }
+    #     txDict = {
+    #         "tx_hash": tx_receipt["transactionHash"].hex(),
+    #         "status": tx_receipt["status"],
+    #         "block": tx_receipt["blockNumber"],
+    #         "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    #         "function": fn_name,
+    #         "pool_name": self.pool_name,
+    #         "pool_address": self.poolAddress,
+    #         "address": tx_receipt["from"],
+    #         "input": self.input,
+    #         "gas_fee": tx_receipt["gasUsed"] * tx_receipt["effectiveGasPrice"] / 10**18
+    #         + self.additionalGasFee,
+    #         "tx_scope": f"{self.chains['mainnet']['block_scope']}/tx/{tx_receipt['transactionHash'].hex()}",
+    #     }
 
-        return txDict
+    #     return txDict
 
-    def fetch_remove_liquidity(
-        self, tx: Optional[AttributeDict] = None, tx_receipt=None, api=False, *args, **kwargs
-    ) -> Dict[str, Any]:
-        """
-        Info
-        ----------
-        Fetches the details of a swap transaction.
+    # def fetch_remove_liquidity(
+    #     self, tx: Optional[AttributeDict] = None, tx_receipt=None, api=False, *args, **kwargs
+    # ) -> Dict[str, Any]:
+    #     """
+    #     Info
+    #     ----------
+    #     Fetches the details of a swap transaction.
 
-        Parameters:
-        ----------
-        - tx (dict): Transaction object.
-        - tx_receipt (dict): Transaction receipt object.
+    #     Parameters:
+    #     ----------
+    #     - tx (dict): Transaction object.
+    #     - tx_receipt (dict): Transaction receipt object.
 
-        Returns:
-        ----------
-        - txDict (dict): Dictionary containing the transaction details.
-        """
+    #     Returns:
+    #     ----------
+    #     - txDict (dict): Dictionary containing the transaction details.
+    #     """
 
-        if tx is None and tx_receipt is None:
-            raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
+    #     if tx is None and tx_receipt is None:
+    #         raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
-        if (tx is not None) and (tx_receipt is None):
-            tx_receipt = self.get_transaction_receipt(tx)
+    #     if (tx is not None) and (tx_receipt is None):
+    #         tx_receipt = self.get_transaction_receipt(tx)
 
-        if (tx is None) and (tx_receipt is not None):
-            raise ValueError("tx should be provided")
+    #     if (tx is None) and (tx_receipt is not None):
+    #         raise ValueError("tx should be provided")
 
-            # tx = self.w3.eth.get_transaction(tx_hash)
+    #         # tx = self.w3.eth.get_transaction(tx_hash)
 
-        else:
-            try:
-                function, input_args = self.routerContract.decode_function_input(
-                    self.get_transaction_data_field(tx)
-                )
-                fn_name = str(function.fn_name)
+    #     else:
+    #         try:
+    #             function, input_args = self.routerContract.decode_function_input(
+    #                 self.get_transaction_data_field(tx)
+    #             )
+    #             fn_name = str(function.fn_name)
 
-            except:
-                fn_name = "removeLiquidity"
+    #         except:
+    #             fn_name = "removeLiquidity"
 
-        txDict = {
-            "tx_hash": tx_receipt["transactionHash"].hex(),
-            "status": tx_receipt["status"],
-            "block": tx_receipt["blockNumber"],
-            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "function": fn_name,
-            "pool_name": self.pool_name,
-            "pool_address": self.poolAddress,
-            "address": tx_receipt["from"],
-            "input": self.input,
-            "gas_fee": tx_receipt["gasUsed"] * tx_receipt["effectiveGasPrice"] / 10**18
-            + self.additionalGasFee,
-            "tx_scope": f"{self.chains['mainnet']['block_scope']}/tx/{tx_receipt['transactionHash'].hex()}",
-        }
+    #     txDict = {
+    #         "tx_hash": tx_receipt["transactionHash"].hex(),
+    #         "status": tx_receipt["status"],
+    #         "block": tx_receipt["blockNumber"],
+    #         "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    #         "function": fn_name,
+    #         "pool_name": self.pool_name,
+    #         "pool_address": self.poolAddress,
+    #         "address": tx_receipt["from"],
+    #         "input": self.input,
+    #         "gas_fee": tx_receipt["gasUsed"] * tx_receipt["effectiveGasPrice"] / 10**18
+    #         + self.additionalGasFee,
+    #         "tx_scope": f"{self.chains['mainnet']['block_scope']}/tx/{tx_receipt['transactionHash'].hex()}",
+    #     }
 
-        return txDict
+    #     return txDict
 
     async def fetch_transfer(self, tx, tx_receipt, api=False):
         """
@@ -373,8 +373,8 @@ class Transaction(object):
         if tx is None and tx_receipt is None:
             raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
-        if (tx is not None) and (tx_receipt is None):
-            tx_receipt = self.get_transaction_receipt(tx)
+        # if (tx is not None) and (tx_receipt is None):
+        #     tx_receipt = self.get_transaction_receipt(tx)
 
         if (tx is None) and (tx_receipt is not None):
             pass
@@ -438,7 +438,9 @@ class Transaction(object):
             * gas_fee: the fee paid for the transaction in ETH
         """
 
-        amount_in = Event.bridge(self.bridge["name"], tx_receipt, self.routerContract, version=api)
+        amount_in = await Event.bridge(
+            self.bridge["name"], tx_receipt, self.routerContract, version=api
+        )
 
         # amount_in = self.amount
 
@@ -447,8 +449,8 @@ class Transaction(object):
         if tx is None and tx_receipt is None:
             raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
-        if (tx is not None) and (tx_receipt is None):
-            tx_receipt = await self.get_transaction_receipt(tx)
+        # if (tx is not None) and (tx_receipt is None):
+        #     tx_receipt = await self.get_transaction_receipt(tx)
 
         if (tx is None) and (tx_receipt is not None):
             pass
@@ -458,7 +460,7 @@ class Transaction(object):
         else:
             transaction = await self.w3.eth.get_transaction(self.tx_hash)
 
-            function, input_args = self.routerContract.decode_function_input(
+            function, input_args = await self.routerContract.decode_function_input(
                 transaction.input
                 # self.get_transaction_data_field(tx)
             )
@@ -532,8 +534,8 @@ class Transaction(object):
         if tx is None and tx_receipt is None:
             raise ValueError("Either 'tx' or 'tx_receipt' must be provided.")
 
-        if (tx is not None) and (tx_receipt is None):
-            tx_receipt = self.get_transaction_receipt(tx)
+        # if (tx is not None) and (tx_receipt is None):
+        #     tx_receipt = self.get_transaction_receipt(tx)
 
         if (tx is None) and (tx_receipt is not None):
             raise ValueError("tx should be provided")
@@ -551,7 +553,7 @@ class Transaction(object):
                 fn_name = "swap"
 
         if not api:
-            amountIn, amountOut = Event.swap(
+            amountIn, amountOut = await Event.swap(
                 self.chains["name"],
                 self.markets["name"],
                 tx_receipt,
@@ -563,7 +565,7 @@ class Transaction(object):
 
             logging.info(f"hash : {tx_receipt['transactionHash'].hex()}")
 
-            quote_total_tx = self.create_request(
+            quote_total_tx = await self.create_request(
                 params, "v3", f'{self.chains["mainnet"]["chain_id"]}', "getTransaction"
             )
 
@@ -597,7 +599,7 @@ class Transaction(object):
         return txDict
 
     async def fetch_trade_fail(self, tx_hash=""):
-        self.logger.info("fail")
+        print("fail")
 
         if tx_hash:
             blockNumber = await self.w3.eth.get_transaction(tx_hash).blockNumber

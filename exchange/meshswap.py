@@ -18,7 +18,7 @@ class Meshswap(Exchange):
         config = {
             "retries": 3,
             "retriesTime": 10,
-            "host": None,
+            "host": 0,
             "account": None,
             "privateKey": None,
             "log": None,
@@ -65,7 +65,7 @@ class Meshswap(Exchange):
 
         return result
 
-    @retry
+    # @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
@@ -96,48 +96,45 @@ class Meshswap(Exchange):
         else:
             self.path = [tokenAaddress, tokenBaddress]
 
-        self.check_approve(
+        await self.check_approve(
             amount=amountA, token=tokenAaddress, account=self.account, router=routerAddress
         )
 
-        self.routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
+        self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"])
 
-        self.nonce = self.w3.eth.get_transaction_count(self.account) + self.addNounce
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
 
         self.deadline = int(datetime.datetime.now().timestamp() + 1800)
 
         if tokenAsymbol == self.baseCurrency:
-            tx = self.eth_to_token(amountA, tokenBaddress, amountBMin)
+            tx = await self.eth_to_token(amountA, tokenBaddress, amountBMin)
         elif tokenBsymbol == self.baseCurrency:
-            tx = self.token_to_eth(tokenAaddress, amountA, amountBMin)
+            tx = await self.token_to_eth(tokenAaddress, amountA, amountBMin)
         else:
-            tx = self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
 
         tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
-    def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
+    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
         # maxPriorityFee, maxFee = self.updateTxParameters()
         # self.w3.eth.set_gas_price_strategy(medium_gas_price_strategy)
 
-        tx = self.routerContract.functions.swapExactTokensForTokens(
+        tx = await self.routerContract.functions.swapExactTokensForTokens(
             amountA, amountBMin, self.path, self.account, self.deadline
         ).build_transaction(
             {
                 "from": self.account,
-                # "gasPrice": self.w3.toHex(gasprice),
-                # 'gas': 250000,
-                # "maxPriorityFeePerGas": self.w3.toWei(maxPriorityFee, "gwei"),
-                # "maxFeePerGas": self.w3.toWei(maxFee, "gwei"),
                 "nonce": self.nonce,
             }
         )
 
         return tx
 
-    def eth_to_token(self, amountA, tokenBaddress, amountBMin):
-        tx = self.routerContract.functions.swapExactETHForTokens(
+    async def eth_to_token(self, amountA, tokenBaddress, amountBMin):
+        tx = await self.routerContract.functions.swapExactETHForTokens(
             amountBMin, self.path, self.account, self.deadline
         ).build_transaction(
             {
@@ -150,8 +147,8 @@ class Meshswap(Exchange):
 
         return tx
 
-    def token_to_eth(self, tokenAaddress, amountA, amountBMin):
-        tx = self.routerContract.functions.swapExactTokensForETH(
+    async def token_to_eth(self, tokenAaddress, amountA, amountBMin):
+        tx = await self.routerContract.functions.swapExactTokensForETH(
             amountA, amountBMin, self.path, self.account, self.deadline
         ).build_transaction(
             {
@@ -191,11 +188,11 @@ class Meshswap(Exchange):
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
 
-        routerContract = self.get_contract(pool, self.markets["routerAbi"])
+        routerContract = await self.get_contract(pool, self.markets["routerAbi"])
 
-        tokenA = routerContract.functions.token0().call()
+        tokenA = await routerContract.functions.token0().call()
 
-        reserves = routerContract.functions.getReserves().call()
+        reserves = await routerContract.functions.getReserves().call()
 
         if tokenA != tokenAaddress:
             reserves[1] = self.to_value(reserves[0], await self.decimals(tokenBsymbol))

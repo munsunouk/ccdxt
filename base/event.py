@@ -83,7 +83,7 @@ class Event:
         self.txDict = txDict
 
     # @classmethod
-    def swap(
+    async def swap(
         chainsName: str,
         marketName: str,
         tx_receipt: AttributeDict,
@@ -127,7 +127,7 @@ class Event:
 
         swap = routerContract.events[events_param_list[1]]()
 
-        events = swap.processReceipt(tx_receipt, errors=DISCARD)
+        events = swap.process_receipt(tx_receipt, errors=DISCARD)
 
         amount0_in = max(
             [events[events_param_list[0]]["args"][param] for param in amount_in_params]
@@ -138,7 +138,7 @@ class Event:
         return amount0_in, amount1_out
 
     # @classmethod
-    def bridge(
+    async def bridge(
         bridgeName: str, tx_receipt: AttributeDict, routerContract: Contract, *args, **kwargs
     ):
         """
@@ -158,7 +158,7 @@ class Event:
         if kwargs["version"]:
 
             bridge = routerContract.events[bridgeDict[bridgeName][kwargs["version"]]["event"][1]]()
-            events = bridge.processReceipt(tx_receipt, errors=DISCARD)
+            events = bridge.process_receipt(tx_receipt, errors=DISCARD)
             amount_in_params = bridgeDict[bridgeName][kwargs["version"]]["amount0_in"]
             amount0_in = max(
                 [
@@ -170,7 +170,7 @@ class Event:
         else:
 
             bridge = routerContract.events[bridgeDict[bridgeName]["event"][1]]()
-            events = bridge.processReceipt(tx_receipt, errors=DISCARD)
+            events = bridge.process_receipt(tx_receipt, errors=DISCARD)
             amount_in_params = bridgeDict[bridgeName]["amount0_in"]
             amount0_in = max(
                 [
@@ -181,7 +181,7 @@ class Event:
 
         return amount0_in
 
-    def transfer(
+    async def transfer(
         bridgeName: str,
         tx_receipt: AttributeDict,
         routerContract: Contract,
@@ -202,7 +202,7 @@ class Event:
 
         bridge = routerContract.events[transferDict[bridgeName]["event"][1]]()
 
-        events = bridge.processReceipt(tx_receipt, errors=DISCARD)
+        events = bridge.process_receipt(tx_receipt, errors=DISCARD)
 
         amount_in_params = transferDict[bridgeName]["amount0_in"]
 
