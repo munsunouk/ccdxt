@@ -72,6 +72,8 @@ class Oneinchswap(Exchange):
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, fusion=False):
         # time.sleep(self.sleep)
 
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
         tokenA = self.tokens[tokenAsymbol]
@@ -134,7 +136,7 @@ class Oneinchswap(Exchange):
 
         return result
 
-    # @retry
+    @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
@@ -161,6 +163,8 @@ class Oneinchswap(Exchange):
         'transaction_fee:': 0.023495964646856035
         }
         """
+
+        await self.load_exchange(self.chainName, self.exchangeName)
 
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
@@ -199,8 +203,31 @@ class Oneinchswap(Exchange):
 
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
+        build = {
+            "from": self.account,
+            "nonce": self.nonce,
+        }
+
+        if self.chainName == "KLAY":
+
+            pass
+
+        elif self.chainName == "MATIC":
+
+            self.maxPriorityFee, self.maxFee = await self.updateTxParameters()
+
+            build["maxPriorityFeePerGas"] = int(self.maxPriorityFee)
+            build["maxFeePerGas"] = int(self.maxFee)
+
         await self.check_approve(
-            amount=amountA, token=tokenApprove, account=self.account, router=routerAddress
+            amount=amountA,
+            token=tokenApprove,
+            account=self.account,
+            router=routerAddress,
+            build=build,
         )
 
         self.routerContract = await self.get_contract(

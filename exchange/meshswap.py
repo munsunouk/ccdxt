@@ -10,6 +10,8 @@ import datetime
 # from pytz import timezone
 import time
 
+from web3 import Web3
+
 
 class Meshswap(Exchange):
     def __init__(self, config_change: Optional[dict] = {}):
@@ -46,11 +48,9 @@ class Meshswap(Exchange):
     # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
 
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         amountin = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
-
-        # pool = self.get_pair(tokenAsymbol, tokenBsymbol)
-
-        # pool = self.set_checksum(pool)
 
         amountBout = await self.get_amount_out(tokenAsymbol, amountin, tokenBsymbol)
 
@@ -65,10 +65,13 @@ class Meshswap(Exchange):
 
         return result
 
-    # @retry
+    @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
+
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         self.baseCurrency = self.chains["baseCurrency"]
 
         self.pathName = path
@@ -96,8 +99,24 @@ class Meshswap(Exchange):
         else:
             self.path = [tokenAaddress, tokenBaddress]
 
+        self.maxPriorityFee, self.maxFee = await self.updateTxParameters()
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
+        build = {
+            "from": self.account,
+            "maxPriorityFeePerGas": int(self.maxPriorityFee),
+            "maxFeePerGas": int(self.maxFee),
+            "nonce": self.nonce,
+            "value": 0,
+        }
+
         await self.check_approve(
-            amount=amountA, token=tokenAaddress, account=self.account, router=routerAddress
+            amount=amountA,
+            token=tokenAaddress,
+            account=self.account,
+            router=routerAddress,
+            build=build,
         )
 
         self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"])
@@ -105,58 +124,43 @@ class Meshswap(Exchange):
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
 
+        build["nonce"] = self.nonce
+
         self.deadline = int(datetime.datetime.now().timestamp() + 1800)
 
         if tokenAsymbol == self.baseCurrency:
-            tx = await self.eth_to_token(amountA, tokenBaddress, amountBMin)
+            tx = await self.eth_to_token(amountA, amountBMin, build)
         elif tokenBsymbol == self.baseCurrency:
-            tx = await self.token_to_eth(tokenAaddress, amountA, amountBMin)
+            tx = await self.token_to_eth(amountA, amountBMin, build)
         else:
-            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+            tx = await self.token_to_token(amountA, amountBMin, build)
 
         tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
-    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
-        # maxPriorityFee, maxFee = self.updateTxParameters()
-        # self.w3.eth.set_gas_price_strategy(medium_gas_price_strategy)
+    async def token_to_token(self, amountA, amountBMin, build):
 
         tx = await self.routerContract.functions.swapExactTokensForTokens(
             amountA, amountBMin, self.path, self.account, self.deadline
-        ).build_transaction(
-            {
-                "from": self.account,
-                "nonce": self.nonce,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 
-    async def eth_to_token(self, amountA, tokenBaddress, amountBMin):
+    async def eth_to_token(self, amountA, amountBMin, build):
+
+        build["value"] = amountA
+
         tx = await self.routerContract.functions.swapExactETHForTokens(
             amountBMin, self.path, self.account, self.deadline
-        ).build_transaction(
-            {
-                "from": self.account,
-                # "gasPrice" : self.w3.toHex(25000000000),
-                "nonce": self.nonce,
-                "value": amountA,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 
-    async def token_to_eth(self, tokenAaddress, amountA, amountBMin):
+    async def token_to_eth(self, amountA, amountBMin, build):
         tx = await self.routerContract.functions.swapExactTokensForETH(
             amountA, amountBMin, self.path, self.account, self.deadline
-        ).build_transaction(
-            {
-                "from": self.account,
-                # "gasPrice" : self.w3.toHex(25000000000),
-                "nonce": self.nonce,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 

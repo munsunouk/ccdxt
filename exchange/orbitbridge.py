@@ -44,6 +44,7 @@ class Orbitbridge(Exchange):
         # market info
         self.id = 3
         # self.chainName = "ORBIT"
+        self.chainName = "MATIC"
         self.exchangeName = "orbitbridge"
         self.addNounce = 0
         self.retries = config["retries"]
@@ -55,7 +56,7 @@ class Orbitbridge(Exchange):
         self.api_url = config["api_url"]
 
         # self.load_bridge(self.exchangeName)
-        self.set_logger(self.log)
+        # self.set_logger(self.log)
 
     @retry
     async def create_bridge(
@@ -92,7 +93,8 @@ class Orbitbridge(Exchange):
         }
         """
 
-        self.load_exchange(fromChain, self.exchangeName)
+        await self.load_bridge(self.exchangeName)
+        await self.load_exchange(fromChain, self.exchangeName)
 
         token = self.tokens[from_tokenSymbol]
 
@@ -103,15 +105,41 @@ class Orbitbridge(Exchange):
         ]
 
         self.tokenSymbol = from_tokenSymbol
+
         self.fromChain = fromChain
+        self.chainName = fromChain
         self.toChain = toChain
         self.amount = amount
+
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
 
         token["MinimumBridge"] = 0
 
         base_token = self.tokens[self.chains["baseCurrency"]]
 
         self.require(fromChain == toChain, ValueError("Same Chain"))
+
+        amount = self.from_value(value=amount, exp=int(token["decimals"]))
+
+        if "fee" in kwargs:
+            fee = kwargs["fee"]
+
+        else:
+            fee = 0
+
+        tokenAddress = self.set_checksum(token["contract"])
+        self.account = self.set_checksum(self.account)
+        self.toAddrress = self.set_checksum(toAddr)
+
+        bridgeAddress = self.set_checksum(self.bridge["bridgeAddress"])
+
+        bridgeAddress = self.set_checksum(bridgeAddress)
+
+        build = {
+            "from": self.account,
+            "nonce": self.nonce,
+        }
 
         if (fromChain == "KLAYTN") & (toChain == "MATIC"):
 
@@ -120,6 +148,10 @@ class Orbitbridge(Exchange):
         elif (fromChain == "MATIC") & (toChain == "KLAYTN"):
 
             token["additionalGasFee"] = 0.1
+            self.maxPriorityFee, self.maxFee = await self.updateTxParameters()
+
+            build["maxPriorityFeePerGas"] = int(self.maxPriorityFee)
+            build["maxFeePerGas"] = int(self.maxFee)
 
         if "additionalGasFee" in token:
             baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
@@ -139,45 +171,39 @@ class Orbitbridge(Exchange):
                 value=self.additionalGasFee, exp=int(base_token["decimals"])
             )
 
-        amount = self.from_value(value=amount, exp=int(token["decimals"]))
-
-        if "fee" in kwargs:
-            fee = kwargs["fee"]
-
-        else:
-            fee = 0
-
-        tokenAddress = self.set_checksum(token["contract"])
-        self.account = self.set_checksum(self.account)
-        self.toAddrress = self.set_checksum(toAddr)
-
-        bridgeAddress = self.set_checksum(self.bridge["bridgeAddress"])
-
-        bridgeAddress = self.set_checksum(bridgeAddress)
-
         await self.check_approve(
-            amount=amount, token=tokenAddress, account=self.account, router=bridgeAddress
+            amount=amount,
+            token=tokenAddress,
+            account=self.account,
+            router=bridgeAddress,
+            build=build,
         )
+
+        build["value"] = self.additionalGasFee
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
+
+        build["nonce"] = self.nonce
 
         self.routerContract = await self.get_contract(bridgeAddress, self.bridge["bridgeAbi"])
 
         if token["bridge"] == "Vault":
 
-            tx = await self._depositToken(tokenAddress, toChain, self.toAddrress, amount)
+            tx = await self._depositToken(
+                tokenAddress, toChain, self.toAddrress, amount, build=build
+            )
 
         elif token["bridge"] == "Minter":
 
-            tx = await self._requestSwap(tokenAddress, toChain, self.toAddrress, amount)
+            tx = await self._requestSwap(
+                tokenAddress, toChain, self.toAddrress, amount, build=build
+            )
 
         tx_receipt = await self.fetch_transaction(tx, round="BRIDGE", api=token["bridge"])
 
-        self.load_exchange(toChain, self.exchangeName)
-
         time_spend, amount = await self.check_bridge_completed(
-            to_tokenSymbol, self.toAddrress, fee=fee
+            toChain, to_tokenSymbol, self.toAddrress, fee=fee
         )
 
         return tx_receipt
@@ -210,60 +236,52 @@ class Orbitbridge(Exchange):
         toChain: str,
         toAddr: ChecksumAddress,
         amount: int,
+        build: dict,
         destinationTag: ChecksumAddress = None,
     ):
+
         if destinationTag:
             tx = await self.routerContract.functions.requestSwap(
                 tokenAddress, toChain, toAddr, amount, destinationTag
-            ).build_transaction(
-                {
-                    "from": self.account,
-                    "nonce": self.nonce,
-                    "value": self.additionalGasFee,
-                }
-            )
+            ).build_transaction(build)
 
-        elif self.additionalGasFee:
+        # elif self.additionalGasFee:
 
-            tx = await self.routerContract.functions.requestSwap(
-                tokenAddress, toChain, toAddr, amount
-            ).build_transaction(
-                {
-                    "from": self.account,
-                    "nonce": self.nonce,
-                    "value": self.additionalGasFee,
-                }
-            )
+        #     tx = await self.routerContract.functions.requestSwap(
+        #         tokenAddress, toChain, toAddr, amount
+        #     ).build_transaction(
+        #         build
+        #     )
 
         else:
+
             tx = await self.routerContract.functions.requestSwap(
                 tokenAddress, toChain, toAddr, amount
-            ).build_transaction(
-                {
-                    "from": self.account,
-                    "nonce": self.nonce,
-                }
-            )
+            ).build_transaction(build)
 
         return tx
 
     async def _depositToken(
-        self, tokenAddress: ChecksumAddress, toChain: str, toAddr: ChecksumAddress, amount: int
+        self,
+        tokenAddress: ChecksumAddress,
+        toChain: str,
+        toAddr: ChecksumAddress,
+        amount: int,
+        build: dict,
     ):
 
         tx = await self.routerContract.functions["depositToken"](
             tokenAddress, toChain, toAddr, amount
-        ).build_transaction(
-            {
-                "from": self.account,
-                "nonce": self.nonce,
-                "value": self.additionalGasFee,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 
-    async def check_bridge_completed(self, tokenSymbol, toAddr, *args, **kwargs):
+    @retry
+    async def check_bridge_completed(self, toChain, tokenSymbol, toAddr, *args, **kwargs):
+
+        await self.load_bridge(self.exchangeName)
+        await self.load_exchange(toChain, self.exchangeName)
+
         start_bridge = datetime.datetime.now()
 
         start_time = datetime.datetime.now()
@@ -303,13 +321,13 @@ class Orbitbridge(Exchange):
 
         self.account = current_account
 
-        balance = self.from_value(current_balance["balance"], self.decimals(tokenSymbol))
+        balance = self.from_value(current_balance["balance"], await self.decimals(tokenSymbol))
 
         return time_spend, balance
 
-    def decode(self, tokenSymbol, fromChain, tx_hash):
-        self.load_bridge(self.exchangeName)
-        self.load_exchange(fromChain, self.exchangeName)
+    async def decode(self, tokenSymbol, fromChain, tx_hash):
+        await self.load_bridge(self.exchangeName)
+        await self.load_exchange(fromChain, self.exchangeName)
 
         token = self.tokens[tokenSymbol]
 
@@ -329,7 +347,7 @@ class Orbitbridge(Exchange):
 
         bridge = routerContract.events["Transfer"]()
 
-        result = bridge.processReceipt(tx_hash)
+        result = bridge.process_receipt(tx_hash)
 
         # result = result[1]
         # result = deposit.processReceipt(tx_hash,errors=DISCARD)

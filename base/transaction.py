@@ -460,8 +460,8 @@ class Transaction(object):
         else:
             transaction = await self.w3.eth.get_transaction(self.tx_hash)
 
-            function, input_args = await self.routerContract.decode_function_input(
-                transaction.input
+            function, input_args = self.routerContract.decode_function_input(
+                transaction["input"]
                 # self.get_transaction_data_field(tx)
             )
 

@@ -54,6 +54,9 @@ class Klayswap(Exchange):
 
     # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
+
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
         pool = await self.get_pool(tokenAsymbol, tokenBsymbol)
@@ -73,7 +76,7 @@ class Klayswap(Exchange):
 
         return result
 
-    # @retry
+    @retry
     async def create_swap(
         self, amountA, tokenAsymbol, amountBMin, tokenBsymbol, path=None, *args, **kwargs
     ):
@@ -102,6 +105,8 @@ class Klayswap(Exchange):
         }
         """
 
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
 
@@ -125,50 +130,57 @@ class Klayswap(Exchange):
         self.account = self.set_checksum(self.account)
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
-        self.check_approve(
-            amount=amountA, token=tokenAaddress, account=self.account, router=routerAddress
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
+        build = {
+            "from": self.account,
+            "gas": 4000000,
+            "nonce": self.nonce,
+        }
+
+        await self.check_approve(
+            amount=amountA,
+            token=tokenAaddress,
+            account=self.account,
+            router=routerAddress,
+            build=build,
         )
 
-        self.routerContract = self.get_contract(routerAddress, self.markets["routerAbi"])
+        self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"])
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
 
+        build["nonce"] = self.nonce
+
         if tokenAsymbol == self.baseCurrency:
-            tx = await self.eth_to_token(amountA, tokenBaddress, amountBMin)
+            tx = await self.eth_to_token(amountA, tokenBaddress, amountBMin, build)
         # elif tokenBsymbol == self.baseCurrency:
         #     tx = self.token_to_eth(tokenAaddress, amountA)
         else:
-            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin)
+            tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin, build)
+
+        # return "suceess"
 
         tx_receipt = await self.fetch_transaction(tx, "SWAP")
 
         return tx_receipt
 
-    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin):
+    async def token_to_token(self, tokenAaddress, amountA, tokenBaddress, amountBMin, build):
         tx = await self.routerContract.functions.exchangeKctPos(
             tokenAaddress, amountA, tokenBaddress, amountBMin, self.path
-        ).build_transaction(
-            {
-                "from": self.account,
-                "gas": 4000000,
-                "nonce": self.nonce,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 
-    async def eth_to_token(self, amountA, tokenBaddress, amountBMin):
+    async def eth_to_token(self, amountA, tokenBaddress, amountBMin, build):
+
+        build["value"] = amountA
+
         tx = await self.routerContract.functions.exchangeKlayPos(
             tokenBaddress, amountBMin, self.path
-        ).build_transaction(
-            {
-                "value": amountA,
-                "from": self.account,
-                "gas": 4000000,
-                "nonce": self.nonce,
-            }
-        )
+        ).build_transaction(build)
 
         return tx
 
@@ -210,12 +222,12 @@ class Klayswap(Exchange):
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
 
-        factoryContract = self.get_contract(pool, self.markets["factoryAbi"])
+        factoryContract = await self.get_contract(pool, self.markets["factoryAbi"])
 
         tokenA = factoryContract.functions.tokenA().call()
 
-        routerContract = self.get_contract(pool, self.markets["routerAbi"])
-        reserves = routerContract.functions.getCurrentPool().call()
+        routerContract = await self.get_contract(pool, self.markets["routerAbi"])
+        reserves = await routerContract.functions.getCurrentPool().call()
 
         if tokenA != tokenAaddress:
             reservesA = self.to_value(reserves[1], await self.decimals(tokenAsymbol))

@@ -4,7 +4,6 @@ from functools import wraps
 import asyncio
 import time
 
-
 from ccdxt.base.utils.errors import (
     TransactionNotFound,
     ReplacementTransactionUnderpriced,
@@ -23,6 +22,7 @@ from ccdxt.base.utils.errors import (
 from web3.exceptions import BadResponseFormat
 from web3._utils.threads import Timeout
 from requests.exceptions import HTTPError, ReadTimeout, ProxyError, SSLError, ConnectTimeout
+from aiohttp.client_exceptions import ServerDisconnectedError, ClientResponseError
 
 
 def retry_normal(func):
@@ -69,21 +69,22 @@ def retry(func):
 
     @wraps(func)
     async def wrapper(self, *args, **kwargs):
-        for i in range(self.retries):
-            if i == 0:
-                self.addNounce = i
+        for i in range(self.total_node):
 
-            if i > 0:
+            if i > 2:
                 self.logger.warning("{} - Attempt {}".format(func.__name__, i))
-                self.addNounce = i
-                time.sleep(self.retriesTime)
+                # self.addNounce = i
+                # time.sleep(self.retriesTime)
 
             try:
                 return await func(self, *args, **kwargs)
 
             except ReplacementTransactionUnderpriced as e:
-                self.logger.error(f"addNounce : {self.addNounce}")
-                self.addNounce += 1
+                # await self.load_exchange(self.chainName, self.exchangeName)
+                self.host = self.host + 1 % self.total_node
+                self.addNounce = i
+                self.logger.warning(e)
+                # await asyncio.sleep(10)
                 pass
 
             except (
@@ -96,12 +97,17 @@ def retry(func):
                 HTTPError,
                 BadResponseFormat,
                 Timeout,
+                ServerDisconnectedError,
+                ClientResponseError,
             ) as e:
                 self.logger.warning(e)
-                self.host = self.host + 1 % self.total_node
-                self.load_exchange(self.chainName, self.exchangeName)
-                time.sleep(60)
+
+                # await self.load_exchange(self.chainName, self.exchangeName)
+                self.host = (self.host + 1) % self.total_node
+                # await asyncio.sleep(10)
                 pass
+
+                print("end retry")
 
             except ValueError as e:
                 self.logger.warning(e)
@@ -110,9 +116,10 @@ def retry(func):
                 return None
 
             except Exception as e:
-                self.logger.exception(e)
-                self.host = self.host + 1 % self.total_node
-                self.logger.error(f"params :{args}, {kwargs}")
+                self.logger.warning(e)
+                # await self.load_exchange(self.chainName, self.exchangeName)
+                self.host = (self.host + 1) % self.total_node
+                # await asyncio.sleep(10)
                 pass
 
         raise TooManyTriesException(func)

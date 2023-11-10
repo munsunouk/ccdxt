@@ -1352,7 +1352,7 @@
     "symbol": "mORC",
     "contract": "0x12c9FFE6538f20A982FD4D17912f0ca00fA82D30",
     "decimals": 18,
-    "bridge": "Vault",
+    "bridge": "Minter",
     "chain": "ETH"
   },
   "mUSDC": {
@@ -3019,7 +3019,7 @@
     "symbol": "mXDT",
     "contract": "0xBC493Cad080A13474A374FC351191BfF12E04E4b",
     "decimals": 18,
-    "bridge": "Vault",
+    "bridge": "Minter",
     "chain": "ETH"
   },
   "CBANK": {

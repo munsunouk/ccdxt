@@ -283,7 +283,7 @@ class Exchange(Transaction):
         return result
 
     async def create_transfer(self, amount, tokenSymbol, fromChain, toAddr):
-        self.load_exchange(fromChain)
+        await self.load_exchange(fromChain)
 
         token = self.tokens[tokenSymbol]
         self.tokenSymbol = tokenSymbol
@@ -828,7 +828,7 @@ class Exchange(Transaction):
         return await self.w3.eth.syncing
 
     async def check_approve(
-        self, amount: int, token: str, account: str, router: str, *args, **kwargs
+        self, amount: int, token: str, account: str, router: str, build: dict, *args, **kwargs
     ):
         """
         Info
@@ -866,7 +866,7 @@ class Exchange(Transaction):
             approve_amount = self.unlimit
 
         if approvedTokens < amount:
-            tx = await self.get_approve(token, router, account, approve_amount)
+            tx = await self.get_approve(token, router, account, approve_amount, build)
 
             tx_receipt = await self.fetch_transaction(tx, round="CHECK")
             return tx_receipt
@@ -874,17 +874,10 @@ class Exchange(Transaction):
         else:
             return
 
-    async def get_approve(self, token: str, router: str, account: str, approvedTokens: int):
+    async def get_approve(self, token: str, router: str, account: str, approvedTokens: int, build):
         contract = await self.get_contract(token, self.chains["chainAbi"])
 
-        nonce = await self.get_TransactionCount(account)
-
-        tx = await contract.functions.approve(router, approvedTokens).build_transaction(
-            {
-                "from": account,
-                "nonce": nonce,
-            }
-        )
+        tx = await contract.functions.approve(router, approvedTokens).build_transaction(build)
 
         return tx
 
@@ -955,7 +948,7 @@ class Exchange(Transaction):
 
         return txDict
 
-    def get_node(self, host, chainName):
+    async def get_node(self, host, chainName):
         """
         Info
         ----
@@ -984,6 +977,10 @@ class Exchange(Transaction):
 
             self.total_node = len(nodeDict[chainName])
 
+            if host >= len(nodeDict[chainName]):
+
+                host = 0
+
             node = nodeDict[chainName][host]
 
         else:
@@ -1009,7 +1006,7 @@ class Exchange(Transaction):
 
         else:
 
-            self.exchange_node = self.get_node(self.host, chainName)
+            self.exchange_node = await self.get_node(self.host, chainName)
 
             # self.w3 = self.set_network(self.exchange_node)
             self.w3 = self.set_async_network(self.exchange_node)

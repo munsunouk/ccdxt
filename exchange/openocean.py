@@ -70,6 +70,8 @@ class Openocean(Exchange):
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, **kwargs):
         # time.sleep(self.sleep)
 
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         if not self.gasPrice:
             self.gasPrice = await self.get_gasPrice()
 
@@ -167,6 +169,8 @@ class Openocean(Exchange):
 
         # time.sleep(self.sleep)
 
+        await self.load_exchange(self.chainName, self.exchangeName)
+
         if (path != None) and (len(path) > 2):
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path[1:-1]]
 
@@ -203,8 +207,31 @@ class Openocean(Exchange):
 
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
+        current_nonce = await self.w3.eth.get_transaction_count(self.account)
+        self.nonce = current_nonce + self.addNounce
+
+        build = {
+            "from": self.account,
+            "nonce": self.nonce,
+        }
+
+        if self.chainName == "KLAY":
+
+            pass
+
+        elif self.chainName == "MATIC":
+
+            self.maxPriorityFee, self.maxFee = await self.updateTxParameters()
+
+            build["maxPriorityFeePerGas"] = int(self.maxPriorityFee)
+            build["maxFeePerGas"] = int(self.maxFee)
+
         await self.check_approve(
-            amount=amountA, token=tokenAaddress, account=accountAddress, router=routerAddress
+            amount=amountA,
+            token=tokenAaddress,
+            account=accountAddress,
+            router=routerAddress,
+            build=build,
         )
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)

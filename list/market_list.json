@@ -41,7 +41,7 @@
     "token_pass": true,
     "bridgeAddress": {
       "ETH_Vault": "0x6BD8E3beEC87176BA9c705c9507Aa5e6F0E6706f",
-      "ETH_Minter": "0x60070f5d2e1c1001400a04f152e7abd43410f7b9",
+      "ETH_Minter": "0x6BD8E3beEC87176BA9c705c9507Aa5e6F0E6706f",
       "TON_Minter": "0x58a42330c0984babd5dec2c943eaa345b7f41e44",
       "KLAYTN_Vault": "0x9abc3f6c11dbd83234d6e6b2c373dfc1893f648d",
       "MATIC_Vault": "0x506dc4c6408813948470a06ef6e4a1daf228dbd5",
