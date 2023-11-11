@@ -76,7 +76,7 @@ class Meshswap(Exchange):
 
         self.pathName = path
 
-        self.require(amountA <= amountBMin, ValueError("amountA is Less then amountBMin"))
+        # self.require(amountA <= amountBMin, ValueError("amountA is Less then amountBMin"))
         self.require(tokenAsymbol == tokenBsymbol, ValueError("Same Symbol"))
 
         self.tokenSymbol = tokenAsymbol
@@ -86,7 +86,9 @@ class Meshswap(Exchange):
         tokenB = self.tokens[tokenBsymbol]
 
         amountA = self.from_value(value=amountA, exp=await self.decimals(tokenAsymbol))
-        amountBMin = self.from_value(value=amountBMin, exp=await self.decimals(tokenBsymbol))
+        # amountBMin = self.from_value(value=amountBMin, exp=await self.decimals(tokenBsymbol))
+
+        amountBMin = 1
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])

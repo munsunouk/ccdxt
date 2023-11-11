@@ -1271,7 +1271,9 @@
     "name": "Orbit Bridge Polygon Klay",
     "symbol": "mKLAY",
     "contract": "0x0A02D33031917d836Bd7Af02F9f7F6c74d67805F",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
   },
   "kMATIC": {
     "name": "kMATIC",

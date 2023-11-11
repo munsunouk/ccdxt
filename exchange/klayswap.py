@@ -117,13 +117,14 @@ class Klayswap(Exchange):
         self.tokenBsymbol = tokenBsymbol
         self.amount = amountA
 
-        self.require(amountA <= amountBMin, ValueError("amountA is Less then amountBMin"))
+        # self.require(amountA <= amountBMin, ValueError("amountA is Less then amountBMin"))
         self.require(tokenAsymbol == tokenBsymbol, ValueError("Same Symbol"))
 
         tokenA = self.tokens[tokenAsymbol]
         tokenB = self.tokens[tokenBsymbol]
         amountA = self.from_value(value=amountA, exp=int(tokenA["decimals"]))
-        amountBMin = self.from_value(value=amountBMin, exp=int(tokenB["decimals"]))
+        # amountBMin = self.from_value(value=amountBMin, exp=int(tokenB["decimals"]))
+        amountBMin = 1
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])

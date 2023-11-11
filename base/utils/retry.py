@@ -69,21 +69,21 @@ def retry(func):
 
     @wraps(func)
     async def wrapper(self, *args, **kwargs):
-        for i in range(self.total_node):
+        for i in range(10):
 
             if i > 2:
-                self.logger.warning("{} - Attempt {}".format(func.__name__, i))
+                self.logger.exception("{} - Attempt {}".format(func.__name__, i))
                 # self.addNounce = i
                 # time.sleep(self.retriesTime)
 
             try:
                 return await func(self, *args, **kwargs)
 
-            except ReplacementTransactionUnderpriced as e:
+            except (ReplacementTransactionUnderpriced, ValueError) as e:
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = self.host + 1 % self.total_node
                 self.addNounce = i
-                self.logger.warning(e)
+                self.logger.exception(e)
                 # await asyncio.sleep(10)
                 pass
 
@@ -100,23 +100,21 @@ def retry(func):
                 ServerDisconnectedError,
                 ClientResponseError,
             ) as e:
-                self.logger.warning(e)
+                self.logger.exception(e)
 
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = (self.host + 1) % self.total_node
                 # await asyncio.sleep(10)
                 pass
 
-                print("end retry")
-
-            except ValueError as e:
-                self.logger.warning(e)
+            # except ValueError as e:
+            #     self.logger.exception(e)
 
             except TransactionDisallowed as e:
                 return None
 
             except Exception as e:
-                self.logger.warning(e)
+                self.logger.exception(e)
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = (self.host + 1) % self.total_node
                 # await asyncio.sleep(10)
