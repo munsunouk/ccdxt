@@ -71,9 +71,7 @@
     "contract": "0xceE8FAF64bB97a73bb51E115Aa89C17FfA8dD167",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH",
-    "additionalGasFee": 20,
-    "MinimumBridge": 0
+    "chain": "ETH_KLAYTN"
   },
   "KWBTC": {
     "name": "KWBTC",
@@ -133,7 +131,7 @@
     "contract": "0xFe41102f325dEaa9F303fDd9484Eb5911a7BA557",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_KLAYTN"
   },
   "KDUCATO": {
     "name": "Orbit Bridge Klaytn DUCATO Protocol Token",
@@ -303,7 +301,7 @@
     "contract": "0x754288077D0fF82AF7a5317C7CB8c444D421d103",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_KLAYTN"
   },
   "BYPE": {
     "name": "BYPE",
@@ -1225,7 +1223,7 @@
     "contract": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_MATIC"
   },
   "USDC": {
     "name": "USD Coin",
@@ -1233,7 +1231,7 @@
     "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_MATIC"
   },
   "KETHW": {
     "name": "KETHW",
@@ -1331,7 +1329,7 @@
     "contract": "0xaeeca95c899660dc74886168d0ffdebf3669179d",
     "decimals": "18",
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_KLAYTN"
   },
   "GHUB": {
     "name": "GemHUB",
@@ -1355,7 +1353,7 @@
     "contract": "0x12c9FFE6538f20A982FD4D17912f0ca00fA82D30",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_MATIC"
   },
   "mUSDC": {
     "name": "Orbit Bridge Polygon USD Coin",
@@ -1363,7 +1361,7 @@
     "contract": "0x5bEF2617eCCA9a39924c09017c5F1E25Efbb3bA8",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_MATIC"
   },
   "WETH": {
     "name": "Wrapped Ether",
@@ -1375,7 +1373,9 @@
     "name": "Orbit Bridge Polygon Wrapped BTC",
     "symbol": "mWBTC",
     "contract": "0xE631FfAA2cF4d91aac3E9589a5d5B390C82A032E",
-    "decimals": 8
+    "decimals": 8,
+    "bridge": "Minter",
+    "chain": "ETH_MATIC"
   },
   "wMATIC": {
     "name": "Wrapped Matic",
@@ -1411,7 +1411,9 @@
     "name": "Orbit Bridge Klaytn Wrapped BTC",
     "symbol": "kWBTC",
     "contract": "0x16D0e1fBD024c600Ca0380A4C5D57Ee7a2eCBf9c",
-    "decimals": 8
+    "decimals": 8,
+    "bridge": "Minter",
+    "chain": "ETH_KLAYTN"
   },
   "HINT": {
     "name": "HINT Token",
@@ -1749,13 +1751,17 @@
     "name": "Empower Token",
     "symbol": "kMPWR",
     "contract": "0xad27ace6f0f6cef2c192a3c8f0f3fa2611154eb3",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "mMPWR": {
     "name": "Empower Token",
     "symbol": "mMPWR",
     "contract": "0x47C52F93A359dB9F4509005CF982DFc440790561",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
   },
   "kBNB": {
     "name": "Orbit Bridge Klaytn Binance Coin",
@@ -2835,7 +2841,7 @@
     "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH",
+    "chain": "ETH_MATIC",
     "MinimumBridge": 0
   },
   "USDT.p": {
@@ -3022,7 +3028,7 @@
     "contract": "0xBC493Cad080A13474A374FC351191BfF12E04E4b",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "ETH"
+    "chain": "ETH_MATIC"
   },
   "CBANK": {
     "name": "CRYPTO BANK",

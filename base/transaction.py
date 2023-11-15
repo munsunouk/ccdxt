@@ -22,6 +22,7 @@ import logging
 import time
 from typing import Optional, Union, Dict, Any
 from ccdxt.base.utils.retry import retry_normal, retry
+import asyncio
 
 # from pytz import timezone
 
@@ -88,6 +89,7 @@ class Transaction(object):
             elif error["message"].startswith("there is another tx"):
                 return ReplacementTransactionUnderpriced
 
+    @retry
     async def fetch_transaction(self, tx, round=None, api=None, *args, **kwargs):
         """
         Info
@@ -132,14 +134,16 @@ class Transaction(object):
 
         tokenBalance = await self.partial_balance(self.tokenSymbol)
         baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
-        gas = await self.w3.eth.estimate_gas(tx)
+        # gas = await self.get_gas(tx)
 
-        self.gas_fee = self.to_value(
-            value=int(int(gas) * self.gas_price),
-            exp=await self.decimals(self.chains["baseCurrency"]),
-        )
+        # self.gas_fee = self.to_value(
+        #     value=int(int(gas) * self.gas_price),
+        #     exp=await self.decimals(self.chains["baseCurrency"]),
+        # )
 
         # self.require(self.check_sync() == True, NetworkError("Network sync fail"))
+
+        self.gas_fee = 0
 
         if round == "ADD":
             pass
@@ -165,7 +169,7 @@ class Transaction(object):
         signed_tx = self.w3.eth.account.sign_transaction(tx, self.privateKey)
 
         try:
-            self.tx_hash = await self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            self.tx_hash = await self.send_transaction(signed_tx)
             tx_receipt = await self.get_tx_receipt()
         except ValueError as e:
             action = self.inspect_client_error(e)
@@ -180,6 +184,10 @@ class Transaction(object):
                 )
             elif action == UnknownTransaction:
                 raise UnknownTransaction("maybe invalid unit price")
+            elif action == TransactionPending:
+                asyncio.sleep(10)
+                tx_receipt = await self.get_tx_receipt()
+
         except Timeout:
             if hasattr(self, "get_transaction"):
                 function = getattr(self, "get_transaction")
@@ -189,7 +197,9 @@ class Transaction(object):
 
         # self.tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 
-        tx_receipt = await self.get_tx_receipt()
+        if not tx_receipt:
+
+            raise UnknownTransaction("No tx_receipt found")
 
         if tx_receipt["status"] != 1:
             return await self.fetch_trade_fail(self.tx_hash)
@@ -642,6 +652,16 @@ class Transaction(object):
             return tx["data"]
         else:
             return tx["input"]
+
+    # @retry
+    async def get_gas(self, tx):
+
+        return await self.w3.eth.estimate_gas(tx)
+
+    # @retry
+    async def send_transaction(self, signed_tx):
+
+        return await self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 
     @retry
     async def get_tx_receipt(self):

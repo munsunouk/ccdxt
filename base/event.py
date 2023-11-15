@@ -160,6 +160,7 @@ class Event:
             bridge = routerContract.events[bridgeDict[bridgeName][kwargs["version"]]["event"][1]]()
             events = bridge.process_receipt(tx_receipt, errors=DISCARD)
             amount_in_params = bridgeDict[bridgeName][kwargs["version"]]["amount0_in"]
+
             amount0_in = max(
                 [
                     events[bridgeDict[bridgeName][kwargs["version"]]["event"][0]]["args"][param]

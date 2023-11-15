@@ -90,6 +90,8 @@ class Meshswap(Exchange):
 
         amountBMin = 1
 
+        print("swap_params", (amountA, amountBMin))
+
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
         self.account = self.set_checksum(self.account)
@@ -142,6 +144,8 @@ class Meshswap(Exchange):
         return tx_receipt
 
     async def token_to_token(self, amountA, amountBMin, build):
+
+        print("swap", (amountA, amountBMin, self.path, self.account, self.deadline))
 
         tx = await self.routerContract.functions.swapExactTokensForTokens(
             amountA, amountBMin, self.path, self.account, self.deadline

@@ -173,6 +173,7 @@ class Exchange(Transaction):
 
         return full_site
 
+    @retry
     async def create_request(self, base_url, params={}, *args, **kwargs):
         requst_args = ""
         requst_kwargs = ""

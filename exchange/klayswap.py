@@ -162,7 +162,8 @@ class Klayswap(Exchange):
         else:
             tx = await self.token_to_token(tokenAaddress, amountA, tokenBaddress, amountBMin, build)
 
-        # return "suceess"
+        # gas = await self.w3.eth.estimate_gas(tx)
+        # tx["gas"] = gas
 
         tx_receipt = await self.fetch_transaction(tx, "SWAP")
 

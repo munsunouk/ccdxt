@@ -6,6 +6,7 @@ from ..base.utils.errors import (
     InsufficientBalance,
 )
 from web3.exceptions import BadResponseFormat
+from web3.logs import DISCARD
 from ..base.utils.retry import retry
 
 # from ..base.utils.validation import *
@@ -154,8 +155,13 @@ class Orbitbridge(Exchange):
             build["maxFeePerGas"] = int(self.maxFee)
 
         if "additionalGasFee" in token:
+
+            print("baseCurrency:", self.chains["baseCurrency"])
+            print("from_tokenSymbol : ", from_tokenSymbol)
+
             baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
             tokenBalance = await self.partial_balance(from_tokenSymbol)
+
             self.additionalGasFee = token["additionalGasFee"]
 
             self.require(
@@ -308,8 +314,8 @@ class Orbitbridge(Exchange):
                     (current_balance["balance"] - start_balance["balance"])
                     >= ((self.amount - fee) / 2)
                 )
-                or (current_balance["balance"] >= ((self.amount - fee) / 2))
-                or (current_time - start_time).seconds > self.timeOut
+                or (current_balance["balance"] >= (self.amount - fee))
+                # or (current_time - start_time).seconds > self.timeOut
             ):
                 break
 
@@ -331,23 +337,27 @@ class Orbitbridge(Exchange):
 
         token = self.tokens[tokenSymbol]
 
-        bridgeAddress = self.bridge["type"][token["bridge"]]["bridgeAddress"][token["chain"]][
-            fromChain
+        self.bridge["bridgeAbi"] = self.bridge["bridgeAbi"][token["bridge"]]
+
+        self.bridge["bridgeAddress"] = self.bridge["bridgeAddress"][
+            f"{token['chain']}_{token['bridge']}"
         ]
+
+        bridgeAddress = self.set_checksum(self.bridge["bridgeAddress"])
 
         bridgeAddress = self.set_checksum(bridgeAddress)
 
-        routerContract = self.get_contract(
-            bridgeAddress, self.bridge["type"]["Minter"]["bridgeAbi"]
-        )
+        routerContract = await self.get_contract(bridgeAddress, self.bridge["bridgeAbi"])
 
-        transaction = self.w3.eth.get_transaction(tx_hash)
+        transaction = await self.w3.eth.get_transaction(tx_hash)
 
-        result = routerContract.decode_function_input(transaction.input)
+        # result = routerContract.decode_function_input(transaction["input"])
 
         bridge = routerContract.events["Transfer"]()
 
-        result = bridge.process_receipt(tx_hash)
+        result = bridge.process_log(tx_hash)
+
+        # result = bridge.process_receipt(transaction, errors=DISCARD)
 
         # result = result[1]
         # result = deposit.processReceipt(tx_hash,errors=DISCARD)
