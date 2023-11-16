@@ -73,7 +73,7 @@ class Openocean(Exchange):
         await self.load_exchange(self.chainName, self.exchangeName)
 
         if not self.gasPrice:
-            self.gasPrice = await self.get_gasPrice()
+            self.gasPrice = await self.get_matic_gasPrice()
 
         amountIn = amountAin
 
@@ -179,7 +179,7 @@ class Openocean(Exchange):
 
         # if not self.gasPrice :
 
-        #     self.gasPrice = self.get_gasPrice()
+        #     self.gasPrice = self.get_matic_gasPrice()
 
         self.tokenSymbol = tokenAsymbol
         self.tokenBsymbol = tokenBsymbol
@@ -252,11 +252,11 @@ class Openocean(Exchange):
                 self.gasPrice = kwargs["gasPrice"]
 
             else:
-                self.gasPrice = await self.get_gasPrice()
+                self.gasPrice = await self.get_matic_gasPrice()
 
         else:
             slippage = 50
-            self.gasPrice = await self.get_gasPrice()
+            self.gasPrice = await self.get_matic_gasPrice()
 
         tx = await self.token_to_token(
             tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress, slippage
@@ -383,7 +383,7 @@ class Openocean(Exchange):
             "v2",
         )
 
-        return int(gas["standard"]["maxFee"] * 10**9)
+        return int(gas["standard"] * 10**9)
 
     # async def get_gasPrice(self):
     #     if self.proxy:
