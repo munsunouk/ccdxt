@@ -376,31 +376,40 @@ class Openocean(Exchange):
 
         return time_spend, balance
 
-    async def get_gasPrice(self):
-        if self.proxy:
-            fast_gas = await self.create_request(
-                "https://ethapi.openocean.finance/",
-                {},
-                "v2",
-                f"{self.chains['mainnet']['chain_id']}",
-                "gas-price",
-                proxy=self.proxy,
-            )
+    async def get_matic_gasPrice(self):
 
-            fast_gas = fast_gas["fast"]
+        gas = await self.create_request(
+            "https://gasstation.polygon.technology/",
+            "v2",
+        )
 
-        else:
-            fast_gas = await self.create_request(
-                "https://ethapi.openocean.finance/",
-                {},
-                "v2",
-                f"{self.chains['mainnet']['chain_id']}",
-                "gas-price",
-            )
+        return int(gas["standard"]["maxFee"] * 10**9)
 
-            fast_gas = fast_gas["fast"]
+    # async def get_gasPrice(self):
+    #     if self.proxy:
+    #         fast_gas = await self.create_request(
+    #             "https://ethapi.openocean.finance/",
+    #             {},
+    #             "v2",
+    #             f"{self.chains['mainnet']['chain_id']}",
+    #             "gas-price",
+    #             proxy=self.proxy,
+    #         )
 
-        return int(fast_gas)
+    #         fast_gas = fast_gas["fast"]
+
+    #     else:
+    #         fast_gas = await self.create_request(
+    #             "https://ethapi.openocean.finance/",
+    #             {},
+    #             "v2",
+    #             f"{self.chains['mainnet']['chain_id']}",
+    #             "gas-price",
+    #         )
+
+    #         fast_gas = fast_gas["fast"]
+
+    #     return int(fast_gas)
 
     def get_transaction(self, tx_hash):
         r = requests.get(
