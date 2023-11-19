@@ -5,16 +5,13 @@
     "symbol": "KSP",
     "fee": 0.3,
     "factoryAbi": "klayswap_factory_abi.json",
-    "routerAbi": ["klayswap_router_abi.json", "klayswap_router_v3_abi.json"],
+    "routerAbi": "klayswap_router_abi.json",
     "pool_pass": false,
     "token_pass": false,
     "baseChain": {
       "KLAYTN": {
         "factoryAddress": "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
-        "routerAddress": [
-          "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
-          "0xe0fbb27d0e7f3a397a67a9d4864d4f4dd7cf8cb9"
-        ]
+        "routerAddress": "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654"
       }
     },
     "info": "https://klayswap.com/"
