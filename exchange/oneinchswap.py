@@ -98,6 +98,7 @@ class Oneinchswap(Exchange):
             if self.markets["version"] == 5.0:
 
                 version = 5.2
+                params["includeGas"] = "true"
 
             else:
 
@@ -122,8 +123,20 @@ class Oneinchswap(Exchange):
                     "quote",
                 )
 
+            print(quote_result)
+
+            if version == 5.2:
+
+                ask = "toAmount"
+                gas = "gas"
+
+            else:
+
+                ask = "toTokenAmount"
+                gas = "estimatedGas"
+
             amountout = self.to_value(
-                value=quote_result["toTokenAmount"], exp=await self.decimals(tokenBsymbol)
+                value=quote_result[ask], exp=await self.decimals(tokenBsymbol)
             )
 
         else:
@@ -139,7 +152,7 @@ class Oneinchswap(Exchange):
             "amountBout": amountout,
             "tokenAsymbol": tokenAsymbol,
             "tokenBsymbol": tokenBsymbol,
-            "estimateGas": int(quote_result["estimatedGas"]),
+            "estimateGas": int(quote_result[gas]),
             "referrer": self.account,
         }
 
@@ -326,20 +339,38 @@ class Oneinchswap(Exchange):
     async def token_to_token(
         self, tokenAaddress, amountA, tokenBaddress, accountAddress, routerAddress
     ):
+
         if (tokenAaddress == self.chains["baseContract"]) and (self.chainName == "KLAYTN"):
             tokenAaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 
         elif (tokenBaddress == self.chains["baseContract"]) and (self.chainName == "KLAYTN"):
             tokenBaddress = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 
-        params = {
-            "fromTokenAddress": tokenAaddress,
-            "toTokenAddress": tokenBaddress,
-            "amount": amountA,
-            "fromAddress": self.account,
-            "slippage": 50,
-            "disableEstimate": "true",
-        }
+        version = self.markets["version"]
+
+        if version == 5:
+
+            params = {
+                "src": tokenAaddress,
+                "dst": tokenBaddress,
+                "amount": amountA,
+                "from": self.account,
+                "slippage": 0.5,
+                "referrer": self.account,
+                "disableEstimate": "true",
+            }
+
+        else:
+
+            params = {
+                "fromTokenAddress": tokenAaddress,
+                "toTokenAddress": tokenBaddress,
+                "amount": amountA,
+                "fromAddress": self.account,
+                "slippage": 50,
+                "referrer": self.account,
+                "disableEstimate": "true",
+            }
 
         if self.proxy:
             result_tx = await self.create_request(
