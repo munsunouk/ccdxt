@@ -36,7 +36,7 @@ class Matcha(Exchange):
             "exchangeName": "matcha",
             "retries": 3,
             "retriesTime": 10,
-            "host": None,
+            "host": 0,
             "account": None,
             "privateKey": None,
             "log": None,
@@ -64,12 +64,13 @@ class Matcha(Exchange):
         self.api_key = config["api_key"]
         self.sleep = config["sleep"]
 
-        self.load_exchange(self.chainName, self.exchangeName)
-        self.set_logger(self.log)
+        # self.load_exchange(self.chainName, self.exchangeName)
+        # self.set_logger(self.log)
 
     @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, **kwargs):
-        await asyncio.sleep(self.sleep)
+
+        await self.load_exchange(self.chainName, self.exchangeName)
 
         amountIn = amountAin
 
@@ -92,14 +93,16 @@ class Matcha(Exchange):
             "sellToken": tokenBaddress,
             "takerAddress": self.account,
             "sellAmount": amountA,
-            "slippagePercentage": 0.05,
-            "enableSlippageProtection": False,
-            "intentOnFilling": True,
-            "skipValidation": True,
+            # "slippagePercentage": 0.05,
+            # "enableSlippageProtection": False,
+            # "intentOnFilling": True,
+            # "skipValidation": True,
+            # "affiliateAddress": self.account,
+            # "feeRecipientTradeSurplus": self.account,
         }
 
         if self.proxy:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.markets["api_url"],
                 params,
                 "swap",
@@ -110,7 +113,7 @@ class Matcha(Exchange):
             )
 
         else:
-            quote_result = self.create_request(
+            quote_result = await self.create_request(
                 self.markets["api_url"],
                 params,
                 "swap",
@@ -119,7 +122,9 @@ class Matcha(Exchange):
                 header=["0x-api-key", self.api_key],
             )
 
-        amountout = self.to_value(value=quote_result["buyAmount"], exp=self.decimals(tokenBsymbol))
+        amountout = self.to_value(
+            value=quote_result["buyAmount"], exp=await self.decimals(tokenBsymbol)
+        )
 
         result = {
             "amountAin": amountAin,

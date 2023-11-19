@@ -9,7 +9,9 @@
     "name": "KLAY",
     "symbol": "KLAY",
     "contract": "0x0000000000000000000000000000000000000000",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "MOOI": {
     "name": "MOOI",
@@ -51,7 +53,9 @@
     "name": "Orbit Bridge Klaytn Ethereum",
     "symbol": "kETH",
     "contract": "0x34d21b1e550D73cee41151c77F3c73359527a396",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_KLAYTN"
   },
   "ISR": {
     "name": "Insureum Token",
@@ -72,12 +76,6 @@
     "decimals": 6,
     "bridge": "Minter",
     "chain": "ETH_KLAYTN"
-  },
-  "KWBTC": {
-    "name": "KWBTC",
-    "symbol": "KWBTC",
-    "contract": "0x16D0e1fBD024c600Ca0380A4C5D57Ee7a2eCBf9c",
-    "decimals": "18"
   },
   "KSP": {
     "name": "KlaySwap Protocol",
@@ -1263,7 +1261,9 @@
     "name": "Orbit Bridge Polygon Ethereum",
     "symbol": "mETH",
     "contract": "0xE4c2b5db9de5da0A17ED7ec7176602ad99E52624",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_MATIC"
   },
   "mKLAY": {
     "name": "Orbit Bridge Polygon Klay",
@@ -1277,17 +1277,21 @@
     "name": "kMATIC",
     "symbol": "kMATIC",
     "contract": "0xa006ba407cfc6584c90bac24ed971261885a0fd6",
-    "decimals": "18"
+    "decimals": "18",
+    "bridge": "Minter",
+    "chain": "KLAYTN"
   },
   "MATIC": {
     "name": "MATIC",
     "symbol": "MATIC",
     "contract": "0x0000000000000000000000000000000000000000",
-    "decimals": "18"
+    "decimals": "18",
+    "bridge": "Vault",
+    "chain": "MATIC"
   },
-  "KMESH": {
-    "name": "KMESH",
-    "symbol": "KMESH",
+  "kMESH": {
+    "name": "kMESH",
+    "symbol": "kMESH",
     "contract": "0x127a75b751ba810e459121af6207d83841c586b7",
     "decimals": "18",
     "bridge": "Minter",
@@ -1313,7 +1317,7 @@
     "contract": "0x307ac5598abdf419456ce623c0977499777e5b67",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "MATIC"
+    "chain": "KLAYTN"
   },
   "MGOLD": {
     "name": "Orbit Bridge Polygon KlaySwap Protocol",
@@ -2163,12 +2167,6 @@
     "name": "Klayone",
     "symbol": "KONE",
     "contract": "0xCd65Df1A138f0a4e989336cA64b0498f5d26777C",
-    "decimals": 18
-  },
-  "kMESH": {
-    "name": "Orbit Bridge Klaytn Meshswap Protocol",
-    "symbol": "kMESH",
-    "contract": "0x127A75B751Ba810E459121AF6207D83841C586B7",
     "decimals": 18
   },
   "kpEKL": {

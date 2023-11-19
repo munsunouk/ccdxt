@@ -48,7 +48,20 @@ class Meshswap(Exchange):
     # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
 
+        result = {
+            "amountAin": amountAin,
+            "amountBout": 0,
+            "tokenAsymbol": tokenAsymbol,
+            "tokenBsymbol": tokenBsymbol,
+        }
+
         await self.load_exchange(self.chainName, self.exchangeName)
+
+        pool = await self.get_pair(tokenAsymbol, tokenBsymbol)
+
+        pool = self.set_checksum(pool)
+
+        await self.sync(pool)
 
         amountin = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
 
@@ -56,12 +69,7 @@ class Meshswap(Exchange):
 
         amountout = self.to_value(value=amountBout, exp=await self.decimals(tokenBsymbol))
 
-        result = {
-            "amountAin": amountAin,
-            "amountBout": amountout,
-            "tokenAsymbol": tokenAsymbol,
-            "tokenBsymbol": tokenBsymbol,
-        }
+        result["amountBout"] = amountout
 
         return result
 
@@ -89,8 +97,6 @@ class Meshswap(Exchange):
         # amountBMin = self.from_value(value=amountBMin, exp=await self.decimals(tokenBsymbol))
 
         amountBMin = 1
-
-        print("swap_params", (amountA, amountBMin))
 
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
@@ -144,8 +150,6 @@ class Meshswap(Exchange):
         return tx_receipt
 
     async def token_to_token(self, amountA, amountBMin, build):
-
-        print("swap", (amountA, amountBMin, self.path, self.account, self.deadline))
 
         tx = await self.routerContract.functions.swapExactTokensForTokens(
             amountA, amountBMin, self.path, self.account, self.deadline

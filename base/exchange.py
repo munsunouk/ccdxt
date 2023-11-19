@@ -113,6 +113,7 @@ class Exchange(Transaction):
 
         self.set_logger(None)
 
+    # @retry
     async def partial_balance(self, tokenSymbol: str) -> dict:
         """
         Info
@@ -655,7 +656,7 @@ class Exchange(Transaction):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
 
-        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        routerAddress = self.set_checksum(self.markets["factoryAddress"])
 
         try:
             factoryContract = await self.get_contract(routerAddress, self.markets["factoryAbi"])
@@ -665,7 +666,7 @@ class Exchange(Transaction):
             pool_name = token_sort[0] + "-" + token_sort[1]
 
             if pool_name not in self.pools:
-                pair = factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
+                pair = await factoryContract.functions.getPair(tokenAaddress, tokenBaddress).call()
 
                 self.pools = self.deep_extend(
                     self.pools,
@@ -703,10 +704,9 @@ class Exchange(Transaction):
     def getAmountsOut(self, amount, path):
         return self.router_contract.functions.getAmountsOut(int(amount), path).call()[-1]
 
-    def sync(self, tokenAsymbol, tokenBsymbol):
-        pair = self.getPair(tokenAsymbol, tokenBsymbol)
-        contract = self.w3.eth.contract(self.set_checksum(pair), self.chains["chainAbi"])
-        return contract.functions.sync().call()
+    async def sync(self, pool):
+        contract = await self.get_contract(pool, self.chains["chainAbi"])
+        return await contract.functions.sync().call()
 
     def require(self, execute_result: bool, msg):
         if execute_result:

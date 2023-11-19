@@ -95,11 +95,19 @@ class Oneinchswap(Exchange):
                 "amount": amountIn,
             }
 
+            if self.markets["version"] == 5.0:
+
+                version = 5.2
+
+            else:
+
+                version = self.markets["version"]
+
             if self.proxy:
                 quote_result = await self.create_request(
                     self.api_url,
                     params,
-                    f"v{self.markets['version']}",
+                    f"v{version}",
                     f"{self.chains['mainnet']['chain_id']}",
                     "quote",
                     proxy=self.proxy,
@@ -109,7 +117,7 @@ class Oneinchswap(Exchange):
                 quote_result = await self.create_request(
                     self.api_url,
                     params,
-                    f"v{self.markets['version']}",
+                    f"v{version}",
                     f"{self.chains['mainnet']['chain_id']}",
                     "quote",
                 )
@@ -132,6 +140,7 @@ class Oneinchswap(Exchange):
             "tokenAsymbol": tokenAsymbol,
             "tokenBsymbol": tokenBsymbol,
             "estimateGas": int(quote_result["estimatedGas"]),
+            "referrer": self.account,
         }
 
         return result

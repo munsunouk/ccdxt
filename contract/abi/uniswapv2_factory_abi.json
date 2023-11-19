@@ -102,6 +102,15 @@
   },
   {
     "constant": false,
+    "inputs": [],
+    "name": "sync",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
     "inputs": [
       { "internalType": "address", "name": "_feeTo", "type": "address" }
     ],

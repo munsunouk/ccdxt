@@ -96,6 +96,7 @@ def retry(func):
                 HTTPError,
                 BadResponseFormat,
                 Timeout,
+                RuntimeError,
                 ServerDisconnectedError,
                 ClientResponseError,
             ) as e:

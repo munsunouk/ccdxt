@@ -1482,14 +1482,14 @@
     "tokenB": "mUSDC",
     "decimals": "6"
   },
-  "KMESH-KSP": {
-    "name": "KMESH-KSP",
+  "kMESH-KSP": {
+    "name": "kMESH-KSP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x5b4c3d00a0819dd96fa9ac13dda2bdca332f31d4"
       }
     },
-    "tokenA": "KMESH",
+    "tokenA": "kMESH",
     "tokenB": "KSP",
     "decimals": "18"
   },

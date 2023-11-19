@@ -55,6 +55,13 @@ class Klayswap(Exchange):
     # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
 
+        result = {
+            "amountAin": amountAin,
+            "amountBout": 0,
+            "tokenAsymbol": tokenAsymbol,
+            "tokenBsymbol": tokenBsymbol,
+        }
+
         await self.load_exchange(self.chainName, self.exchangeName)
 
         amountIn = self.from_value(value=amountAin, exp=await self.decimals(tokenAsymbol))
@@ -63,16 +70,13 @@ class Klayswap(Exchange):
 
         pool = self.set_checksum(pool)
 
-        amountBout = await self.get_amount_out(pool, tokenAsymbol, amountIn)
-        decimal = await self.decimals(tokenBsymbol)
-        amountout = self.to_value(value=amountBout, exp=decimal)
+        await self.sync(pool)
 
-        result = {
-            "amountAin": amountAin,
-            "amountBout": amountout,
-            "tokenAsymbol": tokenAsymbol,
-            "tokenBsymbol": tokenBsymbol,
-        }
+        amountBout = await self.get_amount_out(pool, tokenAsymbol, amountIn)
+        # decimal = await self.decimals(tokenBsymbol)
+        # amountout = self.to_value(value=amountBout, exp=decimal)
+
+        # result["amountBout"] = amountout
 
         return result
 
@@ -129,7 +133,7 @@ class Klayswap(Exchange):
         tokenAaddress = self.set_checksum(tokenA["contract"])
         tokenBaddress = self.set_checksum(tokenB["contract"])
         self.account = self.set_checksum(self.account)
-        routerAddress = self.set_checksum(self.markets["routerAddress"])
+        routerAddress = self.set_checksum(self.markets["routerAddress"][0])
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
@@ -148,7 +152,7 @@ class Klayswap(Exchange):
             build=build,
         )
 
-        self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"])
+        self.routerContract = await self.get_contract(routerAddress, self.markets["routerAbi"][0])
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
@@ -207,9 +211,13 @@ class Klayswap(Exchange):
 
         poolAddress = self.set_checksum(pool)
 
-        self.factoryContract = await self.get_contract(poolAddress, self.markets["factoryAbi"])
+        # self.factoryContract = await self.get_contract(poolAddress, self.markets["routerAbi"])
+
+        self.factoryContract = await self.get_contract(poolAddress, self.markets["routerAbi"][0])
 
         amountOut = await self.factoryContract.functions.estimatePos(tokenAaddress, amountIn).call()
+
+        amountOut = await self.factoryContract.functions.estimatePos
 
         # amountOut = type(self.factoryContract.functions.estimatePos(tokenAaddress, amountIn).call())
 
@@ -228,7 +236,7 @@ class Klayswap(Exchange):
 
         tokenA = factoryContract.functions.tokenA().call()
 
-        routerContract = await self.get_contract(pool, self.markets["routerAbi"])
+        routerContract = await self.get_contract(pool, self.markets["routerAbi"][0])
         reserves = await routerContract.functions.getCurrentPool().call()
 
         if tokenA != tokenAaddress:

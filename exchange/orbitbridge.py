@@ -11,6 +11,8 @@ from ..base.utils.retry import retry
 
 # from ..base.utils.validation import *
 
+import asyncio
+
 from typing import Optional
 from eth_typing.evm import ChecksumAddress
 import requests
@@ -156,9 +158,6 @@ class Orbitbridge(Exchange):
 
         if "additionalGasFee" in token:
 
-            print("baseCurrency:", self.chains["baseCurrency"])
-            print("from_tokenSymbol : ", from_tokenSymbol)
-
             baseCurrency = await self.partial_balance(self.chains["baseCurrency"])
             tokenBalance = await self.partial_balance(from_tokenSymbol)
 
@@ -168,6 +167,7 @@ class Orbitbridge(Exchange):
                 self.additionalGasFee >= baseCurrency["balance"],
                 InsufficientBalance(baseCurrency, token["additionalGasFee"]),
             )
+
             self.require(
                 token["MinimumBridge"] >= tokenBalance["balance"],
                 InsufficientBalance(tokenBalance, token["MinimumBridge"]),
@@ -196,9 +196,15 @@ class Orbitbridge(Exchange):
 
         if token["bridge"] == "Vault":
 
-            tx = await self._depositToken(
-                tokenAddress, toChain, self.toAddrress, amount, build=build
-            )
+            if from_tokenSymbol == self.baseCurrency:
+
+                tx = await self._ethDepositToken(toChain, self.toAddrress, amount, build=build)
+
+            else:
+
+                tx = await self._depositToken(
+                    tokenAddress, toChain, self.toAddrress, amount, build=build
+                )
 
         elif token["bridge"] == "Minter":
 
@@ -208,10 +214,9 @@ class Orbitbridge(Exchange):
 
         tx_receipt = await self.fetch_transaction(tx, round="BRIDGE", api=token["bridge"])
 
-        time_spend, amount = await self.check_bridge_completed(
-            toChain, to_tokenSymbol, self.toAddrress, fee=fee
-        )
-
+        # time_spend, amount = await self.check_bridge_completed(
+        #     amount, toChain, to_tokenSymbol, self.toAddrress, fee=fee
+        # )
         return tx_receipt
 
     @retry
@@ -267,6 +272,22 @@ class Orbitbridge(Exchange):
 
         return tx
 
+    async def _ethDepositToken(
+        self,
+        toChain: str,
+        toAddr: ChecksumAddress,
+        amount: int,
+        build: dict,
+    ):
+
+        build["value"] += amount
+
+        tx = await self.routerContract.functions["deposit"](toChain, toAddr).build_transaction(
+            build
+        )
+
+        return tx
+
     async def _depositToken(
         self,
         tokenAddress: ChecksumAddress,
@@ -282,15 +303,13 @@ class Orbitbridge(Exchange):
 
         return tx
 
-    @retry
-    async def check_bridge_completed(self, toChain, tokenSymbol, toAddr, *args, **kwargs):
+    # @retry
+    async def check_bridge_completed(self, amount, toChain, tokenSymbol, toAddr, *args, **kwargs):
 
         await self.load_bridge(self.exchangeName)
         await self.load_exchange(toChain, self.exchangeName)
 
         start_bridge = datetime.datetime.now()
-
-        start_time = datetime.datetime.now()
 
         current_account = self.account
 
@@ -299,7 +318,7 @@ class Orbitbridge(Exchange):
         start_balance = await self.partial_balance(tokenSymbol)
 
         if "fee" in kwargs:
-            fee = kwargs["fee"]
+            fee = amount * kwargs["fee"] * 0.01
 
         else:
             fee = 0
@@ -310,14 +329,15 @@ class Orbitbridge(Exchange):
             current_balance = await self.partial_balance(tokenSymbol)
 
             if (
-                (
-                    (current_balance["balance"] - start_balance["balance"])
-                    >= ((self.amount - fee) / 2)
-                )
-                or (current_balance["balance"] >= (self.amount - fee))
+                ((current_balance["balance"] - start_balance["balance"]) >= ((amount - fee)))
+                or (current_balance["balance"] >= (amount - fee))
                 # or (current_time - start_time).seconds > self.timeOut
             ):
                 break
+
+            else:
+
+                await asyncio.sleep(30)
 
         end_bridge = datetime.datetime.now()
 

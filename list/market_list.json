@@ -5,13 +5,16 @@
     "symbol": "KSP",
     "fee": 0.3,
     "factoryAbi": "klayswap_factory_abi.json",
-    "routerAbi": "klayswap_router_abi.json",
+    "routerAbi": ["klayswap_router_abi.json", "klayswap_router_v3_abi.json"],
     "pool_pass": false,
     "token_pass": false,
     "baseChain": {
       "KLAYTN": {
         "factoryAddress": "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
-        "routerAddress": "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654"
+        "routerAddress": [
+          "0xc6a2ad8cc6e4a7e08fc37cc5954be07d499e7654",
+          "0xe0fbb27d0e7f3a397a67a9d4864d4f4dd7cf8cb9"
+        ]
       }
     },
     "info": "https://klayswap.com/"
@@ -23,12 +26,14 @@
     "fee": 0.2,
     "factoryAbi": "uniswapv2_factory_abi.json",
     "routerAbi": "uniswapv2_router_abi.json",
+    "liqudityAbi": "uniswapv2_liquidity_abi.json",
     "pool_pass": false,
     "token_pass": false,
     "baseChain": {
       "MATIC": {
         "factoryAddress": "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d",
-        "routerAddress": "0x10f4a785f458bc144e3706575924889954946639"
+        "routerAddress": "0x10f4a785f458bc144e3706575924889954946639",
+        "liqudityAddress": "0x9F3044f7F9FC8bC9eD615d54845b4577B833282d"
       }
     },
     "info": "https://meshswap.fi/exchange/swap"
@@ -86,8 +91,8 @@
         "routerAddress": "0x1111111254fb6c44bac0bed2854e76f90643097d"
       },
       "MATIC": {
-        "version": 4.0,
-        "routerAddress": "0x1111111254fb6c44bac0bed2854e76f90643097d"
+        "version": 5.0,
+        "routerAddress": "0x1111111254EEB25477B68fb85Ed929f73A960582"
       },
       "FTM": {
         "version": 4.0,
