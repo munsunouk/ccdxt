@@ -33,7 +33,7 @@ def retry_normal(func):
                 self.addNounce = i
 
             if i > 0:
-                self.logger.exception("{} - Attempt {}".format(func.__name__, i))
+                self.logger.warning("{} - Attempt {}".format(func.__name__, i))
                 self.addNounce = i
             try:
                 return func(self, *args, **kwargs)
@@ -52,7 +52,7 @@ def retry_normal(func):
                 HTTPError,
                 BadResponseFormat,
             ) as e:
-                self.logger.exception(e)
+                self.logger.warning(e)
                 self.host = self.host + 1 % self.total_node
                 self.load_exchange(self.chainName, self.exchangeName)
                 time.sleep(60)
@@ -71,7 +71,7 @@ def retry(func):
         for i in range(10):
 
             if i > 2:
-                self.logger.exception("{} - Attempt {}".format(func.__name__, i))
+                self.logger.warning("{} - Attempt {}".format(func.__name__, i))
                 # self.addNounce = i
                 # time.sleep(self.retriesTime)
 
@@ -82,7 +82,7 @@ def retry(func):
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = self.host + 1 % self.total_node
                 self.addNounce = i % 3
-                self.logger.exception(e)
+                self.logger.warning(e)
                 # await asyncio.sleep(10)
                 pass
 
@@ -100,7 +100,7 @@ def retry(func):
                 ServerDisconnectedError,
                 ClientResponseError,
             ) as e:
-                self.logger.exception(e)
+                self.logger.warning(e)
 
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = (self.host + 1) % self.total_node
@@ -111,7 +111,7 @@ def retry(func):
                 return None
 
             except Exception as e:
-                self.logger.exception(e)
+                self.logger.warning(e)
                 # await self.load_exchange(self.chainName, self.exchangeName)
                 self.host = (self.host + 1) % self.total_node
                 # await asyncio.sleep(10)

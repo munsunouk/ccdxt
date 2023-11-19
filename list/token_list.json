@@ -119,9 +119,7 @@
     "contract": "0x9eaeFb09fe4aABFbE6b1ca316a3c36aFC83A393F",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "XRP",
-    "MinimumBridge": 22,
-    "additionalGasFee": 10
+    "chain": "XRP_KLAYTN"
   },
   "kORC": {
     "name": "Orbit Bridge Klaytn Orbit Chain",
@@ -1249,7 +1247,7 @@
     "contract": "0xCc2a9051E904916047c26C90f41c000D4f273456",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "XRP"
+    "chain": "XRP_MATIC"
   },
   "oETHW": {
     "name": "Orbit Bridge Polygon EthereumPoW",
