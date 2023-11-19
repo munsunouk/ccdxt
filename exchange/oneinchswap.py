@@ -123,8 +123,6 @@ class Oneinchswap(Exchange):
                     "quote",
                 )
 
-            print(quote_result)
-
             if version == 5.2:
 
                 ask = "toAmount"
