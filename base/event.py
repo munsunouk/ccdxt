@@ -20,13 +20,6 @@ swapDict = {
             "amount1_out": ["amount1"],
         },
     },
-    "MOOI": {
-        "Mooiswap": {
-            "event": [-1, "Swap"],
-            "amount0_in": ["amount0In", "amount1In"],
-            "amount1_out": ["amount0Out", "amount1Out"],
-        }
-    },
 }
 
 bridgeDict = {
@@ -128,6 +121,8 @@ class Event:
         swap = routerContract.events[events_param_list[1]]()
 
         events = swap.process_receipt(tx_receipt, errors=DISCARD)
+
+        print(events)
 
         amount0_in = max(
             [events[events_param_list[0]]["args"][param] for param in amount_in_params]

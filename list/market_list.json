@@ -91,7 +91,8 @@
       },
       "MATIC": {
         "version": 5.0,
-        "routerAddress": "0x1111111254EEB25477B68fb85Ed929f73A960582"
+        "routerAddress": "0x1111111254EEB25477B68fb85Ed929f73A960582",
+        "alterRouterAddress": "0x1111111254fb6c44bac0bed2854e76f90643097d"
       },
       "FTM": {
         "version": 4.0,

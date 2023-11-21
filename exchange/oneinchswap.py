@@ -221,6 +221,11 @@ class Oneinchswap(Exchange):
 
         self.account = self.set_checksum(self.account)
 
+        if (self.chainName == "MATIC") & (tokenBsymbol == self.baseCurrency):
+
+            self.markets["routerAddress"] = self.markets["alterRouterAddress"]
+            self.markets["version"] = 4.0
+
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
