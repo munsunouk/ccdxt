@@ -122,8 +122,6 @@ class Event:
 
         events = swap.process_receipt(tx_receipt, errors=DISCARD)
 
-        print(events)
-
         amount0_in = max(
             [events[events_param_list[0]]["args"][param] for param in amount_in_params]
         )
