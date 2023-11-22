@@ -488,7 +488,7 @@ class Transaction(object):
             "token_in": self.tokenSymbol,
             "to_address": self.toAddrress,
             "amount_out": amount_in,
-            "token_out": self.tokenSymbol,
+            "token_out": self.to_tokenSymbol,
             "gas_fee": tx_receipt["gasUsed"] * tx_receipt["effectiveGasPrice"] / 10**18
             + self.additionalGasFee,
             "tx_scope": f"{self.chains['mainnet']['block_scope']}/tx/{tx_receipt['transactionHash'].hex()}",

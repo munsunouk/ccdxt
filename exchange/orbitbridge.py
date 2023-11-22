@@ -108,6 +108,7 @@ class Orbitbridge(Exchange):
         ]
 
         self.tokenSymbol = from_tokenSymbol
+        self.to_tokenSymbol = to_tokenSymbol
 
         self.fromChain = fromChain
         self.chainName = fromChain

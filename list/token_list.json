@@ -1239,7 +1239,9 @@
     "name": "Orbit Bridge Tether USD",
     "symbol": "mUSDT",
     "contract": "0x957da9EbbCdC97DC4a8C274dD762EC2aB665E15F",
-    "decimals": 6
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH_MATIC"
   },
   "mXRP": {
     "name": "Orbit Bridge Polygon XRP Token",
