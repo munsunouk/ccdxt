@@ -7459,15 +7459,15 @@
     "tokenB": "kUSDT",
     "decimals": 6
   },
-  "KLAY-kUSDC": {
-    "name": "KLAY-kUSDC",
+  "KLAY-kUSDT": {
+    "name": "KLAY-kUSDT",
     "baseChain": {
       "KLAYTN": {
-        "klayswap": "0x3bce8d81AC54010bb7ea6e5960f2Ded6Fc6A7AC5"
+        "klayswap": "0xd83f1b074d81869eff2c46c530d7308ffec18036"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "kUSDC",
+    "tokenB": "kUSDT",
     "decimals": 18
   },
   "KSD-mUSDT": {
