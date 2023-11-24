@@ -45,7 +45,7 @@ class Meshswap(Exchange):
         # self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
 
-    # @retry
+    @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol):
 
         result = {
@@ -54,6 +54,11 @@ class Meshswap(Exchange):
             "tokenAsymbol": tokenAsymbol,
             "tokenBsymbol": tokenBsymbol,
         }
+
+        if tokenAsymbol == self.baseCurrency:
+            tokenAsymbol = "wMATIC"
+        if tokenBsymbol == self.baseCurrency:
+            tokenBsymbol = "wMATIC"
 
         await self.load_exchange(self.chainName, self.exchangeName)
 
