@@ -84,6 +84,10 @@ class Meshswap(Exchange):
 
         self.pathName = path
 
+        if tokenBsymbol == "wMATIC":
+
+            tokenBsymbol == "MATIC"
+
         # self.require(amountA <= amountBMin, ValueError("amountA is Less then amountBMin"))
         self.require(tokenAsymbol == tokenBsymbol, ValueError("Same Symbol"))
 

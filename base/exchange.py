@@ -818,12 +818,7 @@ class Exchange(Transaction):
                 else:
                     balances[pool_balance] = pool_balances[pool_balance]
 
-        result = {
-            "result": balances,
-            "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        }
-
-        return result
+        return balances
 
     async def check_sync(self):
         return await self.w3.eth.syncing
