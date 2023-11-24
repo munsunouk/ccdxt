@@ -7327,6 +7327,19 @@
     "tokenB": "wMATIC",
     "decimals": 18
   },
+
+  "USDT.p-MATIC": {
+    "name": "USDT.p-MATIC",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x24af68fF6e3501EAf8b52a9F7935225E524FE617"
+      }
+    },
+    "tokenA": "USDT.p",
+    "tokenB": "MATIC",
+    "decimals": 18
+  },
+
   "USDT.p-MGOLD": {
     "name": "USDT.p-MGOLD",
     "baseChain": {
