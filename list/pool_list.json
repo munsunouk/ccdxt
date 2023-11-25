@@ -7339,6 +7339,17 @@
     "tokenB": "MATIC",
     "decimals": 18
   },
+  "tUSDC-tETH": {
+    "name": "tUSDC-tETH",
+    "baseChain": {
+      "TON": {
+        "mega": "EQA7fKcmzBdDKP8F7cI7SfDo48V9V7giHF-WW2ayQC2ExhjN"
+      }
+    },
+    "tokenA": "tETH",
+    "tokenB": "tUSDC",
+    "decimals": 18
+  },
 
   "USDT.p-MGOLD": {
     "name": "USDT.p-MGOLD",

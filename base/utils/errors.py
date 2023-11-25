@@ -8,7 +8,7 @@ from urllib3.exceptions import ProtocolError
 from requests.exceptions import ConnectionError
 from requests.exceptions import HTTPError
 
-#ccxt error handling + web3 error handling
+# ccxt error handling + web3 error handling
 
 error_hierarchy = {
     "BaseError": {
@@ -26,7 +26,7 @@ error_hierarchy = {
                 "MarginModeAlreadySet": {},
             },
             "BadResponse": {"NullResponse": {}, "HTTPError": {}},
-            "alwaysFail" : {},
+            "alwaysFail": {},
             "InsufficientFunds": {},
             "InvalidToken": {},
             "InsufficientBalance": {},
@@ -43,7 +43,7 @@ error_hierarchy = {
             },
             "NotSupported": {},
             "RevertError": {},
-            "UnknownTransaction" : {},
+            "UnknownTransaction": {},
         },
         "NetworkError": {
             "DDoSProtection": {
@@ -63,6 +63,7 @@ error_hierarchy = {
         "ABIFunctionNotFound": {},
         "DataTypeError": {},
         "AddressError": {},
+        "AssetError": {},
         "MathError": {
             "AdditionOverFlowError",
             "SubtractionOverFlowError",
@@ -72,9 +73,9 @@ error_hierarchy = {
             "NegativeNumbers",
         },
         "TransactionNotFound": {},
-        "TransactionPending" : {},
-    "TooManyTriesException" : {},
-    "StrategyError" : {}
+        "TransactionPending": {},
+        "TooManyTriesException": {},
+        "StrategyError": {},
     },
 }
 
@@ -82,10 +83,12 @@ error_hierarchy = {
 class BaseError(Exception):
     pass
 
+
 class TooManyTriesException(Exception):
     pass
 
-class StrategyError(Exception) :
+
+class StrategyError(Exception):
     pass
 
 
@@ -95,6 +98,7 @@ class ExchangeError(BaseError):
 
 class AuthenticationError(ExchangeError):
     pass
+
 
 class TransactionDisallowed(ExchangeError):
     pass
@@ -142,6 +146,7 @@ class HTTPError(BadResponse):
 
 class alwaysFail(ExchangeError):
     pass
+
 
 class InsufficientFunds(ExchangeError):
     pass
@@ -292,6 +297,11 @@ class ModuloByZeroError(MathError):
     pass
 
 
+class AssetError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+
 class NegativeNumbers(MathError):
     pass
 
@@ -299,11 +309,14 @@ class NegativeNumbers(MathError):
 class TransactionNotFound(ExchangeError):
     pass
 
+
 class TransactionPending(ExchangeError):
     pass
 
+
 class UnknownTransaction(ExchangeError):
     pass
+
 
 class BadResponseFormat(AuthenticationError):
     pass
@@ -371,5 +384,6 @@ __all__ = [
     "alwaysFail",
     "UnknownTransaction",
     "TransactionDisallowed",
-    "StrategyError"
+    "StrategyError",
+    "AssetError",
 ]

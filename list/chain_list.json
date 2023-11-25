@@ -146,7 +146,6 @@
       "block_scope": "https://testnet.snowtrace.io"
     }
   },
-
   "XRP": {
     "name": "XRP",
     "baseChain": "xrp",
@@ -161,6 +160,29 @@
       "public_node": "https://sen-global.mooichain.io:443",
       "webscoket": "false",
       "block_scope": "https://scope.mooichain.io"
+    },
+    "testnet": {
+      "chain_id": null,
+      "name": "null",
+      "public_node": "null",
+      "webscoket": false,
+      "block_scope": "null"
+    }
+  },
+  "TON": {
+    "name": "TON",
+    "baseChain": "ton",
+    "baseCurrency": "TON",
+    "baseContract": false,
+    "limit": false,
+    "POS": false,
+    "chainAbi": false,
+    "mainnet": {
+      "chain_id": 99999,
+      "name": "TON Mainnet",
+      "ton_api": "https://tonapi.io/",
+      "webscoket": "false",
+      "block_scope": "https://tonviewer.com"
     },
     "testnet": {
       "chain_id": null,

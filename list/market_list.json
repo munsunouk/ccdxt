@@ -302,5 +302,21 @@
       }
     },
     "info": "https://traderjoexyz.com/"
+  },
+  "mega": {
+    "id": 14,
+    "name": "Mega",
+    "symbol": "MEGA",
+    "fee": 0.1,
+    "factoryAbi": false,
+    "routerAbi": false,
+    "pool_pass": true,
+    "token_pass": true,
+    "baseChain": {
+      "TON": {
+        "routerAddress": "EQAxC3GzQBgjlvW6CJAwgaHvarTfVxo8p7Be_6RMSjsPki6s"
+      }
+    },
+    "info": "https://megaton.fi/"
   }
 }

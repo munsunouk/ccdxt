@@ -11,6 +11,7 @@ from .openocean import Openocean
 from .rubicfinance import Rubicfinance
 from .paraswap import Paraswap
 from .kyberswap import Kyberswap
+from .mega import Mega
 from .matcha import Matcha
 from .lifi import Lifi
 

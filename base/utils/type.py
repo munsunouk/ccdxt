@@ -1,5 +1,7 @@
 from numbers import Number
 from typing import Mapping
+from enum import Enum
+
 
 bytes_types = (bytes, bytearray)
 integer_types = (int,)
@@ -41,3 +43,8 @@ def is_null(obj) -> bool:
 
 def is_number(obj) -> bool:
     return isinstance(obj, Number)
+
+
+class AssetType(Enum):
+    NATIVE = 0
+    JETTON = 1
