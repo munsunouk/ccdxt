@@ -57,6 +57,30 @@
     "bridge": "Minter",
     "chain": "ETH_KLAYTN"
   },
+  "tETH": {
+    "name": "Orbit Bridge TON Ethereum",
+    "symbol": "tETH",
+    "contract": "EQAW42HutyDem98Be1f27PoXobghh81umTQ-cGgaKVmRLS7-",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_TON"
+  },
+  "tUSDC": {
+    "name": "Orbit Bridge USDC Ethereum",
+    "symbol": "tUSDC",
+    "contract": "EQC61IQRl0_la95t27xhIpjxZt32vl1QQVF2UgTNuvD18W-4",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "ETH_TON"
+  },
+  "wTON": {
+    "name": "Orbit Bridge wTON TON",
+    "symbol": "wTON",
+    "contract": "EQCajaUU1XXSAjTD-xOV7pE49fGtg4q8kF3ELCOJtGvQFQ2C",
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "ETH_TON"
+  },
   "ISR": {
     "name": "Insureum Token",
     "symbol": "ISR",
@@ -1767,6 +1791,7 @@
     "bridge": "Minter",
     "chain": "MATIC"
   },
+
   "kBNB": {
     "name": "Orbit Bridge Klaytn Binance Coin",
     "symbol": "kBNB",
