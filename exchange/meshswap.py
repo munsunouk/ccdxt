@@ -109,6 +109,12 @@ class Meshswap(Exchange):
         routerAddress = self.set_checksum(self.markets["routerAddress"])
 
         if path != None:
+
+            if path[0] == self.baseCurrency:
+                path[0] = "wMATIC"
+            if path[-1] == self.baseCurrency:
+                path[-1] = "wMATIC"
+
             self.path = [self.set_checksum(self.tokens[token]["contract"]) for token in path]
 
         else:
