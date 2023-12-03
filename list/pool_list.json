@@ -7350,7 +7350,17 @@
     "tokenB": "tUSDC",
     "decimals": 18
   },
-
+  "wTON-tMOOI": {
+    "name": "wTON-tMOOI",
+    "baseChain": {
+      "TON": {
+        "mega": "EQDtKEfVIv44CAb9_TYScFbaVMyvC2CC_LnZ3XFOyWi5SuxB"
+      }
+    },
+    "tokenA": "tMOOI",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
   "USDT.p-MGOLD": {
     "name": "USDT.p-MGOLD",
     "baseChain": {

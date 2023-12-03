@@ -65,8 +65,16 @@
     "bridge": "Minter",
     "chain": "ETH_TON"
   },
+  "tMOOI": {
+    "name": "Orbit Bridge TON MOOI",
+    "symbol": "tMOOI",
+    "contract": "EQBDD3li7w-OPcWSGfe2RTz0sydcaLKrk8W0nPyLA9iy8Hcu",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_TON"
+  },
   "tUSDC": {
-    "name": "Orbit Bridge USDC Ethereum",
+    "name": "Orbit Bridge TON USDC",
     "symbol": "tUSDC",
     "contract": "EQC61IQRl0_la95t27xhIpjxZt32vl1QQVF2UgTNuvD18W-4",
     "decimals": 6,
