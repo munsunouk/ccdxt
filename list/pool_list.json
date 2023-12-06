@@ -1507,22 +1507,19 @@
     "tokenB": "mUSDC",
     "decimals": 18
   },
-  "mKLAY-oKSP": {
-    "name": "mKLAY-oKSP",
+  "mKLAY-mKSP": {
+    "name": "mKLAY-mKSP",
     "baseChain": {
       "MATIC": {
-        "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
-      },
-      "polygon": {
         "meshswap": "0x5b7BAf009fB38bC123eEC451491b09B2Cb2d2a37"
       }
     },
     "tokenA": "mKLAY",
-    "tokenB": "oKSP",
+    "tokenB": "mKSP",
     "decimals": 18
   },
-  "MESH-oKSP": {
-    "name": "MESH-oKSP",
+  "MESH-mKSP": {
+    "name": "MESH-mKSP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0xCCC103a39Cb756130f98209cAa1a5C4cFf071C1e"
@@ -1532,18 +1529,18 @@
       }
     },
     "tokenA": "MESH",
-    "tokenB": "oKSP",
+    "tokenB": "mKSP",
     "decimals": 18
   },
-  "MATIC-oKSP": {
-    "name": "MATIC-oKSP",
+  "MATIC-mKSP": {
+    "name": "MATIC-mKSP",
     "baseChain": {
       "MATIC": {
         "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
       }
     },
     "tokenA": "MATIC",
-    "tokenB": "oKSP",
+    "tokenB": "mKSP",
     "decimals": "18"
   },
   "KLAY-kXDT": {
@@ -6154,8 +6151,8 @@
     "tokenB": "kETH",
     "decimals": 18
   },
-  "wMATIC-oKSP": {
-    "name": "wMATIC-oKSP",
+  "wMATIC-mKSP": {
+    "name": "wMATIC-mKSP",
     "baseChain": {
       "polygon": {
         "meshswap": "0x0610E7469F5759657093ba6fa5fA349Ec9f20276"
@@ -6165,7 +6162,7 @@
       }
     },
     "tokenA": "wMATIC",
-    "tokenB": "oKSP",
+    "tokenB": "mKSP",
     "decimals": 18
   },
   "oDAI-kUSDC": {
@@ -6262,8 +6259,8 @@
     "tokenB": "mKLAY",
     "decimals": 18
   },
-  "oKSP-mMATIC": {
-    "name": "oKSP-mMATIC",
+  "mKSP-mMATIC": {
+    "name": "mKSP-mMATIC",
     "baseChain": {
       "polygon": {
         "meshswap": "0x06883C9Ddcf620a3f80c13ad582c2D5630a7Db97"
@@ -6272,7 +6269,7 @@
         "meshswap": "0x06883C9Ddcf620a3f80c13ad582c2D5630a7Db97"
       }
     },
-    "tokenA": "oKSP",
+    "tokenA": "mKSP",
     "tokenB": "mMATIC",
     "decimals": 18
   },
