@@ -63,7 +63,7 @@
     "contract": "EQAW42HutyDem98Be1f27PoXobghh81umTQ-cGgaKVmRLS7-",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "ETH_TON"
+    "chain": "?"
   },
   "tMOOI": {
     "name": "Orbit Bridge TON MOOI",
@@ -71,7 +71,7 @@
     "contract": "EQBDD3li7w-OPcWSGfe2RTz0sydcaLKrk8W0nPyLA9iy8Hcu",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "ETH_TON"
+    "chain": "?"
   },
   "tUSDC": {
     "name": "Orbit Bridge TON USDC",
@@ -79,7 +79,95 @@
     "contract": "EQC61IQRl0_la95t27xhIpjxZt32vl1QQVF2UgTNuvD18W-4",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "ETH_TON"
+    "chain": "?"
+  },
+  "tWBTC": {
+    "name": "Orbit Bridge TON Wrapped BTC",
+    "symbol": "tWBTC",
+    "contract": "EQANasbzD5wdVx0qikebkchrH64zNgsB38oC9PVu7rG16qNB",
+    "decimals": 8,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tUSDT": {
+    "name": "Orbit Bridge TON Tether USD",
+    "symbol": "tUSDT",
+    "contract": "EQC_1YoM8RBixN95lz7odcF3Vrkc_N8Ne7gQi7Abtlet_Efi",
+    "decimals": 6,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tDAI": {
+    "name": "Orbit Bridge TON Dai",
+    "symbol": "tDAI",
+    "contract": "EQAAXwH0cajPsMF-nNC5kz-SaLaeaDr4M7Q1foVwP_vOW1tR",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tORC": {
+    "name": "Orbit Bridge TON Orbit Chain",
+    "symbol": "tORC",
+    "contract": "EQDCIEo0HUUYsAV-lTMviOd-GkSXfVPsNZMGjRaNOA_6--FD",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tORBS": {
+    "name": "Orbit Bridge TON ORBS",
+    "symbol": "tORBS",
+    "contract": "EQAwr5lcbQcLKTAg_SQ-dpKWNQZpO1MGnrAs53bf1gkKTVHx",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tKLAY": {
+    "name": "Orbit Bridge TON Klay",
+    "symbol": "tKLAY",
+    "contract": "EQDZM7xsqa7huHq2lxoRLqMM71jwegQFPe7wijDDHOirpetR",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tKSP": {
+    "name": "Orbit Bridge TON KlaySwap Protocol",
+    "symbol": "tKSP",
+    "contract": "EQAIifXof_2FQjs5y4jjRpQ_1nOcJHdMz7qS3yskkoUeqn1L",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tMATIC": {
+    "name": "Orbit Bridge TON Matic Token",
+    "symbol": "tMATIC",
+    "contract": "EQBq4d4GPyBoh-Pjnf3wxUyQSS28WY2Yt-7cPAG8FHpWpNRX",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tMESH": {
+    "name": "Orbit Bridge TON MESH",
+    "symbol": "tMESH",
+    "contract": "EQCeGZcyr9Mkxf7OFLqyn40LLw292aCN_bxnT856rOkYW-I5",
+    "decimals": "18",
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tWEMIX": {
+    "name": "Orbit Bridge TON WEMIX TOKEN",
+    "symbol": "tWEMIX",
+    "contract": "EQCf7Nb341dxOE3N0jimngRxGEV8T3zo-eU2EZVs_nchNhhZ",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
+  },
+  "tWEMIX$": {
+    "name": "Orbit Bridge TON WEMIX TOKEN DOLLAR",
+    "symbol": "tWEMIX$",
+    "contract": "EQDsEumWZmrQpoMlXGdqSXWDdvQeUCGjMEJsQ3k35bqNhyvX",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "?"
   },
   "wTON": {
     "name": "Orbit Bridge wTON TON",
@@ -87,7 +175,15 @@
     "contract": "EQCajaUU1XXSAjTD-xOV7pE49fGtg4q8kF3ELCOJtGvQFQ2C",
     "decimals": 9,
     "bridge": "Minter",
-    "chain": "ETH_TON"
+    "chain": "?"
+  },
+  "MEGA": {
+    "name": "Megaton Finance Token",
+    "symbol": "MEGA",
+    "contract": "EQBf6-YoR9xylol_NwjHrLkrTFAZJCX-bsd-Xx_902OaPaBf",
+    "decimals": 9,
+    "bridge": "Minter",
+    "chain": "?"
   },
   "ISR": {
     "name": "Insureum Token",
@@ -113,7 +209,9 @@
     "name": "KlaySwap Protocol",
     "symbol": "KSP",
     "contract": "0xC6a2Ad8cC6e4A7E08FC37cC5954be07d499E7654",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "AGOV": {
     "name": "Answer Governance",
@@ -1337,11 +1435,13 @@
     "bridge": "Vault",
     "chain": "MATIC"
   },
-  "oKSP": {
+  "mKSP": {
     "name": "Orbit Bridge Polygon KlaySwap Protocol",
-    "symbol": "oKSP",
+    "symbol": "mKSP",
     "contract": "0x3D3B92Fe0B4c26b74F8fF13A32dD764F4DFD8b51",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "MATIC"
   },
   "kMGOLD": {
     "name": "Orbit Bridge Polygon Protocol",
