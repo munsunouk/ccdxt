@@ -659,17 +659,6 @@
     "tokenB": "bus",
     "decimals": 18
   },
-  "WEMIX-bus": {
-    "name": "WEMIX-bus",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x402ad424a4D5199Ee49cD88774B379aDBE6344e2"
-      }
-    },
-    "tokenA": "WEMIX",
-    "tokenB": "bus",
-    "decimals": 18
-  },
   "KCBANK-KLAY": {
     "name": "KCBANK-KLAY",
     "baseChain": {
@@ -834,17 +823,6 @@
     "tokenA": "kBUSD",
     "tokenB": "kUSDT",
     "decimals": "6"
-  },
-  "META-bus": {
-    "name": "META-bus",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x7f911B22357881EaFE92DC5FB8Dd95f7095f7BF8"
-      }
-    },
-    "tokenA": "META",
-    "tokenB": "bus",
-    "decimals": 18
   },
   "DANTA-KLAY": {
     "name": "DANTA-KLAY",
@@ -1121,15 +1099,15 @@
     "tokenB": "KSP",
     "decimals": 18
   },
-  "kUSDT-WEMIX": {
-    "name": "kUSDT-WEMIX",
+  "kUSDT-kWEMIX": {
+    "name": "kUSDT-kWEMIX",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
       }
     },
     "tokenA": "kUSDT",
-    "tokenB": "WEMIX",
+    "tokenB": "kWEMIX",
     "decimals": "18"
   },
   "BT-KLAY": {
@@ -1493,20 +1471,6 @@
     "tokenB": "KSP",
     "decimals": "18"
   },
-  "MESH-mUSDC": {
-    "name": "MESH-mUSDC",
-    "baseChain": {
-      "MATIC": {
-        "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
-      },
-      "polygon": {
-        "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
-      }
-    },
-    "tokenA": "MESH",
-    "tokenB": "mUSDC",
-    "decimals": 18
-  },
   "mKLAY-mKSP": {
     "name": "mKLAY-mKSP",
     "baseChain": {
@@ -1822,15 +1786,15 @@
     "tokenB": "KSP",
     "decimals": 18
   },
-  "KLAY-WEMIX": {
-    "name": "KLAY-WEMIX",
+  "KLAY-kWEMIX": {
+    "name": "KLAY-kWEMIX",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x917EeD7ae9E7D3b0D875dd393Af93fFf3Fc301F8"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "WEMIX",
+    "tokenB": "kWEMIX",
     "decimals": 18
   },
   "KLAY-oTRIX": {
@@ -2823,6 +2787,28 @@
     "tokenB": "KRNO",
     "decimals": 18
   },
+  "mUSDT-mDAI": {
+    "name": "mUSDT-mDAI",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0x113262C345C99543f746a8F591A1E99D37574552"
+      }
+    },
+    "tokenA": "mUSDT",
+    "tokenB": "mDAI",
+    "decimals": 18
+  },
+  "kDAI-kUSDT": {
+    "name": "kDAI-kUSDT",
+    "baseChain": {
+      "KLAYTN": {
+        "klayswap": "0xc320066b25b731a11767834839fe57f9b2186f84"
+      }
+    },
+    "tokenA": "kDAI",
+    "tokenB": "kUSDT",
+    "decimals": 18
+  },
   "KLAY-oTOM": {
     "name": "KLAY-oTOM",
     "baseChain": {
@@ -2878,36 +2864,36 @@
     "tokenB": "kUSDC",
     "decimals": 18
   },
-  "KLAY-META": {
-    "name": "KLAY-META",
+  "KLAY-kMETA": {
+    "name": "KLAY-kMETA",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xb62C54b1Cf3EC237511A56a7b55FFfCC40f8eAC9"
       }
     },
     "tokenA": "KLAY",
-    "tokenB": "META",
+    "tokenB": "kMETA",
     "decimals": 18
   },
-  "KSP-META": {
-    "name": "KSP-META",
+  "KSP-kMETA": {
+    "name": "KSP-kMETA",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xEC1e523bFC3912Ca740f551A8a3272B59a07591C"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "META",
+    "tokenB": "kMETA",
     "decimals": 18
   },
-  "META-MUDOL": {
-    "name": "META-MUDOL",
+  "kMETA-MUDOL": {
+    "name": "kMETA-MUDOL",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xC6b2C01D15cd532Cea6e861C3d6333D7F291dCC7"
       }
     },
-    "tokenA": "META",
+    "tokenA": "kMETA",
     "tokenB": "MUDOL",
     "decimals": 18
   },
@@ -2988,15 +2974,15 @@
     "tokenB": "kBUSD",
     "decimals": 6
   },
-  "DANTA-META": {
-    "name": "DANTA-META",
+  "DANTA-kMETA": {
+    "name": "DANTA-kMETA",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x393a4294701782734872dbb126fCc0E2a3884cE3"
       }
     },
     "tokenA": "DANTA",
-    "tokenB": "META",
+    "tokenB": "kMETA",
     "decimals": 18
   },
   "DANTA-MUDOL": {
@@ -3208,14 +3194,14 @@
     "tokenB": "JUNC",
     "decimals": 18
   },
-  "META-kGALA": {
-    "name": "META-kGALA",
+  "kMETA-kGALA": {
+    "name": "kMETA-kGALA",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0xc853C66Aa4F9AA85abb84F3Ba0439DCCc30803aB"
       }
     },
-    "tokenA": "META",
+    "tokenA": "kMETA",
     "tokenB": "kGALA",
     "decimals": 8
   },
@@ -3428,14 +3414,14 @@
     "tokenB": "kUSDT",
     "decimals": 9
   },
-  "WEMIX-kUSDT": {
-    "name": "WEMIX-kUSDT",
+  "kWEMIX-kUSDT": {
+    "name": "kWEMIX-kUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
       }
     },
-    "tokenA": "WEMIX",
+    "tokenA": "kWEMIX",
     "tokenB": "kUSDT",
     "decimals": 18
   },
@@ -3890,15 +3876,15 @@
     "tokenB": "MNR",
     "decimals": 18
   },
-  "KSP-WEMIX": {
-    "name": "KSP-WEMIX",
+  "KSP-kWEMIX": {
+    "name": "KSP-kWEMIX",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x6caeA4e982538EBD50E10e8eCF51DC2CD6241044"
       }
     },
     "tokenA": "KSP",
-    "tokenB": "WEMIX",
+    "tokenB": "kWEMIX",
     "decimals": 18
   },
   "KLAY-WRS": {
@@ -3910,17 +3896,6 @@
     },
     "tokenA": "KLAY",
     "tokenB": "WRS",
-    "decimals": 18
-  },
-  "DAI-TINDER": {
-    "name": "DAI-TINDER",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x31f587cd790dd0F29c604Fec00bfBf1Da9306E9E"
-      }
-    },
-    "tokenA": "DAI",
-    "tokenB": "TINDER",
     "decimals": 18
   },
   "KLAY-MONETA": {
@@ -5744,25 +5719,14 @@
     "tokenB": "XMAS",
     "decimals": 18
   },
-  "WEMIX-WMXPRO": {
-    "name": "WEMIX-WMXPRO",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0x243d990321824F1E8e1d40076E19f3eF633579a9"
-      }
-    },
-    "tokenA": "WEMIX",
-    "tokenB": "WMXPRO",
-    "decimals": 18
-  },
-  "WEMIX-WEP": {
-    "name": "WEMIX-WEP",
+  "kWEMIX-WEP": {
+    "name": "kWEMIX-WEP",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x017Ade2BA9B234189F6F2cb7aDe4cb6d064138d5"
       }
     },
-    "tokenA": "WEMIX",
+    "tokenA": "kWEMIX",
     "tokenB": "WEP",
     "decimals": 18
   },
@@ -5775,17 +5739,6 @@
     },
     "tokenA": "KLAY",
     "tokenB": "MADEN",
-    "decimals": 18
-  },
-  "WEMIX-fund": {
-    "name": "WEMIX-fund",
-    "baseChain": {
-      "KLAYTN": {
-        "klayswap": "0xb8BdD11845a966d7d50d4145f4721Fe9bc83C5D0"
-      }
-    },
-    "tokenA": "WEMIX",
-    "tokenB": "fund",
     "decimals": 18
   },
   "KLAY-TREE": {
@@ -5920,34 +5873,6 @@
     "tokenB": "kUSDT",
     "decimals": 6
   },
-  "DAI-WETH": {
-    "name": "DAI-WETH",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0x9Bd6bC39fA38E11C9c083c59E629b2f4658c9138"
-      },
-      "MATIC": {
-        "meshswap": "0x9Bd6bC39fA38E11C9c083c59E629b2f4658c9138"
-      }
-    },
-    "tokenA": "DAI",
-    "tokenB": "WETH",
-    "decimals": 18
-  },
-  "DAI-mUSDC": {
-    "name": "DAI-mUSDC",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0x051304433837F0655e2a24c38548E85D602C3dC9"
-      },
-      "MATIC": {
-        "meshswap": "0x051304433837F0655e2a24c38548E85D602C3dC9"
-      }
-    },
-    "tokenA": "DAI",
-    "tokenB": "mUSDC",
-    "decimals": 6
-  },
   "mUSDC-USDT": {
     "name": "mUSDC-USDT",
     "baseChain": {
@@ -5971,20 +5896,6 @@
     },
     "tokenA": "USDC.p",
     "tokenB": "mUSDC",
-    "decimals": 6
-  },
-  "DAI-USDT": {
-    "name": "DAI-USDT",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0x67fA408a4CD3F23D1F14414e6292A01bb451c117"
-      },
-      "MATIC": {
-        "meshswap": "0x67fA408a4CD3F23D1F14414e6292A01bb451c117"
-      }
-    },
-    "tokenA": "DAI",
-    "tokenB": "USDT",
     "decimals": 6
   },
   "USDT-WETH": {
@@ -6113,20 +6024,6 @@
     },
     "tokenA": "wMATIC",
     "tokenB": "mMATIC",
-    "decimals": 18
-  },
-  "DAI-oDAI": {
-    "name": "DAI-oDAI",
-    "baseChain": {
-      "polygon": {
-        "meshswap": "0xc08aA0d9a9e0DDED47a41Fbf84de5D7F9bC92cc6"
-      },
-      "MATIC": {
-        "meshswap": "0xc08aA0d9a9e0DDED47a41Fbf84de5D7F9bC92cc6"
-      }
-    },
-    "tokenA": "DAI",
-    "tokenB": "oDAI",
     "decimals": 18
   },
   "kETH-kXRP": {
@@ -7347,6 +7244,17 @@
     "tokenB": "tUSDC",
     "decimals": 18
   },
+  "tUSDC-tUSDT": {
+    "name": "tUSDC-tUSDT",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCJZrZxiA80zXCZTERCHW3BuQcOB3cl5Z3pG2anL7EM505O"
+      }
+    },
+    "tokenA": "tUSDC",
+    "tokenB": "tUSDT",
+    "decimals": 18
+  },
   "wTON-tMOOI": {
     "name": "wTON-tMOOI",
     "baseChain": {
@@ -7355,6 +7263,193 @@
       }
     },
     "tokenA": "tMOOI",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "wTON-tUSDT": {
+    "name": "wTON-tUSDT",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCKM-dCebtf-9-xMoNDbTHy-4rjofvSbMC61uHV_R0-pO7V"
+      }
+    },
+    "tokenA": "wTON",
+    "tokenB": "tUSDT",
+    "decimals": 18
+  },
+  "wTON-tUSDC": {
+    "name": "wTON-tUSDC",
+    "baseChain": {
+      "TON": {
+        "mega": "EQD0uNCf5Y7zOZ7h2-Y6kkcRVJzmmQQiGHZyJ-B9WEiLN6GT"
+      }
+    },
+    "tokenA": "wTON",
+    "tokenB": "tUSDC",
+    "decimals": 18
+  },
+  "wTON-tWBTC": {
+    "name": "wTON-tWBTC",
+    "baseChain": {
+      "TON": {
+        "mega": "EQChnYNwPfu4SjOPcITSoqCEy-pEdj-8H7YfTilM_l0ikBLI"
+      }
+    },
+    "tokenA": "tWBTC",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "wTON-tORC": {
+    "name": "wTON-tORC",
+    "baseChain": {
+      "TON": {
+        "mega": "EQBzQP2_ymgiepSGlfixNQCVckMMk23vWv1z0IQU3WCtJaPs"
+      }
+    },
+    "tokenA": "wTON",
+    "tokenB": "tORC",
+    "decimals": 18
+  },
+  "tKLAY-tUSDC": {
+    "name": "tKLAY-tUSDC",
+    "baseChain": {
+      "TON": {
+        "mega": "EQALdzKxIV3nPiG5NxP8dsvsP8PbVxYYgelqxMBp61gF4XP8"
+      }
+    },
+    "tokenA": "tUSDC",
+    "tokenB": "tKLAY",
+    "decimals": 18
+  },
+  "wTON-tKSP": {
+    "name": "wTON-tKSP",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCddpFoUi7A9YpUGDRy0e-D9XUhJu_c6NEpRMZApJwzy0wm"
+      }
+    },
+    "tokenA": "tKSP",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "wTON-tMATIC": {
+    "name": "wTON-tMATIC",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCw12SVuR1u2bRv1kKzR2CaC6sH9W-k13lJnf5dxt5O7711"
+      }
+    },
+    "tokenA": "tMATIC",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "wTON-tMESH": {
+    "name": "wTON-tMESH",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCoTT8jnkUDK83vdPgWkHcnJgdd3tf08lYhl5_Nq2hn6M8_"
+      }
+    },
+    "tokenA": "wTON",
+    "tokenB": "tMESH",
+    "decimals": 18
+  },
+  "tUSDC-tMETA": {
+    "name": "tUSDC-tMETA",
+    "baseChain": {
+      "TON": {
+        "mega": "EQAMUeI-fww_W1kCwMcDfZooBhTtr1zwcy86tlHetvpvqd8A"
+      }
+    },
+    "tokenA": "tUSDC",
+    "tokenB": "tMETA",
+    "decimals": 18
+  },
+  "tUSDC-tKAI": {
+    "name": "tUSDC-tKAI",
+    "baseChain": {
+      "TON": {
+        "mega": "EQDl29-P2VOxFDl64XAZleUcytGYS_8o5PvxjCLCKgU0eUUJ"
+      }
+    },
+    "tokenA": "tKAI",
+    "tokenB": "tUSDC",
+    "decimals": 18
+  },
+  "tUSDC-tGHUB": {
+    "name": "tUSDC-tGHUB",
+    "baseChain": {
+      "TON": {
+        "mega": "EQC2eIKmg9YV5rTBpmhYphlR96m3jpFdgeiFikRtG3p9WZV8"
+      }
+    },
+    "tokenA": "tGHUB",
+    "tokenB": "tUSDC",
+    "decimals": 18
+  },
+  "tUSDC-tAPM": {
+    "name": "tUSDC-tAPM",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCocXc3t9WDrQ2gnq6kD3gJ7ENvA-LJ9PmFhSGX_pG3gHtO"
+      }
+    },
+    "tokenA": "tAPM",
+    "tokenB": "tUSDC",
+    "decimals": 18
+  },
+  "wTON-tAZIT": {
+    "name": "wTON-tAZIT",
+    "baseChain": {
+      "TON": {
+        "mega": "EQBogXswvRWZp7fJ1PqVakoK-Tb5NbxT1yBRwoAweGJeba_o"
+      }
+    },
+    "tokenA": "wTON",
+    "tokenB": "tAZIT",
+    "decimals": 18
+  },
+  "wTON-tGXA": {
+    "name": "wTON-tGXA",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCwrvlVKXMDVKlsIvYK6bJmKvkGn1UiU4W46rgKB0r6Cpa2"
+      }
+    },
+    "tokenA": "tGXA",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "wTON-tNPT": {
+    "name": "wTON-tNPT",
+    "baseChain": {
+      "TON": {
+        "mega": "EQA6PtA6h5_OdshSjt3OVW_2rGCHbw-p1PExJOnJSgiYzHfT"
+      }
+    },
+    "tokenA": "tNPT",
+    "tokenB": "wTON",
+    "decimals": 18
+  },
+  "tUSDC-tMUDOL2": {
+    "name": "tUSDC-tMUDOL2",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCQxEaJT_EucovVh3QZgqedygO26scLho-gjeaeE7ey-dmA"
+      }
+    },
+    "tokenA": "tUSDC",
+    "tokenB": "tMUDOL2",
+    "decimals": 18
+  },
+  "wTON-MEGA": {
+    "name": "wTON-MEGA",
+    "baseChain": {
+      "TON": {
+        "mega": "EQCSbsYkouaBFzc-4UnVbhNlbqSAzTy9cdnJzEm116Hc5JQw"
+      }
+    },
+    "tokenA": "MEGA",
     "tokenB": "wTON",
     "decimals": 18
   },
@@ -7378,6 +7473,28 @@
     },
     "tokenA": "mUSDT",
     "tokenB": "USDT.p",
+    "decimals": 6
+  },
+  "MESH-USDC.p": {
+    "name": "MESH-USDC.p",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xaC48153F3604318F9559224931b541755aE8Ae6e"
+      }
+    },
+    "tokenA": "MESH",
+    "tokenB": "USDC.p",
+    "decimals": 6
+  },
+  "mNPT-MESH": {
+    "name": "mNPT-MESH",
+    "baseChain": {
+      "MATIC": {
+        "meshswap": "0xaa4B5C9C8Ac10562E1067c1eE51ECcB57f403B01"
+      }
+    },
+    "tokenA": "mNPT",
+    "tokenB": "MESH",
     "decimals": 6
   },
   "kETH-kORC": {
@@ -7710,15 +7827,15 @@
     "tokenB": "mUSDT",
     "decimals": 9
   },
-  "WEMIX-mUSDT": {
-    "name": "WEMIX-mUSDT",
+  "kWEMIX-kUSDT": {
+    "name": "kWEMIX-kUSDT",
     "baseChain": {
       "KLAYTN": {
         "klayswap": "0x2D803838Cb2D40EaCB0207ec4E567e2a8886b47F"
       }
     },
-    "tokenA": "WEMIX",
-    "tokenB": "mUSDT",
+    "tokenA": "kWEMIX",
+    "tokenB": "kUSDT",
     "decimals": 18
   },
   "KSP-MON": {

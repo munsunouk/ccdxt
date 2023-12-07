@@ -13,6 +13,14 @@
     "bridge": "Vault",
     "chain": "KLAYTN"
   },
+  "TON": {
+    "name": "TON",
+    "symbol": "TON",
+    "contract": "0x0000000000000000000000000000000000000000",
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "TON"
+  },
   "MOOI": {
     "name": "MOOI",
     "symbol": "MOOI",
@@ -63,7 +71,7 @@
     "contract": "EQAW42HutyDem98Be1f27PoXobghh81umTQ-cGgaKVmRLS7-",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_ETH"
   },
   "tMOOI": {
     "name": "Orbit Bridge TON MOOI",
@@ -71,7 +79,7 @@
     "contract": "EQBDD3li7w-OPcWSGfe2RTz0sydcaLKrk8W0nPyLA9iy8Hcu",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_KLAYTN"
   },
   "tUSDC": {
     "name": "Orbit Bridge TON USDC",
@@ -79,7 +87,7 @@
     "contract": "EQC61IQRl0_la95t27xhIpjxZt32vl1QQVF2UgTNuvD18W-4",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_ETH"
   },
   "tWBTC": {
     "name": "Orbit Bridge TON Wrapped BTC",
@@ -87,7 +95,7 @@
     "contract": "EQANasbzD5wdVx0qikebkchrH64zNgsB38oC9PVu7rG16qNB",
     "decimals": 8,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_ETH"
   },
   "tUSDT": {
     "name": "Orbit Bridge TON Tether USD",
@@ -95,15 +103,7 @@
     "contract": "EQC_1YoM8RBixN95lz7odcF3Vrkc_N8Ne7gQi7Abtlet_Efi",
     "decimals": 6,
     "bridge": "Minter",
-    "chain": "?"
-  },
-  "tDAI": {
-    "name": "Orbit Bridge TON Dai",
-    "symbol": "tDAI",
-    "contract": "EQAAXwH0cajPsMF-nNC5kz-SaLaeaDr4M7Q1foVwP_vOW1tR",
-    "decimals": 18,
-    "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_ETH"
   },
   "tORC": {
     "name": "Orbit Bridge TON Orbit Chain",
@@ -111,15 +111,7 @@
     "contract": "EQDCIEo0HUUYsAV-lTMviOd-GkSXfVPsNZMGjRaNOA_6--FD",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
-  },
-  "tORBS": {
-    "name": "Orbit Bridge TON ORBS",
-    "symbol": "tORBS",
-    "contract": "EQAwr5lcbQcLKTAg_SQ-dpKWNQZpO1MGnrAs53bf1gkKTVHx",
-    "decimals": 18,
-    "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_ETH"
   },
   "tKLAY": {
     "name": "Orbit Bridge TON Klay",
@@ -127,7 +119,7 @@
     "contract": "EQDZM7xsqa7huHq2lxoRLqMM71jwegQFPe7wijDDHOirpetR",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_KLAYTN"
   },
   "tKSP": {
     "name": "Orbit Bridge TON KlaySwap Protocol",
@@ -135,7 +127,7 @@
     "contract": "EQAIifXof_2FQjs5y4jjRpQ_1nOcJHdMz7qS3yskkoUeqn1L",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_KLAYTN"
   },
   "tMATIC": {
     "name": "Orbit Bridge TON Matic Token",
@@ -143,7 +135,7 @@
     "contract": "EQBq4d4GPyBoh-Pjnf3wxUyQSS28WY2Yt-7cPAG8FHpWpNRX",
     "decimals": 18,
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_MATIC"
   },
   "tMESH": {
     "name": "Orbit Bridge TON MESH",
@@ -151,7 +143,7 @@
     "contract": "EQCeGZcyr9Mkxf7OFLqyn40LLw292aCN_bxnT856rOkYW-I5",
     "decimals": "18",
     "bridge": "Minter",
-    "chain": "?"
+    "chain": "TON_MATIC"
   },
   "tWEMIX": {
     "name": "Orbit Bridge TON WEMIX TOKEN",
@@ -169,6 +161,86 @@
     "bridge": "Minter",
     "chain": "?"
   },
+  "tMETA": {
+    "name": "Orbit Bridge TON Klaymeta Token",
+    "symbol": "tMETA",
+    "contract": "EQD8yPAEGafRy1VCTkpHq6WigBOoJ0NTuO0onBdzWKGsPdWh",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tKAI": {
+    "name": "Orbit Bridge TON Kai Token",
+    "symbol": "tKAI",
+    "contract": "EQBLKkhmJFPlqjHsLu3HO-KSXaOagJI_ADI5wG9ybm53qXuP",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tMPWR": {
+    "name": "Empower Token",
+    "symbol": "tMPWR",
+    "contract": "EQDsoQFRBKuOe8LQhMKEKdEGcLcvvSCw0s4H7fkCcrSzTdZz",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tGHUB": {
+    "name": "Orbit Bridge TON GemHUB",
+    "symbol": "tGHUB",
+    "contract": "EQBDMHQQlWX7RNKH-YeSJiPCwIK6z7EBFrClly11pOXgNdnc",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tAPM": {
+    "name": "Orbit Bridge TON apM Coin",
+    "symbol": "tAPM",
+    "contract": "EQBkoRg2UG67tj8QPoAfGltb9Vl8PLbofGO6FGMADuDBAZA9",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tAZIT": {
+    "name": "Orbit Bridge TON AziT",
+    "symbol": "tAZIT",
+    "contract": "EQCmzlSgRI8GFVJrGRqaxo-jvTo7211twIb0BP4m4iKZ2hmR",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tGXA": {
+    "name": "Orbit Bridge TON GALAXIA",
+    "symbol": "tGXA",
+    "contract": "EQAtPfb42ZZpZmLraFpWUB_Z6dZ3pxD28swXjFD-eS2NTyad",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_KLAYTN"
+  },
+  "tNPT": {
+    "name": "Orbit Bridge TON NPT",
+    "symbol": "tNPT",
+    "contract": "EQAUYWLicogw0heM7gL3wdbPI4GLlAkCigFZXMgVFC_DKo0J",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_MATIC"
+  },
+  "tBELT": {
+    "name": "Orbit Bridge TON BELT FINANCE TOKEN",
+    "symbol": "tBELT",
+    "contract": "EQCKcGUd6xJJE4idl6e2lZhvNmSm5-W7vVIOMS27ZY0MTsxN",
+    "decimals": "18",
+    "bridge": "Minter",
+    "chain": "TON_BNB"
+  },
+  "tMUDOL2": {
+    "name": "Orbit Bridge TON Mudol2 Token",
+    "symbol": "tMUDOL2",
+    "contract": "EQDXEg12aVIkoscvo1Luvc5oWHWgw-tqyCRfoZoOAZ7Tz088",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "TON_BNB"
+  },
   "wTON": {
     "name": "Orbit Bridge wTON TON",
     "symbol": "wTON",
@@ -182,8 +254,16 @@
     "symbol": "MEGA",
     "contract": "EQBf6-YoR9xylol_NwjHrLkrTFAZJCX-bsd-Xx_902OaPaBf",
     "decimals": 9,
-    "bridge": "Minter",
-    "chain": "?"
+    "bridge": "Vault",
+    "chain": "TON"
+  },
+  "mNPT": {
+    "name": "Orbit Bridge Polygon NPT",
+    "symbol": "mNPT",
+    "contract": "0x306ee01a6bA3b4a8e993fA2C1ADC7ea24462000c",
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "MATIC"
   },
   "ISR": {
     "name": "Insureum Token",
@@ -299,7 +379,9 @@
     "name": "Kai Token",
     "symbol": "KAI",
     "contract": "0xe950bdcFa4d1e45472E76cf967Db93dBfc51Ba3E",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "INFR": {
     "name": "Influencer",
@@ -477,11 +559,13 @@
     "contract": "0xA323d7386b671E8799dcA3582D6658FdcDcD940A",
     "decimals": 18
   },
-  "WEMIX": {
-    "name": "WEMIX TOKEN",
-    "symbol": "WEMIX",
-    "contract": "0x5096dB80B21Ef45230C9E423C373f1FC9C0198dd",
-    "decimals": 18
+  "kWEMIX": {
+    "name": "Orbit Bridge KLAYTN WEMIX TOKEN",
+    "symbol": "kWEMIX",
+    "contract": "0x67cb285790bb9f5dce728f80a3104a2297df2bb2",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "KLAYTN_WEMIX"
   },
   "KCBANK": {
     "name": "KCBANK",
@@ -543,11 +627,13 @@
     "contract": "0x210bC03f49052169D5588A52C317f71cF2078b85",
     "decimals": "18"
   },
-  "META": {
+  "kMETA": {
     "name": "Klaymeta Token",
-    "symbol": "META",
+    "symbol": "kMETA",
     "contract": "0xE815A060b9279ebA642F8C889FaB7afc0d0acA63",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "DANTA": {
     "name": "DANTA TOKEN",
@@ -691,7 +777,9 @@
     "name": "AziT",
     "symbol": "AZIT",
     "contract": "0x6CEF6Dd9a3C4ad226b8B66EffEEa2c125dF194F1",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "CRE": {
     "name": "Company Reward for Employees",
@@ -1621,7 +1709,9 @@
     "name": "Orbit Bridge Klaytn BELT Token",
     "symbol": "kBELT",
     "contract": "0xDFe180E288158231ffA5faF183ECA3301344a51F",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN_BNB"
   },
   "mTON": {
     "name": "Orbit Bridge Polygon Toncoin",
@@ -1629,7 +1719,7 @@
     "contract": "0x4B96dBf8f42C8c296573933a6616dcAfb80Ca461",
     "decimals": 9,
     "bridge": "Minter",
-    "chain": "TON"
+    "chain": "MATIC_TON"
   },
   "kTON": {
     "name": "Orbit Bridge Klaytn Toncoin",
@@ -1637,7 +1727,7 @@
     "contract": "0x4B96dBf8f42C8c296573933a6616dcAfb80Ca461",
     "decimals": 9,
     "bridge": "Minter",
-    "chain": "TON"
+    "chain": "KLAYTN_TON"
   },
   "kMEGA": {
     "name": "Orbit Bridge Klaytn MEGA",
@@ -1645,7 +1735,7 @@
     "contract": "0x800800500fd721a2e8092bd2d0401841b33b0fe7",
     "decimals": 9,
     "bridge": "Minter",
-    "chain": "TON"
+    "chain": "KLAYTN_TON"
   },
   "mMEGA": {
     "name": "Orbit Bridge MATIC MEGA",
@@ -1653,7 +1743,7 @@
     "contract": "0x800800500fd721a2e8092bd2d0401841b33b0fe7",
     "decimals": 9,
     "bridge": "Minter",
-    "chain": "TON"
+    "chain": "MATIC_TON"
   },
   "oRAI": {
     "name": "Orbit Bridge Klaytn Rai.Finance",
@@ -1870,6 +1960,14 @@
     "symbol": "MUDOL",
     "contract": "0x45DBbBCDFf605AF5Fe27fD5E93b9F3f1BB25d429",
     "decimals": 18
+  },
+  "MUDOL2": {
+    "name": "Mudol2 Token",
+    "symbol": "MUDOL2",
+    "contract": "0x45DBbBCDFf605AF5Fe27fD5E93b9F3f1BB25d429",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "KLAYTN_BNB"
   },
   "kBIOT": {
     "name": "Orbit Bridge Klaytn BioPassport Coin",
@@ -2206,11 +2304,21 @@
     "contract": "0xFA86AFA48e9306826010Bc11977CfDb827C727DD",
     "decimals": 18
   },
-  "DAI": {
+  "kDAI": {
     "name": "(PoS) Dai Stablecoin",
-    "symbol": "DAI",
+    "symbol": "kDAI",
     "contract": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_KLAYTN"
+  },
+  "mDAI": {
+    "name": "Orbit Bridge Polygon Dai",
+    "symbol": "mDAI",
+    "contract": "0x8Ece0a50A025A7E13398212a5BEd2ded11959949",
+    "decimals": 18,
+    "bridge": "Minter",
+    "chain": "ETH_MATIC"
   },
   "TINDER": {
     "name": "Ignite TINDER Token",
@@ -2630,7 +2738,9 @@
     "name": "apM Coin",
     "symbol": "APM",
     "contract": "0x4Ec5E1c092f9C40d1e9bE5744FEdDb23935232e9",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "VICE": {
     "name": "vic_education",
@@ -2732,7 +2842,9 @@
     "name": "GALAXIA",
     "symbol": "GXA",
     "contract": "0xA80e96cCeB1419f9BD9F1c67F7978F51b534A11b",
-    "decimals": 18
+    "decimals": 18,
+    "bridge": "Vault",
+    "chain": "KLAYTN"
   },
   "NecroSword": {
     "name": "Necro sword",
