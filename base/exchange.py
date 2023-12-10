@@ -17,11 +17,13 @@ from websockets import connect
 import asyncio
 import ssl
 import certifi
-from ccdxt.base import Transaction
+from TonTools import *
+from tonsdk.utils import *
 
 # from pypac import PACSession
 # from scrapy import Selector
 
+from ccdxt.base import Transaction
 from ccdxt.base.utils.retry import retry, retry_normal
 from ccdxt.base.utils.type import is_dict, is_list
 from ccdxt.base import Chain, Market, Pool, Token, Transaction
@@ -36,7 +38,8 @@ from ccdxt.base.utils import SafeMath
 
 from decimal import Decimal
 from typing import Optional, Union, Tuple, Callable, Any
-from eth_typing.evm import Address
+
+# from eth_typing.evm import Address
 
 # from eth_typing import ChecksumAddressd
 
@@ -109,7 +112,7 @@ class Exchange(Transaction):
 
         # private info
         self.privateKey: Optional[str] = None  # a "0x"-prefixed hexstring private key for a wallet
-        self.account: Union[Address, str, None] = None  # the wallet address "0x"-prefixed hexstring
+        self.account: Union[str, None] = None  # the wallet address "0x"-prefixed hexstring
 
         self.set_logger(None)
 
@@ -1053,6 +1056,55 @@ class Exchange(Transaction):
         self.all_markets = self.set_all_markets()
         self.all_pools = self.set_all_pools()
         self.all_tokens = self.set_all_tokens()
+
+    def set_ton_client(self):
+
+        client = TonCenterClient(key=self.toncenter_api_key, orbs_access=True)
+
+        self.client = client
+
+        return
+
+    def set_ton_wallet(self, mnemonics):
+
+        tool_wallet = Wallet(provider=self.client, mnemonics=mnemonics, version="v3r2")
+
+        mnemonics, _pub_k, _priv_k, sdk_wallet = Wallets.from_mnemonics(
+            tool_wallet.mnemonics, WalletVersionEnum(tool_wallet.version), 0
+        )
+
+        self.ton_address = tool_wallet.address
+
+        raw_address = Address(self.ton_address).to_string(False, True, False)
+
+        self.tool_wallet = tool_wallet
+        self.sdk_wallet = sdk_wallet
+        self.raw_address = raw_address
+
+        return
+
+    async def create_transfer_message(self, body, to_addr, jetton_amount):
+
+        query = self.sdk_wallet.create_transfer_message(
+            to_addr=to_addr,
+            amount=to_nano(jetton_amount, "ton"),
+            seqno=self.seqno,
+            payload=body,
+        )
+
+        jettons_boc = bytes_to_b64str(query["message"].to_boc(False))
+
+        await self.tool_wallet.provider.send_boc(jettons_boc)
+
+        return
+
+        # result = (
+        #     (await self.tool_wallet.get_transactions(limit=1))[-1]
+        #     .out_msgs[0]
+        #     .to_dict_user_friendly()
+        # )
+
+        # return result
 
     @staticmethod
     def deep_extend(*args):

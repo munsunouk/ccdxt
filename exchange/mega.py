@@ -1,6 +1,6 @@
 from typing import Optional
 from TonTools import *
-from tonsdk.boc import begin_cell, Slice
+from tonsdk.boc import begin_cell
 from tonsdk.utils import *
 from tonsdk.contract.token.ft import JettonMinter, JettonWallet
 from ..base.exchange import Exchange
@@ -39,6 +39,7 @@ class Mega(Exchange):
 
         # market info
         self.id = 1
+        self.addNounce = 0
         self.chainName = config["chainName"]
         self.exchangeName = config["exchangeName"]
         self.retries = config["retries"]
@@ -54,8 +55,8 @@ class Mega(Exchange):
         self.gasPrice = None
         self.swap_address = config["swap_address"]
 
-        self.create_client()
-        self.create_wallet(self.mnemonics)
+        self.set_ton_client()
+        self.set_ton_wallet(self.mnemonics)
 
     async def fetch_balance(self, tokens: list):
 
@@ -134,27 +135,16 @@ class Mega(Exchange):
         query_id = 0
         forward_amount = to_nano(0.35, "ton")
 
-        if f"{tokenAsymbol}-{tokenBsymbol}" in self.pools:
-
-            pool = self.pools[f"{tokenAsymbol}-{tokenBsymbol}"]
-
-        elif f"{tokenBsymbol}-{tokenAsymbol}" in self.pools:
-
-            pool = self.pools[f"{tokenBsymbol}-{tokenAsymbol}"]
-
-        else:
-
-            ValueError(f"there is no pool available({tokenAsymbol}-{tokenBsymbol})")
-
         router_address = self.markets["routerAddress"]
-        pool_address = pool["baseChain"][self.chainName][self.exchangeName]
         tokenA_address = tokenA["contract"]
         tokenB_address = tokenB["contract"]
 
+        current_seqno = await self.tool_wallet.get_seqno()
+        self.seqno = current_seqno + self.addNounce
+
         body = self._create_swap_body(
             Address(router_address),
-            Address(self.address),
-            Address(pool_address),
+            Address(self.ton_address),
             amountA,
             Address(tokenA_address),
             amountBMin,
@@ -169,45 +159,53 @@ class Mega(Exchange):
 
     async def create_mint(
         self,
-        token_address: Address,
         jetton_amount: float,
     ):
+
+        await self.load_exchange(self.chainName, self.exchangeName)
+
+        token = self.tokens["wTON"]
+
+        token_address = token["contract"]
+
+        current_seqno = await self.tool_wallet.get_seqno()
+        self.seqno = current_seqno + self.addNounce
 
         body = self._create_mint_body(
             destination=Address(self.tool_wallet.address),
             response_address=Address(self.tool_wallet.address),
-            jetton_amount=to_nano(0.1, "ton"),
+            jetton_amount=to_nano(jetton_amount, "ton"),
         )
 
-        result = await self.create_transfer_message(body, token_address, jetton_amount + 0.1)
+        result = await self.create_transfer_message(
+            body, Address(token_address), jetton_amount + 0.1
+        )
 
         return result
 
-    def create_client(self):
+    async def create_burn(
+        self,
+        jetton_amount: float,
+    ):
 
-        client = TonCenterClient(key=self.toncenter_api_key, orbs_access=True)
+        await self.load_exchange(self.chainName, self.exchangeName)
 
-        self.client = client
+        token = self.tokens["wTON"]
 
-        return
+        token_address = token["contract"]
 
-    def create_wallet(self, mnemonics):
+        current_seqno = await self.tool_wallet.get_seqno()
+        self.seqno = current_seqno + self.addNounce
 
-        tool_wallet = Wallet(provider=self.client, mnemonics=mnemonics, version="v3r2")
-
-        mnemonics, _pub_k, _priv_k, sdk_wallet = Wallets.from_mnemonics(
-            tool_wallet.mnemonics, WalletVersionEnum(tool_wallet.version), 0
+        body = self._create_burn_body(
+            destination=Address(self.tool_wallet.address),
+            response_address=Address(token_address),
+            jetton_amount=to_nano(jetton_amount, "ton"),
         )
 
-        self.address = tool_wallet.address
+        result = await self.create_transfer_message(body, Address(token_address), 0.1)
 
-        raw_address = Address(self.address).to_string(False, True, False)
-
-        self.tool_wallet = tool_wallet
-        self.sdk_wallet = sdk_wallet
-        self.raw_address = raw_address
-
-        return
+        return result
 
     # @retry
     async def fetch_pool(self, pool_address):
@@ -295,8 +293,8 @@ class Mega(Exchange):
 
         if (tokenAsymbol == pool["tokenA"]) and (tokenBsymbol == pool["tokenB"]):
 
-            reserveA = self.to_value(pool_reserveA, tokenA["decimals"])
-            reserveB = self.to_value(pool_reserveB, tokenB["decimals"])
+            reserveA = self.to_value(pool_reserveA, int(tokenA["decimals"]))
+            reserveB = self.to_value(pool_reserveB, int(tokenB["decimals"]))
 
         elif (tokenAsymbol == pool["tokenB"]) and (tokenBsymbol == pool["tokenA"]):
 
@@ -304,31 +302,6 @@ class Mega(Exchange):
             reserveB = self.to_value(pool_reserveA, tokenB["decimals"])
 
         return fee, reserveA, reserveB
-
-    async def create_transfer_message(self, body, to_addr, jetton_amount):
-
-        seqno = await self.tool_wallet.get_seqno()
-
-        query = self.sdk_wallet.create_transfer_message(
-            to_addr=to_addr,
-            amount=to_nano(jetton_amount, "ton"),
-            seqno=seqno,
-            payload=body,
-        )
-
-        jettons_boc = bytes_to_b64str(query["message"].to_boc(False))
-
-        await self.tool_wallet.provider.send_boc(jettons_boc)
-
-        return
-
-        # result = (
-        #     (await self.tool_wallet.get_transactions(limit=1))[-1]
-        #     .out_msgs[0]
-        #     .to_dict_user_friendly()
-        # )
-
-        # return result
 
     def _create_mint_body(
         self,
@@ -354,11 +327,34 @@ class Mega(Exchange):
         body.refs.append(transfer_body)
         return body
 
+    def _create_burn_body(
+        self,
+        destination: Address,
+        response_address: Address,  # response_address (wTON address)
+        jetton_amount: int,
+        query_id: int = 0,
+    ) -> Cell:
+
+        body = Cell()
+        body.bits.write_uint(1204914527, 32)  # OP call Jetton Burn
+        body.bits.write_uint(query_id, 64)
+        body.bits.write_grams(jetton_amount)
+
+        transfer_body = Cell()  # internal transfer
+        transfer_body.bits.write_uint(0x178D4519, 32)  # OP transfer
+        transfer_body.bits.write_uint(query_id, 64)
+        transfer_body.bits.write_grams(jetton_amount)  # jetton amount
+        transfer_body.bits.write_address(destination)  # from_address
+        transfer_body.bits.write_address(response_address)
+        transfer_body.bits.write_grams(0)  # forward amount
+
+        body.refs.append(transfer_body)
+        return body
+
     def _create_swap_body(
         self,
         destination: Address,  # router
         response_address: Address,  # My account
-        pool_address: Address,
         jetton_amount: int,
         fromJettonAddress: Address,
         minAmount: int,
@@ -367,91 +363,15 @@ class Mega(Exchange):
         forward_amount: int = 0,
     ) -> Cell:
 
-        # forward_payload = self._create_swap_foraward_payload(
-        #     fromJettonAddress,
-        #     toJettonAddress,
-        #     minAmount,
-        # )
-
-        forward_payload = self._create_swap_foraward_payload(
-            query_id,
-            jetton_amount,
-            destination,
-            response_address,
-            forward_amount,
-            fromJettonAddress,
-            toJettonAddress,
-            minAmount,
-        )
-
-        hex_value = "b5ee9c72010101010002000000"
-
-        empty_cs = Cell.one_from_boc(hex_value).bits
-
-        # empty_cell = begin_cell().store_cell(empty_cs).end_cell()
-
-        # Cell.bytes_hash()
-
-        body = Cell()  # jetton transfer
-        body.bits.write_uint(0x0F8A7EA5, 32)
-        body.bits.write_uint(query_id, 64)
-        body.bits.write_grams(jetton_amount)
-        body.bits.write_address(destination)
-        body.bits.write_address(response_address)
-        # body.bits.write_uint(0x178D4519, 32)
-        # body.refs.append(empty_cs)
-        # body.refs.append(empty_cell)
-        body.bits.write_string("EMPTY")
-        # body.write_cell(empty_cell)
-        # body.write_cell(empty_cs)
-        # body.bits.write_bytes(b"")
-        # body.bits.write_bytes(b"\x01")
-        # body.bits.write_bit_string(empty_cs)
-        body.bits.write_grams(forward_amount)
-        body.refs.append(forward_payload)
-        return forward_payload
-
-    # def _create_swap_foraward_payload(
-    #     self,
-    #     fromJettonAddress,
-    #     toJettonAddress,
-    #     minAmount,
-    # ):
-
-    #     body = Cell()
-    #     body.bits.write_address(fromJettonAddress)
-    #     body.bits.write_address(toJettonAddress)
-    #     body.bits.write_grams(minAmount)
-
-    #     return body
-
-    def _create_swap_foraward_payload(
-        self,
-        queryId,
-        fromAmount,
-        destination,
-        responseAddress,
-        forward_amount,
-        fromJettonAddress,
-        toJettonAddress,
-        minAmount,
-    ) -> Cell:
-
-        hex_value = "b5ee9c72010101010002000000"
-
-        empty_cs = Cell.one_from_boc(hex_value)
-
-        empty_cell = begin_cell().end_cell()
-
         return (
             begin_cell()
             .store_uint(0xF8A7EA5, 32)
-            .store_uint(queryId, 64)
-            .store_coins(fromAmount)
+            .store_uint(query_id, 64)
+            .store_grams(jetton_amount)
             .store_address(destination)
-            .store_address(responseAddress)
-            .store_string("Empty")
-            .store_coins(forward_amount)
+            .store_address(response_address)
+            .store_grams("2600")
+            .store_grams(forward_amount)
             .store_ref(
                 begin_cell()
                 .store_address(fromJettonAddress)
@@ -461,15 +381,3 @@ class Mega(Exchange):
             )
             .end_cell()
         )
-
-    def _create_swap_internal_transfer(
-        self, query_id, jetton_amount, response_address, forward_amount
-    ):
-        transfer_body = Cell()  # jetton internal transfer
-        transfer_body.bits.write_uint(0x178D4519, 32)
-        transfer_body.bits.write_uint(query_id, 64)
-        transfer_body.bits.write_grams(jetton_amount)
-        transfer_body.bits.write_address(response_address)
-        transfer_body.bits.write_address(response_address)
-        transfer_body.bits.write_grams(forward_amount)
-        transfer_body.bits.write_bit_string

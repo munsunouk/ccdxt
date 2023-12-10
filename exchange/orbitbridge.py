@@ -5,20 +5,22 @@ from ..base.exchange import Exchange
 from ..base.utils.errors import (
     InsufficientBalance,
 )
-from web3.exceptions import BadResponseFormat
-from web3.logs import DISCARD
 from ..base.utils.retry import retry
 
-# from ..base.utils.validation import *
+from web3.exceptions import BadResponseFormat
+from web3.logs import DISCARD
+from TonTools import *
+from tonsdk.utils import *
+from tonsdk.boc import begin_cell
 
 import asyncio
-
 from typing import Optional
 from eth_typing.evm import ChecksumAddress
 import requests
 import datetime
 import json
 import logging
+import binascii
 
 
 class Orbitbridge(Exchange):
@@ -37,9 +39,19 @@ class Orbitbridge(Exchange):
             "host": 0,
             "account": None,
             "privateKey": None,
+            "mnemonics": None,
+            "tag" : None,
             "log": None,
+            "toncenter_api_key": None,
+            "tonapi_api_key": None,
             "api_url": "https://bridge.orbitchain.io/",
             "tag_file_path": "",
+            "ton_vault_bridge_address" : None,
+            "ton_minter_bridge_address" : None,
+            "ton_eth_bridge_address" : None,
+            "ton_klaytn_bridge_address" : None,
+            "ton_matic_bridge_address" : None,
+            "ton_bnb_bridge_address" : None,
         }
 
         config.update(config_change)
@@ -55,13 +67,23 @@ class Orbitbridge(Exchange):
         self.host = config["host"]
         self.account = config["account"]
         self.privateKey = config["privateKey"]
+        self.mnemonics = config["mnemonics"]
+        self.tag = config["tag"]
         self.log = config["log"]
+        self.toncenter_api_key = config["toncenter_api_key"]
+        self.tonapi_api_key = config["tonapi_api_key"]
         self.api_url = config["api_url"]
+        self.ton_vault_bridge_address = config["ton_vault_bridge_address"]
+        self.ton_minter_bridge_address = config["ton_minter_bridge_address"]
+        self.ton_eth_bridge_address = config["ton_eth_bridge_address"]
+        self.ton_klaytn_bridge_address = config["ton_klaytn_bridge_address"]
+        self.ton_matic_bridge_address = config["ton_matic_bridge_address"]
+        self.ton_bnb_bridge_address = config["ton_bnb_bridge_address"]
 
         # self.load_bridge(self.exchangeName)
         # self.set_logger(self.log)
 
-    @retry
+    # @retry
     async def create_bridge(
         self, amount, from_tokenSymbol, to_tokenSymbol, fromChain, toChain, toAddr, *args, **kwargs
     ):
@@ -114,17 +136,22 @@ class Orbitbridge(Exchange):
         self.chainName = fromChain
         self.toChain = toChain
         self.amount = amount
+        base_token = self.tokens[self.chains["baseCurrency"]]
+
+        if fromChain == "TON":
+
+            await self.run_bridge_ton(from_tokenSymbol, amount, toChain, toAddr)
+
+            return
+        
+        amount = self.from_value(value=amount, exp=int(token["decimals"]))
 
         current_nonce = await self.w3.eth.get_transaction_count(self.account)
         self.nonce = current_nonce + self.addNounce
 
         token["MinimumBridge"] = 0
 
-        base_token = self.tokens[self.chains["baseCurrency"]]
-
         self.require(fromChain == toChain, ValueError("Same Chain"))
-
-        amount = self.from_value(value=amount, exp=int(token["decimals"]))
 
         if "fee" in kwargs:
             fee = kwargs["fee"]
@@ -215,9 +242,6 @@ class Orbitbridge(Exchange):
 
         tx_receipt = await self.fetch_transaction(tx, round="BRIDGE", api=token["bridge"])
 
-        # time_spend, amount = await self.check_bridge_completed(
-        #     amount, toChain, to_tokenSymbol, self.toAddrress, fee=fee
-        # )
         return tx_receipt
 
     @retry
@@ -256,14 +280,6 @@ class Orbitbridge(Exchange):
             tx = await self.routerContract.functions.requestSwap(
                 tokenAddress, toChain, toAddr, amount, destinationTag
             ).build_transaction(build)
-
-        # elif self.additionalGasFee:
-
-        #     tx = await self.routerContract.functions.requestSwap(
-        #         tokenAddress, toChain, toAddr, amount
-        #     ).build_transaction(
-        #         build
-        #     )
 
         else:
 
@@ -384,3 +400,159 @@ class Orbitbridge(Exchange):
         # result = deposit.processReceipt(tx_hash,errors=DISCARD)
 
         return result
+
+    async def run_bridge_ton(self, from_tokenSymbol, amount, toChain, toAddress):
+
+        self.set_ton_client()
+        self.set_ton_wallet(self.mnemonics)
+        await self.create_bridge_ton(from_tokenSymbol, amount, toChain, toAddress)
+        
+    async def create_bridge_ton(
+        self,
+        from_tokenSymbol : str,
+        amount: float,
+        toChain : str,
+        toAddress : str
+    ):
+
+        token = self.tokens[from_tokenSymbol]
+
+        tokenAddress = token["contract"]
+        
+        current_seqno = await self.tool_wallet.get_seqno()
+        self.seqno = current_seqno + self.addNounce
+        
+        if token["bridge"] == "Vault":
+            
+            if token['chain'] == 'TON' :
+                bridge_address = self.ton_vault_bridge_address
+
+            if from_tokenSymbol == self.baseCurrency:
+
+                result = await self.tool_wallet.transfer_ton(destination_address=Address(bridge_address), amount=amount, message=self.tag)
+                
+                return result
+
+            else:
+                
+                amount = self.from_value(value=amount, exp=int(token["decimals"]))
+                
+                body = self._create_deposit_body(
+                    destination=Address(self.tool_wallet.address),
+                    response_address=Address(self.bridge["bridgeAddress"]),
+                    jetton_amount=amount,
+                    query_id=0,
+                    toChain=toChain,
+                    toAddress=toAddress
+                )
+
+        elif token["bridge"] == "Minter":
+            
+            if token['chain'] == 'TON' :
+                bridge_address = self.ton_minter_bridge_address
+            elif token['chain'] == 'TON_ETH' :
+                bridge_address = self.ton_eth_bridge_address
+            elif token['chain'] == 'TON_KLAYTN' :
+                bridge_address = self.ton_klaytn_bridge_address
+            elif token['chain'] == 'TON_MATIC' :
+                bridge_address = self.ton_matic_bridge_address
+            elif token['chain'] == 'TON_BNB' :
+                bridge_address = self.ton_bnb_bridge_address
+
+            amount = self.from_value(value=amount, exp=int(token["decimals"]))
+            
+            body = self._create_request_body(
+                destination=Address(self.tool_wallet.address),
+                response_address=Address(token['contract']),
+                jetton_amount=amount,
+                query_id=0,
+                toChain=toChain,
+                toAddress=toAddress,
+                tag=self.tag
+            )
+            
+        else :
+            
+            ValueError("this kind of bridge isn`t supported")
+
+        result = await self.create_transfer_message(body, Address(bridge_address), 0.14)
+        
+        return result
+    
+    def _create_deposit_body(
+        self,
+        destination: Address, # msg address
+        response_address: Address,  # response_address (minter address)
+        jetton_amount: int,
+        query_id: int,
+        toChain : str,
+        toAddress : str
+    ) -> Cell:
+        
+        return (
+            begin_cell()
+            .store_uint(260734629, 32)
+            .store_uint(query_id, 64)
+            .store_grams(jetton_amount)
+            .store_address(destination)
+            .store_address(response_address)
+            # .store_grams("2600")
+            .store_maybe_ref(None)
+            .store_coins(2e7)
+            .store_ref(
+                begin_cell()
+                .store_uint(binascii.hexlify(toChain.encode()).decode(), 256)
+                .store_uint(binascii.hexlify(toAddress.encode()).decode(), 160)
+                .end_cell()
+            )
+            .end_cell()
+        )
+
+    def _create_request_body(
+        self,
+        destination: Address,
+        response_address: Address,  # response_address (token address)
+        jetton_amount: int,
+        query_id: int,
+        toChain : str,
+        toAddress : str,
+        tag
+    ) -> Cell:
+        
+        toChain = binascii.hexlify(toChain.encode()).decode()
+        toAddress = binascii.hexlify(toAddress.encode()).decode()
+
+        return (
+            begin_cell()
+            .store_uint(1767081276, 32)
+            .store_uint(query_id, 64)
+            .store_ref(
+                begin_cell()
+                .store_address(response_address)
+                .store_string(toChain)
+                .store_string(toAddress)
+                .store_grams(jetton_amount)
+                .end_cell()
+            )
+            .end_cell()
+        )
+        
+        # return (
+        #     begin_cell()
+        #     .store_uint(0x6953853c, 32)
+        #     # .store_uint(query_id, 64)
+        #     .store_ref(
+        #         begin_cell()
+        #         .store_uint(0x595f07bc, 32)
+        #         .store_uint(query_id, 64)
+        #         .store_grams(jetton_amount)
+        #         .store_address(response_address)
+        #         # .store_uint(toChain, 256)
+        #         # .store_uint(toAddress, 160)
+        #         .store_string(toChain)
+        #         .store_string(toAddress)
+        #         .end_cell()
+        #     )
+        #     .end_cell()
+        # )
+    
