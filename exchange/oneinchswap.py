@@ -68,7 +68,7 @@ class Oneinchswap(Exchange):
         # self.load_exchange(self.chainName, self.exchangeName)
         self.set_logger(self.log)
 
-    @retry
+    # @retry
     async def fetch_ticker(self, amountAin, tokenAsymbol, tokenBsymbol, fusion=False):
         # time.sleep(self.sleep)
 
