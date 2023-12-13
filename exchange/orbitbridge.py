@@ -83,7 +83,7 @@ class Orbitbridge(Exchange):
         # self.load_bridge(self.exchangeName)
         # self.set_logger(self.log)
 
-    # @retry
+    @retry
     async def create_bridge(
         self, amount, from_tokenSymbol, to_tokenSymbol, fromChain, toChain, toAddr, *args, **kwargs
     ):
@@ -489,6 +489,8 @@ class Orbitbridge(Exchange):
         toAddress : str
     ) -> Cell:
         
+        toChain = binascii.hexlify(toChain.encode()).decode()
+        
         return (
             begin_cell()
             .store_uint(260734629, 32)
@@ -501,8 +503,8 @@ class Orbitbridge(Exchange):
             .store_coins(2e7)
             .store_ref(
                 begin_cell()
-                .store_uint(binascii.hexlify(toChain.encode()).decode(), 256)
-                .store_uint(binascii.hexlify(toAddress.encode()).decode(), 160)
+                .store_uint(0x4b4c4159544e, 256)
+                .store_uint(toAddress, 160)
                 .end_cell()
             )
             .end_cell()
@@ -529,9 +531,9 @@ class Orbitbridge(Exchange):
             .store_ref(
                 begin_cell()
                 .store_address(response_address)
-                .store_string(toChain)
-                .store_string(toAddress)
-                .store_grams(jetton_amount)
+                .store_uint(0x4b4c4159544e, 256)
+                .store_uint(0x8423a8d26c5C441AB1Ae072584bfA8D0a30f8549, 160)
+                .store_uint(jetton_amount, 256)
                 .end_cell()
             )
             .end_cell()
